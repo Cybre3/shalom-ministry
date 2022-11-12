@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita:ital@0;1&family=Share+Tech+Mono&display=swap');
+
+.navbar {
+  /* top: 0; */
+  position: relative;
+}
+
+.back-text {
+  background: -webkit-linear-gradient(rgba(217, 136, 251, 0.644), rgb(80, 135, 237));
+  font-size: 20px;
+  justify-content: space-evenly;
+  letter-spacing: 0.1em;
+  margin: 60px 0 0 0;
+  opacity: 0.5;
+  position: absolute;
+  text-align: justify;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 180px;
+  z-index: -1;
+}
+
+.links {
+  align-items: center;
+  display: flex;
+  /* justify-content: space-evenly; */
+  margin: 0 20px 0 0;
+  position: fixed;
+  width: 100%;
+}
+
+.links a {
+  color:blue;
+  text-decoration: none;
+}
+
+.nav-home-logo {
+  width: 45px;
+}
+
+.nav-home-logo-text {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Sansita', sans-serif;
+  /* font-family: 'Share Tech Mono', monospace; */
+  font-size: 24px;
+  letter-spacing: -1.5px;
+  margin-left: 5px;
+}
+
+.y {
+  margin-top: -4px;
+  font-size: 32px;
+}
+
+.page-links {
+  font-size: large;
+  font-weight: bold;
+  justify-content: flex-end;
+  right: 0;
+  margin: 0 20px 0 auto;
+}
+
+.nav-link {
+  margin-right: 15px;
+}
