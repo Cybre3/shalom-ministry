@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Pragati+Narrow&display=swap');
+
+/* body {
+  background: url(../assets/Home/SM-Logo-Watermark.png) center center;
+  background-position-y: 3%;
+  background-size: 55%;
+} */
+
+.main-logo{
+  background: url(../assets/Home/SM-Logo-Watermark.png) center center;
+  background-position-y: 3%;
+  background-size: 55%;
+}

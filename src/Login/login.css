@@ -1,0 +1,76 @@
+.loginForm {
+  background: url('../assets/Login/Blue-Gradient-Element.png');
+  background-size: 300px 480px;
+  background-repeat: no-repeat;
+  background-position: -95% 100%;
+  background-color: rgba(246, 247, 249, 0.773);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  margin: 200px 0 0 0;
+  padding: 20px 70px 40px;
+  position: absolute;
+  /* top: 50%; */
+  left: 40%;
+  letter-spacing: 0.08em;
+  width: fit-content;
+}
+
+.loginForm h1, form {
+  /* margin-left: 20px; */
+}
+
+.loginForm h1 {
+  margin: 0 0 15px -10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+form {
+  font-size: 25px;
+}
+
+form button {
+  background: linear-gradient(rgba(59, 213, 247, 0.419)50%, rgba(155, 155, 155, 0.5));
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+form button:hover {
+  cursor: pointer;
+}
+
+form * {
+  margin-bottom: 10px;
+}
+
+form input:nth-child(even) {
+  margin-bottom: 30px;
+}
+
+form input {
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-left-radius: 10px;
+  box-shadow: none;
+  font-size: 20px;
+  outline: none;
+  padding: 10px 20px;
+}
+
+form input[type="text"]:focus {
+  border-bottom: 1px solid #4285f4;
+  box-shadow: 0 1px 0 0 #4285f4;
+}
