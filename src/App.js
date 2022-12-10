@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginForm from './Login/loginForm';
 import Nav from './Nav/Nav';
 import './App.css';
+import RegisterForm from './Register/registerForm';
 
 class App extends Component {
   // state = {};
@@ -15,6 +16,7 @@ class App extends Component {
             <Nav />
             <Routes>
               <Route path="/login" element={<LoginForm />} />
+              <Route path="/register" element={<RegisterForm />} />
             </Routes>
           </BrowserRouter>
         </main>

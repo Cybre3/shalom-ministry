@@ -19,7 +19,7 @@ const Nav = (props) => {
             Login
           </NavLink>
           <span className="nav-link">or</span>
-          <NavLink className="nav-link">Register</NavLink>
+          <NavLink className="nav-link" to='/register'>Register</NavLink>
         </div>
       </NavLink>
       <div className="page-links">

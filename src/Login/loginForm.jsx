@@ -8,12 +8,10 @@ class LoginForm extends Component {
       <div className="loginForm">
         <h1>Login</h1>
         <form action="">
-          <label htmlFor="" className="form-label">
-            Username
-          </label>
-          <input type="text" label='password' />
+          <label htmlFor="">Username</label>
+          <input type="text" label="password" />
           <label htmlFor="">Password</label>
-          <input type="password" label='password' />
+          <input type="password" label="password" />
           <button>Move 4ward</button>
         </form>
       </div>
