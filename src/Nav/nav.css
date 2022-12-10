@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansita:ital@0;1&family=Share+Tech+Mono&display=swap');
 
 .navbar {
-  /* top: 0; */
-  background-color: lavender;
-  position: relative;
+  background-color: rgb(17, 136, 210);
+  /* display: flex; */
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+  position: fixed;
+  width: 100%;
 }
 
-.back-text {
+/* .back-text {
   background: -webkit-linear-gradient(rgba(217, 136, 251, 0.644), rgb(80, 135, 237));
   font-size: 20px;
   justify-content: space-evenly;
@@ -19,35 +22,35 @@
   -webkit-text-fill-color: transparent;
   width: 180px;
   z-index: -1;
-}
+} */
 
-.links {
-  align-items: center;
-  display: flex;
-  /* justify-content: space-evenly; */
-  margin: 0 20px 0 0;
-  position: fixed;
-  width: 100%;
-}
-
-.links a {
-  color:blue;
+.navbar,
+a {
+  color: blue;
+  letter-spacing: 0.05em;
   text-decoration: none;
 }
 
-.nav-home-logo {
-  width: 45px;
-}
-
-.nav-home-logo-text {
-  align-items: center;
+.nav-ministry-logo-name {
   display: flex;
-  flex-direction: row;
   font-family: 'Sansita', sans-serif;
   /* font-family: 'Share Tech Mono', monospace; */
   font-size: 24px;
   letter-spacing: -1.5px;
-  margin-left: 5px;
+  margin-left: 50px;
+}
+
+.nav-ministry-logo {
+  align-self: flex-end;
+  border-right: 3px solid black;
+  margin-right: 15px;
+  width: 45px;
+}
+
+.nav-ministry-name {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 
 .y {
@@ -55,14 +58,46 @@
   font-size: 32px;
 }
 
+.nav-ministry-slogan {
+  font-size: 20px;
+  text-align: center;
+}
+
+.nav-login-register {
+  display: flex;
+  align-self: center;
+  font-size: 20px;
+  margin: 0 60px 0 auto;
+}
+
 .page-links {
-  font-size: large;
+  /* align-self: center; */
+  background: repeating-linear-gradient(45deg, #3f87a6 10%, #ebf8e1, rgba(135, 1, 135, .5) 50%);
+  display: flex;
+  font-size: 28px;
   font-weight: bold;
-  justify-content: flex-end;
-  right: 0;
-  margin: 0 20px 0 auto;
+  justify-content: space-around;
+  margin: 20px 0 0 0;
+  padding-left: 100px;
 }
 
 .nav-link {
   margin-right: 15px;
+}
+
+.page-links:last-child {
+  padding-right: 100px;
+}
+
+.page-links .nav-link::after {
+  content: '\25b6';
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 5px;
+  transform: rotate(90deg);
+  vertical-align: middle;
+}
+
+.no-arrow::after {
+  content: none !important;
 }
