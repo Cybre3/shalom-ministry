@@ -12,7 +12,7 @@ class LoginForm extends Component {
           <input type="text" label="password" />
           <label htmlFor="">Password</label>
           <input type="password" label="password" />
-          <button>Move 4ward</button>
+          <button>Login</button>
         </form>
       </div>
     );

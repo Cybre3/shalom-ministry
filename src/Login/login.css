@@ -37,7 +37,7 @@
 }
 
 .loginForm form button {
-  background: linear-gradient(rgba(59, 213, 247, 0.419)50%, rgba(155, 155, 155, 0.5));
+  /* background-color: blue; */
   border-radius: 5px;
   font-size: 20px;
   font-weight: 600;
