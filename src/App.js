@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginForm from './Login/loginForm';
 import Nav from './Nav/Nav';
-import './App.css';
+import Home from './Home/Home';
+import LoginForm from './Login/loginForm';
 import RegisterForm from './Register/registerForm';
+import './App.css';
 
 class App extends Component {
   // state = {};
@@ -15,6 +16,7 @@ class App extends Component {
           <BrowserRouter>
             <Nav />
             <Routes>
+              <Route exact path='/' element={<Home />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<RegisterForm />} />
             </Routes>

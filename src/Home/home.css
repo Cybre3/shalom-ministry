@@ -1,0 +1,8 @@
+.home-picture {
+  margin-top: 130px;
+  width: fit-content;
+}
+
+.home-picture img {
+  width: 110%;
+}
