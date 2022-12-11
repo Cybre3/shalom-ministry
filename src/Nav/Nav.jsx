@@ -27,12 +27,12 @@ const Nav = (props) => {
         </div>
       </div>
       <div className="page-links">
-        <NavLink to='/' className="nav-link no-arrow">
+        <NavLink to="/" className="nav-link no-arrow">
           Home
         </NavLink>
-        <a href="/" className="nav-link">
+        <NavLink to="/about-us" className="nav-link">
           About Us
-        </a>
+        </NavLink>
         <a href="/" className="nav-link">
           Events
         </a>
