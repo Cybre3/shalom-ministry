@@ -5,6 +5,7 @@ import Home from './Home/Home';
 import AboutUs from './AboutUs/AboutUs';
 import LoginForm from './Login/loginForm';
 import RegisterForm from './Register/registerForm';
+import Contactus from './ContactUs/Contactus';
 import './App.css';
 
 class App extends Component {
@@ -17,10 +18,11 @@ class App extends Component {
           <BrowserRouter>
             <Nav />
             <Routes>
-              <Route exact path='/' element={<Home />} />
-              <Route path='/about-us' element={<AboutUs />} />
+              <Route exact path="/" element={<Home />} />
+              <Route path="/about-us" element={<AboutUs />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<RegisterForm />} />
+              <Route path="/contact-us" element={<Contactus />} />
             </Routes>
           </BrowserRouter>
         </main>

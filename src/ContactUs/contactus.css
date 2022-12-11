@@ -1,0 +1,129 @@
+.contact-container {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 130px 0 0 0;
+  text-align: center;
+  /* background-size: 300px 480px;
+  background-position: -95% -30px;
+  background-color: rgb(246, 247, 249);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  padding: 20px 70px 40px;
+  letter-spacing: 0.08em;
+  */
+}
+
+.contact-background-container {
+  background: url('../assets/Contactus/tree_of_life_sunset.jfif') center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 630px;
+  text-align: center;
+  width: 100%;
+}
+
+.contact-text-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100px 180px 100px;
+  margin: 50px auto 0;
+  text-align: left;
+  width: fit-content;
+}
+
+.contact-text-container div {
+  /* display: inline-block; */
+  font-size: 6rem;
+  height: fit-content;
+  letter-spacing: 0.05em;
+  padding: 0 0 0 0;
+  width: fit-content;
+}
+
+.contact-message {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  width: 450px;
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 4px;
+  justify-self: center;
+}
+
+.contact-container form {
+  /* align-self: flex-start; */
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-self: center;
+  /* margin-top: 130px; */
+  width: fit-content;
+}
+
+.contact-container form label {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-container h1 {
+  /* color: white; */
+  margin: 0 0 35px -10px;
+  text-align: center;
+}
+
+.contact-container form input {
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /* border-bottom-color: white; */
+  border-bottom-left-radius: 10px;
+  box-shadow: none;
+  font-size: 20px;
+  outline: none;
+  width: 250px;
+}
+
+.contact-container input:nth-child(odd) {
+  margin-bottom: 50px;
+}
+
+.contact-container form input[type='text']:focus {
+  border-bottom: 1px solid #4285f4;
+  box-shadow: 0 1px 0 0 #4285f4;
+}
+
+.contact-container button {
+  background-color: rgb(192, 125, 255);
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  /* justify-self: center; */
+  letter-spacing: 0.01em;
+  margin-top: 25px;
+  padding: 8px 10px;
+  width: 150px;
+}
+
+.contact-container button:hover {
+  cursor: pointer;
+}
+
+/* 
+
+.login-container form {
+  font-size: 25px;
+} */
+
+/* .login-container form * {
+  margin-bottom: 10px;
+} */
