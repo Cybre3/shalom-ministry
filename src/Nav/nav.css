@@ -2,17 +2,13 @@
 
 .navbar {
   background-color: white;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  padding: 10px 0 0 0;
+  /* border-bottom: 12px solid blue; */
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 40px 0;
   position: fixed;
   top: 0;
   width: 100%;
-}
-
-.navbar-top {
-  display: flex;
-  flex-direction: row;
 }
 
 /* .back-text {
@@ -37,7 +33,7 @@
   /* font-family: 'Share Tech Mono', monospace; */
   font-size: 24px;
   letter-spacing: -1.5px;
-  margin-left: 50px;
+  margin: 0 0 0 50px;
   width: fit-content;
 }
 
@@ -68,21 +64,23 @@
 
 .nav-login-register {
   align-self: center;
-  display: flex;
-  justify-self: flex-end;
+  /* display: flex; */
+  /* justify-self: flex-end; */
   font-size: 20px;
-  margin: 0 60px 0 auto;
+  margin: 0 0 0 350px;
 }
 
 .page-links {
-  /* align-self: center; */
-  background: repeating-linear-gradient(45deg, #5dbae2 10%, #ebf8e1 50%);
+  align-self: flex-start;
+  /* background-color: blue; */
+  color: blue;
   display: flex;
   font-size: 24px;
   font-weight: bold;
-  justify-content: space-around;
+  /* justify-content: space-between; */
   margin: 20px 0 0 0;
-  padding-left: 100px;
+  /* padding-left: 100px; */
+  padding-right: 30px;
 }
 
 .nav-link {
@@ -93,7 +91,7 @@
 }
 
 .page-links:last-child {
-  padding-right: 100px;
+  /* padding-right: 100px; */
 }
 
 .page-links .nav-link::after {

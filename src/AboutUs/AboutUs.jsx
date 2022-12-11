@@ -29,7 +29,7 @@ class AboutUs extends Component {
         </div>
 
         <div className="meet-members">
-          <h1>Meet Our Embassadors</h1>
+          <h1>Meet Our Ambassadors</h1>
           <div className="about-each-member">
             <div className="about-info">
               <p className="about-text">

@@ -2,7 +2,7 @@
   background: url('../assets/Login/Blue-Gradient-Element.png');
   background-size: 300px 480px;
   background-repeat: no-repeat;
-  background-position: -95% 100%;
+  background-position: -95% -30px;
   background-color: rgba(246, 247, 249, 0.773);
   border-radius: 5px;
   display: flex;
@@ -22,7 +22,8 @@
 }
 
 .loginForm h1 {
-  margin: 0 0 15px -10px;
+  margin: 0 0 35px -10px;
+  /* text-align: center; ask team if like this better */ 
 }
 
 .loginForm form {
@@ -42,8 +43,8 @@
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.01em;
-  margin-top: 10px;
-  padding: 10px 20px;
+  margin-top: 30px;
+  padding: 5px 20px;
 }
 
 .loginForm form button:hover {

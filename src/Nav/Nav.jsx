@@ -6,45 +6,43 @@ import './nav.css';
 const Nav = (props) => {
   return (
     <div className="navbar">
-      <div className="navbar-top">
-        <div className="nav-ministry-logo-name" to="/">
-          <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
-          <NavLink className="nav-ministry-name">
-            <span>
-              SHALOM MiNiSTR<span className="y">y</span>
-            </span>
-            <span className="nav-ministry-slogan">Movin' 4ward</span>
-          </NavLink>
-        </div>
-        <div className="nav-login-register">
-          <NavLink className="nav-link" to="/login">
-            Login
-          </NavLink>
-          <span className="nav-link">or</span>
-          <NavLink className="nav-link" to="/register">
-            Register
-          </NavLink>
-        </div>
+      <div className="nav-ministry-logo-name">
+        <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
+        <NavLink className="nav-ministry-name" to='/'>
+          <span>
+            SHALOM MiNiSTR<span className="y">y</span>
+          </span>
+          <span className="nav-ministry-slogan">Movin' 4ward</span>
+        </NavLink>
+      </div>
+      <div className="nav-login-register">
+        <NavLink className="nav-link" to="/login">
+          Login
+        </NavLink>
+        <span className="nav-link">or</span>
+        <NavLink className="nav-link" to="/register">
+          Register
+        </NavLink>
       </div>
       <div className="page-links">
         <NavLink to="/" className="nav-link no-arrow">
           Home
         </NavLink>
-        <NavLink to="/about-us" className="nav-link">
+        <NavLink to="/about-us" className="nav-link no-arrow">
           About Us
         </NavLink>
-        <a href="/" className="nav-link">
+        <NavLink to="/events" className="nav-link">
           Events
-        </a>
-        <a href="/" className="nav-link">
+        </NavLink>
+        <NavLink to="/give" className="nav-link no-arrow">
           Give
-        </a>
-        <a href="/" className="nav-link">
+        </NavLink>
+        <NavLink to="/contact-us" className="nav-link no-arrow">
           Contact Us
-        </a>
-        <a href="/" className="nav-link">
+        </NavLink>
+        <NavLink to="/serve" className="nav-link">
           Serve
-        </a>
+        </NavLink>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@
 }
 
 .mission-statement-container {
-  background: linear-gradient(white 30%, rgb(197, 215, 231) 65%, rgba(191, 173, 230, 0.827) 85%);
+  background: linear-gradient(white 30%, rgb(197, 215, 231) 65%, rgb(194, 185, 244) 90%);
   margin: 0 110px 250px;
 }
 
@@ -29,7 +29,7 @@
 .mission-statement {
   border-right: 150px solid transparent;
   border-left: 150px solid transparent;
-  border-image: linear-gradient(rgba(116, 65, 236, 0.215) 1%, rgba(154, 205, 225, 0.793) 45%, transparent 68%);
+  border-image: linear-gradient(rgba(91, 65, 236, 0.325) 0, rgba(152, 219, 239, 0.793) 45%, transparent 75%);
   border-image-slice: 1;
   box-sizing: content-box;
   color: rgb(67, 2, 105);
