@@ -1,77 +1,124 @@
-.loginForm {
-  background: url('../assets/Login/Blue-Gradient-Element.png');
-  background-size: 300px 480px;
-  background-repeat: no-repeat;
+.login-container {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 130px 0 0 0;
+  text-align: center;
+  /* background-size: 300px 480px;
   background-position: -95% -30px;
-  background-color: rgba(246, 247, 249, 0.773);
+  background-color: rgb(246, 247, 249);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   height: fit-content;
-  margin: 200px 0 0 0;
   padding: 20px 70px 40px;
-  position: absolute;
-  /* top: 50%; */
-  left: 40%;
   letter-spacing: 0.08em;
+  */
+}
+
+.welcome-back {
+  background: url('../assets/Login/IMG-20210128-WA0002.jpg') center center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 630px;
+
+  text-align: center;
+  width: 100%;
+}
+
+.welcome-back-box {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 100px 180px 100px;
+  margin: 50px auto 0;
+  text-align: left;
   width: fit-content;
 }
 
-.loginForm h1, form {
-  /* margin-left: 20px; */
+.welcome-back div {
+  /* display: inline-block; */
+  font-size: 6rem;
+  height: fit-content;
+  letter-spacing: 0.05em;
+  padding: 0 0 0 0;
+  width: fit-content;
 }
 
-.loginForm h1 {
+.welcome-back .message {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  width: 450px;
+}
+
+.login-container form {
+  /* align-self: flex-start; */
+  display: grid;
+  grid-template-columns: auto;
+  justify-self: center;
+  /* margin-top: 130px; */
+  width: fit-content;
+}
+
+.login-container form label {
+  font-size: 22px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.login-container h1 {
+  /* color: white; */
   margin: 0 0 35px -10px;
-  /* text-align: center; ask team if like this better */ 
-}
-
-.loginForm form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
-.loginForm form {
-  font-size: 25px;
-}
-
-.loginForm form button {
-  /* background-color: blue; */
-  border-radius: 5px;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  margin-top: 30px;
-  padding: 5px 20px;
-}
-
-.loginForm form button:hover {
-  cursor: pointer;
-}
-
-.loginForm form * {
-  margin-bottom: 10px;
-}
-
-.loginForm form input:nth-child(even) {
-  margin-bottom: 30px;
-}
-
-.loginForm form input {
+.login-container form input {
   background-color: transparent;
   border-top: none;
   border-left: none;
   border-right: none;
+  /* border-bottom-color: white; */
   border-bottom-left-radius: 10px;
   box-shadow: none;
   font-size: 20px;
   outline: none;
-  padding: 10px 20px;
+  width: 350px;
 }
 
-.loginForm form input[type="text"]:focus {
+.login-container input:nth-child(odd) {
+  margin-bottom: 50px;
+}
+
+.login-container form input[type='text']:focus {
   border-bottom: 1px solid #4285f4;
   box-shadow: 0 1px 0 0 #4285f4;
 }
+
+.login-container button {
+  background-color: rgb(192, 125, 255);
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  /* justify-self: center; */
+  letter-spacing: 0.01em;
+  margin-top: 25px;
+  padding: 8px 10px;
+  width: 150px;
+}
+
+.login-container button:hover {
+  cursor: pointer;
+}
+
+/* 
+
+.login-container form {
+  font-size: 25px;
+} */
+
+/* .login-container form * {
+  margin-bottom: 10px;
+} */
