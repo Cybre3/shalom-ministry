@@ -1,9 +1,11 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import navLogo from '../assets/Nav/SM-Logo.png';
 import './nav.css';
 
-const Nav = (props) => {
+function Nav() {
+  const location = useLocation();
+  if(['/login', '/register'].includes(location.pathname)) return <></>
   return (
     <div className="navbar">
       <div className="nav-ministry-logo-name">

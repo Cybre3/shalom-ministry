@@ -1,8 +1,9 @@
 .home-picture {
   margin-top: 125px;
+  overflow: hidden;
   width: fit-content;
 }
 
-.home-picture img {
+/* .home-picture img {
   width: 110%;
-}
+} */
