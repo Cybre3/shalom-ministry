@@ -7,6 +7,7 @@ import Login from './Login/Login';
 import RegisterForm from './Register/registerForm';
 import Contactus from './ContactUs/Contactus';
 import './App.css';
+import CreateInvoice from './Invoices/CreateInvoice/CreateInvoice';
 
 class App extends Component {
   // state = {};
@@ -23,6 +24,10 @@ class App extends Component {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<RegisterForm />} />
               <Route path="/contact-us" element={<Contactus />} />
+
+              <Route path='/invoices'>
+                <Route path='/invoices/create-new-invoice' element={<CreateInvoice />} />
+              </Route>
             </Routes>
           </BrowserRouter>
         </main>

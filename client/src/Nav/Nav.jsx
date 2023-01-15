@@ -5,7 +5,7 @@ import './nav.css';
 
 function Nav() {
   const location = useLocation();
-  if(['/login', '/register'].includes(location.pathname)) return <></>
+  if(['/login', '/register', '/invoices/create-new-invoice'].includes(location.pathname)) return <></>
   return (
     <div className="navbar">
       <div className="nav-ministry-logo-name">

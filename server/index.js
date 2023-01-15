@@ -9,11 +9,15 @@ const app = express();
 const port = 5000;
 const db = config.get('db');
 
+const invoiceRouter = require('./routes/invoiceRoute');
+
 app.use(express.json());
 app.use(express.static('public'));
 app.use(cors());
 
 app.use(morgan('tiny'));
+
+app.use('/invoices', invoiceRouter);
 
 console.log(config.get('name'));
 
