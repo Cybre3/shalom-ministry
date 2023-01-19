@@ -3,15 +3,22 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const invoiceSchema = mongoose.Schema({
-  billTo: {
+  firstName: {
     type: String,
-    minLength: 8,
-    maxLength: 55,
+  },
+  lastName: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  phone: {
+    type: String,
   },
   invoiceNumber: {
     type: Number,
   },
-  date: {
+  currentDate: {
     type: Date,
   },
   total: {
@@ -23,11 +30,20 @@ const invoiceSchema = mongoose.Schema({
   description: {
     type: String,
   },
-  quantity: {
+  qty: {
     type: Number,
   },
   unitPrice: {
     type: Number,
+  },
+  amount: {
+    type: Number,
+  },
+  balanceDue: {
+    type: Number,
+  },
+  comments: {
+    type: String,
   },
 });
 
@@ -37,17 +53,23 @@ const Invoice = mongoose.model('Invoice', invoiceSchema);
 
 function validateInvoice(input) {
   const schema = Joi.object({
-    billTo: Joi.string().required(),
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
+    email: Joi.string().required(),
+    phone: Joi.number().required(),
     invoiceNumber: Joi.number().required(),
-    date: Joi.date().required(),
+    currentDate: Joi.date().required(),
     total: Joi.number().required(),
     paymentApplied: Joi.number().required(),
     description: Joi.string().required(),
-    quantity: Joi.number().required(),
-    unitPrice: Joi.number().required()
-  })
-  
- return schema.validate(input);
+    qty: Joi.number().required(),
+    unitPrice: Joi.number().required(),
+    amount: Joi.number().required(),
+    balanceDue: Joi.number().required(),
+    comments: Joi.string().required(),
+  });
+
+  return schema.validate(input);
 }
 
 exports.Invoice = Invoice;

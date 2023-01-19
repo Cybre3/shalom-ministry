@@ -2,9 +2,9 @@ const { Invoice, validate } = require('../models/InvoiceModel');
 
 module.exports = {
   get: {
-    viewAllInvoices: (req, res) => {
-      const allInvoices = Invoice.find({});
-      res.status(200).send('allInvoices');
+    viewAllInvoices: async (req, res) => {
+      const allInvoices = await Invoice.find({});
+      res.status(200).send(allInvoices);
     },
     findInvoiceById: async (req, res) => {
       const invoiceById = await Invoice.findById(req.params.id);
@@ -15,27 +15,38 @@ module.exports = {
 
   post: {
     createNewInvoice: async (req, res) => {
-      const { firstName, lastName, email, phoneNumber, invoiceNumber, date, total, paymentApplied, description, quantity, unitPrice } = validate(req.body);
-      const billTo = {
+      const {
         firstName,
         lastName,
         email,
-        phoneNumber
-      }
-      const newInvoice = {
-        billTo,
+        phone,
         invoiceNumber,
-        date,
+        currentDate,
         total,
         paymentApplied,
         description,
-        quantity,
-        unitPrice
-      };
+        qty,
+        unitPrice,
+        comments,
+      } = validate(req.body).value;
 
-      await newInvoice.save();
+      const newInvoice = new Invoice({
+        firstName,
+        lastName,
+        email,
+        phone,
+        invoiceNumber,
+        currentDate,
+        total,
+        paymentApplied,
+        description,
+        qty,
+        unitPrice,
+        comments,
+      });
+      const result = await newInvoice.save();
 
-      res.status(200).send(newInvoice);
+      res.status(200).send(result);
     },
   },
 
