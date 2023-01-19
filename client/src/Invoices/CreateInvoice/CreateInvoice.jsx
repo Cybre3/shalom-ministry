@@ -1,72 +1,83 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Navigate } from "react-router-dom";
+import Form from '../../common/form';
+import Joi from 'joi-browser';
 import './createInvoice.css';
+import { saveInvoice } from './../../services/invoiceService';
 
-class CreateInvoice extends Component {
+class CreateInvoice extends Form {
   state = {
-    firstName: 'star',
-    lastName: 'mccloud',
-    email: 'cybre3@gmail.com',
-    phone: '6098151154',
-    invoiceNumber: 1,
-    date: Date.now,
-    description: 'conference with a twist ticket',
-    qty: 1,
-    unitPrice: 500,
-    amount: '',
-    total: 500,
-    paymentApplied: 250,
-    balanceDue: '',
-    comments: 'payment to be made next month',
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('fo Submitted');
+    data: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      invoiceNumber: 1,
+      currentDate: Date.now,
+      description: '',
+      qty: '',
+      unitPrice: '',
+      amount: '',
+      total: '',
+      paymentApplied: '',
+      balanceDue: '',
+      comments: '',
+    },
+    errors: {},
   };
 
-  handleOnChange = (e) => {
-    console.log(e.target.value);
-  }
+  schema = {
+    _id: Joi.string(),
+    firstName: Joi.string().required().label('First Name'),
+    lastName: Joi.string().required().label('Last Name'),
+    email: Joi.string().email().required().label('Email'),
+    phone: Joi.string().required().label('Phone'),
+    invoiceNumber: Joi.number().required().label('Invoice Number'),
+    currentDate: Joi.date().required().label('Date'),
+    description: Joi.string().required().label('Description'),
+    qty: Joi.number().required().label('Quantity'),
+    unitPrice: Joi.number().required().label('Unit Price'),
+    amount: Joi.number().required().label('Amount'),
+    total: Joi.number().required().label('Total'),
+    paymentApplied: Joi.number().required().label('Payment Applied'),
+    balanceDue: Joi.number().required().label('Balance Due'),
+    comments: Joi.string().required().label('Comments'),
+  };
+
+  doSubmit = async () => {
+    // Call from server
+    await saveInvoice(this.state.data);
+
+   <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
+    console.log('Invoice Saved');
+  };
 
   render() {
     return (
       <div className="invoice-container">
-        <form action="" onSubmit={this.handleSubmit}>
+        <h1>Invoice</h1>
+        <form onSubmit={this.handleSubmit}>
           <div className="bill-to">
-            <label htmlFor="">First Name</label>
-            <input type="text" value={this.state.firstName} />
-            <label htmlFor="">Last Name</label>
-            <input type="text" value={this.state.lastName} />
-            <label htmlFor="">Email</label>
-            <input type="email" value={this.state.email} />
-            <label htmlFor="">Phone Number</label>
-            <input type="phone" value={this.state.phone} />
+            {this.renderInput('firstName', 'First Name')}
+            {this.renderInput('lastName', 'Last Name')}
+            {this.renderInput('email', 'Email', 'email')}
+            {this.renderInput('phone', 'Phone', 'phone')}
           </div>
           <div className="invoice-num-date">
-            <label htmlFor="">Invoice #</label>
-            <input type="text" value={this.state.invoiceNumber} disabled />
-            <label htmlFor="">Date</label>
-            <input type="date" value={this.state.date} />
+            {this.renderInput('invoiceNumber', 'Invoice Number')}
+            {this.renderInput('currentDate', 'Date', 'date')}
           </div>
           <div className="invoice-description">
-            <label htmlFor="">Description</label>
-            <input type="text" value={this.state.description} />
-            <label htmlFor="">Quantity</label>
-            <input type="text" value={this.state.qty} />
-            <label htmlFor="">Unit Price</label>
-            <input type="text" value={this.state.unitPrice} />
-            <label htmlFor="">Amount</label>
-            <input type="text" value={Number(this.state.qty * this.state.unitPrice)} />
-            <label htmlFor="">Total</label>
-            <input type="text" value={this.state.total} disabled />
-            <label htmlFor="">Payment Applied</label>
-            <input type="text" value={this.state.paymentApplied} />
-            <label htmlFor="">Balance Due</label>
-            <input type="text" value={Number(this.state.total - this.state.paymentApplied)} disabled />
-            <label htmlFor="">Comments</label>
-            <textarea type="text" value={this.state.comments} />
+            {this.renderInput('description', 'Description', 'textarea')}
+            {this.renderInput('qty', 'Quantity')}
+            {this.renderInput('unitPrice', 'Unit Price')}
+            {this.renderInput('amount', 'Amount')}
+            {this.renderInput('total', 'Total')}
+            {this.renderInput('paymentApplied', 'Payment Applied')}
+            {this.renderInput('balanceDue', 'Balance Due')}
+            {this.renderInput('comments', 'Comments')}
           </div>
-          <button type="submit">Submit</button>
+          {this.renderButton('Submit')}
         </form>
       </div>
     );

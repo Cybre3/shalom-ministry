@@ -25,8 +25,8 @@ class App extends Component {
               <Route path="/register" element={<RegisterForm />} />
               <Route path="/contact-us" element={<Contactus />} />
 
-              <Route path='/invoices'>
-                <Route path='/invoices/create-new-invoice' element={<CreateInvoice />} />
+              <Route path="/invoices">
+                <Route path="/invoices/create-new-invoice" element={<CreateInvoice />} />
               </Route>
             </Routes>
           </BrowserRouter>
