@@ -1,30 +1,19 @@
 require('dotenv').config();
 const config = require('config');
 const express = require('express');
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const winston = require('winston');
 
 const app = express();
-const port = 5000;
-const db = config.get('db');
 
-const invoiceRouter = require('./routes/invoiceRoute');
+require('./startup/logging')();
+require('./startup/cors')(app);
+require('./startup/app-routes-middleware')(app);
+require('./startup/db')();
+require('./startup/config')();
+require('./startup/apiValidation')();
+require('./startup/prod')(app);
 
-app.use(express.json());
-app.use(express.static('public'));
-app.use(cors());
+const port = process.env.PORT || 5000;
+const server = app.listen(port, () => winston.info(`listening on port ${port}...`));
 
-app.use(morgan('tiny'));
-
-app.use('/invoices', invoiceRouter);
-
-console.log(config.get('name'));
-
-mongoose.set('strictQuery', false);
-mongoose.connect(db, { useUnifiedTopology: true }).then(() => {
-  console.log(`Connected to ${db}...`);
-});
-
-
-app.listen(port, () => console.log(`listening on port ${port}...`));
+module.exports = server;
