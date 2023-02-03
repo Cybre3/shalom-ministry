@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './Nav/Nav';
-import Home from './Home/Home';
-import AboutUs from './AboutUs/AboutUs';
-import Login from './Login/Login';
-import RegisterForm from './Register/registerForm';
-import Contactus from './ContactUs/Contactus';
+import Nav from './Components/Nav/Nav';
+import Home from './Components/Home/Home';
+import AboutUs from './Components/AboutUs/AboutUs';
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
+import Contactus from './Components/ContactUs/Contactus';
 import './App.css';
-import CreateInvoice from './Invoices/CreateInvoice/CreateInvoice';
+import CreateInvoice from './Components/Invoices/CreateInvoice/CreateInvoice';
+
 
 class App extends Component {
   // state = {};
@@ -22,7 +23,7 @@ class App extends Component {
               <Route exact path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<RegisterForm />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/contact-us" element={<Contactus />} />
 
               <Route path="/invoices">

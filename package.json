@@ -1,0 +1,26 @@
+{
+  "name": "shalom-ministries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm run auto",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cybre3/shalom-ministry.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cybre3/shalom-ministry/issues"
+  },
+  "homepage": "https://github.com/Cybre3/shalom-ministry#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0",
+    "lodash": "^4.17.21"
+  }
+}

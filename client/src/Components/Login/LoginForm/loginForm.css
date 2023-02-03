@@ -24,6 +24,7 @@
 .login-container h1 {
   color: rgb(143, 63, 255);
   letter-spacing: 0.05rem;
+  margin-bottom: 2vw;
   text-transform: uppercase;
 }
 
@@ -59,9 +60,10 @@
   margin-bottom: 8vh;
 }
 
-.login-container i {
+.login-container .signin i {
   color: #aaa;
   font-style: normal;
+  font-size: 1rem;
   left: 0;
   padding: 0.8vw 0.6vw;
   pointer-events: none;
@@ -69,8 +71,7 @@
   transition: 0.5s;
 }
 
-.login-container input:focus ~ i,
-.login-container input:valid ~ i {
+.login-container .signin input:focus:valid ~ i {
   transform: translateY(-0.5vw);
   font-size: 0.8rem;
   color: white;

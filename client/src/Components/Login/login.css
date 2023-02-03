@@ -14,7 +14,7 @@
 }
 
 .login-container::before {
-  animation: animate 15s linear infinite;
+  animation: animate-loginForm 15s linear infinite;
   background: linear-gradient(#000, rgb(106, 0, 255), #000);
   content: '';
   height: 100%;
@@ -27,7 +27,7 @@
   color: white;
 }
 
-@keyframes animate {
+@keyframes animate-loginForm {
   0% {
     transform: translateY(-100%);
   }

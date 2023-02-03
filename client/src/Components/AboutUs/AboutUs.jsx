@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import oprah from '../assets/Aboutus/Oprah.jfif';
-import steveHarvey from '../assets/Aboutus/steveHarvey.jfif';
-import violaDavis from '../assets/Aboutus/violaDavis.jfif';
-import muhammedAli from '../assets/Aboutus/muhammedAli.jfif';
-import serenaWilliams from '../assets/Aboutus/serenaWilliams.jfif';
+import oprah from '../../assets/Aboutus/Oprah.jfif';
+import steveHarvey from '../../assets/Aboutus/steveHarvey.jfif';
+import violaDavis from '../../assets/Aboutus/violaDavis.jfif';
+import muhammedAli from '../../assets/Aboutus/muhammedAli.jfif';
+import serenaWilliams from '../../assets/Aboutus/serenaWilliams.jfif';
 import './aboutUs.css';
 
 const uppercaseStatement =
@@ -22,7 +22,7 @@ class AboutUs extends Component {
       <div className="about-us-container">
         <div className="mission-statement-container">
           <p className="mission-statement">
-            <img src={require('../assets/Nav/SM-Logo.png')} alt="" className="about-logo" />
+            <img src={require('../../assets/Nav/SM-Logo.png')} alt="" className="about-logo" />
             <h1 className="mission-heading">WHAT WE DO</h1>
             {uppercaseStatement}
           </p>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
-import navLogo from '../assets/Nav/SM-Logo.png';
+import { NavLink, useLocation } from 'react-router-dom';
+import navLogo from '../../assets/Nav/SM-Logo.png';
 import './nav.css';
 
 function Nav() {

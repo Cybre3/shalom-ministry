@@ -1,9 +1,9 @@
 import React from 'react';
-import { Navigate } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
 import Form from '../../common/form';
 import Joi from 'joi-browser';
+import { saveInvoice } from '../../../services/invoiceService';
 import './createInvoice.css';
-import { saveInvoice } from './../../services/invoiceService';
 
 class CreateInvoice extends Form {
   state = {
@@ -48,34 +48,53 @@ class CreateInvoice extends Form {
     // Call from server
     await saveInvoice(this.state.data);
 
-   <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
+    <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
     console.log('Invoice Saved');
   };
 
   render() {
     return (
       <div className="invoice-container">
-        <h1>Invoice</h1>
+        <h1>sales receipt</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="bill-to">
-            {this.renderInput('firstName', 'First Name')}
-            {this.renderInput('lastName', 'Last Name')}
-            {this.renderInput('email', 'Email', 'email')}
-            {this.renderInput('phone', 'Phone', 'phone')}
-          </div>
-          <div className="invoice-num-date">
-            {this.renderInput('invoiceNumber', 'Invoice Number')}
-            {this.renderInput('currentDate', 'Date', 'date')}
+          <div className="invoice-top">
+            <div className="bill-to">
+              <h2>Bill to</h2>
+              <div className="entries">
+                {this.renderInput('firstName', 'First Name')}
+                {this.renderInput('lastName', 'Last Name')}
+                {this.renderInput('email', 'Email', 'email')}
+                {this.renderInput('phone', 'Phone', 'phone')}
+              </div>
+            </div>
+            <div className="invoice-num-date">
+              <div className="title">
+                <h2>invoice #</h2>
+                <h2>date</h2>
+              </div>
+              <div className="entries no-border">
+                {this.renderInput('invoiceNumber', '')}
+                {this.renderInput('currentDate', '', 'date')}
+              </div>
+            </div>
           </div>
           <div className="invoice-description">
-            {this.renderInput('description', 'Description', 'textarea')}
-            {this.renderInput('qty', 'Quantity')}
-            {this.renderInput('unitPrice', 'Unit Price')}
-            {this.renderInput('amount', 'Amount')}
-            {this.renderInput('total', 'Total')}
-            {this.renderInput('paymentApplied', 'Payment Applied')}
-            {this.renderInput('balanceDue', 'Balance Due')}
-            {this.renderInput('comments', 'Comments')}
+            <div className="title invoice-bottom">
+              <h2>description</h2>
+              <h2>qty</h2>
+              <h2>unit price</h2>
+              <h2>amount</h2>
+            </div>
+            <div className="invoice-details">
+              {this.renderInput('description', '', 'textarea')}
+              {this.renderInput('qty', '')}
+              {this.renderInput('unitPrice', '')}
+              {this.renderInput('amount', '')}
+              {this.renderInput('comments', 'ORDER COMMENTS')}
+              {this.renderInput('total', 'Total')}
+              {this.renderInput('paymentApplied', 'Payment Applied')}
+              {this.renderInput('balanceDue', 'Balance Due')}
+            </div>
           </div>
           {this.renderButton('Submit')}
         </form>

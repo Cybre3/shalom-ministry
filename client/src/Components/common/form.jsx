@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './input';
+import CustomInput from './customInput';
 import Joi from 'joi-browser';
 
 class Form extends Component {
@@ -56,10 +57,24 @@ class Form extends Component {
   };
 
   renderInput = (name, label, type = 'text') => {
-    const { data, errors } = this.state;
+    const { errors } = this.state;
 
     return (
       <Input
+        type={type}
+        name={name}
+        label={label}
+        error={errors[name]}
+        onChange={this.handleChange}
+      />
+    );
+  };
+
+  renderCustomInput = (name, label, type = 'text') => {
+    const { errors } = this.state;
+
+    return (
+      <CustomInput
         type={type}
         name={name}
         label={label}
