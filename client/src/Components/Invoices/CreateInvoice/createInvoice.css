@@ -1,8 +1,25 @@
 .invoice-container {
   display: flex;
   flex-direction: column;
-  margin: 5vh auto;
+  height: fit-content;
+  margin: 1vh auto;
+  text-align: center;
   width: fit-content;
+}
+
+.invoice-container input, textarea {
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  padding: 0 0.5rem;
+}
+
+.invoice-container .logo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoice-container img {
+  width: 8vw;
 }
 
 h1 {
@@ -26,7 +43,7 @@ form .title {
 form .title {
   display: flex;
   justify-content: space-around;
-  width: 30vw;
+  width: 32vw;
 }
 
 .invoice-description > .invoice-bottom {
@@ -48,7 +65,7 @@ form .title {
   align-content: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
-  width: 30vw;
+  width: 28vw;
 }
 
 .invoice-description .title > h2:first-child {
@@ -58,50 +75,54 @@ form .title {
 .invoice-details {
   display: grid;
   grid-template-columns: 38.5vw 10vw 12vw 15vw;
-  grid-template-rows: repeat(4, 5vw);
-  grid-template-areas: 'description qty unitPrice amount', 'comments comments total total',
-    'comments comments paymentApplied paymentApplied', 'comments comments balanceDue balanceDue';
-  padding: 0.2rem 0;
-  background-color: black;
-  justify-content: space-between;
-}
-
-#description {
-  grid-area: description;
-}
-
-#qty {
-  grid-area: qty;
-}
-
-#unitPrice {
-  grid-area: unitPrice;
-}
-
-#amount {
-  grid-area: amount;
-}
-
-#comments {
-  grid-area: comments;
-}
-
-#total {
-  grid-area: total;
-}
-
-#paymentApplied {
-  grid-area: paymentApplied;
-}
-
-#balanceDue {
-  grid-area: balanceDue;
+  grid-template-rows: 5vh 1vh 20vh 6vh;
+  grid-auto-rows: min-content;
+  justify-content: space-around;
 }
 
 .invoice-details > div > input {
-  border-style: none;
   height: 100%;
   width: 100%;
+}
+
+.invoice-details > div:nth-child(5) {
+  border: 0.1rem solid black;
+  grid-column: 1 / 3;
+  grid-row: 3;
+  padding: 0 0.5rem 2rem 0.5rem;
+  text-align: initial;
+}
+
+.invoice-details > div:nth-child(5) label {
+  text-decoration: underline;
+}
+
+.invoice-details > div:nth-child(5) textarea {
+  border: none;
+  height: 15vh;
+  width: 47.5vw;
+}
+
+.invoice-details > div:nth-child(6) {
+  grid-row: 3;
+  grid-column: 3 / 5;
+  margin: auto;
+  width: 100%;
+}
+
+.invoice-details > div:nth-child(6) label {
+  font-size: 1.1rem;
+}
+
+.invoice-details > div:nth-child(6) input {
+  border: none;
+  text-align: right;
+}
+
+.invoice-details > div:nth-child(6) > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh 0 1vh 3vw;
 }
 
 .invoice-details > div:first-child > input:focus {
@@ -111,4 +132,34 @@ form .title {
 .no-border {
   border: none;
   justify-content: space-around;
+}
+
+hr {
+  margin-left: 0.5rem;
+}
+
+#qty, #invoiceNumber {
+  text-align: center;
+  border: 0.1rem solid black;
+}
+
+#unitPrice, #amount {
+  border-right: none;
+  text-align: right;
+}
+
+#description {
+  border-left: none;
+}
+
+.invoice-container button {
+  /* border-radius: 0.05rem; */
+  font-size: 1rem;
+  letter-spacing: 0.05rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.invoice-container button:valid {
+  cursor: pointer;
 }

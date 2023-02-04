@@ -55,7 +55,10 @@ class CreateInvoice extends Form {
   render() {
     return (
       <div className="invoice-container">
-        <h1>sales receipt</h1>
+        <div className="logo">
+          <img src={require('../../../assets/SM-Logo-w-Title.png')} alt="" />
+          <h1>sales receipt</h1>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <div className="invoice-top">
             <div className="bill-to">
@@ -90,10 +93,13 @@ class CreateInvoice extends Form {
               {this.renderInput('qty', '')}
               {this.renderInput('unitPrice', '')}
               {this.renderInput('amount', '')}
-              {this.renderInput('comments', 'ORDER COMMENTS')}
-              {this.renderInput('total', 'Total')}
-              {this.renderInput('paymentApplied', 'Payment Applied')}
-              {this.renderInput('balanceDue', 'Balance Due')}
+              {this.renderTextarea('comments', 'ORDER COMMENTS')}
+              <div className="totalcolumn">
+                {this.renderInput('total', 'Total')}
+                {this.renderInput('paymentApplied', 'Payment Applied')}
+                <hr />
+                {this.renderInput('balanceDue', 'Balance Due')}
+              </div>
             </div>
           </div>
           {this.renderButton('Submit')}
