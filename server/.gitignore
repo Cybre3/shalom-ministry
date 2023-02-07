@@ -2,3 +2,4 @@
 .vscode
 logs/
 .env
+/config/development.json
