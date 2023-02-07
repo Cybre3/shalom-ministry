@@ -1,0 +1,10 @@
+// Invoice table - add sort arrow to table headers
+// complete sortColumn function
+// create sortBy list group
+// link new invoice link on table page
+// create/replace main page with box that says views invoices and create invoice for now for client to use
+// activate admin priveledges
+// make two step verification code for admin to register
+// create admin registration form
+// style invoices page
+// protect routes

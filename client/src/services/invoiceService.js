@@ -1,6 +1,6 @@
 import http from '../services/httpService';
 
-const apiEndpoint = '/invoices';
+const apiEndpoint = '/invoices/';
 
 function invoiceUrl(id) {
   return `${apiEndpoint}/${id}`;

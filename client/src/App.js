@@ -8,7 +8,7 @@ import Register from './Components/Register/Register';
 import Contactus from './Components/ContactUs/Contactus';
 import './App.css';
 import CreateInvoice from './Components/Invoices/CreateInvoice/CreateInvoice';
-
+import Invoices from './Components/Invoices/Invoices';
 
 class App extends Component {
   // state = {};
@@ -26,9 +26,8 @@ class App extends Component {
               <Route path="/register" element={<Register />} />
               <Route path="/contact-us" element={<Contactus />} />
 
-              <Route path="/invoices">
-                <Route path="/invoices/create-new-invoice" element={<CreateInvoice />} />
-              </Route>
+              <Route exact path="/invoices" element={<Invoices />}></Route>
+              <Route exact path="/invoices/create-new-invoice" element={<CreateInvoice />} />
             </Routes>
           </BrowserRouter>
         </main>

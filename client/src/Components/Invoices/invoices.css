@@ -1,0 +1,57 @@
+table {
+  border-color: grey;
+  border-collapse: collapse;
+  border-spacing: 0.13rem;
+  display: table;
+  text-align: center;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+th {
+  display: table-cell;
+  font-weight: bold;
+  /* text-transform: uppercase; */
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+
+.invoices-table {
+  display: flex;
+  justify-content: center;
+  margin-top: 15vh;
+}
+
+.table {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 0.13rem solid#dee2e6;
+}
+
+.table th,
+.table td {
+  padding: 1rem 2rem;
+  border-top: 0.06rem solid #dee2e6;
+}
+
+.clickable {
+  cursor: pointer;
+}
