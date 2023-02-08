@@ -1,0 +1,4 @@
+{
+  "name": "Shalom Ministry - Production",
+  "db": "mongodb://localhost/shalomMinistry"
+}
