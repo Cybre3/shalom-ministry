@@ -11,7 +11,6 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "prebuild": "npm install --prefix server",
     "build": "npm install --prefix client",
-    "postbuild": "npm run build --prefix client",
     "start": "concurrently \"npm run deploy-server\" \"npm run client\""
   },
   "repository": {
