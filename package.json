@@ -9,7 +9,6 @@
     "server": "cd server && npm run auto",
     "deploy-server": "cd server && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "install": "npm install",
     "prebuild": "npm install --prefix server",
     "build": "npm run build --prefix client",
     "start": "concurrently \"npm run deploy-server\" \"npm run client\""
