@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "run-build-script": "node build/static/main.ce78c6f6"
+    "run-build-script": "node build/static/main.ce78c6f6.js"
   },
   "eslintConfig": {
     "extends": [
