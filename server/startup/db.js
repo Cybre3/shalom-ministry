@@ -7,8 +7,14 @@ module.exports = function () {
   const db = config.get('db');
 
   mongoose.set('strictQuery', false);
-  mongoose.connect(db, { useUnifiedTopology: true }).then(() => {
-    winston.info(`Connected to ${db}...`);
-    debug(`Connected to ${db}...`);
-  });
+  mongoose
+    .connect(db, {
+      pass: process.env.DB_PASS,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      winston.info(`Connected to ${db}...`);
+      debug(`Connected to ${db}...`);
+    });
 };
