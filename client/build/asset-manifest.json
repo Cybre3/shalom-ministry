@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.dd162651.css",
+    "main.js": "/static/js/main.ce78c6f6.js",
+    "static/media/church doris sows into.jpg": "/static/media/church doris sows into.4301a030b12777cbe0c5.jpg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/SM-Logo-w-Title.png": "/static/media/SM-Logo-w-Title.5a1ae393c6492274a5f3.png",
+    "static/media/SM-Logo.png": "/static/media/SM-Logo.31e8eb5304559ea7d617.png",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/Oprah.jfif": "/static/media/Oprah.57189ca1bd8bab652efb.jfif",
+    "static/media/serenaWilliams.jfif": "/static/media/serenaWilliams.5ba63d2dbd782e0a6357.jfif",
+    "static/media/violaDavis.jfif": "/static/media/violaDavis.f8c964c1f73e40a86648.jfif",
+    "static/media/tree_of_life_sunset.jfif": "/static/media/tree_of_life_sunset.66858e6d77b1d2952cff.jfif",
+    "static/media/muhammedAli.jfif": "/static/media/muhammedAli.29b1591fbd16e8df886b.jfif",
+    "static/media/steveHarvey.jfif": "/static/media/steveHarvey.e99b04e0d03779003d3c.jfif",
+    "index.html": "/index.html",
+    "main.dd162651.css.map": "/static/css/main.dd162651.css.map",
+    "main.ce78c6f6.js.map": "/static/js/main.ce78c6f6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd162651.css",
+    "static/js/main.ce78c6f6.js"
+  ]
+}
