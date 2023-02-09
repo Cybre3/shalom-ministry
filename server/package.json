@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "npm install",
     "auto": "nodemon index.js",
     "start": "node index.js",
     "test": "jest --watchAll --verbose --detectOpenHandles --runInBand"
