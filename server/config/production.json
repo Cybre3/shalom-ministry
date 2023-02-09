@@ -1,4 +1,9 @@
 {
   "name": "Shalom Ministry - Production",
-  "db": "mongodb+srv://shalom:@shalom-ministry.w9isi1e.mongodb.net/?retryWrites=true&w=majority"
+  "db": {
+    "dbName": "shalom-ministry",
+    "host": "mongodb+srv",
+    "pass": "DB_PASS",
+    "user": "DB_USER"
+  }
 }

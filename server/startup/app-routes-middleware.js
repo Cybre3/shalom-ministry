@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const morgan = require('morgan');
 const debug = require('debug')('app:startup');
 const winston = require('winston');
@@ -20,7 +21,7 @@ module.exports = function (app) {
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/build/index.html'));
   });
-
+  
   if (app.get('env') === 'development') {
     app.use(morgan('tiny'));
     debug('Morgan Activated...');

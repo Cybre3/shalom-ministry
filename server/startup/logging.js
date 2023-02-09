@@ -1,5 +1,5 @@
 const config = require('config');
-const morgan= require('morgan');
+const morgan = require('morgan');
 const winston = require('winston');
 const { format, transports } = winston;
 const { combine, label, prettyPrint, colorize, timestamp, printf, metadata } = format;
@@ -17,8 +17,10 @@ const myReqFormat = printf(({ level, message, label, timestamp, metadata }) => {
   return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${message}\nstack${metadata}\n--- ${label} ${level} ---\n`;
 });
 
-module.exports = function() {
-  const db = config.get('db');
+module.exports = function () {
+   const { dbName, host, pass, user } = config.get('db');
+
+   const db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.w9isi1e.mongodb.net/?retryWrites=true&w=majority`;
   // Catching errors outside of express request
 
   winston.loggers.add('exceptions', {
@@ -38,14 +40,15 @@ module.exports = function() {
       new transports.File({ filename: 'logs/exceptions.log', handleExceptions: true }),
       new transports.MongoDB({
         db: db,
-        options: { useUnifiedTopology: true },
+        dbName: 'shalom-ministry',
+        options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
         collection: 'shalomMinistry_logs',
         label: 'exception',
         handleExceptions: true,
       }),
     ],
-  });  
+  });
 
   winston.createLogger({
     level: 'error',
@@ -62,7 +65,8 @@ module.exports = function() {
       new transports.File({ filename: 'logs/rejections.log' }),
       new transports.MongoDB({
         db: db,
-        options: { useUnifiedTopology: true },
+        dbName: 'shalom-ministry',
+        options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
         collection: 'shalomMinistry_logs',
         label: 'rejection',
@@ -88,11 +92,12 @@ module.exports = function() {
       }),
       new transports.MongoDB({
         db: db,
-        options: { useUnifiedTopology: true },
+        dbName: 'shalom-ministry',
+        options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
         collection: 'shalomMinistry_logs',
         label: 'request',
       }),
     ],
   });
-}
+};

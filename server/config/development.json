@@ -1,5 +1,5 @@
 {
   "name": "Shalom Ministry - Development",
-  "db": "mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@shalom-ministry.w9isi1e.mongodb.net/shalom-ministry?retryWrites=true&w=majority",
+  "db": "mongodb://localhost/shalomMinistry",
   "jwtPrivateKey": "privateKey"
 }
