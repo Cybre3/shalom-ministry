@@ -19,7 +19,7 @@ module.exports = function (app) {
   app.use(express.json());
   app.use(express.static('../client/build/index.html'));
   app.get('*', (req, res) => {
-    res.sendFile(path('../client/build/index.html'));
+    res.sendFile('../client/build/index.html');
   });
 
   if (app.get('env') === 'development') {
