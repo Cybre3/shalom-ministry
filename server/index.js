@@ -5,10 +5,10 @@ const winston = require('winston');
 
 const app = express();
 
-require('./startup/logging')();
+require('./startup/logging')(app);
 require('./startup/cors')(app);
 require('./startup/app-routes-middleware')(app);
-require('./startup/db')();
+require('./startup/db')(app);
 require('./startup/config')();
 require('./startup/apiValidation')();
 require('./startup/prod')(app);

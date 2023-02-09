@@ -17,11 +17,7 @@ const myFormat = printf(({ level, message }) => {
 
 module.exports = function (app) {
   app.use(express.json());
-  app.use(express.static(path.join(__dirname, '../../client/build/index.html')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/build/index.html'));
-  });
-
+  
   if (app.get('env') === 'development') {
     app.use(morgan('tiny'));
     debug('Morgan Activated...');
