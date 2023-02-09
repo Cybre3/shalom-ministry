@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.dd162651.css",
-    "main.js": "/static/js/main.ce78c6f6.js",
+    "main.js": "/static/js/main.30b7fa67.js",
     "static/media/church doris sows into.jpg": "/static/media/church doris sows into.4301a030b12777cbe0c5.jpg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
@@ -18,10 +18,10 @@
     "static/media/steveHarvey.jfif": "/static/media/steveHarvey.e99b04e0d03779003d3c.jfif",
     "index.html": "/index.html",
     "main.dd162651.css.map": "/static/css/main.dd162651.css.map",
-    "main.ce78c6f6.js.map": "/static/js/main.ce78c6f6.js.map"
+    "main.30b7fa67.js.map": "/static/js/main.30b7fa67.js.map"
   },
   "entrypoints": [
     "static/css/main.dd162651.css",
-    "static/js/main.ce78c6f6.js"
+    "static/js/main.30b7fa67.js"
   ]
 }
