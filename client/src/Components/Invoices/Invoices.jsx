@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllInvoices, deleteInvoice } from '../../services/invoiceService';
+import { getAllInvoices } from '../../services/invoiceService';
 import InvoicesTable from './InvoicesTable';
 import './invoices.css';
 
