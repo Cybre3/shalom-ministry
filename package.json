@@ -9,9 +9,8 @@
     "server": "cd server && npm run auto",
     "deploy-server": "cd server && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "prebuild": "npm install --prefix server",
     "build": "npm install --prefix client",
-    "start": "npm run deploy-server"
+    "start": "npm run client"
   },
   "repository": {
     "type": "git",
