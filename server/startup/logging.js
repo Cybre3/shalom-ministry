@@ -24,10 +24,13 @@ module.exports = function (app) {
      case 'production':
        const { dbName, host, pass, user } = config.get('db');
        db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.w9isi1e.mongodb.net/?retryWrites=true&w=majority`;
+       break;
      case 'test':
        db = 'mongodb://localhost/shalomMinistry_test';
+       break;
      case 'development':
        db = 'mongodb://localhost/shalomMinistry';
+       break;
    }
   // Catching errors outside of express request
 
