@@ -5,5 +5,6 @@
     "host": "mongodb+srv",
     "pass": "DB_PASS",
     "user": "DB_USER"
-  }
+  },
+  "jwtPrivateKey": "privateKey"
 }

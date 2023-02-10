@@ -8,38 +8,41 @@ const userSchema = mongoose.Schema({
     type: String,
     minlength: 5,
     maxlength: 30,
-    required: true
+    required: true,
   },
   lastname: {
     type: String,
     minlength: 2,
     maxlength: 50,
-    required: true
+    required: true,
   },
   email: {
     type: String,
     minlength: 5,
     maxlength: 255,
     unique: true,
-    required: true
+    required: true,
   },
   password: {
     type: String,
     minlength: 8,
     maxlength: 1024,
-    required: true
+    required: true,
   },
   discover: {
     type: String,
-    maxlength: 500
+    maxlength: 500,
   },
-  isAdmin: Boolean
+  isAdmin: Boolean,
 });
 
-userSchema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get('jwtPrivateKey'));
+userSchema.methods.generateAuthToken = function () {
+  const token = jwt.sign(
+    { _id: this._id, isAdmin: this.isAdmin },
+    config.get('jwtPrivateKey') || process.env.jwtPrivateKey
+  );
   return token;
-}
+};
 
 const User = mongoose.model('User', userSchema);
 
@@ -50,7 +53,7 @@ function validateUser(input) {
     email: Joi.string().email().min(5).max(255).required(),
     password: Joi.string().min(8).max(1024).required(),
     discover: Joi.string().max(50).allow(''),
-    isAdmin: Joi.boolean()
+    isAdmin: Joi.boolean(),
   });
 
   return schema.validate(input);
