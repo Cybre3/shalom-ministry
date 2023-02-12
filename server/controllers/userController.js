@@ -8,7 +8,7 @@ module.exports = {
       const { email } = req.body;
 
       let user = await User.findOne({ email: email });
-      if (user) return res.status(404).send(`User with email: ${email} already registered.`);
+      if (user) return res.status(400).send(`User with email: ${email} already registered.`);
 
       try {
         user = new User(_.pick(req.body, ['firstName', 'lastName', 'email', 'password', 'isAdmin']));
@@ -17,7 +17,7 @@ module.exports = {
         await user.save();
 
         const token = user.generateAuthToken();
-        res.header('x-auth-token', token).send(_.pick(user, ['_id', 'firstName', 'lastName', 'email', 'isAdmin']));
+        res.status(200).header('x-auth-token', token).send(_.pick(user, ['_id', 'firstName', 'lastName', 'email', 'isAdmin']));
       } catch (error) {
         res.send(error.message);
       }
