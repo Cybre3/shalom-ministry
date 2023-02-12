@@ -16,8 +16,8 @@ module.exports = {
   post: {
     createNewInvoice: async (req, res) => {
       const {
-        firstName,
-        lastName,
+        firstname,
+        lastname,
         email,
         phone,
         invoiceNumber,
@@ -31,8 +31,8 @@ module.exports = {
       } = validate(req.body).value;
 
       const newInvoice = new Invoice({
-        firstName,
-        lastName,
+        firstname,
+        lastname,
         email,
         phone,
         invoiceNumber,

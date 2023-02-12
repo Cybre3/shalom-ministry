@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const invoiceSchema = mongoose.Schema({
-  firstName: {
+  firstname: {
     type: String,
   },
-  lastName: {
+  lastname: {
     type: String,
   },
   email: {
@@ -53,8 +53,8 @@ const Invoice = mongoose.model('Invoice', invoiceSchema);
 
 function validateInvoice(input) {
   const schema = Joi.object({
-    firstName: Joi.string().required(),
-    lastName: Joi.string().required(),
+    firstname: Joi.string().required(),
+    lastname: Joi.string().required(),
     email: Joi.string().required(),
     phone: Joi.number().required(),
     invoiceNumber: Joi.number().required(),
@@ -66,7 +66,7 @@ function validateInvoice(input) {
     unitPrice: Joi.number().required(),
     amount: Joi.number().required(),
     balanceDue: Joi.number().required(),
-    comments: Joi.string().required().allow(''),
+    comments: Joi.string().allow(''),
   });
 
   return schema.validate(input);

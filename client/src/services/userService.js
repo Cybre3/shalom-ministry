@@ -4,8 +4,8 @@ const apiEnpoint = '/users';
 
 export function register(user) {
   http.post(apiEnpoint, {
-    firstName: user.firstName,
-    lastName: user.lastName,
+    firstname: user.firstname,
+    lastname: user.lastname,
     email: user.email,
     password: user.password,
     discover: user.discover,

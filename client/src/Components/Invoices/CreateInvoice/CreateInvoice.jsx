@@ -8,8 +8,8 @@ import './createInvoice.css';
 class CreateInvoice extends Form {
   state = {
     data: {
-      firstName: '',
-      lastName: '',
+      firstname: '',
+      lastname: '',
       email: '',
       phone: '',
       invoiceNumber: 1,
@@ -28,8 +28,8 @@ class CreateInvoice extends Form {
 
   schema = {
     _id: Joi.string(),
-    firstName: Joi.string().required().label('First Name'),
-    lastName: Joi.string().required().label('Last Name'),
+    firstname: Joi.string().required().label('First Name'),
+    lastname: Joi.string().required().label('Last Name'),
     email: Joi.string().email().required().label('Email'),
     phone: Joi.string().required().label('Phone'),
     invoiceNumber: Joi.number().required().label('Invoice Number'),
@@ -41,7 +41,7 @@ class CreateInvoice extends Form {
     total: Joi.number().required().label('Total'),
     paymentApplied: Joi.number().required().label('Payment Applied'),
     balanceDue: Joi.number().required().label('Balance Due'),
-    comments: Joi.string().required().label('Comments'),
+    comments: Joi.string().label('Comments').allow(''),
   };
 
   doSubmit = async () => {
@@ -49,7 +49,6 @@ class CreateInvoice extends Form {
     await saveInvoice(this.state.data);
 
     <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
-    console.log('Invoice Saved');
   };
 
   render() {
@@ -64,8 +63,8 @@ class CreateInvoice extends Form {
             <div className="bill-to">
               <h2>Bill to</h2>
               <div className="entries">
-                {this.renderInput('firstName', 'First Name')}
-                {this.renderInput('lastName', 'Last Name')}
+                {this.renderInput('firstname', 'First Name')}
+                {this.renderInput('lastname', 'Last Name')}
                 {this.renderInput('email', 'Email', 'email')}
                 {this.renderInput('phone', 'Phone', 'phone')}
               </div>

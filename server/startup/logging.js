@@ -26,10 +26,10 @@ module.exports = function (app) {
        db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.w9isi1e.mongodb.net/?retryWrites=true&w=majority`;
        break;
      case 'test':
-       db = 'mongodb://localhost/shalomMinistry_test';
+       db = 'mongodb://localhost/shalom-ministry_test';
        break;
      case 'development':
-       db = 'mongodb://localhost/shalomMinistry';
+       db = 'mongodb://localhost/shalom-ministry';
        break;
    }
   // Catching errors outside of express request
@@ -54,7 +54,7 @@ module.exports = function (app) {
         dbName: 'shalom-ministry',
         options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
-        collection: 'shalomMinistry_logs',
+        collection: 'shalom-ministry_logs',
         label: 'exception',
         handleExceptions: true,
       }),
@@ -79,7 +79,7 @@ module.exports = function (app) {
         dbName: 'shalom-ministry',
         options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
-        collection: 'shalomMinistry_logs',
+        collection: 'shalom-ministry_logs',
         label: 'rejection',
       }),
     ],
@@ -106,7 +106,7 @@ module.exports = function (app) {
         dbName: 'shalom-ministry',
         options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
-        collection: 'shalomMinistry_logs',
+        collection: 'shalom-ministry_logs',
         label: 'request',
       }),
     ],

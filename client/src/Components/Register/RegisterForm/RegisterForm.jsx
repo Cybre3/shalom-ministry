@@ -8,8 +8,8 @@ import { register } from './../../../services/userService';
 class RegisterForm extends Form {
   state = {
     data: {
-      firstName: '',
-      lastName: '',
+      firstname: '',
+      lastname: '',
       email: '',
       password: '',
       rePassword: '',
@@ -21,8 +21,8 @@ class RegisterForm extends Form {
 
   schema = {
     _id: Joi.string(),
-    firstName: Joi.string().required().label('First Name'),
-    lastName: Joi.string().required().label('Last Name'),
+    firstname: Joi.string().required().label('First Name'),
+    lastname: Joi.string().required().label('Last Name'),
     email: Joi.string().email().required().label('Email'),
     password: Joi.string().required().label('Password'),
     rePassword: Joi.ref('password'),
@@ -33,8 +33,7 @@ class RegisterForm extends Form {
   doSubmit = async () => {
     try {
       await register(this.state.data);
-
-      console.log('Regitered');
+      
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
@@ -50,8 +49,8 @@ class RegisterForm extends Form {
         <div className="content">
           <h1>Register</h1>
           <form onSubmit={this.handleSubmit}>
-            {this.renderCustomInput('firstName', 'First Name')}
-            {this.renderCustomInput('lastName', 'Last Name')}
+            {this.renderCustomInput('firstname', 'First Name')}
+            {this.renderCustomInput('lastname', 'Last Name')}
             {this.renderCustomInput('email', 'Email', 'email')}
             {this.renderCustomInput('password', 'Password', 'password')}
             {this.renderCustomInput('rePassword', 'Re-Password', 'password')}

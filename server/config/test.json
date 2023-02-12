@@ -1,5 +1,5 @@
 {
   "name": "Shalom Ministry - Development",
-  "db": "mongodb://localhost/shalomMinistry_test",
+  "db": "mongodb://localhost/shalom-ministry_test",
   "port": 6000
 }
