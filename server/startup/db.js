@@ -6,7 +6,6 @@ const debug = require('debug')('app:db');
 module.exports = function (app) {
   let db;
   const environment = app.get('env');
-  console.log(environment)
 
   switch (environment) {
     case 'production':
@@ -20,11 +19,13 @@ module.exports = function (app) {
       db = 'mongodb://localhost/shalomMinistry';
       break;
   }
-  console.log(db);
 
   mongoose.set('strictQuery', false);
   mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
-    winston.info(`Connected to ${db}...`);
-    debug(`Connected to ${db}...`);
+    if (environment === 'production') winston.info(`Connected to monogoDB...`);
+    else {
+      winston.info(`Connected to ${db}...`);
+      debug(`Connected to ${db}...`);
+    }
   });
 };

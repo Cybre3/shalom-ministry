@@ -66,7 +66,7 @@ function validateInvoice(input) {
     unitPrice: Joi.number().required(),
     amount: Joi.number().required(),
     balanceDue: Joi.number().required(),
-    comments: Joi.string().required(),
+    comments: Joi.string().required().allow(''),
   });
 
   return schema.validate(input);

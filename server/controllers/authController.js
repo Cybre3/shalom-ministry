@@ -2,6 +2,13 @@ const bcrypt = require('bcrypt');
 const { User } = require('../models/userModel');
 
 module.exports = {
+  get: {
+    allUsers: async (req, res) => {
+      let users = await User.find({});
+
+      res.status(200).send(users);
+    }
+  },
   post: {
     authenticateUser: async (req, res) => {
       const { email, password } = req.body;
