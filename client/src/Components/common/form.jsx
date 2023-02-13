@@ -57,7 +57,7 @@ class Form extends Component {
     );
   };
 
-  renderInput = (name, label, type = 'text') => {
+  renderInput = (name, label, type = 'text', value, disabled = false) => {
     const { errors } = this.state;
 
     return (
@@ -65,13 +65,15 @@ class Form extends Component {
         type={type}
         name={name}
         label={label}
+        value={value}
+        disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
       />
     );
   };
 
-  renderCustomInput = (name, label, type = 'text') => {
+  renderCustomInput = (name, label, type = 'text', value, disabled = false) => {
     const { errors } = this.state;
 
     return (
@@ -79,6 +81,8 @@ class Form extends Component {
         type={type}
         name={name}
         label={label}
+        value={value}
+        disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
       />

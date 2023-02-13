@@ -41,8 +41,8 @@ class Invoices extends Component {
       <div className="invoices-table">
         <div>ListGroup</div>
         <div>
-          {user && <Link to="/invoices/create-new-invoice">New Invoice</Link>}
-          <p>Showing {totalCount} invoices in the database.</p>
+          {user && <Link className='new-invoice-link' to="/invoices/create-new-invoice">Create New Invoice</Link>}
+          <p className='invoice-db-count'>Showing {totalCount} invoices in the database.</p>
           <InvoicesTable
             invoices={invoices}
             sortColumn={sortColumn}

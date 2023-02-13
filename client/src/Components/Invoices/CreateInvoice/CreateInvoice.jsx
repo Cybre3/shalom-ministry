@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 import Form from '../../common/form';
 import Joi from 'joi-browser';
 import { saveInvoice } from '../../../services/invoiceService';
@@ -44,9 +44,16 @@ class CreateInvoice extends Form {
     comments: Joi.string().label('Comments').allow(''),
   };
 
+/*   incrementInvoiceNumber = () => {
+    const data = { ...this.state.data };
+    data.invoiceNumber++;
+    this.setState({ data });
+  }; */
+
   doSubmit = async () => {
     // Call from server
     await saveInvoice(this.state.data);
+    // this.incrementInvoiceNumber();
 
     <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
   };
@@ -56,6 +63,7 @@ class CreateInvoice extends Form {
       <div className="invoice-container">
         <div className="logo">
           <img src={require('../../../assets/SM-Logo-w-Title.png')} alt="" />
+          <NavLink to='/invoices'>View Invoices</NavLink>
           <h1>sales receipt</h1>
         </div>
         <form onSubmit={this.handleSubmit}>
@@ -75,7 +83,7 @@ class CreateInvoice extends Form {
                 <h2>date</h2>
               </div>
               <div className="entries no-border">
-                {this.renderInput('invoiceNumber', '')}
+                {this.renderInput('invoiceNumber', '', '', '')}
                 {this.renderInput('currentDate', '', 'date')}
               </div>
             </div>

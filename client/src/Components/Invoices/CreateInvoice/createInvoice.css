@@ -14,8 +14,17 @@
 }
 
 .invoice-container .logo {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+.invoice-container .logo a {
+  color: black;
+  font-size: 2rem;
+  margin-top: 3rem;
+  margin-left: 8rem;
+  text-decoration: none;
 }
 
 .invoice-container img {
@@ -43,6 +52,9 @@ form .title {
 .invoice-container form .title {
   display: flex;
   justify-content: space-around;
+}
+
+.title {
   width: 32vw;
 }
 

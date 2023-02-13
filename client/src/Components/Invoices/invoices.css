@@ -55,3 +55,15 @@ tr {
 .clickable {
   cursor: pointer;
 }
+
+.invoices-table .new-invoice-link {
+  color: black;
+  font-size: 1.5rem;
+  margin-left: 6rem;
+  text-decoration: none;
+}
+
+.invoices-table .invoice-db-count {
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
