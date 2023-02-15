@@ -51,7 +51,7 @@ module.exports = function (app) {
       new transports.File({ filename: 'logs/exceptions.log', handleExceptions: true }),
       new transports.MongoDB({
         db: db,
-        dbName: 'shalom-ministry-website',
+        dbName: 'shalom-ministry',
         options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
         collection: 'shalom-ministry_logs',
@@ -76,7 +76,7 @@ module.exports = function (app) {
       new transports.File({ filename: 'logs/rejections.log' }),
       new transports.MongoDB({
         db: db,
-        dbName: 'shalom-ministry-website',
+        dbName: 'shalom-ministry',
         options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
         collection: 'shalom-ministry_logs',
@@ -103,7 +103,7 @@ module.exports = function (app) {
       }),
       new transports.MongoDB({
         db: db,
-        dbName: 'shalom-ministry-website',
+        dbName: 'shalom-ministry',
         options: { useUnifiedTopology: true, useNewUrlParser: true },
         storeHost: true,
         collection: 'shalom-ministry_logs',
