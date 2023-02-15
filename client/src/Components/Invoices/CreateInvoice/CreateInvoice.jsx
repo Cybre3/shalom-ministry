@@ -54,6 +54,7 @@ class CreateInvoice extends Form {
     // Call from server
     await saveInvoice(this.state.data);
     // this.incrementInvoiceNumber();
+    
 
     <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
   };

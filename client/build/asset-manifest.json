@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8d291793.css",
+    "main.js": "/static/js/main.b7762fea.js",
+    "static/media/Tonya.jpeg": "/static/media/Tonya.1582c3aff9108549049b.jpeg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/Doris.jpg": "/static/media/Doris.601a2f44be71d6a6f04d.jpg",
+    "static/media/SM-Logo-w-Title.png": "/static/media/SM-Logo-w-Title.5a1ae393c6492274a5f3.png",
+    "static/media/SM-Logo.png": "/static/media/SM-Logo.31e8eb5304559ea7d617.png",
+    "static/media/Maya.webp": "/static/media/Maya.017437e1877ea1578586.webp",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/Rebeka.JPG": "/static/media/Rebeka.a327bd933f699c905393.JPG",
+    "static/media/Zecheriah.jpg": "/static/media/Zecheriah.c0ae97e871b583a1096a.jpg",
+    "static/media/tree_of_life_sunset.jfif": "/static/media/tree_of_life_sunset.66858e6d77b1d2952cff.jfif",
+    "index.html": "/index.html",
+    "main.8d291793.css.map": "/static/css/main.8d291793.css.map",
+    "main.b7762fea.js.map": "/static/js/main.b7762fea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d291793.css",
+    "static/js/main.b7762fea.js"
+  ]
+}

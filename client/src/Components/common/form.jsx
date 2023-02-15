@@ -36,6 +36,7 @@ class Form extends Component {
     if (errors) return;
 
     this.doSubmit();
+    e.target.reset();
   };
 
   handleChange = ({ currentTarget: input }) => {
