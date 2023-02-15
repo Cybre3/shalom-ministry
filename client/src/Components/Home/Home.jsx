@@ -8,6 +8,7 @@ class Home extends Component {
      <div className='home'>
       <NavLink to='/invoices'>View Invoices</NavLink>
       <NavLink to='/invoices/create-new-invoice'>Create Invoice</NavLink>
+      <NavLink to='/CWATregister'>Conference with a twist registration</NavLink>
      </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './input';
 import CustomInput from './customInput';
+import Dropdown from './dropdown';
 import Textarea from './textarea';
 import Joi from 'joi-browser';
 
@@ -99,6 +100,21 @@ class Form extends Component {
         label={label}
         error={errors[name]}
         onChange={this.handleChange}
+      />
+    );
+  };
+
+  renderDropdown = (name, label, options) => {
+    const { data, errors } = this.state;
+
+    return (
+      <Dropdown
+        name={name}
+        value={data[name]}
+        label={label}
+        options={options}
+        onChange={this.handleChange}
+        error={errors[name]}
       />
     );
   };

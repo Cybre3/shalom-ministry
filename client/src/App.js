@@ -9,6 +9,7 @@ import Contactus from './Components/ContactUs/Contactus';
 import './App.css';
 import CreateInvoice from './Components/Invoices/CreateInvoice/CreateInvoice';
 import Invoices from './Components/Invoices/Invoices';
+import CWATregister from './Components/Register/CWATregister/CWATregister';
 
 class App extends Component {
   // state = {};
@@ -24,6 +25,7 @@ class App extends Component {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/CWATregister" element={<CWATregister />} />
               <Route path="/contact-us" element={<Contactus />} />
 
               <Route exact path="/invoices" element={<Invoices />}></Route>

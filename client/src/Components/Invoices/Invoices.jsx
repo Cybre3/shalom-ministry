@@ -50,7 +50,7 @@ class Invoices extends Component {
             onSort={this.handleSort}
           />
         </div>
-      </div>
+      </div> 
     );
   }
 }
