@@ -83,7 +83,7 @@ class CreateInvoice extends Form {
                 <h2>date</h2>
               </div>
               <div className="entries no-border">
-                {this.renderInput('invoiceNumber', '', '', '')}
+                {this.renderInput('invoiceNumber', '', '')}
                 {this.renderInput('currentDate', '', 'date')}
               </div>
             </div>
