@@ -26,7 +26,7 @@ function Nav() {
           Register
         </NavLink>
       </div>
-      {/* <div className="page-links">
+      <div className="page-links">
         <NavLink to="/" className="nav-link no-arrow">
           Home
         </NavLink>
@@ -45,7 +45,7 @@ function Nav() {
         <NavLink to="/serve" className="nav-link">
           Serve
         </NavLink>
-      </div> */}
+      </div>
     </div>
   );
 };
