@@ -10,7 +10,7 @@ module.exports = function (app) {
   switch (environment) {
     case 'production':
       const { dbName, host, pass, user } = config.get('db');
-      db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.w9isi1e.mongodb.net/shalom-ministry?retryWrites=true&w=majority`;
+      db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.gg9r8ag.mongodb.net/shalom-ministry?retryWrites=true&w=majority`;
       break;
     case 'test':
       db = 'mongodb://localhost/shalom-ministry_test';
