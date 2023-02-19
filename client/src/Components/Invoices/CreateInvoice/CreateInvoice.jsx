@@ -52,7 +52,8 @@ class CreateInvoice extends Form {
 
   doSubmit = async () => {
     // Call from server
-    await saveInvoice(this.state.data);
+      await saveInvoice(this.state.data);
+    
     // this.incrementInvoiceNumber();
     
 

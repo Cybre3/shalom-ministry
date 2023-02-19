@@ -35,7 +35,7 @@ class Form extends Component {
     this.setState({ errors: errors || {} });
     if (errors) return;
 
-    this.doSubmit();
+    this.doSubmit();    
     e.target.reset();
   };
 

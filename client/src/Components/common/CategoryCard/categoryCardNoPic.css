@@ -1,0 +1,11 @@
+.category-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 40vh;
+  width: 14vw;
+}
+
+.category-card > h2 {
+  letter-spacing: 0.05rem;
+  margin-top: 4rem;
+  text-transform: uppercase;
+}
