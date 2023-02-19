@@ -43,7 +43,15 @@ function Nav() {
         </NavLink>
       </div>
       <div className="nav-login-register">
-        <NavLink className="nav-link" to="/login" />
+        <NavLink className="nav-link" to="/login">{' '}</NavLink>
+        <div className="login-register-dropdown">
+          <NavLink className="no-bg" to="/login">
+            Login
+          </NavLink>
+          <NavLink className="no-bg" to="/register">
+            Register
+          </NavLink>
+        </div>
       </div>
     </div>
   );

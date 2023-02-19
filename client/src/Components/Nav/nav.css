@@ -76,11 +76,9 @@ html:not([data-scroll='2rem']) .navbar {
 }
 
 .nav-login-register {
-  align-self: center;
   display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 0 2vw 0 0;
+  position: relative;
+  margin: 0 5vw 0 0;
 }
 
 .nav-login-register a {
@@ -90,6 +88,33 @@ html:not([data-scroll='2rem']) .navbar {
   height: 5vh;
   margin: auto;
   width: 2.5vw;
+}
+
+.login-register-dropdown {
+  background-color: rgb(231, 231, 231);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+  position: absolute;
+  margin-top: 3.2rem;
+  min-width: 6vw;
+  text-align: center;
+  z-index: 1;
+}
+
+.login-register-dropdown > a {
+  color: black;
+  display: block;
+  padding: 0.3vh 2vw;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.login-register-dropdown a:hover {
+  background-color: rgb(211, 184, 255);
+}
+
+.nav-login-register:hover .login-register-dropdown {
+  display: block;
 }
 
 .page-links {
@@ -127,4 +152,8 @@ html:not([data-scroll='2rem']) .navbar {
 
 .no-arrow::after {
   content: none !important;
+}
+
+.no-bg {
+  background-image: none !important;
 }
