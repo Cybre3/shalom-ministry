@@ -1,0 +1,36 @@
+.mission-statement-container {
+  background: linear-gradient(white 30%, rgb(197, 215, 231) 65%, rgb(194, 185, 244) 90%);
+  border: 0.1rem solid rgb(116, 116, 116);
+  margin: 70vh auto;
+  width: 60vw;
+}
+
+.mission-statement {
+  border-right: 6vw solid transparent;
+  border-left: 6vw solid transparent;
+  border-image: linear-gradient(rgba(91, 65, 236, 0.325) 0, rgba(152, 219, 239, 0.793) 45%, transparent 75%);
+  border-image-slice: 1;
+  box-sizing: border-box;
+  color: rgb(67, 2, 105);
+  display: inline-block;
+  font-family: 'Sansita', sans-serif;
+  font-size: 1rem;
+  line-height: 2rem;
+  padding: 2vh 6vw 6vh;
+  text-align: justify;
+  width: 60vw;
+}
+
+.about-logo {
+  display: flex;
+  margin: 0 auto;
+  width: 10vw;
+}
+
+.mission-heading {
+  color: rgb(67, 2, 105);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  text-align: center;
+}

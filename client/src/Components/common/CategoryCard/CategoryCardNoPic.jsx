@@ -4,9 +4,8 @@ import './categoryCardNoPic.css';
 
 class CategoryCardNoPic extends Card {
   render() {
-    const divImage = `url(${this.props.bgImage})`;
     return (
-      <div className="category-card" style={{ backgroundImage: { divImage } }}>
+      <div className="category-card" id={this.props.id}>
         {this.renderCategory(this.props.title)}
       </div>
     );

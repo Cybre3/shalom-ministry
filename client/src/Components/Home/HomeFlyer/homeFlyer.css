@@ -2,9 +2,12 @@
   background: url('../../../assets/Home/SM-Logo-Watermark.png') center center;
   background-position: center;
   background-size: 50%;
+  border: 0.1rem solid black;
+  border-left: none;
+  border-right: none;
   display: flex;
   height: 50vh;
-  margin-top: 125px;
+  margin-top: 15vh;
   position: relative;
   width: 100%;
 }
