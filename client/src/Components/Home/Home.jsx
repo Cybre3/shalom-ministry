@@ -24,8 +24,6 @@ class Home extends Component {
 export default Home;
 /* 
 <div className='home'>
-      <NavLink to='/invoices'>View Invoices</NavLink>
-      <NavLink to='/invoices/create-new-invoice'>Create Invoice</NavLink>
-      <NavLink to='/CWATregister'>Conference with a twist registration</NavLink>
+      
      </div>
 */

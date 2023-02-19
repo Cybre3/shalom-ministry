@@ -16,7 +16,7 @@ function HomeFlyer(props) {
         </div>
 
         <h2 className="event-title">
-          CONfERENCE WiTH A TwiST: <br /> MOViN'4WARd
+          CONfERENCE WiTH A TWiST: <br /> MOViN'4WARd
         </h2>
 
         <div className="description">
@@ -43,7 +43,7 @@ function HomeFlyer(props) {
             <p className="detail">$500 lodging & meals included</p>
           </div>
         </div>
-        <NavLink to="/">Payment plan Available!</NavLink>
+        <NavLink to="/CWATregister">Payment plan Available!</NavLink>
       </div>
     </div>
   );

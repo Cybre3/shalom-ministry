@@ -157,3 +157,9 @@ html:not([data-scroll='2rem']) .navbar {
 .no-bg {
   background-image: none !important;
 }
+
+.invoices-links {
+  position: absolute;
+  right: 10rem;
+  bottom: 2rem;
+}
