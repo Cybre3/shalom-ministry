@@ -19,7 +19,7 @@ class App extends Component {
       <>
         <main className="container">
           <BrowserRouter>
-            {/* <Nav /> */}
+            <Nav />
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />

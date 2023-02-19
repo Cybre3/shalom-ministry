@@ -5,25 +5,21 @@ import './nav.css';
 
 function Nav() {
   const location = useLocation();
-  if(['/login', '/register', '/invoices', '/invoices/create-new-invoice', '/CWATregister'].includes(location.pathname)) return <></>
+  if (
+    ['/login', '/register', '/invoices', '/invoices/create-new-invoice', '/CWATregister'].includes(
+      location.pathname
+    )
+  )
+    return <></>;
   return (
     <div className="navbar">
       <div className="nav-ministry-logo-name">
         <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
-        <NavLink className="nav-ministry-name" to='/'>
+        <NavLink className="nav-ministry-name" to="/">
           <span>
             SHALOM MiNiSTR<span className="y">y</span>
           </span>
           <span className="nav-ministry-slogan">Movin' 4ward</span>
-        </NavLink>
-      </div>
-      <div className="nav-login-register">
-        <NavLink className="nav-link" to="/login">
-          Login
-        </NavLink>
-        <span className="nav-link">or</span>
-        <NavLink className="nav-link" to="/register">
-          Register
         </NavLink>
       </div>
       <div className="page-links">
@@ -46,8 +42,11 @@ function Nav() {
           Serve
         </NavLink>
       </div>
+      <div className="nav-login-register">
+        <NavLink className="nav-link" to="/login" />
+      </div>
     </div>
   );
-};
+}
 
 export default Nav;
