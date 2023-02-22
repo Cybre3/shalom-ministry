@@ -19,14 +19,14 @@ function HomeFlyer(props) {
           CONfERENCE WiTH A TWiST: <br /> MOViN'4WARd
         </h2>
 
-        <div className="description">
+    {/*     <div className="description">
           <p>
             Ladies, join us for 4 days & 3 nights to ignite a new spark in your faith through
             memorable experiences including dynamic speakers, break-out sessions. delectable dining,
             beach fun, relaxation, prayer walks and much, much more!
           </p>
         </div>
-
+ */}
         <div className="location-details">
           <div className="conference-detail">
             <h3 className="label">where:</h3>

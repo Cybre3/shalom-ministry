@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Form from '../../common/form';
 import Joi from 'joi-browser';
 import { saveInvoice } from '../../../services/invoiceService';
@@ -44,7 +45,7 @@ class CreateInvoice extends Form {
     comments: Joi.string().label('Comments').allow(''),
   };
 
-/*   incrementInvoiceNumber = () => {
+  /*   incrementInvoiceNumber = () => {
     const data = { ...this.state.data };
     data.invoiceNumber++;
     this.setState({ data });
@@ -52,10 +53,10 @@ class CreateInvoice extends Form {
 
   doSubmit = async () => {
     // Call from server
-      await saveInvoice(this.state.data);
-    
+    await saveInvoice(this.state.data);
+    toast.success('Invoiced Saved');
+
     // this.incrementInvoiceNumber();
-    
 
     <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
   };
@@ -64,8 +65,10 @@ class CreateInvoice extends Form {
     return (
       <div className="invoice-container">
         <div className="logo">
-          <img src={require('../../../assets/SM-Logo-w-Title.png')} alt="" />
-          <NavLink to='/invoices'>View Invoices</NavLink>
+          <NavLink to="/">
+            <img src={require('../../../assets/SM-Logo-w-Title.png')} alt="" />
+          </NavLink>
+          <NavLink to="/invoices">View Invoices</NavLink>
           <h1>sales receipt</h1>
         </div>
         <form onSubmit={this.handleSubmit}>

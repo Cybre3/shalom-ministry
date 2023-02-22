@@ -19,6 +19,7 @@
 // AFTER THOUGHT 
 // Dashboard
 // CWAT personal checklist
+// Optimize for mobile view
 
 // FOR ADMIN 
 // view invoices - view each invoices - edit/delete
@@ -31,3 +32,8 @@
 // view payments / donations
 // view involvment
 // notifications
+
+// PRIORITY
+// create bare bones for give page - reference design - users and sponsors 
+// adding payment plan to CWAT form
+

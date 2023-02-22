@@ -1,8 +1,7 @@
 .home-flyer {
-  background: url('../../../assets/Home/SM-Logo-Watermark.png') center center;
-  background-position: center;
   background-size: 50%;
-  border: 0.1rem solid black;
+  /* border: 0.1rem solid black; */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-left: none;
   border-right: none;
   display: flex;
@@ -22,6 +21,9 @@
 }
 
 .home-flyer-description {
+  background: linear-gradient(45deg, #ceccf2, 30%, #b3ecec, 80%, white);
+  background-repeat: no-repeat;
+  background-position: center;
   padding-top: 1.5rem;
   position: relative;
   text-align: center;
@@ -29,15 +31,15 @@
 }
 
 .home-flyer-description .ministry-name {
-  line-height: 0.5rem;
+  line-height: 1rem;
 }
 
-.home-flyer-description .ministry-title {
+.home-flyer-description .ministry-title, .home-flyer-description .event-title {
   margin-bottom: 1rem;
 }
 
 .home-flyer-description .event-title {
-  line-height: 1.8rem;  
+  line-height: 1.8rem;
 }
 
 .home-flyer-description .subtitle {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllInvoices } from '../../services/invoiceService';
+import { toast } from 'react-toastify';
+import { getAllInvoices, deleteInvoice } from '../../services/invoiceService';
 import InvoicesTable from './InvoicesTable';
 import './invoices.css';
 
@@ -13,23 +14,34 @@ class Invoices extends Component {
   async componentDidMount() {
     const { data: invoices } = await getAllInvoices();
 
-    this.setState({invoices});
+    this.setState({ invoices });
   }
 
   handleSort = () => {
     console.log('working');
-  }
+  };
 
-  handleDelete = () => {
-    console.log('deleted');
-  }
+  handleDelete = async (invoice) => {
+    const originalInvoices = this.state.invoices;
+    const invoices = originalInvoices.filter((inv) => inv._id !== invoice._id);
+    this.setState({ invoices });
+
+    try {
+      await deleteInvoice(invoice._id);
+      toast.success(`Invoice ${invoice.invoiceNumber} deleted!`);
+    } catch (error) {
+      if (error.response && error.response.status === 404)
+        toast.error('This invoice has already been deleted.');
+
+      this.setState({ invoices });
+    }
+  };
 
   getPageData = () => {
     const { invoices: allInvoices } = this.state;
 
     return { totalCount: allInvoices.length, data: allInvoices };
   };
-
 
   render() {
     const { sortColumn } = this.state;
@@ -41,8 +53,12 @@ class Invoices extends Component {
       <div className="invoices-table">
         <div>ListGroup</div>
         <div>
-          {user && <Link className='new-invoice-link' to="/invoices/create-new-invoice">Create New Invoice</Link>}
-          <p className='invoice-db-count'>Showing {totalCount} invoices in the database.</p>
+          {user && (
+            <Link className="new-invoice-link" to="/invoices/create-new-invoice">
+              Create New Invoice
+            </Link>
+          )}
+          <p className="invoice-db-count">Showing {totalCount} invoices in the database.</p>
           <InvoicesTable
             invoices={invoices}
             sortColumn={sortColumn}
@@ -50,7 +66,7 @@ class Invoices extends Component {
             onSort={this.handleSort}
           />
         </div>
-      </div> 
+      </div>
     );
   }
 }

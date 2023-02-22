@@ -1,10 +1,10 @@
 .category-card {
   background-color: rgba(0, 0, 0, 0.5);
-  border: 0.1rem solid black;
+  /* border: 0.1rem solid black; */
   box-sizing: border-box;
   height: 40vh;
   position: relative;
-  width: 14vw;
+  width: 13vw;
   z-index: 1;
 }
 
@@ -14,73 +14,10 @@
 }
 
 .category-card::after {
-  background: url('../../../assets/borderGoldRustic.png') center center;
-  background-size: cover;
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-#events::before {
-  background: url('../../../assets/calendarPurple.png') center center;
+  background: url('../../../assets/borderGoldDouble.png') center center;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 90%;
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-#give {
-  background: url('../../../assets/shine.png') center center;
-  background-size: cover;
-}
-
-#give::before {
-  background: url('../../../assets/handshakeDrawing.png') center center;
-  background-repeat: no-repeat;
-  background-position: center 20vh;
-  background-size: 90%;
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-#getInvolved::before {
-  background: url('../../../assets/workingCogsStickFigures.png') center center;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 90%;
-  bottom: 0;
-  content: '';
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-#testimonies {
-  background: url('../../../assets/clouds.png') center center;
-  background-size: cover;
-}
-
-#testimonies::before {
-  background: url('../../../assets/mountainSide.png') center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;
   bottom: 0;
   content: '';
   left: 0;
@@ -93,5 +30,6 @@
 .category-card > h2 {
   letter-spacing: 0.05rem;
   margin-top: 4rem;
+  text-shadow: 2px 2px 2px white;
   text-transform: uppercase;
 }

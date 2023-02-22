@@ -31,11 +31,12 @@ class InvoicesTable extends Component {
     ),
   };
 
-  /*   constructor() {
+    constructor() {
       super();
-      const user = auth.getCurrentUser();
-      if (user && user.authorizedToDelete) this.columns.push(this.deleteColumn);
-    } */
+      // const user = auth.getCurrentUser();
+      // if (user && user.authorizedToDelete) this.columns.push(this.deleteColumn);
+      this.columns.push(this.deleteColumn)
+    }
 
   render() {
     const { invoices, onSort, sortColumn } = this.props;

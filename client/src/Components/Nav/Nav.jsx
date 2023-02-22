@@ -14,12 +14,12 @@ function Nav() {
   return (
     <div className="navbar">
       <div className="nav-ministry-logo-name">
-        <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
         <NavLink className="nav-ministry-name" to="/">
-          <span>
+        <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
+          {/* <span>
             SHALOM MiNiSTR<span className="y">y</span>
           </span>
-          <span className="nav-ministry-slogan">Movin' 4ward</span>
+          <span className="nav-ministry-slogan">Movin' 4ward</span> */}
         </NavLink>
       </div>
       <div className="page-links">
@@ -37,9 +37,6 @@ function Nav() {
         </NavLink>
         <NavLink to="/contact-us" className="nav-link no-arrow">
           Contact Us
-        </NavLink>
-        <NavLink to="/serve" className="nav-link">
-          Serve
         </NavLink>
       </div>
       <div className="invoices-links">
