@@ -1,5 +1,6 @@
 {
-  "name": "Shalom Ministry - Development",
+  "name": "Shalom Ministry - Test",
   "db": "mongodb://localhost/shalom-ministry_test",
-  "port": 6000
+  "port": 6000,
+  "env": "test"
 }

@@ -9,6 +9,7 @@ const { colorize, prettyPrint, label, combine, printf } = format;
 const errors = require('../middleware/errorMiddleware');
 const invoiceRouter = require('../routes/invoiceRoute');
 const userRouter = require('../routes/userRoute');
+const cwatRouter = require('../routes/cwatRegistrarRoute');
 const authRouter = require('../routes/authRoute');
 
 const myFormat = printf(({ level, message }) => {
@@ -32,6 +33,7 @@ module.exports = function (app) {
 
   app.use('/invoices', invoiceRouter);
   app.use('/users', userRouter);
+  app.use('/users/cwat-register', cwatRouter);
   app.use('/auth', authRouter);
   app.use(errors);
 };

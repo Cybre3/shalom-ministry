@@ -1,6 +1,7 @@
 const makeAllRequired = require('../utilities/makeAllRequired');
 const mongoose = require('mongoose');
 const Joi = require('joi');
+const JoiPhone = Joi.extend(require('joi-phone-number'));
 
 const invoiceSchema = mongoose.Schema({
   firstname: {
@@ -56,7 +57,7 @@ function validateInvoice(input) {
     firstname: Joi.string().required(),
     lastname: Joi.string().required(),
     email: Joi.string().required(),
-    phone: Joi.number().required(),
+    phone: JoiPhone.string().phoneNumber().required(),
     invoiceNumber: Joi.number().required(),
     currentDate: Joi.date().required(),
     total: Joi.number().required(),

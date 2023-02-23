@@ -6,5 +6,6 @@
     "pass": "DB_PASS",
     "user": "DB_USER"
   },
-  "jwtPrivateKey": "privateKey"
+  "jwtPrivateKey": "privateKey",
+  "env": "production"
 }

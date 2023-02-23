@@ -1,5 +1,4 @@
 const config = require('config');
-const morgan = require('morgan');
 const winston = require('winston');
 const { format, transports } = winston;
 const { combine, label, prettyPrint, colorize, timestamp, printf, metadata } = format;
@@ -8,13 +7,13 @@ require('express-async-errors');
 
 const myDefaultFormat = printf(({ level, message, label, timestamp }) => {
   const [errorMessage, ...stack] = message.split('\n');
-  return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${errorMessage}\nstack${stack.join(
+  return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${errorMessage}\nstack: ${stack.join(
     '\n'
   )}\n--- ${label} ${level} ---\n`;
 });
 
 const myReqFormat = printf(({ level, message, label, timestamp, metadata }) => {
-  return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${message}\nstack${metadata}\n--- ${label} ${level} ---\n`;
+  return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${message}\nstack: ${metadata}\n--- ${label} ${level} ---\n`;
 });
 
 module.exports = function (app) {
@@ -23,7 +22,7 @@ module.exports = function (app) {
    switch (environment) {
      case 'production':
        const { dbName, host, pass, user } = config.get('db');
-       db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.gg9r8ag.mongodb.net/?retryWrites=true&w=majority`;
+       db = `${host}://${process.env[user]}:${process.env[pass]}@${dbName}.gg9r8ag.mongodb.net/shalom-ministry?retryWrites=true&w=majority`;
        break;
      case 'test':
        db = 'mongodb://localhost/shalom-ministry_test';
@@ -52,7 +51,7 @@ module.exports = function (app) {
       new transports.MongoDB({
         db: db,
         dbName: 'shalom-ministry',
-        options: { useUnifiedTopology: true, useNewUrlParser: true },
+        options: { useUnifiedTopology: true },
         storeHost: true,
         collection: 'shalom-ministry_logs',
         label: 'exception',
@@ -77,7 +76,7 @@ module.exports = function (app) {
       new transports.MongoDB({
         db: db,
         dbName: 'shalom-ministry',
-        options: { useUnifiedTopology: true, useNewUrlParser: true },
+        options: { useUnifiedTopology: true },
         storeHost: true,
         collection: 'shalom-ministry_logs',
         label: 'rejection',
@@ -104,7 +103,7 @@ module.exports = function (app) {
       new transports.MongoDB({
         db: db,
         dbName: 'shalom-ministry',
-        options: { useUnifiedTopology: true, useNewUrlParser: true },
+        options: { useUnifiedTopology: true },
         storeHost: true,
         collection: 'shalom-ministry_logs',
         label: 'request',
