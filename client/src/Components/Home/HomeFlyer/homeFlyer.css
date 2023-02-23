@@ -86,6 +86,10 @@
   z-index: 2;
 }
 
+.home-flyer-description a i {
+  font-size: 0.75rem;
+}
+
 .home-flyer:hover ~ .home-category-cards {
   margin-top: 0;
   transition: 1s;

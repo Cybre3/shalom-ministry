@@ -1,13 +1,7 @@
 .navbar {
-  /* background-color: black; */
-  /* border-radius: 5%; */
-  /* border-bottom: 12px solid blue; */
-
   display: flex;
   justify-content: space-between;
-  /* margin: 1rem; */
   padding: 0.3rem 0 0.5rem;
-  /* position: fixed; */
   width: 100%;
   z-index: 5;
 }
@@ -18,24 +12,8 @@ html:not([data-scroll='2rem']) .navbar {
   position: fixed;
   top: 0;
   z-index: 5;
-
-  /* This box-shadow will help sell the floating effect */
 }
 
-/* .back-text {
-  background: -webkit-linear-gradient(rgba(217, 136, 251, 0.644), rgb(80, 135, 237));
-  font-size: 20px;
-  justify-content: space-evenly;
-  letter-spacing: 0.1em;
-  margin: 60px 0 0 0;
-  opacity: 0.5;
-  position: absolute;
-  text-align: justify;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  width: 180px;
-  z-index: -1;
-} */
 
 .nav-ministry-logo-name {
   display: flex;
@@ -97,7 +75,6 @@ html:not([data-scroll='2rem']) .navbar {
 
 .login-register-dropdown a {
   color: black;
-  /* display: block; */
   display: flex;
   height: fit-content;
   font-size: 0.8rem;
@@ -115,14 +92,11 @@ html:not([data-scroll='2rem']) .navbar {
 }
 
 .page-links {
-  align-self: flex-start;
-  /* background-color: blue; */
+  align-self: center;
   color: black;
   display: flex;
   font-size: 0.9rem;
-  /* justify-content: space-between; */
-  margin: 20px 0 0 0;
-  /* padding-left: 100px; */
+  margin: 0 0 0 0;
   padding-right: 30px;
 }
 
@@ -133,18 +107,14 @@ html:not([data-scroll='2rem']) .navbar {
   text-decoration: none;
 }
 
-.page-links:last-child {
-  /* padding-right: 100px; */
-}
-
-/* .page-links .nav-link::after {
+.page-links .nav-link::after {
   content: '\25b6';
   display: inline-block;
   font-size: 12px;
   margin-left: 5px;
   transform: rotate(90deg);
   vertical-align: middle;
-} */
+}
 
 .no-arrow::after {
   content: none !important;

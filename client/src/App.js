@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Nav from './Components/Nav/Nav';
 import Home from './Components/Home/Home';
 import AboutUs from './Components/AboutUs/AboutUs';
@@ -8,10 +9,9 @@ import Register from './Components/Register/Register';
 import Contactus from './Components/ContactUs/Contactus';
 import CreateInvoice from './Components/Invoices/CreateInvoice/CreateInvoice';
 import Invoices from './Components/Invoices/Invoices';
-import CWATregister from './Components/Register/CWATregister/CWATregister';
+import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-import { ToastContainer } from 'react-toastify';
 
 class App extends Component {
   // state = {};

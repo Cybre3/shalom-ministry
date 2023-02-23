@@ -6,7 +6,7 @@ import './nav.css';
 function Nav() {
   const location = useLocation();
   if (
-    ['/login', '/register', '/invoices', '/invoices/create-new-invoice', '/CWATregister'].includes(
+    ['/login', '/register', '/invoices', '/invoices/create-new-invoice'].includes(
       location.pathname
     )
   )
