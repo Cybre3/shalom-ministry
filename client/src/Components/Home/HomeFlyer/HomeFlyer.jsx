@@ -10,40 +10,12 @@ function HomeFlyer(props) {
         <img src={CWATphoto} alt="CWATphoto" />
       </div>
       <div className="home-flyer-description">
-        <div className="ministry-title">
-          <h2 className="ministry-name">SHALOM MiNiSTRY</h2>
-          <h5 className="subtitle">presents our first annual</h5>
-        </div>
-
-        <h2 className="event-title">
-          CONfERENCE WiTH A TWiST: <br /> MOViN'4WARd
-        </h2>
-
-        {/*     <div className="description">
-          <p>
-            Ladies, join us for 4 days & 3 nights to ignite a new spark in your faith through
-            memorable experiences including dynamic speakers, break-out sessions. delectable dining,
-            beach fun, relaxation, prayer walks and much, much more!
-          </p>
-        </div>
- */}
-        <div className="location-details">
-          <div className="conference-detail">
-            <h3 className="label">where:</h3>
-            <p className="detail">Destin FL. 32540</p>
-          </div>
-          <div className="conference-detail">
-            <h3 className="label">when:</h3>
-            <p className="detail">Oct 19-22, 2023</p>
-          </div>
-          <div className="conference-detail">
-            <h3 className="label">cost:</h3>
-            <p className="detail">$500 lodging & meals included</p>
-          </div>
-        </div>
-        <NavLink to="/CWATregister">
+        <NavLink className='register-now' to="/CWATregister">
           Register Now! <br /> <i>Payment plan available</i>
         </NavLink>
+        <div className="home-outer-spin-circle">
+          <div className="home-inner-spin-circle"></div>
+        </div>
       </div>
     </div>
   );

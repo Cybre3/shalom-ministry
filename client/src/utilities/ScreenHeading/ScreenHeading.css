@@ -1,0 +1,49 @@
+.heading-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 50px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.screen-sub-heading {
+  color: tan;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin: 8px 0 18px 0;
+}
+
+.screen-heading {
+  color: black;
+  font-family: "Poppins Bold";
+  font-size: 32px;
+}
+
+.heading-seperator {
+  align-items: center;
+  display: flex;
+  margin: 10px 0 0 0;
+  position: relative;
+  width: 180px;
+}
+
+.seperator-line {
+  background-color: black;
+  height: 2px;
+  width: 100%;
+}
+
+.seperator-blob {
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.seperator-blob div {
+  width: 35px;
+  border-radius: 10px;
+  background-color: var(--light-blue);
+}

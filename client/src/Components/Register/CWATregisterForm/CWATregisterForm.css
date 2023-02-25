@@ -1,5 +1,5 @@
 .cwatRegister {
-  padding-top: 5.5rem;
+  padding-top: 13vh;
   text-align: center;
 }
 
@@ -73,11 +73,18 @@
 }
 
 .cwat-pPlan {
-  border: 1px solid black;
+  height: 34vh;
   position: absolute;
-  right: 1rem;
-  top: 6.5rem;
-  width: 20vw;
+  right: -3vw;
+  /* top: 14vh; */
+  width: 22vw;
+}
+
+.cwat-qrcode {
+  bottom: 1vh;
+  position: absolute;
+  right: 1rem;  
+  width: 15vw;
 }
 
 .cwatRegister hr {
@@ -92,12 +99,14 @@
 }
 
 .cwat-bg-right {
+  align-items: center;
   left: 0;
   background: linear-gradient(to right, #7678fe95, 30%, #44ffe3bf, 60%, white);
   height: 20vh;
 }
 
 .cwat-input-background {
+  display: flex;
   bottom: 0;
   position: absolute;
   z-index: -1;
@@ -128,3 +137,4 @@
   position: absolute;
   width: 5vw;
 }
+

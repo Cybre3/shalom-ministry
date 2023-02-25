@@ -9,10 +9,8 @@
   width: 100%;
 }
 
-
-/* 
-#events::before {
-  background: url('../../../assets/calendarPurple.png') center center;
+/* #events::before {
+  background: url('../../assets/Event-Category-Card.png') center center;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 90%;
@@ -23,15 +21,20 @@
   right: 0;
   top: 0;
   z-index: -1;
-}
+} */
 
-#give {
-  background: url('../../../assets/shine.png') center center;
+#events {
+  background: url('../../assets/Event-Category-Card.png') center center;
   background-size: cover;
 }
 
+#give {
+  background: url('../../assets/Give-Category-Card.png') center center;
+  background-size: cover;
+}
+/* 
 #give::before {
-  background: url('../../../assets/handshakeDrawing.png') center center;
+  background: url('../../assets/Get-Involved-Category-Card.png') center center;
   background-repeat: no-repeat;
   background-position: center 20vh;
   background-size: 90%;
@@ -43,9 +46,9 @@
   top: 0;
   z-index: -1;
 }
-
-#getInvolved::before {
-  background: url('../../../assets/workingCogsStickFigures.png') center center;
+ */
+/* #get-involved::before {
+  background: url('../../assets/Testimonies-Category-Card.png') center center;
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 90%;
@@ -57,14 +60,18 @@
   top: 0;
   z-index: -1;
 }
-
+ */
+#get-involved {
+  background: url('../../assets/Get-Involved-Category-Card.png') center center;
+  background-size: cover;
+}
 #testimonies {
-  background: url('../../../assets/clouds.png') center center;
+  background: url('../../assets/Testimonies-Category-Card.png') center center;
   background-size: cover;
 }
 
-#testimonies::before {
-  background: url('../../../assets/mountainBlueBottom.png') center center;
+/* #testimonies::before {
+  background: url('../../assets/mountainBlueBottom.png') center center;
   background-repeat: no-repeat;
   background-size: cover;
   bottom: 0;
@@ -74,5 +81,4 @@
   right: 0;
   top: 0;
   z-index: -1;
-}
-*/
+} */

@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import Form from '../../common/form';
 import Joi from 'joi-browser';
 import { CWATregister } from '../../../services/userService';
-import CWATpPlan from '../../../assets/Register/shalomMinitryPaymentPlan.png';
-import smLogo from '../../../assets/Register/SM-Logo.png';
+import CWATpPlan from '../../../assets/Payment-Plan--CWAT-Registration-Page.png';
+import qrCode from '../../../assets/Cashapp-Code--CWAT-Registration-Page.png';
 import './CWATregisterForm.css';
 
 class CWATRegister extends Form {
@@ -47,7 +47,7 @@ class CWATRegister extends Form {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
         errors.username = ex.response.data;
-        toast.error(ex.response.message)
+        toast.error(ex.response.message);
         this.setState({ errors });
       }
       console.log(ex);
@@ -58,7 +58,9 @@ class CWATRegister extends Form {
     const newText = text
       .split('')
       .map((char, index, string) =>
-        (string[index - 1] !== ' ' && char === 'i') || (string[index - 1] !== ' ' && char === 'f') || (string[index - 1] !== ' ' && char === 'b')
+        (string[index - 1] !== ' ' && char === 'i') ||
+        (string[index - 1] !== ' ' && char === 'f') ||
+        (string[index - 1] !== ' ' && char === 'b')
           ? char
           : char.toUpperCase()
       )
@@ -71,37 +73,48 @@ class CWATRegister extends Form {
     return (
       <div className="cwatRegister">
         <div className="content">
-          <h1>{this.transformText('conference with a twist')}</h1>
-          <img src={CWATpPlan} alt="cwat-pPlan" className="cwat-pPlan" />
+          <h1>CONFERENCE WITH A TWIST</h1>
+
           <form onSubmit={this.handleSubmit}>
             <div className="cwat-contact-info">
               <div className="cwat-your-info">
-                <h2 className="cwat-header">{this.transformText('your info')}</h2>
+                <h2 className="cwat-header">YOUR INFO</h2>
                 {this.renderCustomInput('firstname', 'First Name')}
                 {this.renderCustomInput('lastname', 'Last Name')}
                 {this.renderCustomInput('email', 'Email', 'email')}
                 {this.renderCustomInput('phone', 'Phone #', 'phone')}
               </div>
+
               <div className="cwat-emergency-contact">
                 <h2 className="cwat-header">{this.transformText('emergency contact')}</h2>
                 {this.renderCustomInput('emergencyFullName', 'Full Name')}
                 {this.renderCustomInput('emergencyEmail', 'Email', 'email')}
                 {this.renderCustomInput('emergencyPhone', 'Phone #', 'phone')}
               </div>
-              <div className="cwat-input-background cwat-bg-right"></div>
+
+              <div className="cwat-input-background cwat-bg-right">
+                <img src={CWATpPlan} alt="cwat-pPlan" className="cwat-pPlan" />
+              </div>
             </div>
+
             <hr></hr>
+
             <div className="cwat-questions-container">
-              <h2 className="cwat-header">{this.transformText('a few questions')}</h2>
-              {this.renderTextarea('allergies', 'Do you have any food allergies or dietary restrictions?')}
+              <h2 className="cwat-header">A FEW QUESTIONS</h2>
+              {this.renderTextarea(
+                'allergies',
+                'Do you have any food allergies or dietary restrictions?'
+              )}
               {this.renderTextarea('questions', 'Do you have any questions for us?')}
               {this.renderTextarea('discover', 'How you did you hear about Shalom Ministry?')}
-              <div className="cwat-input-background cwat-bg-left"></div>
+              <div className="cwat-input-background cwat-bg-left">
+                <img className="cwat-qrcode" src={qrCode} alt="" />
+              </div>
             </div>
-            {this.renderButton(this.transformText('Submit'))}
+
+            {this.renderButton(this.transformText('SUBMIT'))}
           </form>
         </div>
-        <img src={smLogo} alt='shalom-ministry-logo' className="cwat-shalom-logo" />
       </div>
     );
   }

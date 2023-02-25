@@ -5,8 +5,8 @@
   border-left: none;
   border-right: none;
   display: flex;
-  height: 50vh;
-  margin-top: 15vh;
+  height: 55vh;
+  margin-top: 12vh;
   position: relative;
   width: 100%;
 }
@@ -21,9 +21,11 @@
 }
 
 .home-flyer-description {
-  background: linear-gradient(45deg, #ceccf2, 30%, #b3ecec, 80%, white);
+  background: url('../../../assets/SM-Landing-Page-Banner.png');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+  overflow: hidden;
   padding-top: 1.5rem;
   position: relative;
   text-align: center;
@@ -34,7 +36,8 @@
   line-height: 1rem;
 }
 
-.home-flyer-description .ministry-title, .home-flyer-description .event-title {
+.home-flyer-description .ministry-title,
+.home-flyer-description .event-title {
   margin-bottom: 1rem;
 }
 
@@ -77,12 +80,14 @@
   text-align: left;
 }
 
-.home-flyer-description > a {
+.home-flyer-description a {
+  animation: shake-up-down 8s infinite linear;
+  bottom: 2vh;
   color: black;
-  position: absolute;
-  bottom: 1rem;
+  display: block;
   text-decoration: none;
-  right: 1rem;
+  right: 1vw;
+  position: absolute;
   z-index: 2;
 }
 
@@ -90,7 +95,74 @@
   font-size: 0.75rem;
 }
 
+.home-outer-spin-circle {
+  animation: rotation 2s infinite linear;
+  background: linear-gradient(to right, #1d6fad, #5fd1b5);
+  bottom: -27vh;
+  border-radius: 50%;
+  display: block;
+  height: 20vw;
+  /* margin-top: 3.2rem; */
+  position: absolute;
+  right: -7vw;
+  width: 20vw;
+  z-index: 1;
+}
+
+.register-now:hover .home-inner-spin-circle {
+  /* transform: scale(2.1); */
+  background-color: var(--sea-green);
+}
+
+.home-inner-spin-circle {
+  background-color: white;
+  content: '';
+  position: absolute;
+  top: 0.2rem;
+  bottom: 0.2rem;
+  right: 0.2rem;
+  left: 0.2rem;
+  border-radius: inherit; 
+}
+
 .home-flyer:hover ~ .home-category-cards {
   margin-top: 0;
   transition: 1s;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+@keyframes shake-up-down {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateY(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateY(10px);
+  }
 }

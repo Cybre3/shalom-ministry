@@ -1,0 +1,49 @@
+.footer-container {
+  background: radial-gradient(rgb(0, 0, 212), 60%, rgb(2, 0, 117));
+  color: white;
+  font-weight: 500;
+  width: 100%;
+}
+
+.footer-container .col {
+  display: flex;
+  justify-content: right;
+  margin-right: 2rem;
+}
+
+.footer-container .col i {
+  color: white;
+  padding: 7px;
+}
+
+.footer-container .col i:hover {
+  transform: scale(1.5);
+}
+
+.footer-sections {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 0 0;
+  text-align: left;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  padding: 0 40px;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+}
+
+.footer-section a {
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.footer-container em {
+  font-size: 0.8rem;
+  margin: 0 0 0 0.5rem;
+}

@@ -29,9 +29,9 @@ function Nav() {
         <NavLink to="/about-us" className="nav-link no-arrow">
           About Us
         </NavLink>
-        <NavLink to="/events" className="nav-link">
-          Events
-        </NavLink>
+  {/*       <NavLink to="/events" className="nav-link">
+          TBD
+        </NavLink> */}
         <NavLink to="/give" className="nav-link no-arrow">
           Give
         </NavLink>

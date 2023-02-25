@@ -29,24 +29,25 @@ html:not([data-scroll='2rem']) .navbar {
   width: 3.5vw;
 }
 
-.nav-ministry-name {
+/* .nav-ministry-name {
   align-self: flex-start;
   color: blue;
   display: flex;
   flex-direction: column;
   text-decoration: none;
-}
+} */
 
-.y {
+/* .y {
   margin-top: -4px;
   font-size: 1.4rem;
-}
+} */
 
-.nav-ministry-slogan {
+/* .nav-ministry-slogan {
   font-size: 0.9rem;
   text-align: center;
 }
-
+ */
+ 
 .nav-login-register {
   display: flex;
   position: relative;
@@ -95,7 +96,7 @@ html:not([data-scroll='2rem']) .navbar {
   align-self: center;
   color: black;
   display: flex;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0 0 0 0;
   padding-right: 30px;
 }

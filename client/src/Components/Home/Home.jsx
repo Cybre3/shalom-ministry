@@ -12,10 +12,10 @@ class Home extends Component {
         <div className="home-category-cards">
           <CategoryCardNoPic title="Events" id='events' />
           <CategoryCardNoPic title="Give" id='give' />
-          <CategoryCardNoPic title={`Get Involved`} id='getInvolved' />
+          <CategoryCardNoPic title={`Get Involved`} id='get-involved' />
           <CategoryCardNoPic title="Testimonies" id='testimonies' />
         </div>
-        <MissionStatement />
+        <MissionStatement />        
       </div>
     );
   }
