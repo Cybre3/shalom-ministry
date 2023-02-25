@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import './Footer.css';
 
-const challenges = [
+/* const challenges = [
   {
     title: 'React Demo Tic-Tac-Toe',
     link: 'https://demo-react-tic-tac-toe-demo.netlify.app/',
@@ -16,7 +16,7 @@ const challenges = [
     title: 'Fisher Catches',
     link: 'https://my-fisher-catches.herokuapp.com/',
   },
-];
+]; */
 
 const projects = [
   /*  {
