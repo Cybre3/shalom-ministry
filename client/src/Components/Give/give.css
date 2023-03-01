@@ -71,8 +71,9 @@
   margin-bottom: 2vh;
 }
 
-.give-container form input, .give-container form textarea {
+.give-container form input, .give-container form textarea, .give-container select {
   border: 0.1rem solid black;
+  padding: 0.2rem 0.5rem;
 }
 
 .give-container form input[id='organizationName'] {
@@ -101,9 +102,15 @@
 }
 
 .mode-of-content {
-  /* border: 0.5rem solid black; */
   display: flex;
   flex-direction: column;
+}
+
+.give-container button {
+  border-radius: 0.3rem;
+  margin: 2vh 0;
+  padding: 0.3rem 2rem;
+
 }
 
 .give-container hr {

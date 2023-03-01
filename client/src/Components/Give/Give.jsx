@@ -54,7 +54,7 @@ class Give extends Form {
   };
 
   doSubmit = () => {
-    console.log('Submitted');
+    // console.log('Submitted');
   };
 
   render() {

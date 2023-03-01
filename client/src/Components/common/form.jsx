@@ -52,7 +52,7 @@ class Form extends Component {
 
     const data = { ...this.state.data };
     data[name] = value;
-    console.log(data)
+    // console.log(data)
     this.setState({ data, errors });
   };
 

@@ -50,15 +50,16 @@
 }
 
 .central-form form {
-  width: auto;
-  display: flex;
-  color: #111;
-  padding: 15px;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: -52px;
   background-color: white;
   border-radius: 12px;
+  display: flex;
+  color: #111;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -52px;
+  padding: 15px;
+  position: relative;
+  width: auto;
 }
 
 .contactme-container form p {
@@ -66,6 +67,10 @@
   margin-bottom: 10px;
   color: var(--dark-orange);
   letter-spacing: 0.1rem;
+}
+
+.contactme-container .form-group {
+  position: relative;
 }
 
 .contactme-container form label {
@@ -76,7 +81,7 @@
 
 .contactme-container input[type="text"],
 .contactme-container input[type="email"],
-.contactme-container textarea[type="textarea"] {
+.contactme-container textarea {
   border-radius: 0 0 0 10px;
   background-color: transparent;
   border: none;
@@ -88,12 +93,12 @@
   padding: 0.5rem 1rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
   -webkit-box-shadow 0.15s ease-in-out;
-  width: 100%;
+  width: 80%;
 }
 
 .contactme-container input[type="text"]:focus,
 .contactme-container input[type="email"]:focus,
-.contactme-container textarea[type="textarea"]:focus {
+.contactme-container textarea:focus {
   border-bottom: 1px solid #4285f4;
   box-shadow: 0 1px 0 0 #4285f4;
 }
