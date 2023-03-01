@@ -1,6 +1,6 @@
 import React from 'react';
 import FooterSection from './FooterSection';
-import { useLocation } from 'react-router-dom';
+import { useLocation, NavLink } from 'react-router-dom';
 
 import './Footer.css';
 
@@ -18,7 +18,7 @@ import './Footer.css';
   },
 ]; */
 
-const projects = [
+const waysToGive = [
   /*  {
     title: 'Wiki Blog',
     githubCode: 'https://github.com/Cybre3/KingsWikiApp',
@@ -48,22 +48,25 @@ const projects = [
   // },
   {
     title: 'Zelle',
-    githubCode: '',
+    data: '786-400-4072',
     link: '/',
   },
   {
     title: 'CashApp',
-    githubCode: '',
+    data: 'SHALOM99MINISTRY',
     link: '/',
   },
 ];
 
-const upcomingProjs = [{ title: 'Phone:' }, { title: 'Email:' }];
+const contactUs = [
+  { title: 'Phone:', data: '786-400-4072' },
+  { title: 'Email:', data: 'shalom9ministry@gmail.com' },
+];
 
 function Footer(props) {
   const location = useLocation();
   if (
-    ['/login', '/register', '/invoices', '/invoices/create-new-invoice'].includes(location.pathname)
+    ['', '', '/invoices', '/invoices/create-new-invoice', '/dashboard'].includes(location.pathname)
   )
     return <></>;
 
@@ -82,10 +85,16 @@ function Footer(props) {
           </a>
         </div>
         <div className="footer-sections">
-          <FooterSection header="Ways to Give" list={projects} />
-          <FooterSection header="Contact Us" list={upcomingProjs} />
+          <FooterSection header="Ways to Give" list={waysToGive} />
+          <FooterSection header="Contact Us" list={contactUs} />
         </div>
-        <em>Est. 2018</em>
+        <img
+          className="footer-est-logo"
+          src={require('../../assets/Footer/SM_Graphic Kit_2022_transparent.png')}
+          alt=""
+        />
+        <NavLink className='privacy-policy' to='/privacy-policy'>Privacy & Liability</NavLink>
+        {/* add privacy link under est logo */}
       </div>
     </footer>
   );

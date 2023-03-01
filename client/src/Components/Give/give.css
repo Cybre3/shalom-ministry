@@ -1,14 +1,40 @@
 .give-container {
   align-items: center;
+  background: url('../../assets/Aboutus/SM-Logo-Watermark.png');
+  /* background-color: blue; */
+  background-position: -120% 70%;
+  background-repeat: repeat-y;
+  background-size: 70%;
+  height: 100%;
   display: flex;
   gap: 10vw;
-  height: 100vh;  
+  position: relative;
   justify-content: center;
   text-align: center;
 }
 
-.users-give, .sponsors-form {
+.give-container::before {
+  background: url('../../assets/Aboutus/SM-Logo-Watermark.png');
+  background-position: 215% 25%;
+  background-repeat: repeat-y;
+  background-size: 70%;
+  content: '';
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.users-give,
+.sponsors-form {
+  background-color: rgb(91, 114, 137);
   border: 0.05rem solid black;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  color: white;
   padding: 1rem 3rem;
 }
 
@@ -16,18 +42,28 @@
   height: fit-content;
 }
 
-.sponsors-form {
-  position: relative;
-}
-
-.users-give > h2, .sponsors-form .give-subtitle  {
-  margin: 0 0 4vh;
-}
-
 .give-opt {
   margin-top: 2vh;
 }
 
+.users-give > h2,
+.sponsors-form .give-subtitle {
+  margin: 0 0 4vh;
+}
+
+.sponsors-form {
+  margin: 20vh 0;
+  position: relative;
+  width: 30%;
+}
+
+.sponsors-form > h2 {
+  margin-bottom: 1vh;
+}
+
+.give-subtitle {
+  font-size: 0.9rem;
+}
 
 .give-container form .form-group {
   display: flex;
@@ -35,8 +71,45 @@
   margin-bottom: 2vh;
 }
 
+.give-container form input, .give-container form textarea {
+  border: 0.1rem solid black;
+}
+
+.give-container form input[id='organizationName'] {
+  margin: auto auto;
+  width: 75%;
+}
+
 .give-container .sponsor-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 1vh;
+}
+
+.give-container .personal-name {
   display: flex;
   justify-content: space-around;
 }
 
+.sponsor-contact-info {
+  align-items: center;
+  display: flex;
+  gap: 2vw;
+  justify-content: center;
+  position: relative;
+}
+
+.mode-of-content {
+  /* border: 0.5rem solid black; */
+  display: flex;
+  flex-direction: column;
+}
+
+.give-container hr {
+  margin-bottom: 2vh;
+}
+
+.give-container .sponsor-message {
+  text-align: justify;
+}
