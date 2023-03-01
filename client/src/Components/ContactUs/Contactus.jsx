@@ -1,83 +1,80 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import { toast } from 'react-toastify';
+import Joi from 'joi-browser';
+import { saveContact } from '../../services/contactService';
 
+import Form from './../common/form';
 import ScreenHeading from '../../utilities/ScreenHeading/ScreenHeading';
 import TypicalContactMe from '../../utilities/Typical_Contactme';
 
 import imgBack from '../../assets/email-pc-world2.png';
-import load1 from '../../assets/load2.gif';
+// import load1 from '../../assets/load2.gif';
 
 import './contactus.css';
 
-class Contactus extends Component {
+class ContactUs extends Form {
   state = {
-    name: '',
-    email: '',
-    message: '',
-    banner: '',
-    bool: false,
+    data: {
+      fullname: '',
+      email: '',
+      message: '',
+    },
+    errors: {},
   };
 
-  handleName = (e) => {
-    this.setName(e.target.value);
+  schema = {
+    _id: Joi.string(),
+    fullname: Joi.string().required().label('Full Name'),
+    email: Joi.string().email().required().label('Email'),
+    message: Joi.string().required().label('Your message here'),
   };
 
-  handleEmail = (e) => {
-    this.setEmail(e.target.value);
+  doSubmit = async () => {
+    try {
+      const { data } = this.state;
+      await saveContact(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  handleMessage = (e) => {
-    this.setMessage(e.target.value);
-  };
 
-  submitForm = async (e) => {
-    e.preventDefault();
-    // const { name, email, message } = this.state;
-    // try {
-    //   let data = {
-    //     name,
-    //     email,
-    //     message,
-    //   };
+  // doSubmit = async (e) => {
+  // e.preventDefault();
+  // try {
+  //   let data = {
+  //     name,
+  //     email,
+  //     message,
+  //   };
 
-    //   this.setBool(true);
+  //   // const { name, email, message } = data;
 
-    //   const res = await axios.post('/contact', data);
+  //   // setBool(true);
 
-    //   if (name.length === 0 || email.length === 0 || message.length === 0) {
-    //     setBanner(res.data.msg);
-    //     toast.error(res.data.msg);
-    //     setBool(false);
-    //   } else if (res.status === 200) {
-    //     setBanner(res.data.msg);
-    //     toast.success(res.data.msg);
-    //     setBool(false);
+  //   const res = await saveContact(data);
+  //   console.log(res);
 
-    //     emailjs
-    //       .sendForm(
-    //         process.env.REACT_APP_EMAILJS_SERVICE_ID,
-    //         process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-    //         e.target,
-    //         process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-    //       )
-    //       .then(
-    //         (result) => {
-    //           console.log('SUCCESS!', result.status, result.text);
-    //         },
-    //         (error) => {
-    //           console.log('FAILED...', error);
-    //         }
-    //       );
+  //   if (name.length === 0 || email.length === 0 || message.length === 0) {
+  //     console.log('something missing')
+  //     // console.log(res.data.message);
+  //     // setBanner(res.data.message);
+  //     // toast.error(res.data.message);
+  //     // setBool(false);
+  //   // } else if (res.status === 200) {
+  //     // setBanner(res.data.msg);
+  //     // toast.success(res.data.msg);
+  //     // setBool(false);
 
-    //     setName('');
-    //     setEmail('');
-    //     setMessage('');
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
-  };
+  //     setName('');
+  //     setEmail('');
+  //     setMessage('');
+  //   }
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  // };
 
   render() {
-    const { bool, email, name, banner, message } = this.state;
     return (
       <div className="contactme-container" id={this.props.id || ''}>
         <ScreenHeading title={'Contact Us'} subHeading={"Let's keep in Touch"} />
@@ -101,50 +98,13 @@ class Contactus extends Component {
               <h4>Send us a message ➡ </h4>
               <img src={imgBack} alt="img not found" />
             </div>
-            <form id="from_person_name" onSubmit={this.submitForm}>
-              <p>{banner}</p>
-              <label htmlFor="name"></label>
-              <input
-                type="text"
-                placeholder="Full Name"
-                onChange={this.handleName}
-                value={name}
-                name="from_person_name"
-              />
 
-              <label htmlFor="email"></label>
-              <input
-                id="person_email"
-                type="email"
-                placeholder="Email"
-                onChange={this.handleEmail}
-                value={email}
-                name="person_email"
-              />
-
-              <label htmlFor="message"></label>
-              <textarea
-                id="message"
-                type="textarea"
-                placeholder="Your message here"
-                onChange={this.handleMessage}
-                value={message}
-                name="message"
-              />
-
-              <div className="send-btn">
-                <button type="submit">
-                  Send
-                  <i className="fa fa-paper-plane" />
-                  {bool ? (
-                    <b className="load">
-                      <img src={load1} alt="img not responding" />
-                    </b>
-                  ) : (
-                    ''
-                  )}
-                </button>
-              </div>
+            <form onSubmit={this.handleSubmit}>
+              {/* <p>{banner}</p> */}
+              {this.renderInput('fullname', 'Full Name')}
+              {this.renderInput('email', 'Email', 'email')}
+              {this.renderTextarea('message', 'Your message Here')}
+              {this.renderButton('Send')}
             </form>
           </div>
         </div>
@@ -153,4 +113,20 @@ class Contactus extends Component {
   }
 }
 
-export default Contactus;
+export default ContactUs;
+
+{
+  /*  <div className="send-btn">
+      <button type="submit">
+        Send
+        <i className="fa fa-paper-plane" />
+        {bool ? (
+          <b className="load">
+            <img src={load1} alt="img not responding" />
+          </b>
+        ) : (
+          ''
+        )}
+      </button>
+    </div> */
+}

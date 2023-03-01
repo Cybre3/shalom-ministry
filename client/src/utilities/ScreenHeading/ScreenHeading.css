@@ -8,7 +8,7 @@
 }
 
 .screen-sub-heading {
-  color: tan;
+  color: blue;
   font-size: 12px;
   letter-spacing: 3px;
   margin: 8px 0 18px 0;
@@ -16,7 +16,6 @@
 
 .screen-heading {
   color: black;
-  font-family: "Poppins Bold";
   font-size: 32px;
 }
 

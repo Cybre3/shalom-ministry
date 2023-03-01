@@ -1,48 +1,56 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from './utilities/scrollToTop';
+
 import AboutUs from './Components/AboutUs/AboutUs';
 import Contactus from './Components/ContactUs/Contactus';
 import CreateInvoice from './Components/Invoices/CreateInvoice/CreateInvoice';
 import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
+import Footer from './Components/Footer/Footer';
 import Give from './Components/Give/Give';
 import Home from './Components/Home/Home';
 import Invoices from './Components/Invoices/Invoices';
 import Login from './Components/Login/Login';
 import Nav from './Components/Nav/Nav';
 import Register from './Components/Register/Register';
+
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-import Footer from './Components/Footer/Footer';
+import Dashboard from './Components/Dashboard/Dashboard';
 
 class App extends Component {
-  /* state = {
+  state = {
     scrollBtnDisplay: 'none',
-  }; */
+  };
 
-  /*   componentDidMount() {
-    // window.onscroll = () => {
-    //   // this.scrollFunction();
-    // };
-  } */
+  componentDidMount() {
+    window.onscroll = () => {
+      this.scrollFunction();
+    };
+  }
 
-  /*   scrollFunction() {
+  scrollFunction() {
     if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-      this.setState({scrollBtnDisplay: 'block'});
+      this.setState({ scrollBtnDisplay: 'block' });
     } else {
-      this.setState({scrollBtnDisplay: 'none'});
+      this.setState({ scrollBtnDisplay: 'none' });
     }
   }
- */
+
   render() {
     return (
       <React.Fragment>
         <BrowserRouter>
+          <ScrollToTop />
           <ToastContainer />
           <Nav />
           <main className="container">
             <Routes>
               <Route exact path="/" element={<Home />} />
+              <Route exact path="/get-involved" element={<Home />} />
+              <Route exact path="/testimonies" element={<Home />} />
+              <Route exact path="/events" element={<Home />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -52,14 +60,23 @@ class App extends Component {
 
               <Route exact path="/invoices" element={<Invoices />}></Route>
               <Route exact path="/invoices/create-new-invoice" element={<CreateInvoice />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Routes>
+
             {/* <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               style={{ display: this.state.scrollBtnDisplay }}
               id="back-to-top-btn"
             >
-              <i className="bi bi-chevron-bar-up"></i>
+              {' '}
             </button> */}
+
+            <i
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              style={{ display: this.state.scrollBtnDisplay }}
+              id="back-to-top-btn"
+              className="fa fa-up-to-line"
+            ></i>
           </main>
           <Footer />
         </BrowserRouter>
