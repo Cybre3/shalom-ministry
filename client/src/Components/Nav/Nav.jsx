@@ -6,7 +6,7 @@ import './nav.css';
 function Nav() {
   const location = useLocation();
   if (
-    ['/login', '/register', '/invoices', '/invoices/create-new-invoice'].includes(
+    ['/invoices', '/invoices/create-new-invoice', '/dashboard'].includes(
       location.pathname
     )
   )
@@ -15,7 +15,7 @@ function Nav() {
     <div className="navbar">
       <div className="nav-ministry-logo-name">
         <NavLink className="nav-ministry-name" to="/">
-        <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
+          <img src={navLogo} alt="shalom ministry logo" className="nav-ministry-logo" />
           {/* <span>
             SHALOM MiNiSTR<span className="y">y</span>
           </span>
@@ -29,28 +29,20 @@ function Nav() {
         <NavLink to="/about-us" className="nav-link no-arrow">
           About Us
         </NavLink>
-  {/*       <NavLink to="/events" className="nav-link">
+        {/*       <NavLink to="/events" className="nav-link">
           TBD
         </NavLink> */}
         <NavLink to="/give" className="nav-link no-arrow">
           Give
         </NavLink>
+        {/* <NavLink to="/get-involved" className="nav-link no-arrow">
+          Get Involved
+        </NavLink> */}
         <NavLink to="/contact-us" className="nav-link no-arrow">
           Contact Us
         </NavLink>
       </div>
-      <div className="invoices-links">
-        <NavLink className="nav-link" to="/invoices">
-          View Invoices
-        </NavLink>
-        <NavLink className="nav-link" to="/invoices/create-new-invoice">
-          Create Invoice
-        </NavLink>
-      </div>
       <div className="nav-login-register">
-        <NavLink className="nav-link" to="/login">
-          {' '}
-        </NavLink>
         <div className="login-register-dropdown">
           <NavLink className="no-bg" to="/login">
             Login

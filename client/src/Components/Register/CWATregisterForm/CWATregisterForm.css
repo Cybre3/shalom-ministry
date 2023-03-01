@@ -93,7 +93,7 @@
 }
 
 .cwat-bg-left {
-  background: linear-gradient(to left, #7678fe95, 30%, #44ffe3bf, 70%, white);
+  background: linear-gradient(to left, #7678fe65, 30%, #44ffe38e, 70%, white);
   height: 30vh;
   right: 0;
 }
@@ -101,7 +101,7 @@
 .cwat-bg-right {
   align-items: center;
   left: 0;
-  background: linear-gradient(to right, #7678fe95, 30%, #44ffe3bf, 60%, white);
+  background: linear-gradient(to right, #7678fe65, 30%, #44ffe38e, 60%, white);
   height: 20vh;
 }
 
@@ -120,7 +120,7 @@
   color: white;
   cursor: pointer;
   font-size: 1.2rem;
-  margin-top: 4vh;
+  margin: 3vh 0 10vh;
   padding: 0.1rem 0.8rem;
 }
 

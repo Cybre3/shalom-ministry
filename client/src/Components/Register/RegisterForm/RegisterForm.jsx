@@ -1,9 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Form from '../../common/form';
 import Joi from 'joi-browser';
-import './registerForm.css';
+
+import Form from '../../common/form';
 import { register } from './../../../services/userService';
+
+import './registerForm.css';
 
 class RegisterForm extends Form {
   state = {
@@ -63,7 +65,7 @@ class RegisterForm extends Form {
             )}
             <div className="formlinks">
               <NavLink to="/admin-form">Admin</NavLink>
-              <NavLink to="/login">Signin</NavLink>
+              <NavLink to="/login">Sign in</NavLink>
             </div>
             {this.renderButton('Register')}
           </form>

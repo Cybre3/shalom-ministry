@@ -5,11 +5,7 @@ const CustomInput = ({ name, label, value, disabled, error, ...rest }) => {
     <div className="inputbox">
       <input {...rest} name={name} id={name} value={value} disabled={disabled} />
       <i>{label}</i>
-      {error && (
-        <div className="alert alert-danger" style={{ zIndex: 5, position: 'relative' }}>
-          {error}
-        </div>
-      )}
+      {error && <div className="alert alert-danger">{error}</div>}
     </div>
   );
 };

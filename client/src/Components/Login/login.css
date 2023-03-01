@@ -1,9 +1,10 @@
 .login-container {
   align-content: center;
   align-items: center;
-  background: #000;
+  background: white;
+  box-sizing: border-box;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   gap: 0.1vw;
   height: 100vh;
   justify-content: center;
@@ -15,7 +16,7 @@
 
 .login-container::before {
   animation: animate-loginForm 15s linear infinite;
-  background: linear-gradient(#000, rgb(106, 0, 255), #000);
+  background: linear-gradient(#fff, rgb(106, 0, 255), #fff);
   content: '';
   height: 100%;
   position: absolute;

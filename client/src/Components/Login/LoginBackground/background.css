@@ -1,0 +1,62 @@
+.login-container span {
+  background: #181818;
+  box-sizing: border-box;
+  color: transparent;
+  font-style: italic;
+  height: 100%;
+  overflow: hidden;
+  padding: 2rem;
+  position: relative;
+  text-align: justify;
+  transition: 1.5s;
+  width: 100%;
+}
+
+.script-container {
+  box-sizing: border-box;
+  display: grid;
+  gap: 0.2vw;
+  grid-template-columns: 49.9vw 49.9vw;
+  grid-template-rows: 24.8vw 24.8vw;
+}
+
+.script-container img {
+  border-radius: 0.5rem;
+  display: none;
+  height: 50%;
+  width: 100%;
+  transition: 1.5s;
+}
+
+/* .script-container span:hover > img {
+  opacity: 0.8;
+  transition: 1s;
+} */
+
+.login-container span:hover {
+  color: white;
+  transition: 0.6s;
+}
+
+.login-container span:nth-of-type(even) {
+  align-items: center;
+  display: flex;
+  padding-left: 16rem;
+  text-align: justify;
+}
+
+.login-container span:nth-of-type(odd) {
+  align-items: center;
+  display: flex;
+  padding-right: 16rem;
+  text-align: justify;
+}
+
+.login-container #login-back-pic-left {
+  background-color: red;
+  padding: 5rem 16rem 5rem 1.5rem;
+}
+
+.login-container #login-back-pic-right {
+  padding: 5rem 0 5rem 16rem;
+}

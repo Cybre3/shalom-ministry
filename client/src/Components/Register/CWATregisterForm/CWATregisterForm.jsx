@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import Form from '../../common/form';
 import Joi from 'joi-browser';
 import { CWATregister } from '../../../services/userService';
-import CWATpPlan from '../../../assets/Payment-Plan--CWAT-Registration-Page.png';
-import qrCode from '../../../assets/Cashapp-Code--CWAT-Registration-Page.png';
+import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
+import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
 import './CWATregisterForm.css';
 
 class CWATRegister extends Form {
