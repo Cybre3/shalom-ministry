@@ -15,11 +15,11 @@ class LoginBackground extends Component {
           to the captives, and the opening of the prison to them that are bound; <br /> <br />
           Isaiah 61:1 KJV
         </span>
-        <span>
-          <img id="register-back-pic-right" src={pic1} alt="" />
+        <span id="register-back-pic-right">
+          <img src={pic1} alt="" />
         </span>
-        <span>
-          <img id="register-back-pic-left" src={pic2} alt="" />
+        <span id="register-back-pic-left">
+          <img src={pic2} alt="" />
         </span>
         <span>
           The Spirit of the Lord is upon me, because he hath anointed me to preach the gospel to the

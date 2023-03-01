@@ -64,7 +64,7 @@ class RegisterForm extends Form {
               'textarea'
             )}
             <div className="formlinks">
-              <NavLink to="/admin-form">Admin</NavLink>
+              <NavLink to="/">Admin</NavLink>
               <NavLink to="/login">Sign in</NavLink>
             </div>
             {this.renderButton('Register')}

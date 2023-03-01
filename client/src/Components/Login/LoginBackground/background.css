@@ -4,7 +4,7 @@
   color: transparent;
   font-style: italic;
   height: 100%;
-  overflow: hidden;
+  margin: 0;
   padding: 2rem;
   position: relative;
   text-align: justify;
@@ -23,15 +23,16 @@
 .script-container img {
   border-radius: 0.5rem;
   display: none;
-  height: 50%;
+  height: 100%;
   width: 100%;
   transition: 1.5s;
 }
 
-/* .script-container span:hover > img {
+.script-container span:hover > img {
+  display: block;
   opacity: 0.8;
   transition: 1s;
-} */
+}
 
 .login-container span:hover {
   color: white;
@@ -53,10 +54,9 @@
 }
 
 .login-container #login-back-pic-left {
-  background-color: red;
-  padding: 5rem 16rem 5rem 1.5rem;
+  padding: 3rem 15rem 3rem 1.5rem;
 }
 
 .login-container #login-back-pic-right {
-  padding: 5rem 0 5rem 16rem;
+  padding: 3rem 1.5rem 3rem 15rem;
 }

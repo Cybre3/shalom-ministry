@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Joi from 'joi-browser';
+
 import Input from './input';
 import CustomInput from './customInput';
 import Dropdown from './dropdown';
 import Textarea from './textarea';
-import Joi from 'joi-browser';
+import CheckBox from './checkBox';
 
 class Form extends Component {
   state = {
@@ -37,7 +39,7 @@ class Form extends Component {
     if (errors) return;
 
     this.doSubmit();
-    
+
     e.target.reset();
   };
 
@@ -50,6 +52,7 @@ class Form extends Component {
 
     const data = { ...this.state.data };
     data[name] = value;
+    console.log(data)
     this.setState({ data, errors });
   };
 
@@ -117,6 +120,21 @@ class Form extends Component {
         label={label}
         options={options}
         onChange={this.handleChange}
+        error={errors[name]}
+      />
+    );
+  };
+
+  renderCheckbox = (name, label, options) => {
+    const { data, errors } = this.state;
+
+    return (
+      <CheckBox
+        name={name}
+        label={label}
+        value={data[name]}
+        options={options}
+        onChange={this.onChange}
         error={errors[name]}
       />
     );

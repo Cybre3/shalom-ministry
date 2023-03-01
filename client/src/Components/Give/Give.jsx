@@ -1,9 +1,62 @@
 import React from 'react';
 import Form from './../common/form';
+import Joi from 'joi';
 
 import './give.css';
 
 class Give extends Form {
+  state = {
+    data: {
+      firstname: '',
+      lastname: '',
+      organizationName: '',
+      email: '',
+      phone: '',
+      message: '',
+      bestContact: '',
+    },
+    errors: {},
+  };
+
+  modeOfContactOptions = [
+    { name: 'phone', value: 'Phone' },
+    { name: 'email', value: 'Email' },
+  ];
+
+  schema = {
+    _id: Joi.string(),
+    organizationName: Joi.when('data', {
+      is: Joi.object().keys({
+        firstname: Joi.string().valid(),
+        lastname: Joi.string().valid(),
+      }),
+      then: Joi.string().required().label('Organization Name'),
+      otherwise: Joi.allow(''),
+    }),
+    firstname: Joi.when('data', {
+      is: Joi.object().keys({
+        organizationName: 'false',
+      }),
+      then: Joi.string().required().label('First Name'),
+      otherwise: Joi.allow(''),
+    }),
+    lastname: Joi.when('data', {
+      is: Joi.object().keys({
+        organizationName: '',
+      }),
+      then: Joi.string().required().label('Last Name'),
+      otherwise: Joi.allow(''),
+    }),
+    email: Joi.string().email().required().label('Email'),
+    phone: Joi.string().required().label('Phone'),
+    message: Joi.string().required().label('Message'),
+    bestContact: Joi.string().required().label('Best Mode of Contact'),
+  };
+
+  doSubmit = () => {
+    console.log('Submitted');
+  };
+
   render() {
     return (
       <div className="give-container">
@@ -20,10 +73,6 @@ class Give extends Form {
               <p>SHALOM99MINISTRY</p>
               {/* <button className="give-opt-btn">Donate</button> */}
             </div>
-            {/*   <div className="give-opt">
-              <h3 className="give-opt-title">PayPal</h3>
-              <button className="give-opt-btn">Donate</button>
-            </div> */}
           </div>
         </div>
 
@@ -55,18 +104,14 @@ class Give extends Form {
                 {this.renderTextarea('message', 'Message')}
               </div>
               <div className="mode-of-contact">
-                <h3>Best Mode of Contact</h3>
-                <div>
-                  <input type="checkbox" id="phone" name="phone" value="phone" />
-                  <label for="phone">Phone</label>
-                </div>
-                <div>
-                  <input type="checkbox" id="email" name="email" value="email" />
-                  <label for="email">Email</label>
-                </div>
+                {this.renderDropdown(
+                  'bestContact',
+                  'Best Mode of Contact',
+                  this.modeOfContactOptions
+                )}
               </div>
             </div>
-            {/* {this.renderButton('Send')} */}
+            {this.renderButton('Send')}
           </form>
           <hr />
           <div className="sponsor-message">

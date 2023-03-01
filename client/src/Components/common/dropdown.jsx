@@ -1,18 +1,19 @@
 import React from 'react';
+import ErrorMessage from './ErrorMessage';
 
 const Dropdown = ({ name, label, error, options, ...rest }) => {
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
-      <select name={name} id={name} {...rest} className="form-control">
-        <option value="" />
+      <select name={name} id={name} {...rest} className="form-control" >
+        <option value="" key={'empty'}/>
         {options.map((option) => (
-          <option key={option._id} value={option._id}>
+          <option key={option.value} value={option.value}>
             {option.name}
           </option>
         ))}
       </select>
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error && <ErrorMessage error={error} />}
     </div>
   );
 };
