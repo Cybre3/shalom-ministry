@@ -11,6 +11,7 @@ const invoiceRouter = require('../routes/invoiceRoute');
 const userRouter = require('../routes/userRoute');
 const cwatRouter = require('../routes/cwatRegistrarRoute');
 const authRouter = require('../routes/authRoute');
+const contactRouter = require('../routes/contactRoute');
 
 const myFormat = printf(({ level, message }) => {
   return `${level}: ${message}`;
@@ -18,7 +19,6 @@ const myFormat = printf(({ level, message }) => {
 
 module.exports = function (app) {
   app.use(express.json());
-  
 
   if (app.get('env') === 'development' || app.get('env') === 'production') {
     app.use(morgan('tiny'));
@@ -35,5 +35,6 @@ module.exports = function (app) {
   app.use('/users', userRouter);
   app.use('/users/cwat-register', cwatRouter);
   app.use('/auth', authRouter);
+  app.use('/contact-us', contactRouter);
   app.use(errors);
 };

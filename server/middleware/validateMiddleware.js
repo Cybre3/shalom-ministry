@@ -52,7 +52,9 @@ module.exports = (validator) => {
     }
 
     const myResFormat = printf(({ level, label, timestamp, ...meta }) => {
-      return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${JSON.stringify(meta)}\n--- ${label} ${level} ---\n`;
+      return `\n--- ${label} ${level} ---\n[${timestamp}] ${level} ${JSON.stringify(
+        meta
+      )}\n--- ${label} ${level} ---\n`;
     });
 
     const logger = winston.createLogger({
