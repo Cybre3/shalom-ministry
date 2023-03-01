@@ -115,7 +115,7 @@ class ContactUs extends Form {
 
 export default ContactUs;
 
-{
+
   /*  <div className="send-btn">
       <button type="submit">
         Send
@@ -129,4 +129,4 @@ export default ContactUs;
         )}
       </button>
     </div> */
-}
+

@@ -18,7 +18,7 @@ module.exports = {
       // const contactMessage = await Contact.findOne({ email });
 
       const contactMessage = new Contact({ ...contact });
-
+      
       await contactMessage.save();
 
       res.status(200).send(_.pick(contactMessage, ['_id', 'fullname', 'email']));
