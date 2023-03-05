@@ -18,9 +18,13 @@ const contactSchema = mongoose.Schema({
     type: String,
     minlength: 5,
     maxlength: 255,
-    unique: true,
+    unique: false,
     required: true,
   },
+  date: {
+    type: String,
+    default: Date
+  }
 });
 
 const Contact = mongoose.model('Contact', contactSchema);

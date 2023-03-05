@@ -8,26 +8,10 @@ module.exports = (validator) => {
   return (req, res, next) => {
     const { error, value } = validator(req.body);
 
-    /* context = '';
-    for (let pathIndex in error.details[0].context) {
-      if (pathIndex === 'label') context += '{\n\t';
-      if (pathIndex === 'key') {
-        context += `${pathIndex}: ${error.details[0].context[pathIndex]}`;
-        context += '\n }';
-      } else context += `${pathIndex}: ${error.details[0].context[pathIndex]},\n\t`;
-    }
-
-    const { route, method, originalUrl } = req;
-    const { name: component } = route.stack[1];
-    const errorDataObj = {
-      path: error.details[0].path,
-      error: error.details[0].message,
-      context: context,
-      fileTrace: path.resolve(__filename),
-      requestTrace: `${method} ${originalUrl} - ${component}`
-    }; */
+    context = '';
 
     if (error) {
+      const errorDataObj = formatError(error);
       logResponseError(errorDataObj);
       return res.status(400).send(error.details[0].message);
     }
@@ -81,5 +65,27 @@ module.exports = (validator) => {
     });
 
     logger.error(errorDataObj);
+  }
+
+  function formatError(error) {
+    for (let pathIndex in error.details[0].context) {
+      if (pathIndex === 'label') context += '{\n\t';
+      if (pathIndex === 'key') {
+        context += `${pathIndex}: ${error.details[0].context[pathIndex]}`;
+        context += '\n }';
+      } else context += `${pathIndex}: ${error.details[0].context[pathIndex]},\n\t`;
+    }
+
+    const { route, method, originalUrl } = req;
+    const { name: component } = route.stack[1];
+    const errorDataObj = {
+      path: error.details[0].path,
+      error: error.details[0].message,
+      context,
+      fileTrace: path.resolve(__filename),
+      requestTrace: `${method} ${originalUrl} - ${component}`,
+    };
+
+    return errorDataObj;
   }
 };

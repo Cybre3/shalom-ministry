@@ -15,10 +15,11 @@ module.exports = {
       const { email } = req.body;
       const contact = req.body;
 
-      // const contactMessage = await Contact.findOne({ email });
+      // let contactMessage = await Contact.findOne({ email });
+      /* if (contactMessage) return res.status(400).send('Message with email already sent.'); */
 
-      const contactMessage = new Contact({ ...contact });
-      
+      let contactMessage = new Contact({ ...contact });
+
       await contactMessage.save();
 
       res.status(200).send(_.pick(contactMessage, ['_id', 'fullname', 'email']));

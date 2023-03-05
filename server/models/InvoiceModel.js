@@ -46,6 +46,10 @@ const invoiceSchema = mongoose.Schema({
   comments: {
     type: String,
   },
+  date: {
+    type: String,
+    default: Date,
+  },
 });
 
 makeAllRequired(invoiceSchema);

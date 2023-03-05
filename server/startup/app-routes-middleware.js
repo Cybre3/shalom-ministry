@@ -12,6 +12,7 @@ const userRouter = require('../routes/userRoute');
 const cwatRouter = require('../routes/cwatRegistrarRoute');
 const authRouter = require('../routes/authRoute');
 const contactRouter = require('../routes/contactRoute');
+const sponsorRouter = require('../routes/sponsorRoute');
 
 const myFormat = printf(({ level, message }) => {
   return `${level}: ${message}`;
@@ -36,5 +37,6 @@ module.exports = function (app) {
   app.use('/users/cwat-register', cwatRouter);
   app.use('/auth', authRouter);
   app.use('/contact-us', contactRouter);
+  app.use('/give', sponsorRouter);
   app.use(errors);
 };

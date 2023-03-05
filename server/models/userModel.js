@@ -33,6 +33,10 @@ const userSchema = mongoose.Schema({
     type: String,
     maxlength: 500,
   },
+  date: {
+    type: String,
+    default: Date,
+  },
   isAdmin: Boolean,
 });
 

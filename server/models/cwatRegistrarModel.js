@@ -55,6 +55,10 @@ const cwatRegistrarSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  date: {
+    type: String,
+    default: Date,
+  },
 });
 
 const CwatRegistrar = mongoose.model('Cwat-Registrar', cwatRegistrarSchema);
