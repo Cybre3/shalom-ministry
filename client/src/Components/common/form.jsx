@@ -56,11 +56,21 @@ class Form extends Component {
     this.setState({ data, errors });
   };
 
-  renderButton = (label) => {
+  renderButton = (label, image, state, className) => {
     return (
-      <button disabled={this.validate()} className="btn btn-primary">
-        {label}
-      </button>
+      <div className={className}>
+        <button disabled={this.validate()} className="btn btn-primary">
+          {label}
+          <i className="fa fa-paper-plane" />
+          {state ? (
+            <b className="load">
+              <img src={image} alt="img not responding" />
+            </b>
+          ) : (
+            ''
+          )}
+        </button>
+      </div>
     );
   };
 

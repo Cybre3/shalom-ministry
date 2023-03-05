@@ -1,6 +1,11 @@
 import React from 'react';
-import Form from './../common/form';
 import Joi from 'joi';
+import { toast } from 'react-toastify';
+import { saveSponsor } from '../../services/giveService';
+
+import Form from './../common/form';
+
+import load1 from '../../assets/load2.gif';
 
 import './give.css';
 
@@ -16,6 +21,7 @@ class Give extends Form {
       bestContact: '',
     },
     errors: {},
+    bool: false,
   };
 
   modeOfContactOptions = [
@@ -25,28 +31,9 @@ class Give extends Form {
 
   schema = {
     _id: Joi.string(),
-    organizationName: Joi.when('data', {
-      is: Joi.object().keys({
-        firstname: Joi.string().valid(),
-        lastname: Joi.string().valid(),
-      }),
-      then: Joi.string().required().label('Organization Name'),
-      otherwise: Joi.allow(''),
-    }),
-    firstname: Joi.when('data', {
-      is: Joi.object().keys({
-        organizationName: 'false',
-      }),
-      then: Joi.string().required().label('First Name'),
-      otherwise: Joi.allow(''),
-    }),
-    lastname: Joi.when('data', {
-      is: Joi.object().keys({
-        organizationName: '',
-      }),
-      then: Joi.string().required().label('Last Name'),
-      otherwise: Joi.allow(''),
-    }),
+    firstname: Joi.string().label('First Name').allow(''),
+    lastname: Joi.string().label('Last Name').allow(''),
+    organizationName: Joi.string().label('Organization Name').allow(''),
     email: Joi.string().email().required().label('Email'),
     phone: Joi.string().required().label('Phone'),
     message: Joi.string().required().label('Message'),
@@ -54,7 +41,17 @@ class Give extends Form {
   };
 
   doSubmit = () => {
-    // console.log('Submitted');
+    try {
+      this.setState({ bool: true });
+      setTimeout(async () => {
+        await saveSponsor(this.state.data);
+        this.setState({ bool: false });
+        toast.success('Thank you for interest in partnering with Shalom Ministry!');
+      }, 2000);
+    } catch (error) {
+      toast.error(error.message);
+      console.log(error);
+    }
   };
 
   render() {
@@ -86,7 +83,7 @@ class Give extends Form {
             or Send us a message
           </div>
 
-          <form action="">
+          <form onSubmit={this.handleSubmit}>
             <div className="sponsor-name">
               <div className="personal-name">
                 {this.renderInput('firstname', 'First Name')}
@@ -111,7 +108,7 @@ class Give extends Form {
                 )}
               </div>
             </div>
-            {this.renderButton('Send')}
+            {this.renderButton('Send', load1, this.state.bool, 'send-btn')}
           </form>
           <hr />
           <div className="sponsor-message">

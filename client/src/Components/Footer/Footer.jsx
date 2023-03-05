@@ -93,7 +93,7 @@ function Footer(props) {
           src={require('../../assets/Footer/SM_Graphic Kit_2022_transparent.png')}
           alt=""
         />
-        <NavLink className='privacy-policy' to='/privacy-policy'>Privacy & Liability</NavLink>
+        <NavLink className='privacy-policy' to='/'>Privacy & Liability</NavLink>
         {/* add privacy link under est logo */}
       </div>
     </footer>

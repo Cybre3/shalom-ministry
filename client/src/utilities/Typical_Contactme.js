@@ -5,6 +5,7 @@ class TypicalContactMe extends React.PureComponent {
   render() {
     return (
       <TypeAnimation
+        style={{ height: '6vh' }}
         sequence={[
           'Get in touch through 📧',
           2000,
