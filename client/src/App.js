@@ -7,6 +7,7 @@ import AboutUs from './Components/AboutUs/AboutUs';
 import Contactus from './Components/ContactUs/Contactus';
 import CreateInvoice from './Components/Invoices/CreateInvoice/CreateInvoice';
 import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
+import Dashboard from './Components/Dashboard/Dashboard';
 import Footer from './Components/Footer/Footer';
 import Give from './Components/Give/Give';
 import Home from './Components/Home/Home';
@@ -17,7 +18,6 @@ import Register from './Components/Register/Register';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
-import Dashboard from './Components/Dashboard/Dashboard';
 
 class App extends Component {
   state = {
@@ -75,8 +75,8 @@ class App extends Component {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               style={{ display: this.state.scrollBtnDisplay }}
               id="back-to-top-btn"
-              className="fa fa-up-to-line"
-            ></i>
+              className="fa fa-arrow-up"
+            />
           </main>
           <Footer />
         </BrowserRouter>

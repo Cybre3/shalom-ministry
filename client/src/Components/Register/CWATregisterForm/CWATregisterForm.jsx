@@ -113,7 +113,7 @@ class CWATRegister extends Form {
                 'Do you have any food allergies or dietary restrictions?'
               )}
               {this.renderTextarea('questions', 'Do you have any questions for us?')}
-              {this.renderTextarea('discover', 'How you did you hear about Shalom Ministry?')}
+              {this.renderTextarea('discover', 'How did you hear about Shalom Ministry?')}
 
               <div className="ticket-tiers">
                 {this.renderDropdown('ticketOption', 'Choose Your Ticket', this.ticketOptions)}

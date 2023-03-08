@@ -59,7 +59,7 @@
   width: 100%;
 }
 
-.register-container i {
+.register-container i:not(button > i) {
   color: #aaa;
   font-style: normal;
   left: 0;

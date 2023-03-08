@@ -61,7 +61,7 @@ class RegisterForm extends Form {
             <hr></hr>
             {this.renderCustomInput(
               'discover',
-              'How you did you hear about Shalom Ministry',
+              'How did you hear about Shalom Ministry',
               'textarea'
             )}
             <div className="formlinks">

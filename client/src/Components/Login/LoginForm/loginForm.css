@@ -28,7 +28,7 @@
   text-transform: uppercase;
 }
 
-.login-container form {
+.login-container form{
   display: flex;
   flex-direction: column;
   gap: 2vh;
@@ -58,7 +58,7 @@
   width: 100%;
 }
 
-.login-container .signin i {
+.login-container .signin i:not(button > i) {
   color: #aaa;
   font-style: normal;
   font-size: 1rem;

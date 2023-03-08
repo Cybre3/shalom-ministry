@@ -13,6 +13,7 @@ class Login extends Form {
       password: '',
     },
     errors: {},
+    bool: false
   };
 
   schema = {
@@ -42,7 +43,7 @@ class Login extends Form {
               <NavLink to="/">Forgot Password</NavLink>
               <NavLink to="/register">Register</NavLink>
             </div>
-            {this.renderButton('Login')}
+            {this.renderButton('Login', this.state.bool, 'send-btn')}
           </form>
         </div>
       </div>
