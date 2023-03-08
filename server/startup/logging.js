@@ -97,7 +97,7 @@ module.exports = function (app) {
         format: combine(colorize(), prettyPrint(), myReqFormat),
       }),
       new transports.File({
-        filename: 'logs/errors.log',
+        filename: 'logs/requests.log',
         format: combine(prettyPrint(), myReqFormat),
       }),
       new transports.MongoDB({

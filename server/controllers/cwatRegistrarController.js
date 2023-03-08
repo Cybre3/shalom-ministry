@@ -12,6 +12,17 @@ module.exports = {
 
       res.status(200).send(cwatRegistrarById);
     },
+    findCwatRegistrarByEmail: async (req, res, next) => {
+      const cwatRegistrarByName = await CwatRegistrar.find({ email: req.body.email });
+
+      if (cwatRegistrarByName) {
+        next({ alreadyRegistered: true });
+        return res.status(200).send(cwatRegistrarByName);
+      } else {
+        next({ alreadyRegistered: false });
+        return res.status(404).send('cwat registrar not found');
+      }
+    },
   },
 
   post: {
@@ -21,12 +32,14 @@ module.exports = {
 
       let cwatRegistrar = await CwatRegistrar.findOne({ email });
       if (cwatRegistrar)
-        return res.status(400).send(`cwatRegistrar with email: ${email} already registered.`);
+        return res.status(400).send(`Registrar with email ${email} already registered.`);
 
       cwatRegistrar = new CwatRegistrar({ ...registrar });
 
       await cwatRegistrar.save();
-      res.status(200).send(_.pick(cwatRegistrar, ['_id', 'firstname', 'lastname', 'email']));
+      res
+        .status(200)
+        .send(_.pick(cwatRegistrar, ['_id', 'firstname', 'lastname', 'email', 'ticket']));
     },
   },
 

@@ -7,10 +7,10 @@ const app = express();
 
 require('./startup/logging')(app);
 require('./startup/cors')(app);
-require('./startup/app-routes-middleware')(app);
-require('./startup/db')(app);
-require('./startup/config')();
 require('./startup/apiValidation')();
+require('./startup/app-routes-middleware')(app);
+require('./startup/config')();
+require('./startup/db')(app);
 require('./startup/prod')(app);
 
 const port = process.env.PORT || 5000;

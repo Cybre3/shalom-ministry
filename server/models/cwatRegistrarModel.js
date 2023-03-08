@@ -55,6 +55,10 @@ const cwatRegistrarSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  ticketOption: {
+    type: String,
+    required: true,
+  },
   date: {
     type: String,
     default: Date,
@@ -75,6 +79,7 @@ function validateCwatRegistrar(input) {
     emergencyFullName: Joi.string().min(2).max(50).required(),
     emergencyEmail: Joi.string().email().min(5).max(255).required(),
     emergencyPhone: JoiPhone.string().phoneNumber().required(),
+    ticketOption: JoiPhone.string().required(),
   });
 
   return schema.validate(input);

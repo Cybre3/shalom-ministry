@@ -11,7 +11,7 @@ module.exports = (validator) => {
     context = '';
 
     if (error) {
-      const errorDataObj = formatError(error);
+      const errorDataObj = formatError(req, error);
       logResponseError(errorDataObj);
       return res.status(400).send(error.details[0].message);
     }
@@ -67,7 +67,7 @@ module.exports = (validator) => {
     logger.error(errorDataObj);
   }
 
-  function formatError(error) {
+  function formatError(req, error) {
     for (let pathIndex in error.details[0].context) {
       if (pathIndex === 'label') context += '{\n\t';
       if (pathIndex === 'key') {
