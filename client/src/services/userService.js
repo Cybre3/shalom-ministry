@@ -7,7 +7,7 @@ function endpointUrl(url) {
 }
 
 export function register(user) {
-  http.post(apiEndpoint, {
+  return http.post(apiEndpoint, {
     firstname: user.firstname,
     lastname: user.lastname,
     email: user.email,
@@ -17,5 +17,5 @@ export function register(user) {
 }
 
 export function CWATregister(user) {
-  http.post(endpointUrl('cwat-register'), user);
+ return http.post(endpointUrl('cwat-register'), user);
 }

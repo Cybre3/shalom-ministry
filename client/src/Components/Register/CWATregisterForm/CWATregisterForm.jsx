@@ -20,9 +20,27 @@ class CWATRegister extends Form {
       emergencyFullName: '',
       emergencyEmail: '',
       emergencyPhone: '',
+      ticketOption: '',
     },
     errors: {},
+    bool: false,
   };
+
+  ticketOptions = [
+    {
+      name: 'tierOne',
+      value: 'Tier 1 - $500 - Villa Lodging (single room) - Lodging Meals - Program - SOLD OUT!!',
+      disabled: true,
+    },
+    {
+      name: 'tierTwo',
+      value: 'Tier 2 - $300 - Villa Lodging (shared room) - Lodging Meals - Program',
+    },
+    {
+      name: 'tierThree',
+      value: 'Tier 3 - $250 - Non Villa Lodging (hotel nearby) - Lodging Meals - Program',
+    },
+  ];
 
   schema = {
     _id: Joi.string(),
@@ -36,38 +54,25 @@ class CWATRegister extends Form {
     emergencyFullName: Joi.string().required().label('Emergency Full Name'),
     emergencyEmail: Joi.string().email().required().label('Emergency Last Name'),
     emergencyPhone: Joi.string().required().label('Emergency Phone'),
+    ticketOption: Joi.string().required().label('Choose Your Ticket'),
   };
 
   doSubmit = async () => {
     try {
-      await CWATregister(this.state.data);
-      toast.success('Registration form submitted!');
-      console.log('form submitted');
-    } catch (ex) {
-      if (ex.response && ex.response.status === 400) {
-        const errors = { ...this.state.errors };
-        errors.username = ex.response.data;
-        toast.error(ex.response.message);
-        this.setState({ errors });
-      }
-      console.log(ex);
+      const { data } = this.state;
+      this.setState({ bool: true });
+      setTimeout(
+        async () => {
+          this.setState({ bool: false });
+          await CWATregister(data);
+          toast.success('Registration submitted!');
+        },
+        Promise.reject ? 2000 : 1000
+      );
+    } catch (error) {
+      console.log(error.message);
     }
   };
-
-  transformText(text) {
-    const newText = text
-      .split('')
-      .map((char, index, string) =>
-        (string[index - 1] !== ' ' && char === 'i') ||
-        (string[index - 1] !== ' ' && char === 'f') ||
-        (string[index - 1] !== ' ' && char === 'b')
-          ? char
-          : char.toUpperCase()
-      )
-      .join('');
-
-    return newText;
-  }
 
   render() {
     return (
@@ -76,9 +81,12 @@ class CWATRegister extends Form {
           <h1>CONFERENCE WITH A TWIST</h1>
 
           <form onSubmit={this.handleSubmit}>
-            <div className="cwat-contact-info">
+            <div className="cwat-title-container">
+              <h2 className="cwat-header">YOUR INFO</h2>
+              <h2 className="cwat-header">EMERGENCY CONTACT</h2>
+            </div>
+            <div className="cwat-contact-info cwat-bg-right">
               <div className="cwat-your-info">
-                <h2 className="cwat-header">YOUR INFO</h2>
                 {this.renderCustomInput('firstname', 'First Name')}
                 {this.renderCustomInput('lastname', 'Last Name')}
                 {this.renderCustomInput('email', 'Email', 'email')}
@@ -86,20 +94,19 @@ class CWATRegister extends Form {
               </div>
 
               <div className="cwat-emergency-contact">
-                <h2 className="cwat-header">{this.transformText('emergency contact')}</h2>
                 {this.renderCustomInput('emergencyFullName', 'Full Name')}
                 {this.renderCustomInput('emergencyEmail', 'Email', 'email')}
                 {this.renderCustomInput('emergencyPhone', 'Phone #', 'phone')}
               </div>
 
-              <div className="cwat-input-background cwat-bg-right">
-                <img src={CWATpPlan} alt="cwat-pPlan" className="cwat-pPlan" />
-              </div>
+              <aside className="cwat-background-image cwat-pPlan">
+                <img src={CWATpPlan} alt="cwat-pPlan" />
+              </aside>
             </div>
 
             <hr></hr>
 
-            <div className="cwat-questions-container">
+            <div className="cwat-questions-container cwat-bg-left">
               <h2 className="cwat-header">A FEW QUESTIONS</h2>
               {this.renderTextarea(
                 'allergies',
@@ -107,12 +114,17 @@ class CWATRegister extends Form {
               )}
               {this.renderTextarea('questions', 'Do you have any questions for us?')}
               {this.renderTextarea('discover', 'How you did you hear about Shalom Ministry?')}
-              <div className="cwat-input-background cwat-bg-left">
-                <img className="cwat-qrcode" src={qrCode} alt="" />
+
+              <div className="ticket-tiers">
+                {this.renderDropdown('ticketOption', 'Choose Your Ticket', this.ticketOptions)}
               </div>
+
+              <aside className="cwat-background-image cwat-qrcode">
+                <img src={qrCode} alt="" />
+              </aside>
             </div>
 
-            {this.renderButton(this.transformText('SUBMIT'))}
+            {this.renderButton('SUBMIT', this.state.bool, 'send-btn')}
           </form>
         </div>
       </div>

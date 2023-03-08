@@ -8,7 +8,7 @@ import ScreenHeading from '../../utilities/ScreenHeading/ScreenHeading';
 import TypicalContactMe from '../../utilities/Typical_Contactme';
 
 import imgBack from '../../assets/email-pc-world2.png';
-import load1 from '../../assets/load2.gif';
+
 // import load1 from '../../assets/load2.gif';
 
 import './contactus.css';
@@ -33,19 +33,13 @@ class ContactUs extends Form {
   };
 
   doSubmit = () => {
-    try {
-      const { data } = this.state;
-      this.setState({ bool: true });
-      setTimeout(async () => {
-        await saveContact(data);
-        this.setState({ bool: false });
-        toast.success('Thank you for contacting Shalom Ministry!');
-      }, 2000);
-    } catch (error) {
-      toast.error(error.message);
-      this.setState({ banner: error.message });
-      console.log(error);
-    }
+    const { data } = this.state;
+    this.setState({ bool: true });
+    setTimeout(async () => {
+      await saveContact(data);
+      this.setState({ bool: false });
+      toast.success('Thank you for contacting Shalom Ministry!');
+    }, 2000);
   };
 
   render() {
@@ -78,7 +72,7 @@ class ContactUs extends Form {
               {this.renderInput('fullname', 'Full Name')}
               {this.renderInput('email', 'Email', 'email')}
               {this.renderTextarea('message', 'Your message Here')}
-              {this.renderButton('Send', load1, this.state.bool, 'send-btn')}
+              {this.renderButton('Send', this.state.bool, 'send-btn')}
             </form>
           </div>
         </div>

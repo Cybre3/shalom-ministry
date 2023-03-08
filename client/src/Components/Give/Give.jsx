@@ -5,8 +5,6 @@ import { saveSponsor } from '../../services/giveService';
 
 import Form from './../common/form';
 
-import load1 from '../../assets/load2.gif';
-
 import './give.css';
 
 class Give extends Form {
@@ -49,7 +47,6 @@ class Give extends Form {
         toast.success('Thank you for interest in partnering with Shalom Ministry!');
       }, 2000);
     } catch (error) {
-      toast.error(error.message);
       console.log(error);
     }
   };
@@ -108,7 +105,7 @@ class Give extends Form {
                 )}
               </div>
             </div>
-            {this.renderButton('Send', load1, this.state.bool, 'send-btn')}
+            {this.renderButton('Send', this.state.bool, 'send-btn')}
           </form>
           <hr />
           <div className="sponsor-message">

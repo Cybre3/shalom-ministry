@@ -6,10 +6,10 @@ const Dropdown = ({ name, label, error, options, ...rest }) => {
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
       <select name={name} id={name} {...rest} className="form-control" >
-        <option value="" key={'empty'}/>
+        <option value={0} key={'empty'} />
         {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.name}
+          <option key={option.value} disabled={option.disabled} value={option.value}>
+            {option.value}
           </option>
         ))}
       </select>

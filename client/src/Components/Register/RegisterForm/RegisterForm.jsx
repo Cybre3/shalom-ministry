@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
 
 import Form from '../../common/form';
@@ -16,7 +17,7 @@ class RegisterForm extends Form {
       password: '',
       rePassword: '',
       discover: '',
-      isAdmin: false
+      isAdmin: false,
     },
     errors: {},
   };
@@ -29,20 +30,20 @@ class RegisterForm extends Form {
     password: Joi.string().required().label('Password'),
     rePassword: Joi.ref('password'),
     discover: Joi.string().label('How you did you hear about Shalom Ministry').allow(''),
-    isAdmin: Joi.boolean()
+    isAdmin: Joi.boolean(),
   };
 
   doSubmit = async () => {
     try {
       await register(this.state.data);
-
+      toast.success('Registration complete!');
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };
         errors.username = ex.response.data;
         this.setState({ errors });
       }
-      console.log(ex)
+      console.log(ex);
     }
   };
 

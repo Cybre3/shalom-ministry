@@ -7,6 +7,8 @@ import Dropdown from './dropdown';
 import Textarea from './textarea';
 import CheckBox from './checkBox';
 
+import load1 from '../../assets/load2.gif';
+
 class Form extends Component {
   state = {
     data: {},
@@ -40,7 +42,7 @@ class Form extends Component {
 
     this.doSubmit();
 
-    e.target.reset();
+    if (!Promise.reject) e.target.reset();
   };
 
   handleChange = ({ currentTarget: input }) => {
@@ -56,7 +58,7 @@ class Form extends Component {
     this.setState({ data, errors });
   };
 
-  renderButton = (label, image, state, className) => {
+  renderButton = (label, state, className) => {
     return (
       <div className={className}>
         <button disabled={this.validate()} className="btn btn-primary">
@@ -64,7 +66,7 @@ class Form extends Component {
           <i className="fa fa-paper-plane" />
           {state ? (
             <b className="load">
-              <img src={image} alt="img not responding" />
+              <img src={load1} alt="img not responding" />
             </b>
           ) : (
             ''

@@ -17,11 +17,18 @@
   margin-bottom: 1rem;
 }
 
+.cwat-title-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 18vw 0 7vw;
+}
+
 .cwat-contact-info {
   display: flex;
   gap: 14vw;
   justify-content: center;
   margin-left: -4vw;
+  padding: 2vh 0 1vh;
   position: relative;
   text-align: left;
   width: 100%;
@@ -33,26 +40,22 @@
   margin-bottom: 0.5rem;
 }
 
-.cwatRegister input,
-.cwatRegister textarea {
-  background: transparent;
-  border-radius: 0.1rem;
-  outline: 0.05rem solid black;
-  padding: 0.2rem 0.5rem;
-}
-
 .cwat-questions-container {
   align-items: center;
   display: flex;
   flex-direction: column;
-  text-align: left;
+  margin-top: 8vh;
+  padding: 2vh 0;
   position: relative;
+  text-align: left;
   width: 100%;
 }
 
 .cwat-questions-container h2 {
   align-self: flex-start;
-  margin-left: 20vw;
+  margin-left: 19.5vw;
+  position: absolute;
+  top: -6vh;
 }
 
 .cwat-questions-container .form-group {
@@ -72,21 +75,6 @@
   flex-direction: column;
 }
 
-.cwat-pPlan {
-  height: 34vh;
-  position: absolute;
-  right: -3vw;
-  /* top: 14vh; */
-  width: 22vw;
-}
-
-.cwat-qrcode {
-  bottom: 1vh;
-  position: absolute;
-  right: 1rem;  
-  width: 15vw;
-}
-
 .cwatRegister hr {
   border-color: transparent;
   margin: 1rem 0;
@@ -94,23 +82,34 @@
 
 .cwat-bg-left {
   background: linear-gradient(to left, #7678fe65, 30%, #44ffe38e, 70%, white);
-  height: 30vh;
+  height: fit-content;
+  justify-content: center;
   right: 0;
 }
 
 .cwat-bg-right {
   align-items: center;
-  left: 0;
   background: linear-gradient(to right, #7678fe65, 30%, #44ffe38e, 60%, white);
-  height: 20vh;
+  height: fit-content;
+  left: 0;
 }
 
-.cwat-input-background {
-  display: flex;
-  bottom: 0;
+.cwat-background-image {
   position: absolute;
-  z-index: -1;
+}
+
+.cwat-background-image img {
   width: 100%;
+}
+
+.cwat-pPlan {
+  right: -3vw;
+  width: 20vw;
+}
+
+.cwat-qrcode {
+  right: 1rem;
+  width: 15vw;
 }
 
 .cwatRegister button {
@@ -138,3 +137,28 @@
   width: 5vw;
 }
 
+.cwatRegister input,
+.cwatRegister textarea,
+.cwatRegister select {
+  background: transparent;
+  border-radius: 0.1rem;
+  /* outline: 0.02rem solid black; */
+  padding: 0.2rem 0.5rem;
+}
+
+.cwatRegister input {
+  background: transparent;
+  border: 0.05rem solid black;
+  border-radius: 0.1rem;
+  /* outline: 0.02rem solid black; */
+  padding: 0.2rem 0.5rem;
+}
+
+.cwatRegister input:focus,
+.cwatRegister textarea:focus,
+.cwatRegister select:focus {
+  background: white;
+  border-radius: 0.1rem;
+  outline: 0.02rem solid black;
+  padding: 0.2rem 0.5rem;
+}
