@@ -68,7 +68,7 @@ class CreateInvoice extends Form {
           <NavLink to="/">
             <img src={require('../../../assets/SM-Logo-w-Title.png')} alt="" />
           </NavLink>
-          <NavLink to="/invoices">View Invoices</NavLink>
+          <NavLink to="/dashboard/invoices">View Invoices</NavLink>
           <h1>sales receipt</h1>
         </div>
         <form onSubmit={this.handleSubmit}>

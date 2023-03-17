@@ -65,10 +65,18 @@ const contactUs = [
 
 function Footer(props) {
   const location = useLocation();
-  if (
-    ['', '', '/invoices', '/invoices/create-new-invoice', '/dashboard'].includes(location.pathname)
-  )
-    return <></>;
+   const dashboardLocation = location.pathname.includes('dashboard') ? location.pathname : null;
+
+   if (
+     [
+       '/invoices',
+       '/invoices/create-new-invoice',
+       '/dashboard',
+       '/dashboard',
+       dashboardLocation,
+     ].includes(location.pathname)
+   )
+     return <></>;
 
   return (
     <footer className="footer-container">

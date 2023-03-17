@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 import './dashboard.css';
 
@@ -21,29 +21,30 @@ function Dashboard(props) {
 
           <div className="dash-section">
             <h3 className="dash-section-title">Forms</h3>
-            <NavLink className="nav-link" to="/invoices/create-new-invoice">
+
+            <NavLink className="nav-link" to="invoices/create-new-invoice">
               Create Invoice
             </NavLink>
-            <NavLink className="nav-link" to="/invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/create-new-invoice">
               Thank you Note
             </NavLink>
-            <NavLink className="nav-link" to="/invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/create-new-invoice">
               Receipt
             </NavLink>
-            <NavLink className="nav-link" to="/invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/create-new-invoice">
               Purchase
             </NavLink>
           </div>
 
           <div className="dash-section">
             <h3 className="dash-section-title">Admin</h3>
-            <NavLink className="nav-link" to="/users">
+            <NavLink className="nav-link" to="users">
               Users
             </NavLink>
-            <NavLink className="nav-link" to="/invoices">
+            <NavLink className="nav-link" to="invoices">
               Invoices
             </NavLink>
-            <NavLink className="nav-link" to="/messages">
+            <NavLink className="nav-link" to="messages">
               Messages
             </NavLink>
             <NavLink className="nav-link" to="/registrations">
@@ -52,7 +53,10 @@ function Dashboard(props) {
           </div>
         </div>
       </div>
-      <div className="dash-content-container"></div>
+
+      <div className="dash-content-container">
+        <Outlet />
+      </div>
     </div>
   );
 }

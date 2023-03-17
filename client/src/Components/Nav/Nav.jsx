@@ -5,12 +5,19 @@ import './nav.css';
 
 function Nav() {
   const location = useLocation();
+  const dashboardLocation = location.pathname.includes('dashboard') ? location.pathname : null;
+
   if (
-    ['/invoices', '/invoices/create-new-invoice', '/dashboard'].includes(
-      location.pathname
-    )
+    [
+      '/invoices',
+      '/invoices/create-new-invoice',
+      '/dashboard',
+      '/dashboard',
+      dashboardLocation,
+    ].includes(location.pathname)
   )
     return <></>;
+
   return (
     <div className="navbar">
       <div className="nav-ministry-logo-name">

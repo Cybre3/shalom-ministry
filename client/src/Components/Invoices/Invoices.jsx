@@ -54,7 +54,7 @@ class Invoices extends Component {
         <div>ListGroup</div>
         <div>
           {user && (
-            <Link className="new-invoice-link" to="/invoices/create-new-invoice">
+            <Link className="new-invoice-link" to="create-new-invoice">
               Create New Invoice
             </Link>
           )}

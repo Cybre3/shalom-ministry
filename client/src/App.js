@@ -13,6 +13,7 @@ import Give from './Components/Give/Give';
 import Home from './Components/Home/Home';
 import Invoices from './Components/Invoices/Invoices';
 import Login from './Components/Login/Login';
+import Messages from './Components/Messages/Messages';
 import Nav from './Components/Nav/Nav';
 import Register from './Components/Register/Register';
 
@@ -22,6 +23,8 @@ import './App.css';
 class App extends Component {
   state = {
     scrollBtnDisplay: 'none',
+    messageNumber: 0,
+    invoiceNumber: 0
   };
 
   componentDidMount() {
@@ -58,9 +61,12 @@ class App extends Component {
               <Route path="/contact-us" element={<Contactus />} />
               <Route path="/give" element={<Give />} />
 
-              <Route exact path="/invoices" element={<Invoices />}></Route>
-              <Route exact path="/invoices/create-new-invoice" element={<CreateInvoice />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />}>
+                <Route path="invoices" element={<Invoices />} />
+                <Route path="invoices/create-new-invoice" element={<CreateInvoice />} />
+                <Route path="messages" element={<Messages />} />
+              </Route>
+           
             </Routes>
 
             {/* <button
