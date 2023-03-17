@@ -2,27 +2,33 @@ const _ = require('lodash');
 const { Contact } = require('../models/contactModel');
 
 module.exports = {
-  get: {
-    getAllContactMessages: async (req, res) => {
-      const contactMessages = await Contact.find({});
-
-      res.status(200).send(contactMessages);
-    },
-  },
-
   post: {
     saveNewContactMessage: async (req, res) => {
-      const { email } = req.body;
+      const { email, fullname } = req.body;
+      const [firstname, lastname] = fullname.split(' ');
       const contact = req.body;
-
       // let contactMessage = await Contact.findOne({ email });
       /* if (contactMessage) return res.status(400).send('Message with email already sent.'); */
 
-      let contactMessage = new Contact({ ...contact });
+      let contactInfo = new Contact({ firstname, lastname, ...contact });
+      
+      await contactInfo.save();
 
-      await contactMessage.save();
+      res.status(200).send(_.pick(contactInfo, ['_id', 'firstname', 'lastname', 'email']));
+    },
+  },
 
-      res.status(200).send(_.pick(contactMessage, ['_id', 'fullname', 'email']));
+  put: {
+    editContactMessageById: async (req, res) => {
+      const { contact } = req.body;
+
+      const updatedContact = {};
+
+      const contactToEdit = await Contact.findByIdAndUpdate(req.params.id, updatedContact, {
+        new: true,
+      });
+
+      res.status(200).send(contactToEdit);
     },
   },
 };

@@ -38,6 +38,10 @@ const sponsorSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: String,
+    default: 'sponsor',
+  },
   date: {
     type: String,
     default: Date,

@@ -1,1 +1,2 @@
 
+// fix duplicate email error message - currently displays "something wrong." - need to display 'Message with email {email} already composed/sent.

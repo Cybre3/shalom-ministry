@@ -2,10 +2,16 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 
 const contactSchema = mongoose.Schema({
-  fullname: {
+  firstname: {
     type: String,
     minlength: 5,
     maxlength: 30,
+    required: true,
+  },
+  lastname: {
+    type: String,
+    minlength: 2,
+    maxlength: 50,
     required: true,
   },
   message: {
@@ -21,10 +27,14 @@ const contactSchema = mongoose.Schema({
     unique: false,
     required: true,
   },
+  category: {
+    type: String,
+    default: 'contact us'
+  },
   date: {
     type: String,
-    default: Date
-  }
+    default: Date,
+  },
 });
 
 const Contact = mongoose.model('Contact', contactSchema);
