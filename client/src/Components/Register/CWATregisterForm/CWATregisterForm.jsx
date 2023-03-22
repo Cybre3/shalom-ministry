@@ -24,6 +24,7 @@ class CWATRegister extends Form {
     },
     errors: {},
     bool: false,
+    haveTicketAlready: false,
   };
 
   ticketOptions = [
@@ -57,6 +58,15 @@ class CWATRegister extends Form {
     ticketOption: Joi.string().required().label('Choose Your Ticket'),
   };
 
+  hasAticket = (e) => {
+    this.setState({
+      haveTicketAlready: e.target.checked,
+      data: {
+        ticketOption: 'Tier 1 - $500 - Villa Lodging (single room) - Lodging Meals - Program',
+      },
+    });
+  };
+
   doSubmit = async () => {
     try {
       const { data } = this.state;
@@ -75,6 +85,7 @@ class CWATRegister extends Form {
   };
 
   render() {
+    console.log(this.state.data.ticketOption);
     return (
       <div className="cwatRegister">
         <div className="content">
@@ -115,15 +126,26 @@ class CWATRegister extends Form {
               {this.renderTextarea('questions', 'Do you have any questions for us?')}
               {this.renderTextarea('discover', 'How did you hear about Shalom Ministry?')}
 
-              <div className="ticket-tiers">
-                {this.renderDropdown('ticketOption', 'Choose Your Ticket', this.ticketOptions)}
-              </div>
+              {!this.state.haveTicketAlready && (
+                <div className="ticket-tiers">
+                  {this.renderDropdown('ticketOption', 'Choose Your Ticket', this.ticketOptions)}
+                </div>
+              )}
 
               <aside className="cwat-background-image cwat-qrcode">
                 <img src={qrCode} alt="" />
               </aside>
             </div>
-
+            <input
+              type="checkbox"
+              id={'haveTicketAlready'}
+              value={'haveTicketAlready'}
+              name={'haveTicketAlready'}
+              onChange={this.hasAticket}
+            />
+            <label htmlFor={'haveTicketAlready'}>
+              I have selected my ticket prior to registering and have made a payment(s)
+            </label>
             {this.renderButton('SUBMIT', this.state.bool, 'send-btn')}
           </form>
         </div>
