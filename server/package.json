@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "https://shalomministrymovin4ward.org/",
+  "cors": "https://shalomministrymovin4ward.org/",
   "scripts": {
     "prebuild": "npm install",
     "auto": "nodemon index.js",
@@ -27,6 +29,7 @@
     "joi-objectid": "^4.0.2",
     "joi-phone-number": "^5.1.1",
     "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
     "mongoose": "^6.8.2",
     "morgan": "^1.10.0",
     "winston": "^3.8.2",
