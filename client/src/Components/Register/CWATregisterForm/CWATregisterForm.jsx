@@ -5,6 +5,7 @@ import Joi from 'joi-browser';
 import { CWATregister } from '../../../services/userService';
 import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
+
 import './CWATregisterForm.css';
 
 class CWATRegister extends Form {
@@ -35,7 +36,8 @@ class CWATRegister extends Form {
     },
     {
       name: 'tierTwo',
-      value: 'Tier 2 - $300 - Villa Lodging (shared room) - Lodging Meals - Program',
+      value: 'Tier 2 - $300 - Villa Lodging (shared room) - Lodging Meals - Program - SOLD OUT!!',
+      disabled: true
     },
     {
       name: 'tierThree',
@@ -85,7 +87,6 @@ class CWATRegister extends Form {
   };
 
   render() {
-    console.log(this.state.data.ticketOption);
     return (
       <div className="cwatRegister">
         <div className="content">
