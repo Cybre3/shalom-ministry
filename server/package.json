@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "proxy": "https://shalomministrymovin4ward.org/",
-  "cors": "https://shalomministrymovin4ward.org/",
   "scripts": {
     "prebuild": "npm install",
     "auto": "nodemon index.js",
