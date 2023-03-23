@@ -36,8 +36,7 @@ class CWATRegister extends Form {
     },
     {
       name: 'tierTwo',
-      value: 'Tier 2 - $300 - Villa Lodging (shared room) - Lodging Meals - Program - SOLD OUT!!',
-      disabled: true
+      value: 'Tier 2 - $300 - Villa Lodging (shared room) - Lodging Meals - Program',
     },
     {
       name: 'tierThree',

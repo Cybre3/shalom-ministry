@@ -1,22 +1,16 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { getCurrentUser } from '../../services/authService';
+
 import navLogo from '../../assets/Nav/SM-Logo.png';
+
 import './nav.css';
 
-function Nav() {
+function Nav(props) {
   const location = useLocation();
   const dashboardLocation = location.pathname.includes('dashboard') ? location.pathname : null;
 
-  if (
-    [
-      '/invoices',
-      '/invoices/create-new-invoice',
-      '/dashboard',
-      '/dashboard',
-      dashboardLocation,
-    ].includes(location.pathname)
-  )
-    return <></>;
+  if (['/dashboard', '/dashboard', dashboardLocation].includes(location.pathname)) return <></>;
 
   return (
     <div className="navbar">
@@ -51,12 +45,26 @@ function Nav() {
       </div>
       <div className="nav-login-register">
         <div className="login-register-dropdown">
-          <NavLink className="no-bg" to="/login">
-            Login
-          </NavLink>
-          <NavLink className="no-bg" to="/register">
-            Register
-          </NavLink>
+          {!props.user && (
+            <React.Fragment>
+              <NavLink className="no-bg" to="/login">
+                Login
+              </NavLink>
+              <NavLink className="no-bg" to="/register">
+                Register
+              </NavLink>
+            </React.Fragment>
+          )}
+          {getCurrentUser() && getCurrentUser().isAdmin ? (
+            <NavLink className="no-bg" to="/dashboard">
+              Dashboard
+            </NavLink>
+          ) : null}
+          {props.user && (
+            <NavLink className="no-bg" to="/logout">
+              Logout
+            </NavLink>
+          )}
         </div>
       </div>
     </div>

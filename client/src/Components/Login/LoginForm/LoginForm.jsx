@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
 
 import Joi from 'joi-browser';
 import Form from '../../common/form';
 import { login } from '../../../services/authService';
+
 import './loginForm.css';
 
 class Login extends Form {
@@ -13,7 +14,7 @@ class Login extends Form {
       password: '',
     },
     errors: {},
-    bool: false
+    bool: false,
   };
 
   schema = {
@@ -26,6 +27,7 @@ class Login extends Form {
     try {
       const { data } = this.state;
       await login(data.email, data.password);
+      window.location = '/';
     } catch (error) {
       console.log(error);
     }

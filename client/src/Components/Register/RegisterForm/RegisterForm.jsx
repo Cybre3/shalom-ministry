@@ -37,6 +37,7 @@ class RegisterForm extends Form {
     try {
       await register(this.state.data);
       toast.success('Registration complete!');
+      window.location = '/';
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };

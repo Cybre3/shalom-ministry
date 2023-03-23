@@ -3,11 +3,11 @@ import LoginBackground from './LoginBackground/LoginBackground';
 import LoginForm from './LoginForm/LoginForm';
 import './login.css';
 
-function Login() {
+function Login({user}) {
   return (
     <div className="login-container">
       <LoginBackground />
-      <LoginForm />
+      <LoginForm user={user} />
     </div>
   );
 }
