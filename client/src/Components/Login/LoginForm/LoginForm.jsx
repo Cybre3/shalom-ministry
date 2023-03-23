@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Joi from 'joi-browser';
 import Form from '../../common/form';
