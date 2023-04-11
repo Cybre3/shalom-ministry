@@ -3,6 +3,9 @@ const Joi = require('joi');
 const JoiPhone = Joi.extend(require('joi-phone-number'));
 
 const cwatRegistrarSchema = mongoose.Schema({
+  registrarNumber: {
+    type: Number,
+  },
   firstname: {
     type: String,
     minlength: 2,
@@ -58,6 +61,10 @@ const cwatRegistrarSchema = mongoose.Schema({
   ticketOption: {
     type: String,
     required: true,
+  },
+  category: {
+    type: String,
+    default: 'CWAT',
   },
   date: {
     type: String,

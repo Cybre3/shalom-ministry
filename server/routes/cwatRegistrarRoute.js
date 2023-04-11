@@ -3,8 +3,8 @@ const cwatRegistrarController = require('../controllers/cwatRegistrarController'
 const validator = require('../middleware/validateMiddleware');
 const { validate: validateCwatRegistrar } = require('../models/cwatRegistrarModel');
 
-/* Router.get('/', invoiceController.get.viewAllInvoices);
-Router.get('/:id', invoiceController.get.findInvoiceById); */
+router.get('/', cwatRegistrarController.get.viewAllCwatRegistrars);
+// Router.get('/:id', invoiceController.get.findInvoiceById);
 
 router.post('/', validator(validateCwatRegistrar), cwatRegistrarController.post.createNewCwatRegistrar);
 
