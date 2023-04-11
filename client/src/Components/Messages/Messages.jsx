@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 // import { toast } from 'react-toastify';
+
 import { getAllMessages } from '../../services/messageService';
+import { paginate } from './../../utilities/paginate';
+
 import MessagesTable from './messagesTable';
+import Pagination from '../common/Pagination';
+
 import '../Invoices/invoices.css';
 
 class Messages extends Component {
   state = {
     messages: [],
-    sortColumn: { path: 'fullname', order: 'asc' },
+    currentPage: 1,
+    pageSize: 4,
+    sortColumn: { path: 'messageNumber', order: 'asc' },
   };
 
   async componentDidMount() {
@@ -17,8 +25,12 @@ class Messages extends Component {
     this.setState({ messages });
   }
 
-  handleSort = () => {
-    console.log('working');
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+  };
+
+  handleSort = (sortColumn) => {
+    this.setState({ sortColumn });
   };
 
   // handleDelete = async (message) => {
@@ -38,13 +50,18 @@ class Messages extends Component {
   // };
 
   getPageData = () => {
-    const { messages: allMessages } = this.state;
+    const { messages: allMessages, sortColumn, currentPage, pageSize } = this.state;
 
-    return { totalCount: allMessages.length, data: allMessages };
+    let filtered = allMessages;
+
+    const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+    const messages = paginate(sorted, currentPage, pageSize);
+
+    return { totalCount: filtered.length, data: messages };
   };
 
   render() {
-    const { sortColumn } = this.state;
+    const { pageSize, currentPage, sortColumn } = this.state;
     const user = this.props;
 
     const { totalCount, data: messages } = this.getPageData();
@@ -64,6 +81,12 @@ class Messages extends Component {
             sortColumn={sortColumn}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
+          />
+          <Pagination
+            itemsCount={totalCount}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={this.handlePageChange}
           />
         </div>
       </div>

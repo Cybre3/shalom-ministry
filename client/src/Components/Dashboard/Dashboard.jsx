@@ -47,7 +47,7 @@ function Dashboard(props) {
             <NavLink className="nav-link" to="messages">
               Messages
             </NavLink>
-            <NavLink className="nav-link" to="/registrations">
+            <NavLink className="nav-link" to="registrars">
               Registrations
             </NavLink>
           </div>

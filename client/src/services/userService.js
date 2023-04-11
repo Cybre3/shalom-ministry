@@ -17,5 +17,9 @@ export function register(user) {
 }
 
 export function CWATregister(user) {
- return http.post(endpointUrl('cwat-register'), user);
+  return http.post(endpointUrl('cwat-register'), user);
+}
+
+export function getAllCWATregistrars() {
+  return http.get(endpointUrl('cwat-register'));
 }

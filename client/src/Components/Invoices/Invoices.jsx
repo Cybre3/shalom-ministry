@@ -8,7 +8,7 @@ import './invoices.css';
 class Invoices extends Component {
   state = {
     invoices: [],
-    sortColumn: { path: 'firstname', order: 'asc' },
+    sortColumn: { path: 'invoiceNumber', order: 'asc' },
   };
 
   async componentDidMount() {
@@ -16,10 +16,6 @@ class Invoices extends Component {
 
     this.setState({ invoices });
   }
-
-  handleSort = () => {
-    console.log('working');
-  };
 
   handleDelete = async (invoice) => {
     const originalInvoices = this.state.invoices;
@@ -37,6 +33,10 @@ class Invoices extends Component {
     }
   };
 
+  handleSort = (sortColumn) => {
+    this.setState({ sortColumn });
+  };
+
   getPageData = () => {
     const { invoices: allInvoices } = this.state;
 
@@ -51,7 +51,7 @@ class Invoices extends Component {
 
     return (
       <div className="invoices-table">
-        <div>ListGroup</div>
+        <div className="table-sort-ategories">ListGroup</div>
         <div>
           {user && (
             <Link className="new-invoice-link" to="create-new-invoice">

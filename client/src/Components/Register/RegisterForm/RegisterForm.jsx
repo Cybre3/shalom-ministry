@@ -36,8 +36,8 @@ class RegisterForm extends Form {
   doSubmit = async () => {
     try {
       await register(this.state.data);
-      toast.success('Registration complete!');
       window.location = '/';
+      toast.success('Registration complete!');
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const errors = { ...this.state.errors };

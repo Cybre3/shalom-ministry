@@ -1,15 +1,21 @@
 table {
-  border-color: grey;
+  background-color: white;
+  border: 0.1rem solid black;
+  border-spacing: 0.2rem;
   border-collapse: collapse;
-  border-spacing: 0.13rem;
-  display: table;
+  display: block;
+  font-size: 0.8rem;
+  height: 30vh;
+  margin: 10vh auto 0 auto;
+  overflow: auto;
   text-align: center;
+  width: 70vw;
 }
 
 thead {
+  border-color: inherit;
   display: table-header-group;
   vertical-align: middle;
-  border-color: inherit;
 }
 
 tbody {
@@ -21,49 +27,41 @@ tbody {
 th {
   display: table-cell;
   font-weight: bold;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
+  border: 0.1rem solid black;
 }
 
 tr {
+  border-color: inherit;
   display: table-row;
   vertical-align: inherit;
-  border-color: inherit;
+}
+
+td {
+  border: 0.05rem solid black;
+}
+
+th,
+td {
+  padding: 0.6rem 1.5rem;
+  white-space: nowrap;
 }
 
 .invoices-table {
-  display: flex;
-  justify-content: center;
-  margin-top: 15vh;
+  padding: 3rem;
 }
 
-.table {
-  margin-bottom: 1rem;
-  width: 100%;
+.invoices-table .new-invoice-link {
+  color: black;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 0.13rem solid#dee2e6;
-}
-
-.table th,
-.table td {
-  padding: 1rem 2rem;
-  border-top: 0.06rem solid #dee2e6;
-}
+.invoices-table .invoice-db-count {
+  margin-top: 2rem;
+} 
 
 .clickable {
   cursor: pointer;
 }
 
-.invoices-table .new-invoice-link {
-  color: black;
-  font-size: 1.5rem;
-  margin-left: 6rem;
-  text-decoration: none;
-}
-
-.invoices-table .invoice-db-count {
-  margin-bottom: 3rem;
-  margin-top: 2rem;
-}

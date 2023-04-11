@@ -6,11 +6,12 @@
 
 .dash-side-menu {
   align-items: center;
-  background-color: rgb(87, 99, 111);
+  background-color: rgba(128, 0, 128, 0.757);
   box-shadow: 8px 0px 13px -8px #000000;
   color: white;
   display: flex;
   flex-direction: column;
+  float: left;
   height: 100%;
   padding: 1rem;
   position: relative;
@@ -61,11 +62,10 @@
 
 
 .dash-content-container {
-  background-color: slategray;
+  background-color: whitesmoke;
   height: 100%;
-  overflow: auto;
   position: absolute;
   right: 0;
-  top: 0;
   width: 88%;
+  z-index: 0;
 }

@@ -1,24 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Table from '../common/Table';
-import auth from '../../services/authService';
 
-class InvoicesTable extends Component {
+class RegistrarsTable extends Component {
   columns = [
     {
-      path: 'messageNumber',
-      label: 'Message#',
-      content: (message) => <Link to={`/messages/${message._id}`}>{message.messageNumber}</Link>,
+      path: 'registrarNumber',
+      label: 'registrar#',
+      content: (registrar) => (
+        <Link to={`/messages/${registrar._id}`}>{registrar.registrarNumber}</Link>
+      ),
     },
     { path: 'category', label: 'Category' },
+    { path: 'ticketOption', label: 'Ticket Option' },
     { path: 'fullname', label: 'Full Name' },
     { path: 'firstname', label: 'First Name' },
     { path: 'lastname', label: 'Last Name' },
-    { path: 'organizationName', label: 'Organization Name' },
     { path: 'email', label: 'Email' },
     { path: 'phone', label: 'Phone' },
-    { path: 'message', label: 'Message' },
-    { path: 'bestContact', label: 'Best Mode of Contact' },
+    { path: 'allergies', label: 'Allergies' },
+    { path: 'questions', label: 'Questions' },
+    { path: 'discover', label: 'Discover' },
+    { path: 'emergencyFullName', label: 'Emergency Full Name' },
+    { path: 'emergencyEmail', label: 'Emergency Email' },
+    { path: 'emergencyPhone', label: 'Emergency Phone' },
     { path: 'date', label: 'Message Date' },
   ];
 
@@ -38,8 +43,9 @@ class InvoicesTable extends Component {
 
   constructor() {
     super();
-    const user = auth.getCurrentUser();
-    if (user && user.isAdmin) this.columns.push(this.deleteColumn);
+    // const user = auth.getCurrentUser();
+    // if (user && user.authorizedToDelete) this.columns.push(this.deleteColumn);
+    this.columns.push(this.deleteColumn);
   }
 
   render() {
@@ -49,4 +55,4 @@ class InvoicesTable extends Component {
   }
 }
 
-export default InvoicesTable;
+export default RegistrarsTable;
