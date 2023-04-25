@@ -18,8 +18,10 @@ import Logout from './Components/logout';
 import Messages from './Components/Messages/Messages';
 import Nav from './Components/Nav/Nav';
 import ProtectedRoutes from './Components/common/protectedRoutes';
+import SaveData from './Components/SaveData/SaveData';
 import Register from './Components/Register/Register';
 import Registrars from './Components/Register/Registrars';
+import Users from './Components/Users/Users';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -69,12 +71,14 @@ class App extends Component {
               <Route path="/give" element={<Give />} />
               {/* <Route path="/movies" render={(props) => <Movies {...props} user={user} />} /> */}
 
-              <Route element={<ProtectedRoutes/>}>
+              <Route element={<ProtectedRoutes />}>
                 <Route path="/dashboard" element={<Dashboard />}>
                   <Route path="invoices" element={<Invoices />} />
+                  <Route path="users" element={<Users />} />
                   <Route path="invoices/create-new-invoice" element={<CreateInvoice />} />
                   <Route path="messages" element={<Messages />} />
                   <Route path="registrars" element={<Registrars />} />
+                  <Route path="data" element={<SaveData />} />
                 </Route>
               </Route>
             </Routes>

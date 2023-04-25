@@ -32,3 +32,16 @@
   right: 2vw;
   z-index: 5;  
 }
+
+.alert {
+  /* background-color: white; */
+  /* border: 0.05rem solid white; */
+  border-radius: 0.5rem;
+  bottom: 0;
+  color: red;
+  margin: 1rem auto 0;
+  padding: 0.2rem 0;
+  position: absolute;
+  width: 80%;
+  z-index: 5;
+}
