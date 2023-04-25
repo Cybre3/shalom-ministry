@@ -75,7 +75,7 @@
   color: white;
 }
 
-.register-container .alert {
+/* .register-container .alert {
   background-color: rgb(155, 0, 0);
   border: 0.05rem solid white;
   border-radius: 0.5rem;
@@ -87,7 +87,7 @@
   position: absolute;
   width: 80%;
   z-index: 5;
-}
+} */
 
 .register-container hr {
   margin-bottom: 1vh;

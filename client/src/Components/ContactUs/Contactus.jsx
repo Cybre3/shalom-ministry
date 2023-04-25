@@ -29,7 +29,7 @@ class ContactUs extends Form {
     _id: Joi.string(),
     fullname: Joi.string().required().label('Full Name'),
     email: Joi.string().email().required().label('Email'),
-    message: Joi.string().required().label('Your message here'),
+    message: Joi.string().required().label('Message'),
   };
 
   doSubmit = () => {
@@ -51,7 +51,7 @@ class ContactUs extends Form {
             <h2 className="title">
               <TypicalContactMe />
             </h2>
-            <a href="https://www.facebook.com">
+            <a href="https://www.facebook.com/profile.php?id=100089261716387">
               <i className="fa fa-facebook-square"></i>
             </a>
             <a href="https://www.linkedin.com">

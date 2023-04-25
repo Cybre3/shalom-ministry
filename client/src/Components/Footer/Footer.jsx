@@ -82,7 +82,7 @@ function Footer(props) {
     <footer className="footer-container">
       <div className="">
         <div className="col">
-          <a href="https://www.facebook.com">
+          <a href="https://www.facebook.com/profile.php?id=100089261716387">
             <i className="fa fa-facebook-square"></i>
           </a>
           <a href="https://www.linkedin.com">
@@ -101,7 +101,9 @@ function Footer(props) {
           src={require('../../assets/Footer/SM_Graphic Kit_2022_transparent.png')}
           alt=""
         />
-        <NavLink className='privacy-policy' to='/'>Privacy & Liability</NavLink>
+        <NavLink className="privacy-policy" to="/">
+          Privacy & Liability
+        </NavLink>
         {/* add privacy link under est logo */}
       </div>
     </footer>
