@@ -4,25 +4,31 @@ import _ from 'lodash';
 // import { toast } from 'react-toastify';
 
 import { getAllMessages } from '../../services/messageService';
+import { getAllCategories } from './../../services/categoryServices';
 import { paginate } from './../../utilities/paginate';
 
 import MessagesTable from './messagesTable';
 import Pagination from '../common/Pagination';
 
 import '../Invoices/invoices.css';
+import ListGroup from './../common/listGroup';
 
 class Messages extends Component {
   state = {
-    messages: [],
+    categories: [],
     currentPage: 1,
+    messages: [],
     pageSize: 4,
+    selectedCategory: null,
     sortColumn: { path: 'messageNumber', order: 'asc' },
   };
 
   async componentDidMount() {
     const { data: messages } = await getAllMessages();
+    const categories = await getAllCategories('messages');
+    // console.log(categories)
 
-    this.setState({ messages });
+    this.setState({ messages, categories });
   }
 
   handlePageChange = (page) => {
@@ -33,6 +39,9 @@ class Messages extends Component {
     this.setState({ sortColumn });
   };
 
+  handleCategorySelect = (category) => {
+    this.setState({ selectedCategory: category, currentPage: 1 });
+  };
   // handleDelete = async (message) => {
   //   const originalMessages = this.state.messages;
   //   const messages = originalMessages.filter((inv) => inv._id !== message._id);
@@ -61,14 +70,20 @@ class Messages extends Component {
   };
 
   render() {
-    const { pageSize, currentPage, sortColumn } = this.state;
+    const { pageSize, currentPage, sortColumn, categories, selectedCategory } = this.state;
     const user = this.props;
 
     const { totalCount, data: messages } = this.getPageData();
 
     return (
       <div className="invoices-table">
-        <div>ListGroup</div>
+        <div>
+          <ListGroup
+            items={categories}
+            selectedItem={selectedCategory}
+            onItemSelect={this.handleCategorySelect}
+          />
+        </div>
         <div>
           {user && (
             <Link className="new-invoice-link" to="create-new-message">

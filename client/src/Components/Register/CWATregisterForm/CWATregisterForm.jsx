@@ -22,6 +22,9 @@ class CWATRegister extends Form {
       emergencyEmail: '',
       emergencyPhone: '',
       ticketOption: '',
+      tierOneBedsAvailable: 0,
+      tierTwoBedsAvailable: 3,
+      tierThreeBedsAvailable: 4,
     },
     errors: {},
     bool: false,
@@ -31,16 +34,17 @@ class CWATRegister extends Form {
   ticketOptions = [
     {
       name: 'tierOne',
-      value: 'Tier 1 - $500 - Villa Lodging (single room) - Lodging Meals - Program - SOLD OUT!!',
+      value: '$500 - Villa Lodging (single room) - Lodging Meals - Program - SOLD OUT!!',
       disabled: true,
     },
     {
       name: 'tierTwo',
-      value: 'Tier 2 - $300 - Villa Lodging (shared room) - Lodging Meals - Program',
+      value:
+        '$350 - Villa Lodging (shared room - Queen / Double / Full Bed) - Lodging Meals - Program',
     },
     {
       name: 'tierThree',
-      value: 'Tier 3 - $250 - Non Villa Lodging (hotel nearby) - Lodging Meals - Program',
+      value: '$300 - Villa Lodging (shared room - Twin Bed) - Lodging Meals - Program',
     },
   ];
 
@@ -62,6 +66,7 @@ class CWATRegister extends Form {
   hasAticket = (e) => {
     this.setState({
       haveTicketAlready: e.target.checked,
+      // next lin needs to be updated
       data: {
         ticketOption: 'Tier 1 - $500 - Villa Lodging (single room) - Lodging Meals - Program',
       },
@@ -126,7 +131,9 @@ class CWATRegister extends Form {
               {this.renderTextarea('questions', 'Do you have any questions for us?')}
               {this.renderTextarea('discover', 'How did you hear about Shalom Ministry?')}
 
-              {!this.state.haveTicketAlready && (
+              {this.state.haveTicketAlready ? (
+                <div>{this.renderInput('ticketCode', 'Ticket Code')} </div>
+              ) : (
                 <div className="ticket-tiers">
                   {this.renderDropdown('ticketOption', 'Choose Your Ticket', this.ticketOptions)}
                 </div>
