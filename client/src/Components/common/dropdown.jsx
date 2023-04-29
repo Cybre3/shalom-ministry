@@ -8,8 +8,8 @@ const Dropdown = ({ name, label, error, options, ...rest }) => {
       <select name={name} id={name} {...rest} className="form-control" >
         <option value={null} key={'empty'} />
         {options.map((option) => (
-          <option key={option.value} disabled={option.disabled} value={option.value}>
-            {option.value}
+          <option key={option.value || option.name} disabled={option.disabled} value={option.value || option.displayLine}>
+            {option.value || option.displayLine}
           </option>
         ))}
       </select>

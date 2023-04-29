@@ -1,9 +1,9 @@
-const { CwatTicket, validate } = require('../models/cwatTicketModel');
+const { CwatTicket } = require('../models/cwatTicketModel');
 
 module.exports = {
   get: {
     getAllCwatTicketTypes: async (req, res) => {
-      const getAllCwatTicketTypes = CwatTicket.find({});
+      const getAllCwatTicketTypes = await CwatTicket.find({});
 
       res.status(200).send(getAllCwatTicketTypes);
     }

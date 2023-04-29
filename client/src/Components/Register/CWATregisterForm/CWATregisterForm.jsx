@@ -3,6 +3,8 @@ import { toast } from 'react-toastify';
 import Form from '../../common/form';
 import Joi from 'joi-browser';
 import { CWATregister } from '../../../services/userService';
+import { getCwatTicketTypes } from './../../../services/ticketSetvice';
+
 import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
 
@@ -22,31 +24,18 @@ class CWATRegister extends Form {
       emergencyEmail: '',
       emergencyPhone: '',
       ticketOption: '',
-      tierOneBedsAvailable: 0,
-      tierTwoBedsAvailable: 3,
-      tierThreeBedsAvailable: 4,
+      ticketCode: '',
     },
     errors: {},
     bool: false,
     haveTicketAlready: false,
+    ticketOptions: [],
   };
 
-  ticketOptions = [
-    {
-      name: 'tierOne',
-      value: '$500 - Villa Lodging (single room) - Lodging Meals - Program - SOLD OUT!!',
-      disabled: true,
-    },
-    {
-      name: 'tierTwo',
-      value:
-        '$350 - Villa Lodging (shared room - Queen / Double / Full Bed) - Lodging Meals - Program',
-    },
-    {
-      name: 'tierThree',
-      value: '$300 - Villa Lodging (shared room - Twin Bed) - Lodging Meals - Program',
-    },
-  ];
+  async componentDidMount() {
+    const allTicketOptions = await getCwatTicketTypes();
+    this.setState({ ticketOptions: allTicketOptions.data });
+  }
 
   schema = {
     _id: Joi.string(),
@@ -63,12 +52,15 @@ class CWATRegister extends Form {
     ticketOption: Joi.string().required().label('Choose Your Ticket'),
   };
 
+  // update implementation
   hasAticket = (e) => {
+    // const { ticketCode, ticketOption } = this.state.data;
+    // if (ticketCode)
     this.setState({
       haveTicketAlready: e.target.checked,
       // next lin needs to be updated
       data: {
-        ticketOption: 'Tier 1 - $500 - Villa Lodging (single room) - Lodging Meals - Program',
+        ticketOption: '$500 - Villa Lodging (single room) - Lodging Meals - Program',
       },
     });
   };
@@ -135,7 +127,11 @@ class CWATRegister extends Form {
                 <div>{this.renderInput('ticketCode', 'Ticket Code')} </div>
               ) : (
                 <div className="ticket-tiers">
-                  {this.renderDropdown('ticketOption', 'Choose Your Ticket', this.ticketOptions)}
+                  {this.renderDropdown(
+                    'ticketOption',
+                    'Choose Your Ticket',
+                    this.state.ticketOptions
+                  )}
                 </div>
               )}
 
