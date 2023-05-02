@@ -4,5 +4,6 @@ const { validate: validateCwatUnregistered } = require('../models/cwatUnregister
 const cwatUnregisteredController = require('../controllers/cwatUnregisteredController');
 
 router.get('/', cwatUnregisteredController.get.getAllCwatUnregistered);
+router.get('/:ticketCode', cwatUnregisteredController.get.getUnregisteredByTicketCode);
 
 module.exports = router;

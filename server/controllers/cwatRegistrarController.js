@@ -27,12 +27,29 @@ module.exports = {
 
   post: {
     createNewCwatRegistrar: async (req, res) => {
-      const { email } = req.body;
+      const {
+        email,
+        emergencyEmail,
+        emergencyPhone,
+        emergencyFullName,
+        firstname,
+        lastname,
+        phone,
+      } = req.body;
       const registrar = req.body;
+      const checkNameAgainst = firstname + ' ' + lastname;
+      const [eFirstname, eLastname] = emergencyFullName.split(' ');
 
       let cwatRegistrar = await CwatRegistrar.findOne({ email });
       if (cwatRegistrar)
         return res.status(400).send(`Registrar with email ${email} already registered.`);
+
+      if(email === emergencyEmail) return res.status(400).send('Emergency Email must be different.')
+      if(phone === emergencyPhone) return res.status(400).send('Emergency Phone must be different.')
+      if (checkNameAgainst === emergencyFullName)
+        return res.status(400).send('Emergency name must be different.');
+      if([firstname, lastname].includes(emergencyFullName)) return res.status(400).send('Emergency Full Name must be different.')
+
 
       cwatRegistrar = new CwatRegistrar({ ...registrar });
 

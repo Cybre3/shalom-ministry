@@ -3,10 +3,10 @@ const Joi = require('joi');
 const makeAllRequired = require('../utilities/makeAllRequired');
 
 const cwatUnregisteredSchema = mongoose.Schema({
-  firstName: String,
-  lastName: String,
+  firstname: String,
+  lastname: String,
   paymentMethod: String,
-  NumberOfPayments: Number,
+  numberOfPayments: Number,
   verifyTicketCode: String,
   roomType: String,
   bedType: String,
@@ -18,10 +18,10 @@ const CwatUnregistered = mongoose.model('cwat-unregistered', cwatUnregisteredSch
 
 function validateCwatUnregistered(input) {
   const schema = Joi.object({
-    firstName: Joi.string().required(),
-    lastName: Joi.string().required(),
+    firstname: Joi.string().required(),
+    lastname: Joi.string().required(),
     paymentMethod: Joi.string().required(),
-    NumberOfPayments: Joi.number().required(),
+    numberOfPayments: Joi.number().required(),
     verifyTicketCode: Joi.string().required(),
     roomType: Joi.string().required(),
     bedType: Joi.string().required(),

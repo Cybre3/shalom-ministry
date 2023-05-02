@@ -13,7 +13,7 @@ const Input = ({ name, label, error, disabled, value, ...rest }) => {
         value={value}
         disabled={disabled}
       />
-      {error && <ErrorMessage error={error} />}
+      {error && <ErrorMessage error={error} classname={'alert'} />}
     </div>
   );
 };

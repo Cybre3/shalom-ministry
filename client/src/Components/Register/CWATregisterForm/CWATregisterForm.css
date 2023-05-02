@@ -162,3 +162,26 @@
   outline: 0.02rem solid black;
   padding: 0.2rem 0.5rem;
 }
+
+
+.ticket-info-piece {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.ticketCode {
+  height: fit-content;
+  width: fit-content;
+}
+
+.ticketCode button {
+  /* display: block; */
+  /* width: fit-content; */
+  margin: 0;
+}
+
+.checkCode {
+  margin: 0 0 0 auto;
+  float: right;
+ width: fit-content;
+}

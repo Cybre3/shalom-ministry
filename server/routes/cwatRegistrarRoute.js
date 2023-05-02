@@ -1,4 +1,4 @@
-const router = require('express')();
+                                                                                                                                                                                                                                  const router = require('express')();
 const cwatRegistrarController = require('../controllers/cwatRegistrarController');
 const validator = require('../middleware/validateMiddleware');
 const { validate: validateCwatRegistrar } = require('../models/cwatRegistrarModel');

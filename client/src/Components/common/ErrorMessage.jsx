@@ -1,8 +1,8 @@
 import React from 'react';
 
-function ErrorMessage({ error }) {
+function ErrorMessage({ error, classname }) {
   return (
-    <div className="alert alert-danger" style={{ zIndex: 1 }}>
+    <div className={`${classname} alert-danger`} style={{ zIndex: 1 }}>
       {error}
     </div>
   );

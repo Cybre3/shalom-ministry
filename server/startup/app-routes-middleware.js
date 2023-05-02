@@ -43,6 +43,6 @@ module.exports = function (app) {
   app.use('/give', sponsorRouter);
   app.use('/messages', messagesRouter);
   app.use('/tickets/cwat-tickets', cwatTicketsRouter);
-  app.use('/users/cwat-unregistered', cwatUnregisteredRouter);
+  app.use('/tickets/cwat-unregistered', cwatUnregisteredRouter);
   app.use(errors);
 };

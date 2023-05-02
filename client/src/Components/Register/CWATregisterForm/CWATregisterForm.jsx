@@ -8,6 +8,7 @@ import { getCwatTicketTypes } from './../../../services/ticketSetvice';
 import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
 
+import CheckTicketCode from './checkTicketCode';
 import './CWATregisterForm.css';
 
 class CWATRegister extends Form {
@@ -24,17 +25,24 @@ class CWATRegister extends Form {
       emergencyEmail: '',
       emergencyPhone: '',
       ticketOption: '',
-      ticketCode: '',
     },
     errors: {},
     bool: false,
     haveTicketAlready: false,
     ticketOptions: [],
+    registrar: '',
   };
 
   async componentDidMount() {
     const allTicketOptions = await getCwatTicketTypes();
     this.setState({ ticketOptions: allTicketOptions.data });
+    // this.populateRegistrar(this.state.data)
+  }
+
+
+  componentDidUpdate() {
+
+    console.log(this.state.data)
   }
 
   schema = {
@@ -54,17 +62,22 @@ class CWATRegister extends Form {
 
   // update implementation
   hasAticket = (e) => {
+    // const registrar = this.state.data;
     // const { ticketCode, ticketOption } = this.state.data;
     // if (ticketCode)
     this.setState({
       haveTicketAlready: e.target.checked,
       // next lin needs to be updated
-      data: {
-        ticketOption: '$500 - Villa Lodging (single room) - Lodging Meals - Program',
-      },
     });
   };
-
+  
+  populateRegistrar = (data) => {
+    // const updatedData = this.mapToViewModel(data);
+    const originalData = {...this.state.data};
+    console.log(data)
+    this.setState({data: {...originalData, ...data}})
+  }
+  
   doSubmit = async () => {
     try {
       const { data } = this.state;
@@ -81,7 +94,7 @@ class CWATRegister extends Form {
       console.log(error.message);
     }
   };
-
+  
   render() {
     return (
       <div className="cwatRegister">
@@ -124,7 +137,9 @@ class CWATRegister extends Form {
               {this.renderTextarea('discover', 'How did you hear about Shalom Ministry?')}
 
               {this.state.haveTicketAlready ? (
-                <div>{this.renderInput('ticketCode', 'Ticket Code')} </div>
+                <div>
+                  <CheckTicketCode populateUnregisteredUser={this.populateRegistrar} />
+                </div>
               ) : (
                 <div className="ticket-tiers">
                   {this.renderDropdown(

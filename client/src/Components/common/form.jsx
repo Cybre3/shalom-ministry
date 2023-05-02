@@ -45,6 +45,18 @@ class Form extends Component {
     if (!Promise.reject) e.target.reset();
   };
 
+  handleCheckCode = (e) => {
+    e.preventDefault();
+
+    const errors = this.validate();
+    this.setState({ errors: errors || {} });
+    if (errors) return;
+
+    this.checkCode();
+
+    // if (!Promise.reject) e.target.reset();
+  };
+
   handleChange = ({ currentTarget: input }) => {
     const { name, value } = input;
     const errors = { ...this.state.errors };
@@ -76,14 +88,14 @@ class Form extends Component {
   };
 
   renderInput = (name, label, type = 'text', value, disabled = false) => {
-    const { errors } = this.state;
+    const { data, errors } = this.state;
 
     return (
       <Input
         type={type}
         name={name}
         label={label}
-        value={value}
+        value={data[name]}
         disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
@@ -92,14 +104,14 @@ class Form extends Component {
   };
 
   renderCustomInput = (name, label, type = 'text', value, disabled = false) => {
-    const { errors } = this.state;
+    const { data, errors } = this.state;
 
     return (
       <CustomInput
         type={type}
         name={name}
         label={label}
-        value={value}
+        value={data[name]}
         disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
