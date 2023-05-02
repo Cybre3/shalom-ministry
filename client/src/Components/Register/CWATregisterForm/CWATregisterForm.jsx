@@ -39,12 +39,6 @@ class CWATRegister extends Form {
     // this.populateRegistrar(this.state.data)
   }
 
-
-  componentDidUpdate() {
-
-    console.log(this.state.data)
-  }
-
   schema = {
     _id: Joi.string(),
     firstname: Joi.string().required().label('First Name'),
