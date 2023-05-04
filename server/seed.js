@@ -18,7 +18,8 @@ const cwatTickets = [
     price: 350,
     bedType: 'Queen / Double / Full',
     numberOfBedsAvailable: 3,
-    description: 'Villa Lodging (shared room - Queen / Double / Full Bed) - Lodging Meals - Program',
+    description:
+      'Villa Lodging (shared room - Queen / Double / Full Bed) - Lodging Meals - Program',
     displayLine: '',
   },
   {
@@ -41,6 +42,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: '93Azgc4',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Regina',
@@ -50,6 +52,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'U8D7W8O',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Tarae',
@@ -59,6 +62,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'dLyRC9Q',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Laverne',
@@ -68,6 +72,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'LUDvb8F',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Rosa',
@@ -77,6 +82,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'PCaYJ7N',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: `A'lisa`,
@@ -86,6 +92,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'k83zhz8',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Rebecca',
@@ -95,6 +102,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'V2wz48D',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Christine',
@@ -104,6 +112,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: '29q5CKy',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Janelle',
@@ -113,6 +122,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'Q7JMQk8',
     roomType: 'Bunk',
     bedType: 'Twin',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Destinee',
@@ -122,6 +132,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'sYh22pQ',
     roomType: 'Bunk',
     bedType: 'Twin',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Alicia',
@@ -131,6 +142,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'XNRNMr1',
     roomType: 'Bunk',
     bedType: 'Twin',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Jasmine',
@@ -140,6 +152,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: '3YUDQPp',
     roomType: 'Bunk',
     bedType: 'Double',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Shadine',
@@ -149,6 +162,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'QcL6Eq9',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Christina',
@@ -158,6 +172,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'Hh6AzxV',
     roomType: '',
     bedType: '',
+    paymentsLeft: 0,
   },
   {
     firstname: 'Beatrice',
@@ -167,6 +182,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'JWOR7wc',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Natasha',
@@ -176,6 +192,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'aQp1oZx',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Ylourdes',
@@ -185,6 +202,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'dpYx283',
     roomType: 'Single',
     bedType: '',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Jasmine',
@@ -194,6 +212,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'J8UPohK',
     roomType: 'Bunk',
     bedType: 'Twin',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Babara',
@@ -201,8 +220,9 @@ const cwatUnregisteredData = [
     paymentMethod: 'CashApp',
     numberOfPayments: 1,
     verifyTicketCode: 'g1rkgGp',
-    roomType: '',
+    roomType: 'Single',
     bedType: '',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Chantelle',
@@ -210,8 +230,9 @@ const cwatUnregisteredData = [
     paymentMethod: '',
     numberOfPayments: 0,
     verifyTicketCode: '6T79ZsS',
-    roomType: 'Single',
-    bedType: '',
+    roomType: 'Bunk',
+    bedType: 'Full',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Cheyenne',
@@ -221,6 +242,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: '7D61Jss',
     roomType: 'Single',
     bedType: 'Queen',
+    paymentsLeft: 0,
   },
   {
     firstname: 'Amirah',
@@ -230,6 +252,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'U6BFW5A',
     roomType: 'Single',
     bedType: 'King',
+    paymentsLeft: 3,
   },
   {
     firstname: 'Leandria',
@@ -239,6 +262,7 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'W92PGyS',
     roomType: 'Bunk',
     bedType: 'Double',
+    paymentsLeft: 2,
   },
   {
     firstname: 'Becky',
@@ -248,10 +272,32 @@ const cwatUnregisteredData = [
     verifyTicketCode: 'dx2zNMz',
     roomType: 'Single',
     bedType: 'King',
+    paymentsLeft: 3,
+  },
+  {
+    firstname: 'Kelly',
+    lastname: '',
+    paymentMethod: 'Zelle',
+    numberOfPayments: 1,
+    verifyTicketCode: '5HfY1tf',
+    roomType: 'Bunk',
+    bedType: 'Double',
+    paymentsLeft: 0,
+  },
+  {
+    firstname: 'Lynda',
+    lastname: 'Vu',
+    paymentMethod: 'Zelle',
+    numberOfPayments: 1,
+    verifyTicketCode: 'BwQS4Gl',
+    roomType: 'Single',
+    bedType: '',
+    paymentsLeft: 0,
   },
 ];
 
 async function seedCwatUnregistered() {
+  await CONNECT_TO_DB();
   await CwatUnregistered.deleteMany({});
   await CwatUnregistered.insertMany(cwatUnregisteredData);
 
@@ -263,9 +309,12 @@ async function seedCwatUnregistered() {
 async function seedCwatTickets() {
   cwatTickets.forEach((ticket) => {
     ticket.disabled = ticket.numberOfBedsAvailable === 0 ? true : false;
-    ticket.displayLine = `$${ticket.price} - ${ticket.description}${ticket.disabled ? ' - SOLD OUT!!' : ''}`;
+    ticket.displayLine = `$${ticket.price} - ${ticket.description}${
+      ticket.disabled ? ' - SOLD OUT!!' : ''
+    }`;
   });
 
+  await CONNECT_TO_DB();
   await CwatTicket.deleteMany({});
   await CwatTicket.insertMany(cwatTickets);
 
@@ -291,9 +340,8 @@ async function CONNECT_TO_DB() {
       break;
   }
 
-  mongoose.set('strictQuery', false);
+  await mongoose.set('strictQuery', false);
   await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
-CONNECT_TO_DB();
 seedCwatUnregistered();

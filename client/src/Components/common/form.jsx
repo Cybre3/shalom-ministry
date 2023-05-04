@@ -74,7 +74,7 @@ class Form extends Component {
       <div className={className}>
         <button disabled={this.validate()} className="btn btn-primary">
           {label}
-          <i className="fa fa-paper-plane" />
+          {className === 'send-btn' ? <i className="fa fa-paper-plane" /> : null}
           {state ? (
             <b className="load">
               <img src={load1} alt="img not responding" />

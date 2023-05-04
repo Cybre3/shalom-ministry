@@ -18,7 +18,7 @@ module.exports = {
       if (!user) return res.status(400).send('Invalid email or password.');
 
       const validPassword = await bcrypt.compare(password, user.password);
-      if (!validPassword) res.status(400).send('Invalid email or password.');
+      if (!validPassword) return res.status(400).send('Invalid email or password.');
 
       try {
         const token = user.generateAuthToken();

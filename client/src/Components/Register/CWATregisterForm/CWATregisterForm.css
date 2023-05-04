@@ -1,6 +1,23 @@
 .cwatRegister {
-  padding-top: 13vh;
+  border: 1rem double rgba(0, 0, 0, 0.701);
+  -webkit-box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1),
+    0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1),
+    0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1),
+    0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1),
+    0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1),
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1),
+    0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1),
+    0px 15px 0px 10px rgba(0, 0, 0, 0.1), 0px 18px 0px 12px rgba(0, 0, 0, 0.1),
+    0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1),
+    0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1),
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+
+  margin: 13vh auto;
+  padding: 3vh 1vh;
+  position: relative;
   text-align: center;
+  width: 60%;
 }
 
 .cwatRegister h1 {
@@ -19,16 +36,17 @@
 
 .cwat-title-container {
   display: flex;
+  gap: 5vw;
   justify-content: space-around;
-  margin: 0 18vw 0 7vw;
+  /* margin: 0 18vw 0 7vw; */
 }
 
 .cwat-contact-info {
   display: flex;
   gap: 14vw;
   justify-content: center;
-  margin-left: -4vw;
-  padding: 2vh 0 1vh;
+  /* margin-left: -4vw; */
+  padding: 2vh 0;
   position: relative;
   text-align: left;
   width: 100%;
@@ -52,8 +70,6 @@
 }
 
 .cwat-questions-container h2 {
-  align-self: flex-start;
-  margin-left: 19.5vw;
   position: absolute;
   top: -6vh;
 }
@@ -62,17 +78,15 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 0.5rem;
-  width: 60vw;
+  width: 80%;
 }
 
-.cwat-questions {
-  margin-right: 2rem;
-  text-align: left;
+.ticket-tiers .form-group {
+  width: 100%;
 }
 
-.cwat-questions .form-group {
-  display: flex;
-  flex-direction: column;
+.ticket-tiers {
+  position: relative;
 }
 
 .cwatRegister hr {
@@ -84,14 +98,14 @@
   background: linear-gradient(to left, #7678fe65, 30%, #44ffe38e, 70%, white);
   height: fit-content;
   justify-content: center;
-  right: 0;
+  /* right: 0; */
 }
 
 .cwat-bg-right {
   align-items: center;
   background: linear-gradient(to right, #7678fe65, 30%, #44ffe38e, 60%, white);
   height: fit-content;
-  left: 0;
+  /* left: 0; */
 }
 
 .cwat-background-image {
@@ -103,13 +117,15 @@
 }
 
 .cwat-pPlan {
-  right: -3vw;
-  width: 20vw;
+  bottom: 0;
+  left: 1rem;
+  width: 12vw;
 }
 
 .cwat-qrcode {
-  right: 1rem;
-  width: 15vw;
+  bottom: 0;
+  right: 0;
+  width: 10vw;
 }
 
 .cwatRegister button {
@@ -127,14 +143,6 @@
   background: rgba(211, 211, 211, 0.425);
   color: rgb(158, 177, 196);
   cursor: default;
-}
-
-.cwat-shalom-logo {
-  bottom: 1rem;
-  left: 1rem;
-  opacity: 0.6;
-  position: absolute;
-  width: 5vw;
 }
 
 .cwatRegister input,
@@ -163,6 +171,9 @@
   padding: 0.2rem 0.5rem;
 }
 
+#haveTicketAlready ~ label {
+  margin-left: 0.1vw;
+}
 
 .ticket-info-piece {
   margin-right: 0.5rem;
@@ -170,18 +181,34 @@
 }
 
 .ticketCode {
+  position: relative;
   height: fit-content;
   width: fit-content;
 }
 
-.ticketCode button {
-  /* display: block; */
-  /* width: fit-content; */
-  margin: 0;
+.ticketCode .form-group {
+  text-align: center;
+  width: fit-content;
 }
 
-.checkCode {
-  margin: 0 0 0 auto;
-  float: right;
- width: fit-content;
+.check-and-btn {
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+}
+
+.check-and-btn input {
+  padding: 0.2rem 0;
+  text-align: center;
+}
+
+.check-code-btn {
+  align-self: flex-end;
+  padding-bottom: 1vh;
+}
+
+.check-code-btn button {
+  font-size: 1rem;
+  margin: 0;
+  white-space: nowrap;
 }

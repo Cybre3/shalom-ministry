@@ -1,14 +1,16 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import Form from '../../common/form';
 import Joi from 'joi-browser';
+import _ from 'lodash';
+
+import Form from '../../common/form';
 import { CWATregister } from '../../../services/userService';
 import { getCwatTicketTypes } from './../../../services/ticketSetvice';
+import CheckTicketCode from './checkTicketCode';
 
 import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
 
-import CheckTicketCode from './checkTicketCode';
 import './CWATregisterForm.css';
 
 class CWATRegister extends Form {
@@ -36,7 +38,6 @@ class CWATRegister extends Form {
   async componentDidMount() {
     const allTicketOptions = await getCwatTicketTypes();
     this.setState({ ticketOptions: allTicketOptions.data });
-    // this.populateRegistrar(this.state.data)
   }
 
   schema = {
@@ -51,27 +52,22 @@ class CWATRegister extends Form {
     emergencyFullName: Joi.string().required().label('Emergency Full Name'),
     emergencyEmail: Joi.string().email().required().label('Emergency Last Name'),
     emergencyPhone: Joi.string().required().label('Emergency Phone'),
-    ticketOption: Joi.string().required().label('Choose Your Ticket'),
+    ticketOption: Joi.required().label('Choose Your Ticket'),
   };
 
-  // update implementation
   hasAticket = (e) => {
-    // const registrar = this.state.data;
-    // const { ticketCode, ticketOption } = this.state.data;
-    // if (ticketCode)
     this.setState({
       haveTicketAlready: e.target.checked,
-      // next lin needs to be updated
     });
   };
-  
+
   populateRegistrar = (data) => {
-    // const updatedData = this.mapToViewModel(data);
-    const originalData = {...this.state.data};
-    console.log(data)
-    this.setState({data: {...originalData, ...data}})
-  }
-  
+    const originalData = { ...this.state.data };
+    const requiredData = _.pick(data, ['firstname', 'lastname', 'phone', 'email']);
+
+    this.setState({ data: { ...originalData, ticketOption: data, ...requiredData } });
+  };
+
   doSubmit = async () => {
     try {
       const { data } = this.state;
@@ -88,7 +84,7 @@ class CWATRegister extends Form {
       console.log(error.message);
     }
   };
-  
+
   render() {
     return (
       <div className="cwatRegister">
@@ -113,10 +109,6 @@ class CWATRegister extends Form {
                 {this.renderCustomInput('emergencyEmail', 'Email', 'email')}
                 {this.renderCustomInput('emergencyPhone', 'Phone #', 'phone')}
               </div>
-
-              <aside className="cwat-background-image cwat-pPlan">
-                <img src={CWATpPlan} alt="cwat-pPlan" />
-              </aside>
             </div>
 
             <hr></hr>
@@ -143,10 +135,6 @@ class CWATRegister extends Form {
                   )}
                 </div>
               )}
-
-              <aside className="cwat-background-image cwat-qrcode">
-                <img src={qrCode} alt="" />
-              </aside>
             </div>
             <input
               type="checkbox"
@@ -159,6 +147,12 @@ class CWATRegister extends Form {
               I have selected my ticket prior to registering and have made a payment(s)
             </label>
             {this.renderButton('SUBMIT', this.state.bool, 'send-btn')}
+            <aside className="cwat-background-image cwat-pPlan">
+              <img src={CWATpPlan} alt="cwat-pPlan" />
+            </aside>
+            <aside className="cwat-background-image cwat-qrcode">
+              <img src={qrCode} alt="" />
+            </aside>
           </form>
         </div>
       </div>

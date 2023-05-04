@@ -19,7 +19,7 @@ class CheckTicketCode extends Form {
   };
 
   componentDidUpdate() {
-    $('.checkCode').on('click', async (e) => {
+    $('.check-code-btn').on('click', async (e) => {
       this.handleCheckCode(e);
     });
   }
@@ -33,24 +33,27 @@ class CheckTicketCode extends Form {
       this.props.populateUnregisteredUser(unregisteredUserInDB.data);
       this.setState({ codeValid: true, data: { ...originalData, ...unregisteredUserInDB.data } });
     } catch (error) {
-      this.setState({errors: {message: error.message}})
+      this.setState({ errors: { message: error.message } });
     }
   };
 
   render() {
-    const { bedType, roomType, paymentMethod, numberOfPayments } = this.state.data;
+    const { bedType, roomType, paymentMethod, numberOfPayments, paymentsLeft } = this.state.data;
     return (
-      <div className='ticketCode'>
-        {this.renderInput('ticketCode', 'Ticket Code')}
+      <div className="ticketCode">
+        <div className='check-and-btn'>
+          {this.renderInput('ticketCode', 'Ticket Code')}
+          {!this.state.codeValid && this.renderButton('Check Code', false, 'check-code-btn')}
+        </div>
         {this.state.codeValid && (
           <div className="ticket-information">
             <span className="ticket-info-piece">Bed Type: {bedType} </span>
             <span className="ticket-info-piece">Room Type: {roomType} </span>
             <span className="ticket-info-piece">Payment Method: {paymentMethod} </span>
-            <span className="ticket-info-piece">Number of payments made: {numberOfPayments} </span>
+            <span className="ticket-info-piece">Payments made: {numberOfPayments} </span>
+            <span className="ticket-info-piece">Payments remaining: {paymentsLeft} </span>
           </div>
         )}
-        {!this.state.codeValid && this.renderButton('Check Code', false, 'checkCode')}
       </div>
     );
   }

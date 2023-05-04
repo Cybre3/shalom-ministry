@@ -10,6 +10,7 @@ const cwatUnregisteredSchema = mongoose.Schema({
   verifyTicketCode: String,
   roomType: String,
   bedType: String,
+  paymentsLeft: Number
 });
 
 makeAllRequired(cwatUnregisteredSchema);
@@ -25,6 +26,7 @@ function validateCwatUnregistered(input) {
     verifyTicketCode: Joi.string().required(),
     roomType: Joi.string().required(),
     bedType: Joi.string().required(),
+    paymentsLeft: Joi.number().required(),
   });
 
   return schema.validate(input);
