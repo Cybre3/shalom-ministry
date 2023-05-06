@@ -51,6 +51,7 @@ const cwatRegistrarSchema = mongoose.Schema({
     type: String,
     minlength: 5,
     maxlength: 255,
+    unique: false,
     required: true,
   },
   emergencyPhone: {
