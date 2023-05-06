@@ -44,7 +44,7 @@ module.exports = {
       if (cwatRegistrar)
         return res.status(400).send(`Registrar with email ${email} already registered.`);
 
-      if(email === emergencyEmail) return res.status(400).send('Emergency Email must be different.')
+     /*  if(email === emergencyEmail) return res.status(400).send('Emergency Email must be different.') */
       if(phone === emergencyPhone) return res.status(400).send('Emergency Phone must be different.')
       if (checkNameAgainst === emergencyFullName)
         return res.status(400).send('Emergency name must be different.');
