@@ -4,10 +4,13 @@ import App from './App';
 import './index.css';
 import 'font-awesome/css/font-awesome.css';
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  ['development', 'test'].includes(process.env.NODE_ENV) ? (
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  ) : (
     <App />
-  </React.StrictMode>
+  )
 );

@@ -59,7 +59,7 @@ const cwatRegistrarSchema = mongoose.Schema({
     required: true,
   },
   ticketOption: {
-    type: String || mongoose.schema,
+    type: String,
     required: true,
   },
   category: {
@@ -70,6 +70,8 @@ const cwatRegistrarSchema = mongoose.Schema({
     type: String,
     default: Date,
   },
+  ticketOptionData: Object,
+  ticketPurchaseData: Object,
 });
 
 const CwatRegistrar = mongoose.model('Cwat-Registrar', cwatRegistrarSchema);
@@ -86,7 +88,9 @@ function validateCwatRegistrar(input) {
     emergencyFullName: Joi.string().min(2).max(50).required(),
     emergencyEmail: Joi.string().email().min(5).max(255).required(),
     emergencyPhone: JoiPhone.string().phoneNumber().required(),
-    ticketOption: JoiPhone.required(),
+    ticketOption: Joi.string().required(),
+    ticketOptionData: Joi.object(),
+    ticketPurchaseData: Joi.object(),
   });
 
   return schema.validate(input);

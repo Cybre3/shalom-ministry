@@ -29,10 +29,10 @@ class RegistrarsTable extends Component {
 
   deleteColumn = {
     key: 'delete',
-    content: (message) => (
+    content: (registrar) => (
       <button
         onClick={() => {
-          this.props.onDelete(message);
+          this.props.onDelete(registrar);
         }}
         className="invoice-table-delete-btn"
       >
@@ -49,9 +49,11 @@ class RegistrarsTable extends Component {
   }
 
   render() {
-    const { messages, onSort, sortColumn } = this.props;
+    const { registrars, onSort, sortColumn } = this.props;
 
-    return <Table data={messages} onSort={onSort} sortColumn={sortColumn} columns={this.columns} />;
+    return (
+      <Table data={registrars} onSort={onSort} sortColumn={sortColumn} columns={this.columns} />
+    );
   }
 }
 

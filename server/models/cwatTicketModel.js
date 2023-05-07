@@ -4,6 +4,7 @@ const makeAllRequired = require('../utilities/makeAllRequired');
 
 const cwatTicketSchema = mongoose.Schema({
   name: String,
+  tier: Number,
   price: Number,
   bedType: String,
   numberOfBedsAvailable: Number,
@@ -37,6 +38,7 @@ const CwatTicket = mongoose.model('cwat-Ticket', cwatTicketSchema);
 function validateCwatTicket(input) {
   const schema = Joi.object({
     name: Joi.string().required(),
+    tier: Joi.number().required(),
     price: Joi.number().required(),
     bedType: Joi.string().required(),
     numberOfBedsAvailable: Joi.number().required(),

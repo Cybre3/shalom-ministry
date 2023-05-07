@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                  const router = require('express')();
+const router = require('express')();
 const cwatRegistrarController = require('../controllers/cwatRegistrarController');
 const validator = require('../middleware/validateMiddleware');
 const { validate: validateCwatRegistrar } = require('../models/cwatRegistrarModel');
@@ -10,6 +10,7 @@ router.post('/', validator(validateCwatRegistrar), cwatRegistrarController.post.
 
 /* Router.put('/:id', invoiceController.put.editInvoiceById);
 
-Router.delete('/:id', invoiceController.delete.deleteInvoiceById); */
+*/
+router.delete('/:id', cwatRegistrarController.delete.deleteRegistrarById); 
 
 module.exports = router;

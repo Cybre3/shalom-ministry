@@ -4,7 +4,15 @@ import jwtDecode from 'jwt-decode';
 const apiEndpoint = '/auth';
 const tokenKey = 'token';
 
+function authUrl(id) {
+  return `${apiEndpoint}/${id}`;
+}
+
 http.setJwt(getJwt());
+
+export function getAllUsers() {
+  return http.get(apiEndpoint);
+}
 
 export async function login(email, password) {
   const { data: jwt } = await http.post(apiEndpoint, { email, password });
@@ -33,6 +41,10 @@ export function getJwt() {
   return localStorage.getItem(tokenKey);
 }
 
+export function deleteUser(userId) {
+  return http.delete(authUrl(userId));
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
   login,
@@ -40,4 +52,5 @@ export default {
   logout,
   getCurrentUser,
   getJwt,
+  getAllUsers,
 };

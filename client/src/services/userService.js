@@ -2,8 +2,13 @@ import http from '../services/httpService';
 
 const apiEndpoint = '/users';
 
+
 function endpointUrl(url) {
   return `${apiEndpoint}/${url}`;
+}
+
+function registrarUrl(id) {
+  return `${endpointUrl('cwat-register')}/${id}`;
 }
 
 export function register(user) {
@@ -22,4 +27,9 @@ export function CWATregister(user) {
 
 export function getAllCWATregistrars() {
   return http.get(endpointUrl('cwat-register'));
+}
+
+
+export function deleteRegistrar(registrarId) {
+  return http.delete(registrarUrl(registrarId));
 }

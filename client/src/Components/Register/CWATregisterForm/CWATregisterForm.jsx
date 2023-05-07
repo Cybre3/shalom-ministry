@@ -27,6 +27,8 @@ class CWATRegister extends Form {
       emergencyEmail: '',
       emergencyPhone: '',
       ticketOption: '',
+      ticketOptionData: {},
+      ticketPurchaseData: {},
     },
     errors: {},
     bool: false,
@@ -53,6 +55,8 @@ class CWATRegister extends Form {
     emergencyEmail: Joi.string().email().required().label('Emergency Last Name'),
     emergencyPhone: Joi.string().required().label('Emergency Phone'),
     ticketOption: Joi.required().label('Choose Your Ticket'),
+    ticketOptionData: Joi.object(),
+    ticketPurchaseData: Joi.object(),
   };
 
   hasAticket = (e) => {
@@ -64,8 +68,31 @@ class CWATRegister extends Form {
   populateRegistrar = (data) => {
     const originalData = { ...this.state.data };
     const requiredData = _.pick(data, ['firstname', 'lastname', 'phone', 'email']);
+    const { ticketOptions } = this.state;
+    let ticketTier = 1;
 
-    this.setState({ data: { ...originalData, ticketOption: data, ...requiredData } });
+    switch (data.bedType) {
+      case 'Queen':
+      case 'Double':
+      case 'Full':
+        ticketTier = 2;
+        break;
+      case 'Twin':
+        ticketTier = 3;
+        break;
+      default:
+        ticketTier = 1;
+    }
+
+    this.setState({
+      data: {
+        ...originalData,
+        ticketOption: ticketOptions[ticketTier - 1].displayLine,
+        ...requiredData,
+        ticketOptionData: ticketOptions[ticketTier - 1],
+        ticketPurchaseData: data,
+      },
+    });
   };
 
   doSubmit = async () => {

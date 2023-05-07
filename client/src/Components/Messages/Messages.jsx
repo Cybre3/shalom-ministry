@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import _ from 'lodash';
 // import { toast } from 'react-toastify';
 
-import { getAllMessages } from '../../services/messageService';
+import { getAllMessages, deleteMessage } from '../../services/messageService';
 import { getAllCategories } from './../../services/categoryServices';
 import { paginate } from './../../utilities/paginate';
 
 import MessagesTable from './messagesTable';
 import Pagination from '../common/Pagination';
+import ListGroup from './../common/listGroup';
 
 import '../Invoices/invoices.css';
-import ListGroup from './../common/listGroup';
 
 class Messages extends Component {
   state = {
@@ -42,21 +43,22 @@ class Messages extends Component {
   handleCategorySelect = (category) => {
     this.setState({ selectedCategory: category, currentPage: 1 });
   };
-  // handleDelete = async (message) => {
-  //   const originalMessages = this.state.messages;
-  //   const messages = originalMessages.filter((inv) => inv._id !== message._id);
-  //   this.setState({ messages: message });
 
-  //   try {
-  //     await deleteMessage(message._id);
-  //     toast.success(`Invoice ${message.messageNumber} deleted!`);
-  //   } catch (error) {
-  //     if (error.response && error.response.status === 404)
-  //       toast.error('This invoice has already been deleted.');
+  handleDelete = async (message) => {
+    const originalMessages = this.state.messages;
+    const messages = originalMessages.filter((msg) => msg._id !== message._id);
+    this.setState({ messages });
 
-  //     this.setState({ messages: message });
-  //   }
-  // };
+    try {
+      await deleteMessage(message._id, message.category);
+      toast.success(`Message ${message.messageNumber} deleted!`);
+    } catch (error) {
+      if (error.response && error.response.status === 404)
+        toast.error('This message has already been deleted.');
+
+      this.setState({ messages });
+    }
+  };
 
   getPageData = () => {
     const { messages: allMessages, sortColumn, currentPage, pageSize } = this.state;

@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import _ from 'lodash';
+
 import { getAllInvoices, deleteInvoice } from '../../services/invoiceService';
 import InvoicesTable from './InvoicesTable';
+import { paginate } from './../../utilities/paginate';
+import Pagination from '../common/Pagination';
+import ListGroup from './../common/listGroup';
+
 import './invoices.css';
 
 class Invoices extends Component {
   state = {
+    categories: [],
+    currentPage: 1,
     invoices: [],
+    pageSize: 4,
+    selectedCategory: null,
     sortColumn: { path: 'invoiceNumber', order: 'asc' },
   };
 
@@ -33,25 +43,43 @@ class Invoices extends Component {
     }
   };
 
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+  };
+
   handleSort = (sortColumn) => {
     this.setState({ sortColumn });
   };
 
-  getPageData = () => {
-    const { invoices: allInvoices } = this.state;
+  handleCategorySelect = (category) => {
+    this.setState({ selectedCategory: category, currentPage: 1 });
+  };
 
-    return { totalCount: allInvoices.length, data: allInvoices };
+  getPageData = () => {
+    const { invoices: allInvoices, sortColumn, currentPage, pageSize } = this.state;
+
+    let filtered = allInvoices;
+
+    const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+    const invoices = paginate(sorted, currentPage, pageSize);
+
+    return { totalCount: filtered.length, data: invoices };
   };
 
   render() {
-    const { sortColumn } = this.state;
+    const { pageSize, currentPage, sortColumn, categories, selectedCategory } = this.state;
     const user = this.props;
-
     const { totalCount, data: invoices } = this.getPageData();
 
     return (
       <div className="invoices-table">
-        <div className="table-sort-ategories">ListGroup</div>
+        <div className="table-sort-ategories">
+          <ListGroup
+            items={categories}
+            selectedItem={selectedCategory}
+            onItemSelect={this.handleCategorySelect}
+          />
+        </div>
         <div>
           {user && (
             <Link className="new-invoice-link" to="create-new-invoice">
@@ -64,6 +92,12 @@ class Invoices extends Component {
             sortColumn={sortColumn}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
+          />
+          <Pagination
+            itemsCount={totalCount}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={this.handlePageChange}
           />
         </div>
       </div>

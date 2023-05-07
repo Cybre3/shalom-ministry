@@ -44,12 +44,14 @@ module.exports = {
       if (cwatRegistrar)
         return res.status(400).send(`Registrar with email ${email} already registered.`);
 
-       if(email === emergencyEmail) return res.status(400).send('Emergency Email must be different.')
-      if(phone === emergencyPhone) return res.status(400).send('Emergency Phone must be different.')
+      if (email === emergencyEmail)
+        return res.status(400).send('Emergency Email must be different.');
+      if (phone === emergencyPhone)
+        return res.status(400).send('Emergency Phone must be different.');
       if (checkNameAgainst === emergencyFullName)
         return res.status(400).send('Emergency name must be different.');
-      if([firstname, lastname].includes(emergencyFullName)) return res.status(400).send('Emergency Full Name must be different.')
-
+      if ([firstname, lastname].includes(emergencyFullName))
+        return res.status(400).send('Emergency Full Name must be different.');
 
       cwatRegistrar = new CwatRegistrar({ ...registrar });
 
@@ -73,11 +75,12 @@ module.exports = {
     },
   },
 
+ */
   delete: {
-    deleteInvoiceById: async (req, res) => {
-      const invoiceToDelete = await Invoice.findByIdAndDelete(req.params.id);
+    deleteRegistrarById: async (req, res) => {
+      const RegistrarToDelete = await CwatRegistrar.findByIdAndDelete(req.params.id);
 
-      res.status(200).send(invoiceToDelete);
+      res.status(200).send(RegistrarToDelete);
     },
-  }, */
+  },
 };

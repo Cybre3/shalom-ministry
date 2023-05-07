@@ -53,8 +53,6 @@ class Form extends Component {
     if (errors) return;
 
     this.checkCode();
-
-    // if (!Promise.reject) e.target.reset();
   };
 
   handleChange = ({ currentTarget: input }) => {
