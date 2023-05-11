@@ -62,8 +62,8 @@ class CWATRegister extends Form {
   };
 
   shirtSizes = [
-    { id: 'sm', name: 'xsmall', value: 'Sm' },
-    { id: 'xs', name: 'small', value: 'Xs' },
+    { id: 'xs', name: 'xsmall', value: 'Xs' },
+    { id: 'sm', name: 'small', value: 'Sm' },
     { id: 'md', name: 'medium', value: 'Md' },
     { id: 'lg', name: 'large', value: 'Lg' },
     { id: 'xl', name: 'xlarge', value: 'XLg' },
