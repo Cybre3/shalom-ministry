@@ -72,6 +72,10 @@ const cwatRegistrarSchema = mongoose.Schema({
   },
   ticketOptionData: Object,
   ticketPurchaseData: Object,
+  shirtSize: {
+    type: String,
+    required: true
+  }
 });
 
 const CwatRegistrar = mongoose.model('Cwat-Registrar', cwatRegistrarSchema);
@@ -91,6 +95,7 @@ function validateCwatRegistrar(input) {
     ticketOption: Joi.string().required(),
     ticketOptionData: Joi.object(),
     ticketPurchaseData: Joi.object(),
+    shirtSize: Joi.string().required()
   });
 
   return schema.validate(input);

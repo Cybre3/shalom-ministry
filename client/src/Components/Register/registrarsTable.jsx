@@ -18,6 +18,7 @@ class RegistrarsTable extends Component {
     { path: 'lastname', label: 'Last Name' },
     { path: 'email', label: 'Email' },
     { path: 'phone', label: 'Phone' },
+    { path: 'shirtSize', label: 'Shirt Size' },
     { path: 'allergies', label: 'Allergies' },
     { path: 'questions', label: 'Questions' },
     { path: 'discover', label: 'Discover' },

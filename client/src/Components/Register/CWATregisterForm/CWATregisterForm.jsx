@@ -29,6 +29,7 @@ class CWATRegister extends Form {
       ticketOption: '',
       ticketOptionData: {},
       ticketPurchaseData: {},
+      shirtSize: ''
     },
     errors: {},
     bool: false,
@@ -57,7 +58,18 @@ class CWATRegister extends Form {
     ticketOption: Joi.required().label('Choose Your Ticket'),
     ticketOptionData: Joi.object(),
     ticketPurchaseData: Joi.object(),
+    shirtSize: Joi.string().required().label('Shirt Size')
   };
+
+  shirtSizes = [
+    { id: 'sm', name: 'xsmall', value: 'Sm' },
+    { id: 'xs', name: 'small', value: 'Xs' },
+    { id: 'md', name: 'medium', value: 'Md' },
+    { id: 'lg', name: 'large', value: 'Lg' },
+    { id: 'xl', name: 'xlarge', value: 'XLg' },
+    { id: '2x', name: '2x', value: '2x' },
+    { id: '3x', name: '3x', value: '3x' },
+  ];
 
   hasAticket = (e) => {
     this.setState({
@@ -151,10 +163,12 @@ class CWATRegister extends Form {
 
               {this.state.haveTicketAlready ? (
                 <div>
+                  {this.renderDropdown('shirtSize', 'Shirt Size', this.shirtSizes)}
                   <CheckTicketCode populateUnregisteredUser={this.populateRegistrar} />
                 </div>
               ) : (
                 <div className="ticket-tiers">
+                  {this.renderDropdown('shirtSize', 'Shirt Size', this.shirtSizes)}
                   {this.renderDropdown(
                     'ticketOption',
                     'Choose Your Ticket',
@@ -174,6 +188,9 @@ class CWATRegister extends Form {
               I have selected my ticket prior to registering and have made a payment(s)
             </label>
             {this.renderButton('SUBMIT', this.state.bool, 'send-btn')}
+            <span>
+              <i>No refunds once committed to a ticket</i>
+            </span>
             <aside className="cwat-background-image cwat-pPlan">
               <img src={CWATpPlan} alt="cwat-pPlan" />
             </aside>
