@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
 const JoiPhone = Joi.extend(require('joi-phone-number'));
+const { Constant } = require('./constantModel');
 
-const cwatRegistrarSchema = mongoose.Schema({
+const cwatRegistrarSchema = new mongoose.Schema({
   registrarNumber: {
     type: Number,
+    required: true
   },
   firstname: {
     type: String,
@@ -74,8 +76,15 @@ const cwatRegistrarSchema = mongoose.Schema({
   ticketPurchaseData: Object,
   shirtSize: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
+});
+
+cwatRegistrarSchema.post('save', async function () {
+  // const registrarNumber = await Constant.findOne({ type: 'registrarNumber' }).amount;
+  // this.registrarNumber = registrarNumber;
+  // await Constant.upCountByOne('registrarNumber');
+  console.log('working')
 });
 
 const CwatRegistrar = mongoose.model('Cwat-Registrar', cwatRegistrarSchema);
@@ -95,7 +104,7 @@ function validateCwatRegistrar(input) {
     ticketOption: Joi.string().required(),
     ticketOptionData: Joi.object(),
     ticketPurchaseData: Joi.object(),
-    shirtSize: Joi.string().required()
+    shirtSize: Joi.string().required(),
   });
 
   return schema.validate(input);

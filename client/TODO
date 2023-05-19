@@ -1,11 +1,7 @@
-// Invoice table - add sort arrow to table headers
-// complete sortColumn function
 // create sortBy list group
 // activate admin priveledges
 // make two step verification code for admin to register
 // create admin registration form
-// style invoices page
-// protect routes
 // Work on donation receipt
 // send email/receipt to user from form
 // Work on phone and email blast
@@ -14,19 +10,16 @@
 // work on form that attached to QR code
 // look into ticket sales
 // thank you for registering sent to email.
-// add payment plan to bottom of CWAT register form
 
 // AFTER THOUGHT 
-// Dashboard
 // CWAT personal checklist
 // Optimize for mobile view
 // Create accountability form for donations/give page
 
 // FOR ADMIN 
-// view invoices - view each invoices - edit/delete
-// view registrars - edit/remove
+// view each invoices - edit/delete
+// view each registrars - edit/remove
 // send messages to members or others
-// give temporary admin priveledges
 
 // FOR USERS
 // view events

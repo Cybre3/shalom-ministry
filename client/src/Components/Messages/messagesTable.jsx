@@ -8,7 +8,7 @@ class InvoicesTable extends Component {
     {
       path: 'messageNumber',
       label: 'Message#',
-      content: (message) => <Link to={`/messages/${message._id}`}>{message.messageNumber}</Link>,
+      content: (message) => <Link to={`${message._id}`}>{message.messageNumber}</Link>,
     },
     { path: 'category', label: 'Category' },
     { path: 'fullname', label: 'Full Name' },

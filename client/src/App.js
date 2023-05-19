@@ -30,7 +30,6 @@ class App extends Component {
   state = {
     scrollBtnDisplay: 'none',
     messageNumber: 0,
-    invoiceNumber: 0,
   };
   componentDidMount() {
     window.onscroll = () => {
@@ -66,7 +65,7 @@ class App extends Component {
               <Route path="/login" element={<Login user={user} />} />
               <Route path="/logout" element={<Logout />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/CWATregister" element={<CWATregister />} />
+              <Route path="/CWATregister/:id" element={<CWATregister />} />
               <Route path="/contact-us" element={<Contactus />} />
               <Route path="/give" element={<Give />} />
               {/* <Route path="/movies" render={(props) => <Movies {...props} user={user} />} /> */}
@@ -75,12 +74,13 @@ class App extends Component {
                 <Route path="/dashboard" element={<Dashboard />}>
                   <Route path="invoices" element={<Invoices />} />
                   <Route path="users" element={<Users />} />
-                  <Route path="invoices/create-new-invoice" element={<CreateInvoice />} />
+                  <Route path="invoices/:id" element={<CreateInvoice />} />
                   <Route path="messages" element={<Messages />} />
                   <Route path="registrars" element={<Registrars />} />
                   <Route path="data" element={<SaveData />} />
                 </Route>
               </Route>
+              {/* <Route path="/invoices/:id" element={<CreateInvoice />} /> */}
             </Routes>
 
             {/* <button

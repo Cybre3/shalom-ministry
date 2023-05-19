@@ -1,9 +1,13 @@
 import React from 'react';
 import { Navigate, NavLink } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Form from '../../common/form';
 import Joi from 'joi-browser';
+
+import Form from '../../common/form';
 import { saveInvoice } from '../../../services/invoiceService';
+import { getInvoice } from '../../../services/invoiceService';
+import withRouter from '../../../utilities/withRouter';
+
 import './createInvoice.css';
 
 class CreateInvoice extends Form {
@@ -13,15 +17,15 @@ class CreateInvoice extends Form {
       lastname: '',
       email: '',
       phone: '',
-      invoiceNumber: 1,
-      currentDate: Date.now,
+      invoiceNumber: '',
+      currentDate: new Date().toISOString().substring(0, 10),
       description: '',
       qty: '',
       unitPrice: '',
       amount: '',
-      total: '',
-      paymentApplied: '',
-      balanceDue: '',
+      total: 0,
+      paymentApplied: 0,
+      balanceDue: 0,
       comments: '',
     },
     errors: {},
@@ -45,20 +49,57 @@ class CreateInvoice extends Form {
     comments: Joi.string().label('Comments').allow(''),
   };
 
-  /*   incrementInvoiceNumber = () => {
-    const data = { ...this.state.data };
-    data.invoiceNumber++;
-    this.setState({ data });
-  }; */
+  componentDidMount() {
+    this.populateInvoice();
+  }
+
+  componentDidUpdate() {
+    // let { total, paymentApplied, balanceDue } = { ...this.state.data };
+    // balanceDue = parseInt(total - paymentApplied);
+    // this.setState({ data: { ...this.state.data, balanceDue } });
+  }
+
+  async populateInvoice() {
+    try {
+      const invoiceId = this.props.params.id;
+      if (invoiceId === 'new') return;
+
+      const { data: invoice } = await getInvoice(invoiceId);
+      this.setState({ data: this.mapToViewModel(invoice) });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  mapToViewModel(invoice) {
+    return {
+      _id: invoice._id,
+      firstname: invoice.firstname,
+      lastname: invoice.lastname,
+      email: invoice.email,
+      phone: invoice.phone,
+      invoiceNumber: invoice.invoiceNumber,
+      currentDate: invoice.currentDate,
+      description: invoice.description,
+      qty: invoice.qty,
+      unitPrice: invoice.unitPrice,
+      amount: invoice.amount,
+      total: invoice.total,
+      paymentApplied: invoice.paymentApplied,
+      balanceDue: invoice.balanceDue,
+      comments: invoice.comments,
+    };
+  }
 
   doSubmit = async () => {
-    // Call from server
     await saveInvoice(this.state.data);
+    const originalData = { ...this.state.data };
+    let invoiceNumber = { ...originalData.invoiceNumber };
+    invoiceNumber += 1;
+    this.setState({ data: { ...originalData, invoiceNumber } });
+
+    <Navigate to="invoices" replace={true} />;
     toast.success('Invoiced Saved');
-
-    // this.incrementInvoiceNumber();
-
-    <Navigate to="/" replace={true} />; // TODO: redirect after submit not functional
   };
 
   render() {
@@ -121,4 +162,4 @@ class CreateInvoice extends Form {
   }
 }
 
-export default CreateInvoice;
+export default withRouter(CreateInvoice);

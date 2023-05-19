@@ -5,8 +5,10 @@ const mongoose = require('mongoose');
 const { CwatTicket } = require('./models/cwatTicketModel');
 const { CwatUnregistered } = require('./models/cwatUnregisteredModel');
 const { CwatRegistrar } = require('./models/cwatRegistrarModel');
+const { Constant } = require('./models/constantModel');
 const cwatUnregisteredData = require('./seedData/cwatUnregisteredData');
 const cwatTickets = require('./seedData/cwatTickets');
+const constants = require('./seedData/constants');    
 
 async function seedCwatUnregistered() {
   await CwatUnregistered.deleteMany({});
@@ -70,6 +72,15 @@ async function getTicketType(unregisterdTicket) {
   return allCwatTickets[ROOM_OR_BED_TYPE - 1];
 }
 
+async function seedConstants() {
+ await Constant.deleteMany({});
+ await Constant.insertMany(constants);
+
+ mongoose.disconnect();
+
+ console.info('Constants Seed Done!');
+}
+
 async function CONNECT_TO_DB() {
   let db;
   const environment = config.get('env');
@@ -91,6 +102,7 @@ async function CONNECT_TO_DB() {
   await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
+
 async function seedInfo(info) {
   await CONNECT_TO_DB();
   await info();
@@ -102,4 +114,4 @@ function remove_SOLDOUT_tag(string) {
   return newString;
 }
 
-// seedInfo(translateTicketOptionData);
+seedInfo(seedConstants);

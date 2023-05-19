@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Table from '../common/Table';
 
 class InvoicesTable extends Component {
@@ -7,7 +7,9 @@ class InvoicesTable extends Component {
     {
       path: 'invoiceNumber',
       label: 'Invoice#',
-      content: (invoice) => <Link to={`/invoices/${invoice._id}`}>{invoice.invoiceNumber}</Link>,
+      content: (invoice) => (
+        <NavLink to={`${invoice._id}`}>{invoice.invoiceNumber}</NavLink>
+      ),
     },
     { path: 'firstname', label: 'First Name' },
     { path: 'lastname', label: 'Last Name' },
@@ -31,17 +33,17 @@ class InvoicesTable extends Component {
     ),
   };
 
-    constructor() {
-      super();
-      // const user = auth.getCurrentUser();
-      // if (user && user.authorizedToDelete) this.columns.push(this.deleteColumn);
-      this.columns.push(this.deleteColumn)
-    }
+  constructor() {
+    super();
+    // const user = auth.getCurrentUser();
+    // if (user && user.authorizedToDelete) this.columns.push(this.deleteColumn);
+    this.columns.push(this.deleteColumn);
+  }
 
   render() {
     const { invoices, onSort, sortColumn } = this.props;
 
-    return <Table data={invoices} onSort={onSort} sortColumn={sortColumn} columns={this.columns} />
+    return <Table data={invoices} onSort={onSort} sortColumn={sortColumn} columns={this.columns} />;
   }
 }
 

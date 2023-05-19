@@ -4,7 +4,7 @@ const validator = require('../middleware/validateMiddleware');
 const { validate: validateCwatRegistrar } = require('../models/cwatRegistrarModel');
 
 router.get('/', cwatRegistrarController.get.viewAllCwatRegistrars);
-// Router.get('/:id', invoiceController.get.findInvoiceById);
+router.get('/:id', cwatRegistrarController.get.findCwatRegistrarById);
 
 router.post('/', validator(validateCwatRegistrar), cwatRegistrarController.post.createNewCwatRegistrar);
 

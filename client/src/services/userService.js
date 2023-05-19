@@ -21,6 +21,10 @@ export function register(user) {
   });
 }
 
+export function getRegistrar(RegistrarId) {
+  return http.get(registrarUrl(RegistrarId));
+}
+
 export function CWATregister(user) {
   return http.post(endpointUrl('cwat-register'), user);
 }

@@ -39,7 +39,7 @@ module.exports = {
       const registrar = req.body;
       const checkNameAgainst = firstname + ' ' + lastname;
       const [eFirstname, eLastname] = emergencyFullName.split(' ');
-
+      
       let cwatRegistrar = await CwatRegistrar.findOne({ email });
       if (cwatRegistrar)
         return res.status(400).send(`Registrar with email ${email} already registered.`);

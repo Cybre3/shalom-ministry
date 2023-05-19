@@ -85,7 +85,7 @@ class Form extends Component {
     );
   };
 
-  renderInput = (name, label, type = 'text', value, disabled = false) => {
+  renderInput = (name, label, type = 'text', disabled = false) => {
     const { data, errors } = this.state;
 
     return (
@@ -101,7 +101,7 @@ class Form extends Component {
     );
   };
 
-  renderCustomInput = (name, label, type = 'text', value, disabled = false) => {
+  renderCustomInput = (name, label, type = 'text', disabled = false) => {
     const { data, errors } = this.state;
 
     return (
@@ -118,13 +118,14 @@ class Form extends Component {
   };
 
   renderTextarea = (name, label, type = 'text') => {
-    const { errors } = this.state;
+    const { data, errors } = this.state;
 
     return (
       <Textarea
         type={type}
         name={name}
         label={label}
+        value={data[name]}
         error={errors[name]}
         onChange={this.handleChange}
       />

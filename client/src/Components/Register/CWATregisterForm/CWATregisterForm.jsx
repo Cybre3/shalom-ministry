@@ -4,9 +4,10 @@ import Joi from 'joi-browser';
 import _ from 'lodash';
 
 import Form from '../../common/form';
-import { CWATregister } from '../../../services/userService';
+import { CWATregister, getRegistrar } from '../../../services/userService';
 import { getCwatTicketTypes } from './../../../services/ticketSetvice';
 import CheckTicketCode from './checkTicketCode';
+import withRouter from '../../../utilities/withRouter';
 
 import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
@@ -16,6 +17,7 @@ import './CWATregisterForm.css';
 class CWATRegister extends Form {
   state = {
     data: {
+      registrarNumber: '',
       firstname: '',
       lastname: '',
       email: '',
@@ -29,7 +31,7 @@ class CWATRegister extends Form {
       ticketOption: '',
       ticketOptionData: {},
       ticketPurchaseData: {},
-      shirtSize: ''
+      shirtSize: '',
     },
     errors: {},
     bool: false,
@@ -41,10 +43,12 @@ class CWATRegister extends Form {
   async componentDidMount() {
     const allTicketOptions = await getCwatTicketTypes();
     this.setState({ ticketOptions: allTicketOptions.data });
+    this.populateRegistrar();
   }
 
   schema = {
     _id: Joi.string(),
+    registrarNumber: Joi.number().required().label('Registrar Number'),
     firstname: Joi.string().required().label('First Name'),
     lastname: Joi.string().required().label('Last Name'),
     email: Joi.string().email().required().label('Email'),
@@ -58,7 +62,7 @@ class CWATRegister extends Form {
     ticketOption: Joi.required().label('Choose Your Ticket'),
     ticketOptionData: Joi.object(),
     ticketPurchaseData: Joi.object(),
-    shirtSize: Joi.string().required().label('Shirt Size')
+    shirtSize: Joi.string().required().label('Shirt Size'),
   };
 
   shirtSizes = [
@@ -77,7 +81,7 @@ class CWATRegister extends Form {
     });
   };
 
-  populateRegistrar = (data) => {
+  populateUnregisteredRegistrarTicket = (data) => {
     const originalData = { ...this.state.data };
     const requiredData = _.pick(data, ['firstname', 'lastname', 'phone', 'email']);
     const { ticketOptions } = this.state;
@@ -106,6 +110,41 @@ class CWATRegister extends Form {
       },
     });
   };
+
+  async populateRegistrar() {
+    try {
+      const registrarId = this.props.params.id;
+      if (registrarId === 'new') {
+        const registrarNumber = await getRegistrar('registrarNumber').amount;
+        this.setState({ data: { registrarNumber } });
+        return;
+      }
+
+      const { data: registrar } = await getRegistrar(registrarId);
+      this.setState({ data: this.mapToViewModel(registrar) });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  mapToViewModel(registrar) {
+    return {
+      _id: registrar._id,
+      registrarNumber: registrar.registrarNumber,
+      firstname: registrar.firstname,
+      lastname: registrar.lastname,
+      email: registrar.email,
+      phone: registrar.phone,
+      allergies: registrar.allergies,
+      questions: registrar.questions,
+      discover: registrar.discover,
+      emergencyFullName: registrar.emergencyFullName,
+      emergencyEmail: registrar.emergencyEmail,
+      emergencyPhone: registrar.emergencyPhone,
+      ticketOption: registrar.ticketOption,
+      shirtSize: registrar.shirtSize,
+    };
+  }
 
   doSubmit = async () => {
     try {
@@ -164,7 +203,9 @@ class CWATRegister extends Form {
               {this.state.haveTicketAlready ? (
                 <div>
                   {this.renderDropdown('shirtSize', 'Shirt Size', this.shirtSizes)}
-                  <CheckTicketCode populateUnregisteredUser={this.populateRegistrar} />
+                  <CheckTicketCode
+                    populateUnregisteredUser={this.populateUnregisteredRegistrarTicket}
+                  />
                 </div>
               ) : (
                 <div className="ticket-tiers">
@@ -204,4 +245,4 @@ class CWATRegister extends Form {
   }
 }
 
-export default CWATRegister;
+export default withRouter(CWATRegister);

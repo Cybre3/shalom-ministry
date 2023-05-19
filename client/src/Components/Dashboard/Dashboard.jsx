@@ -22,16 +22,16 @@ function Dashboard(props) {
           <div className="dash-section">
             <h3 className="dash-section-title">Forms</h3>
 
-            <NavLink className="nav-link" to="invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/new">
               Create Invoice
             </NavLink>
-            <NavLink className="nav-link" to="invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/new">
               Thank you Note
             </NavLink>
-            <NavLink className="nav-link" to="invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/new">
               Receipt
             </NavLink>
-            <NavLink className="nav-link" to="invoices/create-new-invoice">
+            <NavLink className="nav-link" to="invoices/new">
               Purchase
             </NavLink>
           </div>

@@ -8,7 +8,7 @@ class RegistrarsTable extends Component {
       path: 'registrarNumber',
       label: 'registrar#',
       content: (registrar) => (
-        <Link to={`/messages/${registrar._id}`}>{registrar.registrarNumber}</Link>
+        <Link to={`${registrar._id}`}>{registrar.registrarNumber}</Link>
       ),
     },
     { path: 'category', label: 'Category' },
@@ -26,6 +26,7 @@ class RegistrarsTable extends Component {
     { path: 'emergencyEmail', label: 'Emergency Email' },
     { path: 'emergencyPhone', label: 'Emergency Phone' },
     { path: 'date', label: 'Message Date' },
+    { path: 'shitSize', label: 'Shirt Size' },
   ];
 
   deleteColumn = {

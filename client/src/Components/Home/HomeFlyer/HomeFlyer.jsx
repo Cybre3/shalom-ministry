@@ -10,7 +10,7 @@ function HomeFlyer(props) {
         <img src={CWATphoto} alt="CWATphoto" />
       </div>
       <div className="home-flyer-description">
-        <NavLink className='register-now' to="/CWATregister">
+        <NavLink className='register-now' to="/CWATregister/new">
           Register Now! <br /> <i>Payment plan available</i>
         </NavLink>
         <div className="home-outer-spin-circle">

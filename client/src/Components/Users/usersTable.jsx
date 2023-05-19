@@ -8,7 +8,7 @@ class UsersTable extends Component {
     {
       path: 'userNumber',
       label: 'Message#',
-      content: (user) => <Link to={`/messages/${user._id}`}>{user.userNumber}</Link>,
+      content: (user) => <Link to={`${user._id}`}>{user.userNumber}</Link>,
     },
     { path: 'firstname', label: 'First Name' },
     { path: 'lastname', label: 'Last Name' },

@@ -82,7 +82,7 @@ class Invoices extends Component {
         </div>
         <div>
           {user && (
-            <Link className="new-invoice-link" to="create-new-invoice">
+            <Link className="new-invoice-link" to="new">
               Create New Invoice
             </Link>
           )}
