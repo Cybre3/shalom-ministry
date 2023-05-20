@@ -5,7 +5,7 @@ module.exports = [
   },
   {
     type: 'invoiceNumber',
-    amount: 0,
+    amount: 23001,
   },
   {
     type: 'registrarNumber',
@@ -13,6 +13,6 @@ module.exports = [
   },
   {
     type: 'userNumber',
-    amount:0
+    amount: 23001
   },
 ];

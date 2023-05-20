@@ -19,7 +19,7 @@ import Messages from './Components/Messages/Messages';
 import Nav from './Components/Nav/Nav';
 import ProtectedRoutes from './Components/common/protectedRoutes';
 import SaveData from './Components/SaveData/SaveData';
-import Register from './Components/Register/Register';
+import RegisterForm from './Components/Register/Register';
 import Registrars from './Components/Register/Registrars';
 import Users from './Components/Users/Users';
 
@@ -64,7 +64,7 @@ class App extends Component {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/login" element={<Login user={user} />} />
               <Route path="/logout" element={<Logout />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/register/:id" element={<RegisterForm />} />
               <Route path="/CWATregister/:id" element={<CWATregister />} />
               <Route path="/contact-us" element={<Contactus />} />
               <Route path="/give" element={<Give />} />

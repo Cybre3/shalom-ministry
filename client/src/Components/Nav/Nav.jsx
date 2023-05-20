@@ -50,7 +50,7 @@ function Nav(props) {
               <NavLink className="no-bg" to="/login">
                 Login
               </NavLink>
-              <NavLink className="no-bg" to="/register">
+              <NavLink className="no-bg" to="/register/new">
                 Register
               </NavLink>
             </React.Fragment>

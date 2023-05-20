@@ -81,16 +81,14 @@ const cwatRegistrarSchema = new mongoose.Schema({
 });
 
 cwatRegistrarSchema.post('save', async function () {
-  // const registrarNumber = await Constant.findOne({ type: 'registrarNumber' }).amount;
-  // this.registrarNumber = registrarNumber;
-  // await Constant.upCountByOne('registrarNumber');
-  console.log('working')
+  await Constant.upCountByOne('registrarNumber');
 });
 
 const CwatRegistrar = mongoose.model('Cwat-Registrar', cwatRegistrarSchema);
 
 function validateCwatRegistrar(input) {
   const schema = Joi.object({
+    registrarNumber: Joi.number().required(),
     firstname: Joi.string().min(2).max(30).required(),
     lastname: Joi.string().min(2).max(50).required(),
     email: Joi.string().email().min(5).max(255).required(),

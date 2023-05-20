@@ -10,7 +10,7 @@ module.exports = {
       let user = await User.findOne({ email: email });
       if (user) return res.status(400).send(`User with email: ${email} already registered.`);
 
-      user = new User(_.pick(req.body, ['firstname', 'lastname', 'email', 'password', 'isAdmin']));
+      user = new User(_.pick(req.body, ['userNumber', 'firstname', 'lastname', 'email', 'password', 'isAdmin']));
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(user.password, salt);
       await user.save();

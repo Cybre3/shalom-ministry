@@ -6,7 +6,7 @@ class RegistrarsTable extends Component {
   columns = [
     {
       path: 'registrarNumber',
-      label: 'registrar#',
+      label: 'Registrar #',
       content: (registrar) => (
         <Link to={`${registrar._id}`}>{registrar.registrarNumber}</Link>
       ),
@@ -25,7 +25,7 @@ class RegistrarsTable extends Component {
     { path: 'emergencyFullName', label: 'Emergency Full Name' },
     { path: 'emergencyEmail', label: 'Emergency Email' },
     { path: 'emergencyPhone', label: 'Emergency Phone' },
-    { path: 'date', label: 'Message Date' },
+    { path: 'date', label: 'Register Date' },
     { path: 'shitSize', label: 'Shirt Size' },
   ];
 

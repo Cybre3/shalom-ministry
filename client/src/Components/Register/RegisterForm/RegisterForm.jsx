@@ -5,12 +5,16 @@ import Joi from 'joi-browser';
 
 import Form from '../../common/form';
 import { register } from './../../../services/userService';
+import { getUserById } from '../../../services/authService';
+import { getConstant } from '../../../services/constantService';
+import withRouter from '../../../utilities/withRouter';
 
 import './registerForm.css';
 
 class RegisterForm extends Form {
   state = {
     data: {
+      userNumber: '',
       firstname: '',
       lastname: '',
       email: '',
@@ -22,8 +26,13 @@ class RegisterForm extends Form {
     errors: {},
   };
 
+  async componentDidMount() {
+    this.populateUser();
+  }
+
   schema = {
     _id: Joi.string(),
+    userNumber: Joi.number().required().label('User Number'),
     firstname: Joi.string().required().label('First Name'),
     lastname: Joi.string().required().label('Last Name'),
     email: Joi.string().email().required().label('Email'),
@@ -32,6 +41,33 @@ class RegisterForm extends Form {
     discover: Joi.string().label('How you did you hear about Shalom Ministry').allow(''),
     isAdmin: Joi.boolean(),
   };
+
+  async populateUser() {
+    try {
+      const userId = this.props.params.id;
+      if (userId === 'new') {
+        const userNumber = (await getConstant('userNumber')).data.amount;
+        this.setState({ data: { ...this.state.data, userNumber } });
+        return;
+      }
+
+      const { data: user } = await getUserById(userId);
+      console.log('regForm', user)
+      this.setState({ data: this.mapToViewModel(user) });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  mapToViewModel(user) {
+    return {
+      _id: user._id,
+      userNumber: user.userNumber,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      email: user.email
+    };
+  }
 
   doSubmit = async () => {
     try {
@@ -77,4 +113,4 @@ class RegisterForm extends Form {
   }
 }
 
-export default RegisterForm;
+export default withRouter(RegisterForm);

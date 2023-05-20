@@ -6,6 +6,7 @@ import _ from 'lodash';
 import Form from '../../common/form';
 import { CWATregister, getRegistrar } from '../../../services/userService';
 import { getCwatTicketTypes } from './../../../services/ticketSetvice';
+import { getConstant } from '../../../services/constantService';
 import CheckTicketCode from './checkTicketCode';
 import withRouter from '../../../utilities/withRouter';
 
@@ -115,8 +116,8 @@ class CWATRegister extends Form {
     try {
       const registrarId = this.props.params.id;
       if (registrarId === 'new') {
-        const registrarNumber = await getRegistrar('registrarNumber').amount;
-        this.setState({ data: { registrarNumber } });
+        const registrarNumber = (await getConstant('registrarNumber')).data.amount;
+        this.setState({ data: { ...this.state.data, registrarNumber } });
         return;
       }
 

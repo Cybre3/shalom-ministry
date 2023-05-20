@@ -1,4 +1,5 @@
 import http from '../services/httpService';
+import _ from 'lodash';
 
 const apiEndpoint = '/users';
 
@@ -11,27 +12,23 @@ function registrarUrl(id) {
   return `${endpointUrl('cwat-register')}/${id}`;
 }
 
-export function register(user) {
-  return http.post(apiEndpoint, {
-    firstname: user.firstname,
-    lastname: user.lastname,
-    email: user.email,
-    password: user.password,
-    discover: user.discover,
-  });
-}
 
 export function getRegistrar(RegistrarId) {
   return http.get(registrarUrl(RegistrarId));
+}
+
+export function getAllCWATregistrars() {
+  return http.get(endpointUrl('cwat-register'));
+}
+
+export function register(user) {
+  return http.post(apiEndpoint, _.omit(user, 'rePassword'));
 }
 
 export function CWATregister(user) {
   return http.post(endpointUrl('cwat-register'), user);
 }
 
-export function getAllCWATregistrars() {
-  return http.get(endpointUrl('cwat-register'));
-}
 
 
 export function deleteRegistrar(registrarId) {

@@ -8,7 +8,7 @@ const { CwatRegistrar } = require('./models/cwatRegistrarModel');
 const { Constant } = require('./models/constantModel');
 const cwatUnregisteredData = require('./seedData/cwatUnregisteredData');
 const cwatTickets = require('./seedData/cwatTickets');
-const constants = require('./seedData/constants');    
+const constants = require('./seedData/constants');
 
 async function seedCwatUnregistered() {
   await CwatUnregistered.deleteMany({});
@@ -22,9 +22,8 @@ async function seedCwatUnregistered() {
 async function seedCwatTickets() {
   cwatTickets.forEach((ticket) => {
     ticket.disabled = ticket.numberOfBedsAvailable === 0 ? true : false;
-    ticket.displayLine = `Tier ${ticket.tier} - $${ticket.price} - ${ticket.description}${
-      ticket.disabled ? ' - SOLD OUT!!' : ''
-    }`;
+    ticket.displayLine = `Tier ${ticket.tier} - $${ticket.price} - ${ticket.description}${ticket.disabled ? ' - SOLD OUT!!' : ''
+      }`;
   });
 
   await CwatTicket.deleteMany({});
@@ -56,7 +55,7 @@ async function translateTicketOptionData() {
       await CwatRegistrar.findByIdAndUpdate(registrar._id, { ...registrar });
     }
   });
-  
+
   // mongoose.disconnect();
   console.info('Cwat registrars Updated!');
 }
@@ -73,12 +72,12 @@ async function getTicketType(unregisterdTicket) {
 }
 
 async function seedConstants() {
- await Constant.deleteMany({});
- await Constant.insertMany(constants);
+  await Constant.deleteMany({});
+  await Constant.insertMany(constants);
 
- mongoose.disconnect();
+  mongoose.disconnect();
 
- console.info('Constants Seed Done!');
+  console.info('Constants Seed Done!');
 }
 
 async function CONNECT_TO_DB() {
@@ -114,4 +113,5 @@ function remove_SOLDOUT_tag(string) {
   return newString;
 }
 
-seedInfo(seedConstants);
+
+// mongoose.disconnect();

@@ -9,7 +9,6 @@
     "server": "cd server && npm run auto",
     "deploy-server": "cd server && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "preinstall": "npm install --prefix client",
     "start": "npm run client"
   },
   "repository": {

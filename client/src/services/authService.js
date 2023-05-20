@@ -14,6 +14,10 @@ export function getAllUsers() {
   return http.get(apiEndpoint);
 }
 
+export function getUserById(userId) {
+  return http.get(authUrl(userId));
+}
+
 export async function login(email, password) {
   const { data: jwt } = await http.post(apiEndpoint, { email, password });
 

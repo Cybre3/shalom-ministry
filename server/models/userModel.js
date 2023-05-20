@@ -4,15 +4,10 @@ const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 const { Constant } = require('./constantModel');
 
-const userNumber = async () => {
-  const userNumber = await Constant.findOne({ type: 'userNumber' });
-  return userNumber.amount;
-};
-
 const userSchema = mongoose.Schema({
   userNumber: {
     type: Number,
-    default: userNumber()
+    required: true
   },
   firstname: {
     type: String,
@@ -57,6 +52,10 @@ userSchema.methods.generateAuthToken = function () {
   );
   return token;
 };
+
+userSchema.post('save', async function () {
+  await Constant.upCountByOne('userNumber');
+});
 
 const User = mongoose.model('User', userSchema);
 
