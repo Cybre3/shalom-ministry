@@ -6,6 +6,9 @@ const { CwatTicket } = require('./models/cwatTicketModel');
 const { CwatUnregistered } = require('./models/cwatUnregisteredModel');
 const { CwatRegistrar } = require('./models/cwatRegistrarModel');
 const { Constant } = require('./models/constantModel');
+const { User } = require('./models/userModel');
+const { Invoice } = require('./models/InvoiceModel');
+
 const cwatUnregisteredData = require('./seedData/cwatUnregisteredData');
 const cwatTickets = require('./seedData/cwatTickets');
 const constants = require('./seedData/constants');
@@ -22,8 +25,9 @@ async function seedCwatUnregistered() {
 async function seedCwatTickets() {
   cwatTickets.forEach((ticket) => {
     ticket.disabled = ticket.numberOfBedsAvailable === 0 ? true : false;
-    ticket.displayLine = `Tier ${ticket.tier} - $${ticket.price} - ${ticket.description}${ticket.disabled ? ' - SOLD OUT!!' : ''
-      }`;
+    ticket.displayLine = `Tier ${ticket.tier} - $${ticket.price} - ${ticket.description}${
+      ticket.disabled ? ' - SOLD OUT!!' : ''
+    }`;
   });
 
   await CwatTicket.deleteMany({});
@@ -80,6 +84,26 @@ async function seedConstants() {
   console.info('Constants Seed Done!');
 }
 
+async function assignNumberIdToCollectionDocuments(Collection, constantType) {
+  const collectionArr = await Collection.find({});
+  const constant = await Constant.findOne({ type: constantType });
+  let newCount = constant.amount;
+
+  collectionArr.map(async (document) => {
+    document[constantType] = newCount;
+    newCount++;
+    await Collection.findByIdAndUpdate(document._id, { ...document });
+  });
+
+  await Constant.findOneAndUpdate({ type: constantType }, { amount: newCount });
+
+  setTimeout(() => {
+    mongoose.disconnect();
+  }, 1200);
+
+  console.info(`${constantType}s assigned!`);
+}
+
 async function CONNECT_TO_DB() {
   let db;
   const environment = config.get('env');
@@ -101,10 +125,9 @@ async function CONNECT_TO_DB() {
   await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
-
 async function seedInfo(info) {
   await CONNECT_TO_DB();
-  await info();
+  await info;
 }
 
 function remove_SOLDOUT_tag(string) {
@@ -113,5 +136,5 @@ function remove_SOLDOUT_tag(string) {
   return newString;
 }
 
-
+seedInfo(assignNumberIdToCollectionDocuments(Invoice, 'invoiceNumber'));
 // mongoose.disconnect();
