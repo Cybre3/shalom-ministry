@@ -8,6 +8,8 @@ const { CwatRegistrar } = require('./models/cwatRegistrarModel');
 const { Constant } = require('./models/constantModel');
 const { User } = require('./models/userModel');
 const { Invoice } = require('./models/InvoiceModel');
+const { Sponsor } = require('./models/sponsorModel');
+const { Contact } = require('./models/contactModel');
 
 const cwatUnregisteredData = require('./seedData/cwatUnregisteredData');
 const cwatTickets = require('./seedData/cwatTickets');
@@ -136,5 +138,5 @@ function remove_SOLDOUT_tag(string) {
   return newString;
 }
 
-seedInfo(assignNumberIdToCollectionDocuments(Invoice, 'invoiceNumber'));
+seedInfo(assignNumberIdToCollectionDocuments(User, 'userNumber'));
 // mongoose.disconnect();

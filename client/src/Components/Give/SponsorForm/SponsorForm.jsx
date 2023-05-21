@@ -1,13 +1,17 @@
 import React from 'react';
 import Joi from 'joi';
 import { toast } from 'react-toastify';
-import { saveSponsor } from '../../../services/giveService';
 
 import Form from '../../common/form';
+import { saveSponsor } from '../../../services/giveService';
+import { getConstant } from '../../../services/constantService';
+import { getMessageByIdAndCategory } from '../../../services/messageService';
+
 
 class SponsorForm extends Form {
   state = {
     data: {
+      messageNumber: '',
       firstname: '',
       lastname: '',
       organizationName: '',
@@ -20,6 +24,10 @@ class SponsorForm extends Form {
     bool: false,
   };
 
+  componentDidMount() {
+    this.populateSponsorMessage();
+  }
+
   modeOfContactOptions = [
     { name: 'phone', value: 'Phone' },
     { name: 'email', value: 'Email' },
@@ -27,6 +35,7 @@ class SponsorForm extends Form {
 
   schema = {
     _id: Joi.string(),
+    messageNumber: Joi.number().required(),
     firstname: Joi.string().label('First Name').allow(''),
     lastname: Joi.string().label('Last Name').allow(''),
     organizationName: Joi.string().label('Organization Name').allow(''),
@@ -35,6 +44,36 @@ class SponsorForm extends Form {
     message: Joi.string().required().label('Message'),
     bestContact: Joi.string().required().label('Best Mode of Contact'),
   };
+
+  async populateSponsorMessage() {
+    try {
+      const messageId = this.props.params.id;
+      if (messageId === 'new') {
+        const messageNumber = (await getConstant('messageNumber')).data.amount;
+        this.setState({ data: { ...this.state.data, messageNumber } });
+        return;
+      }
+
+      const { data: sponsorMessage } = await getMessageByIdAndCategory(messageId, 'Sponsor');
+      this.setState({ data: this.mapToViewModel(sponsorMessage) });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  mapToViewModel(message) {
+    return {
+      _id: message._id,
+      messageNumber: message.messageNumber,
+      firstname: message.firstname,
+      lastname: message.lastname,
+      email: message.email,
+      phone: message.phone,
+      organizationName: message.organizationName,
+      bestContact: message.bestContact,
+      message: message.message
+    };
+  }
 
   doSubmit = () => {
     try {

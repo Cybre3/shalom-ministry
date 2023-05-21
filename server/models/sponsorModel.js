@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
 const JoiPhone = Joi.extend(require('joi-phone-number'));
+const { Constant } = require('./constantModel');
 
 const sponsorSchema = mongoose.Schema({
+  messageNumber: {
+    type: Number,
+    required: true,
+  },
   firstname: {
     type: String,
     minlength: 2,
@@ -48,10 +53,15 @@ const sponsorSchema = mongoose.Schema({
   },
 });
 
+sponsorSchema.post('save', async function () {
+  await Constant.upCountByOne('messageNumber');
+});
+
 const Sponsor = mongoose.model('Sponsor', sponsorSchema);
 
 function validateSponsor(input) {
   const schema = Joi.object({
+    messageNumber: Joi.number().required(),
     firstname: Joi.string().min(2).max(30).allow(''),
     lastname: Joi.string().min(2).max(50).allow(''),
     organizationName: Joi.string().min(5).max(100).allow(''),

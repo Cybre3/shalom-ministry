@@ -1,11 +1,13 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
-import { saveContact } from '../../services/contactService';
 
 import Form from './../common/form';
 import ScreenHeading from '../../utilities/ScreenHeading/ScreenHeading';
 import TypicalContactMe from '../../utilities/Typical_Contactme';
+import { saveContact } from '../../services/contactService';
+import { getConstant } from '../../services/constantService';
+import { getMessageByIdAndCategory } from '../../services/messageService';
 
 import imgBack from '../../assets/email-pc-world2.png';
 
@@ -16,6 +18,7 @@ import './contactus.css';
 class ContactUs extends Form {
   state = {
     data: {
+      messageNumber: '',
       fullname: '',
       email: '',
       message: '',
@@ -25,12 +28,44 @@ class ContactUs extends Form {
     bool: false,
   };
 
+  componentDidMount() {
+    this.populateContactMessage();
+  }
+
   schema = {
     _id: Joi.string(),
+    messageNumber: Joi.number().required(),
     fullname: Joi.string().required().label('Full Name'),
     email: Joi.string().email().required().label('Email'),
     message: Joi.string().required().label('Message'),
   };
+
+  async populateContactMessage() {
+    try {
+      const messageId = this.props.params.id;
+      if (messageId === 'new') {
+        const messageNumber = (await getConstant('messageNumber')).data.amount;
+        this.setState({ data: { ...this.state.data, messageNumber } });
+        return;
+      }
+
+      const { data: contactMessage } = await getMessageByIdAndCategory(messageId, 'Contact');
+      this.setState({ data: this.mapToViewModel(contactMessage) });
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  mapToViewModel(message) {
+    return {
+      _id: message._id,
+      messageNumber: message.messageNumber,
+      firstname: message.firstname,
+      lastname: message.lastname,
+      email: message.email,
+      message: message.message,
+    };
+  }
 
   doSubmit = () => {
     const { data } = this.state;
