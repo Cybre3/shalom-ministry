@@ -6,6 +6,7 @@ import Joi from 'joi-browser';
 import Form from '../../common/form';
 import { saveInvoice } from '../../../services/invoiceService';
 import { getInvoice } from '../../../services/invoiceService';
+import { getConstant } from '../../../services/constantService';
 import withRouter from '../../../utilities/withRouter';
 
 import './createInvoice.css';
@@ -13,11 +14,11 @@ import './createInvoice.css';
 class CreateInvoice extends Form {
   state = {
     data: {
+      invoiceNumber: '',
       firstname: '',
       lastname: '',
       email: '',
       phone: '',
-      invoiceNumber: '',
       currentDate: new Date().toISOString().substring(0, 10),
       description: '',
       qty: '',
@@ -33,11 +34,11 @@ class CreateInvoice extends Form {
 
   schema = {
     _id: Joi.string(),
+    invoiceNumber: Joi.number().required().label('Invoice Number'),
     firstname: Joi.string().required().label('First Name'),
     lastname: Joi.string().required().label('Last Name'),
     email: Joi.string().email().required().label('Email'),
     phone: Joi.string().required().label('Phone'),
-    invoiceNumber: Joi.number().required().label('Invoice Number'),
     currentDate: Joi.date().required().label('Date'),
     description: Joi.string().required().label('Description'),
     qty: Joi.number().required().label('Quantity'),
@@ -62,7 +63,11 @@ class CreateInvoice extends Form {
   async populateInvoice() {
     try {
       const invoiceId = this.props.params.id;
-      if (invoiceId === 'new') return;
+      if (invoiceId === 'new') {
+        const invoiceNumber = (await getConstant('invoiceNumber')).data.amount;
+        this.setState({ data: { ...this.state.data, invoiceNumber } });
+        return;
+      }
 
       const { data: invoice } = await getInvoice(invoiceId);
       this.setState({ data: this.mapToViewModel(invoice) });

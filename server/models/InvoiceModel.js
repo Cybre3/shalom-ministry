@@ -2,6 +2,7 @@ const makeAllRequired = require('../utilities/makeAllRequired');
 const mongoose = require('mongoose');
 const Joi = require('joi');
 const JoiPhone = Joi.extend(require('joi-phone-number'));
+const { Constant } = require('./constantModel');
 
 const invoiceSchema = mongoose.Schema({
   firstname: {
@@ -53,6 +54,10 @@ const invoiceSchema = mongoose.Schema({
 });
 
 makeAllRequired(invoiceSchema);
+
+invoiceSchema.post('save', async function () {
+  await Constant.upCountByOne('invoiceNumber');
+});
 
 const Invoice = mongoose.model('Invoice', invoiceSchema);
 
