@@ -5,34 +5,26 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.1vw;
-  height: 100%;
   justify-content: center;
-  margin: 10vh 0 0;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   text-align: center;
-  width: 100vw;
 }
 
 .register-container::before {
-  animation: animate-registerForm 15s linear infinite;
-  background: linear-gradient(#fff, rgb(106, 0, 255), #fff);
+  /* animation: animate-registerForm 15s linear infinite; */
+  /* background: linear-gradient(#fff, rgb(106, 0, 255), #fff); */
   content: '';
   height: 100%;
   position: absolute;
   width: 100%;
 }
 
-.register-container .navbar {
-  background-color: black;
-  color: white;
-}
-
-@keyframes animate-registerForm {
+/* @keyframes animate-registerForm {
   0% {
     transform: translateY(-100%);
   }
   100% {
     transform: translateY(100%);
   }
-}
+} */

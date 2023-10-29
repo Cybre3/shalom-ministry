@@ -10,6 +10,7 @@ const { User } = require('./models/userModel');
 const { Invoice } = require('./models/InvoiceModel');
 const { Sponsor } = require('./models/sponsorModel');
 const { Contact } = require('./models/contactModel');
+const { Event } = require('./models/eventModel');
 
 const cwatUnregisteredData = require('./seedData/cwatUnregisteredData');
 const cwatTickets = require('./seedData/cwatTickets');
@@ -27,9 +28,9 @@ async function seedCwatUnregistered() {
 async function seedCwatTickets() {
   cwatTickets.forEach((ticket) => {
     ticket.disabled = ticket.numberOfBedsAvailable === 0 ? true : false;
-    ticket.displayLine = `Tier ${ticket.tier} - $${ticket.price} - ${ticket.description}${
-      ticket.disabled ? ' - SOLD OUT!!' : ''
-    }`;
+    ticket.soldOut = ticket.numberOfBedsAvailable === 0 ? true : false;
+    ticket.displayLine = `Tier ${ticket.tier} - $${ticket.price} - ${ticket.description}${ticket.soldOut ? ' - SOLD OUT!!' : ''
+      }`;
   });
 
   await CwatTicket.deleteMany({});
@@ -133,10 +134,25 @@ async function seedInfo(info) {
 }
 
 function remove_SOLDOUT_tag(string) {
-  const newString = string.replace(' - SOLD OUT!', '');
+  const newString = string.replace(' - SOLD OUT!!', '');
 
   return newString;
 }
 
-seedInfo(assignNumberIdToCollectionDocuments(User, 'userNumber'));
-// mongoose.disconnect();
+const [sWeekDay, sMon, sDay, sYear] =  new Date(10/19/2023).toString().split(' ');
+const [eWeekDay, eMon, eDay, eYear] =  new Date(10/21/2023).toString().split(' ');
+const newEvent = [{
+  title: 'CWAT',
+  subTitle: 'Conference With A Twist',
+  dateStart:  new Date('October 19, 2023'),
+  dateEnd: new Date('October 21, 2023'),
+  location: 'Destin, FL'
+}]
+async function addEvent(event) {
+  await Event.deleteMany({})
+  await Event.insertMany(event)
+  mongoose.disconnect();
+}
+
+// seedInfo(assignNumberIdToCollectionDocuments(User, 'userNumber'));
+seedInfo(addEvent(newEvent));

@@ -39,10 +39,10 @@ class CheckTicketCode extends Form {
   render() {
     const { bedType, roomType, paymentMethod, numberOfPayments, paymentsLeft } = this.state.data;
     return (
-      <div className="ticketCode">
-        <div className="check-and-btn">
+      <div className="relative h-fit w-full mx-auto text-center">
+        <div className="text-center check-code-inBtn space-y-2 md:space-y-4">
           {this.renderInput('ticketCode', 'Ticket Code')}
-          {!this.state.codeValid && this.renderButton('Check Code', false, 'check-code-btn')}
+          {!this.state.codeValid && this.renderButton('Check Code', false, 'check-code-btn lg:text-xl')}
         </div>
         {this.state.codeValid && (
           <div className="ticket-information">

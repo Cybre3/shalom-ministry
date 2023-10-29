@@ -3,5 +3,8 @@
     "activityBar.background": "#063145",
     "titleBar.activeBackground": "#094560",
     "titleBar.activeForeground": "#F7FCFE"
-  }
+  },
+  "editor.wordWrap": "on",
+  "html.format.wrapLineLength": 100,
+  "editor.wordWrapColumn": 75
 }

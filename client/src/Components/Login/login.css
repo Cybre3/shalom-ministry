@@ -5,18 +5,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.1vw;
-  height: 100%;
   justify-content: center;
-  margin: 10vh 0 0;
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 100vw;
 }
 
 .login-container::before {
-  animation: animate-loginForm 15s linear infinite;
-  background: linear-gradient(#fff, rgb(106, 0, 255), #fff);
+  /* animation: animate-loginForm 15s linear infinite; */
+  /* background: linear-gradient(#fff, rgb(106, 0, 255), #fff); */
   content: '';
   height: 100%;
   position: absolute;
@@ -27,7 +24,7 @@
   background-color: black;
   color: white;
 }
-
+/* 
 @keyframes animate-loginForm {
   0% {
     transform: translateY(-100%);
@@ -35,4 +32,4 @@
   100% {
     transform: translateY(100%);
   }
-}
+} */

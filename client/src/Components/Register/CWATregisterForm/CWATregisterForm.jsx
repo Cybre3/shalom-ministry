@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
 import _ from 'lodash';
 
 import Form from '../../common/form';
-import { CWATregister, getRegistrar } from '../../../services/userService';
+import { saveRegistrar, getCWATregistrarById } from '../../../services/registrarService';
 import { getCwatTicketTypes } from './../../../services/ticketSetvice';
 import { getConstant } from '../../../services/constantService';
 import CheckTicketCode from './checkTicketCode';
 import withRouter from '../../../utilities/withRouter';
 
-import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
 
 import './CWATregisterForm.css';
@@ -29,10 +28,10 @@ class CWATRegister extends Form {
       emergencyFullName: '',
       emergencyEmail: '',
       emergencyPhone: '',
-      ticketOption: '',
+      ticketOption: 'Tier Two',
       ticketOptionData: {},
       ticketPurchaseData: {},
-      shirtSize: '',
+      shirtSize: 'Md',
     },
     errors: {},
     bool: false,
@@ -60,20 +59,20 @@ class CWATRegister extends Form {
     emergencyFullName: Joi.string().required().label('Emergency Full Name'),
     emergencyEmail: Joi.string().email().required().label('Emergency Last Name'),
     emergencyPhone: Joi.string().required().label('Emergency Phone'),
-    ticketOption: Joi.required().label('Choose Your Ticket'),
-    ticketOptionData: Joi.object(),
-    ticketPurchaseData: Joi.object(),
+    ticketOption: Joi.string().required().label('Choose Your Ticket'),
+    ticketOptionData: Joi.object().required().label('Ticket Option Data'),
+    ticketPurchaseData: Joi.object().required().label('Ticket Purchase Data'),
     shirtSize: Joi.string().required().label('Shirt Size'),
   };
 
   shirtSizes = [
-    { id: 'xs', name: 'xsmall', value: 'Xs' },
-    { id: 'sm', name: 'small', value: 'Sm' },
-    { id: 'md', name: 'medium', value: 'Md' },
-    { id: 'lg', name: 'large', value: 'Lg' },
-    { id: 'xl', name: 'xlarge', value: 'XLg' },
-    { id: '2x', name: '2x', value: '2x' },
-    { id: '3x', name: '3x', value: '3x' },
+    { id: 'xs', name: 'xsmall', label: 'Xs' },
+    { id: 'sm', name: 'small', label: 'Sm' },
+    { id: 'md', name: 'medium', label: 'Md' },
+    { id: 'lg', name: 'large', label: 'Lg' },
+    { id: 'xl', name: 'xlarge', label: 'XL' },
+    { id: '2x', name: '2x', label: '2x' },
+    { id: '3x', name: '3x', label: '3x' },
   ];
 
   hasAticket = (e) => {
@@ -121,29 +120,29 @@ class CWATRegister extends Form {
         return;
       }
 
-      const { data: registrar } = await getRegistrar(registrarId);
-      this.setState({ data: this.mapToViewModel(registrar) });
+      const { data: CWATregistrar } = await getCWATregistrarById(registrarId);
+      this.setState({ data: this.mapToViewModel(CWATregistrar) });
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  mapToViewModel(registrar) {
+  mapToViewModel(CWATregistrar) {
     return {
-      _id: registrar._id,
-      registrarNumber: registrar.registrarNumber,
-      firstname: registrar.firstname,
-      lastname: registrar.lastname,
-      email: registrar.email,
-      phone: registrar.phone,
-      allergies: registrar.allergies,
-      questions: registrar.questions,
-      discover: registrar.discover,
-      emergencyFullName: registrar.emergencyFullName,
-      emergencyEmail: registrar.emergencyEmail,
-      emergencyPhone: registrar.emergencyPhone,
-      ticketOption: registrar.ticketOption,
-      shirtSize: registrar.shirtSize,
+      _id: CWATregistrar._id,
+      registrarNumber: CWATregistrar.registrarNumber,
+      firstname: CWATregistrar.firstname,
+      lastname: CWATregistrar.lastname,
+      email: CWATregistrar.email,
+      phone: CWATregistrar.phone,
+      allergies: CWATregistrar.allergies,
+      questions: CWATregistrar.questions,
+      discover: CWATregistrar.discover,
+      emergencyFullName: CWATregistrar.emergencyFullName,
+      emergencyEmail: CWATregistrar.emergencyEmail,
+      emergencyPhone: CWATregistrar.emergencyPhone,
+      ticketOption: CWATregistrar.ticketOption,
+      shirtSize: CWATregistrar.shirtSize,
     };
   }
 
@@ -154,7 +153,7 @@ class CWATRegister extends Form {
       setTimeout(
         async () => {
           this.setState({ bool: false });
-          await CWATregister(data);
+          await saveRegistrar('cwat-register', data);
           toast.success('Registration submitted!');
         },
         Promise.reject ? 2000 : 1000
@@ -166,34 +165,34 @@ class CWATRegister extends Form {
 
   render() {
     return (
-      <div className="cwatRegister">
-        <div className="content">
-          <h1>CONFERENCE WITH A TWIST</h1>
+      <div className="cwatRegister pt-10 xl:pt-48 xl:pb-40 lg:pt-36 lg:w-3/4 xl:w-3/5 lg:mx-auto xl:px-0">
+        <div className="content w-full xl:pt-4">
+          <h1 className="text-3xl font-normal tracking-wide mt-4 mb-12 lg:mt-6 lg:mb-12">
+            CONFERENCE WITH A TWIST
+          </h1>
 
           <form onSubmit={this.handleSubmit}>
-            <div className="cwat-title-container">
-              <h2 className="cwat-header">YOUR INFO</h2>
-              <h2 className="cwat-header">EMERGENCY CONTACT</h2>
-            </div>
-            <div className="cwat-contact-info cwat-bg-right">
-              <div className="cwat-your-info">
+            <div className="cwat-bg-right flex-column grid grid-row-2 h-fit py-4 xl:py-8 pr-2 gap-y-6 border-black border-2 xl:border-x-0">
+              <div className="cwat-contact-info text-left w-full ml-2 md:w-3/4 xl:w-3/5 md:ml-6 xl:ml-16 xl:space-y-4">
+                <h2 className="cwat-header mb-2 ml-16 md:ml-32">YOUR INFO</h2>
                 {this.renderCustomInput('firstname', 'First Name')}
                 {this.renderCustomInput('lastname', 'Last Name')}
                 {this.renderCustomInput('email', 'Email', 'email')}
                 {this.renderCustomInput('phone', 'Phone #', 'phone')}
               </div>
 
-              <div className="cwat-emergency-contact">
-                {this.renderCustomInput('emergencyFullName', 'Full Name')}
-                {this.renderCustomInput('emergencyEmail', 'Email', 'email')}
-                {this.renderCustomInput('emergencyPhone', 'Phone #', 'phone')}
+              <div className="cwat-contact-info text-right justify-self-end w-full md:w-3/4 xl:w-3/5 md:mr-6 xl:mr-12 xl:space-y-4">
+                <h2 className="cwat-header mb-2 mr-8 md:mr-20">EMERGENCY CONTACT</h2>
+                {this.renderInput('emergencyFullName', 'Full Name')}
+                {this.renderInput('emergencyEmail', 'Email', 'email')}
+                {this.renderInput('emergencyPhone', 'Phone #', 'phone')}
               </div>
             </div>
 
-            <hr></hr>
+            <hr className="border-black mt-6 xl:mt-16 mb-16 xl:mb-24" />
 
-            <div className="cwat-questions-container cwat-bg-left">
-              <h2 className="cwat-header">A FEW QUESTIONS</h2>
+            <div className="cwat-questions-container cwat-bg-left w-full text-left relative px-2 py-4 border-black border-2 md:space-y-4 md:text-lg xl:border-x-0 xl:rounded-sm xl:px-8">
+              <h2 className="absolute bottom-full mb-4">A FEW QUESTIONS</h2>
               {this.renderTextarea(
                 'allergies',
                 'Do you have any food allergies or dietary restrictions?'
@@ -201,43 +200,47 @@ class CWATRegister extends Form {
               {this.renderTextarea('questions', 'Do you have any questions for us?')}
               {this.renderTextarea('discover', 'How did you hear about Shalom Ministry?')}
 
-              {this.state.haveTicketAlready ? (
-                <div>
-                  {this.renderDropdown('shirtSize', 'Shirt Size', this.shirtSizes)}
-                  <CheckTicketCode
-                    populateUnregisteredUser={this.populateUnregisteredRegistrarTicket}
-                  />
-                </div>
-              ) : (
-                <div className="ticket-tiers">
-                  {this.renderDropdown('shirtSize', 'Shirt Size', this.shirtSizes)}
-                  {this.renderDropdown(
-                    'ticketOption',
-                    'Choose Your Ticket',
-                    this.state.ticketOptions
-                  )}
-                </div>
-              )}
+              <div className="flex-column w-full mt-4 xl:pt-10">
+                {this.state.haveTicketAlready ? (
+                  <Fragment>
+                    {this.renderRadioGroupSmall('shirtSize', 'Shirt Size', this.shirtSizes, 3)}
+                    <CheckTicketCode
+                      populateUnregisteredUser={this.populateUnregisteredRegistrarTicket}
+                    />
+                  </Fragment>
+                ) : (
+                  <Fragment>
+                    {this.renderRadioGroupSmall('shirtSize', 'Shirt Size', this.shirtSizes, 3)}
+                    {this.renderRadioGroup(
+                      'ticketOption',
+                      { title: 'Ticket Options', subTitle: 'Choose Your Ticket' },
+                      this.state.ticketOptions,
+                      2
+                    )}
+                  </Fragment>
+                )}
+              </div>
             </div>
+
+            <hr className="border-black my-2" />
+
             <input
               type="checkbox"
               id={'haveTicketAlready'}
               value={'haveTicketAlready'}
               name={'haveTicketAlready'}
               onChange={this.hasAticket}
+              className="mr-1"
             />
-            <label htmlFor={'haveTicketAlready'}>
+            <label htmlFor={'haveTicketAlready'} className="md:text-lg lg:text-xl">
               I have selected my ticket prior to registering and have made a payment(s)
             </label>
-            {this.renderButton('SUBMIT', this.state.bool, 'send-btn')}
-            <span>
+            {this.renderButton('SUBMIT', this.state.bool, 'send-btn lg:mb-20 lg:text-3xl text-2xl')}
+            <span className="lg:text-lg">
               <i>No refunds once committed to a ticket</i>
             </span>
-            <aside className="cwat-background-image cwat-pPlan">
-              <img src={CWATpPlan} alt="cwat-pPlan" />
-            </aside>
-            <aside className="cwat-background-image cwat-qrcode">
-              <img src={qrCode} alt="" />
+            <aside className="absolute bottom-10 lg:bottom-16 xl:bottom-10 inset-x-0 mx-auto w-44 lg:w-60">
+              <img src={qrCode} alt="" className="w-full" />
             </aside>
           </form>
         </div>

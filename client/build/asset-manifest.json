@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.0a78b62d.css",
-    "main.js": "/static/js/main.8d39e4d3.js",
+    "main.css": "/static/css/main.ea56345a.css",
+    "main.js": "/static/js/main.bbbef1e6.js",
     "static/media/Tonya.jpeg": "/static/media/Tonya.1582c3aff9108549049b.jpeg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/Event-Category-Card.png": "/static/media/Event-Category-Card.bdfdac438cc0a7ac0f33.png",
@@ -10,11 +10,11 @@
     "static/media/WhatsApp Image 2023-02-28 at 8.57.18 PM.jpeg": "/static/media/WhatsApp Image 2023-02-28 at 8.57.18 PM.36654884c43f94c2d5de.jpeg",
     "static/media/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png": "/static/media/Cashapp-Code--CWAT-Registration-Page-trnsprnt.cc2da11f64273d0c7d9f.png",
     "static/media/Testimonies-Category-Card.png": "/static/media/Testimonies-Category-Card.75473521205754851586.png",
+    "static/media/CWAT-Site-Banner-NoPrice.png": "/static/media/CWAT-Site-Banner-NoPrice.31c37c2138de3ca007ef.png",
     "static/media/email-pc-world2.png": "/static/media/email-pc-world2.d7a7c83de71793699a9d.png",
     "static/media/Give-Category-Card.png": "/static/media/Give-Category-Card.7a5928b5ec7913f517aa.png",
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
-    "static/media/SM-Landing-Page-Banner.png": "/static/media/SM-Landing-Page-Banner.9bd805c58c746fb352b2.png",
     "static/media/SM_Graphic Kit_2022_transparent.png": "/static/media/SM_Graphic Kit_2022_transparent.fe3d3373aad1899df620.png",
     "static/media/Doris.jpg": "/static/media/Doris.601a2f44be71d6a6f04d.jpg",
     "static/media/SM-Logo-w-Title.png": "/static/media/SM-Logo-w-Title.5a1ae393c6492274a5f3.png",
@@ -31,7 +31,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.0a78b62d.css",
-    "static/js/main.8d39e4d3.js"
+    "static/css/main.ea56345a.css",
+    "static/js/main.bbbef1e6.js"
   ]
 }

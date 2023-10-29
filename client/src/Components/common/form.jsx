@@ -6,8 +6,11 @@ import CustomInput from './customInput';
 import Dropdown from './dropdown';
 import Textarea from './textarea';
 import CheckBox from './checkBox';
+import RadioGroupOptions from './radioGroup';
+import RadioGroupOptionsSmall from './radioGroupSmall';
 
-import load1 from '../../assets/load2.gif';
+import load1 from '../../assets/other/load2.gif';
+import convertToBase64 from '../../utilities/helpers/convertPhotoFile';
 
 class Form extends Component {
   state = {
@@ -55,24 +58,43 @@ class Form extends Component {
     this.checkCode();
   };
 
-  handleChange = ({ currentTarget: input }) => {
-    const { name, value } = input;
+  handleCheckEmail = e => {
+    e.preventDefault();
+
+    const errors = this.validate();
+    this.setState({ errors: errors || {} });
+    if (errors) return;
+
+    this.checkEmail();
+  }
+
+  handleBlur = ({ currentTarget: input }) => {
+    const { name } = input;
     const errors = { ...this.state.errors };
     const errorMessage = this.validateProperty(input);
     if (errorMessage) errors[name] = errorMessage;
     else delete errors[name];
-
-    const data = { ...this.state.data };
-    data[name] = value;
-    this.setState({ data, errors });
+    this.setState({ errors });
   };
 
-  renderButton = (label, state, className) => {
+  handleChange = ({ currentTarget: input, target }) => {
+    const { name, value, type } = input;
+
+    const data = { ...this.state.data };
+    const file = target.files ? target.files[0] : '';
+    const dataToSend = file !== '' ? convertToBase64(file) : '';
+    data[name] = value;
+    type === 'file'
+      ? this.setState({ data: { selectedFile: data.selectedFile, photoUrl: dataToSend, fileData: file } })
+      : this.setState({ data });
+  };
+
+  renderButton = (label, state, className, btnClass) => {
     return (
       <div className={className}>
-        <button disabled={this.validate()} className="btn btn-primary">
-          {label}
-          {className === 'send-btn' ? <i className="fa fa-paper-plane" /> : null}
+        <button disabled={this.validate()} className={`btn ${btnClass}`}>
+          <span>{label}</span>
+          {className && className.includes('send-btn') ? <i className="fa fa-paper-plane" /> : null}
           {state ? (
             <b className="load">
               <img src={load1} alt="img not responding" />
@@ -85,7 +107,7 @@ class Form extends Component {
     );
   };
 
-  renderInput = (name, label, type = 'text', disabled = false) => {
+  renderInput = (name, label, type = 'text', disabled = false, classes) => {
     const { data, errors } = this.state;
 
     return (
@@ -97,11 +119,13 @@ class Form extends Component {
         disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
+        onBlur={this.handleBlur}
+        classes={classes}
       />
     );
   };
 
-  renderCustomInput = (name, label, type = 'text', disabled = false) => {
+  renderCustomInput = (name, label, type = 'text', disabled = false, classes) => {
     const { data, errors } = this.state;
 
     return (
@@ -113,11 +137,13 @@ class Form extends Component {
         disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
+        onBlur={this.handleBlur}
+        classes={classes}
       />
     );
   };
 
-  renderTextarea = (name, label, type = 'text') => {
+  renderTextarea = (name, label, type = 'textarea', classes) => {
     const { data, errors } = this.state;
 
     return (
@@ -128,11 +154,13 @@ class Form extends Component {
         value={data[name]}
         error={errors[name]}
         onChange={this.handleChange}
+        onBlur={this.handleBlur}
+        classes={classes}
       />
     );
   };
 
-  renderDropdown = (name, label, options) => {
+  renderDropdown = (name, label, options, classes) => {
     const { data, errors } = this.state;
 
     return (
@@ -142,7 +170,9 @@ class Form extends Component {
         label={label}
         options={options}
         onChange={this.handleChange}
+        onBlur={this.handleBlur}
         error={errors[name]}
+        classes={classes}
       />
     );
   };
@@ -156,8 +186,43 @@ class Form extends Component {
         label={label}
         value={data[name]}
         options={options}
-        onChange={this.onChange}
+        oonChange={this.handleChange}
+        onBlur={this.handleBlur}
         error={errors[name]}
+      />
+    );
+  };
+
+  renderRadioGroup = (name, label, options, checkedOption = 1) => {
+    const { data, errors } = this.state;
+
+    return (
+      <RadioGroupOptions
+        name={name}
+        label={label}
+        value={data[name]}
+        options={options}
+        onChange={this.handleChange}
+        onBlur={this.handleBlur}
+        error={errors[name]}
+        checked={checkedOption}
+      />
+    );
+  };
+
+  renderRadioGroupSmall = (name, label, options, checkedOption = 1) => {
+    const { data, errors } = this.state;
+
+    return (
+      <RadioGroupOptionsSmall
+        name={name}
+        label={label}
+        value={data[name]}
+        options={options}
+        onChange={this.handleChange}
+        onBlur={this.handleBlur}
+        error={errors[name]}
+        checked={checkedOption}
       />
     );
   };

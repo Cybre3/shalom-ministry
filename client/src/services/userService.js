@@ -1,36 +1,31 @@
 import http from '../services/httpService';
 import _ from 'lodash';
+// import { toast } from 'react-toastify';
 
 const apiEndpoint = '/users';
 
-
-function endpointUrl(url) {
-  return `${apiEndpoint}/${url}`;
-}
-
-function registrarUrl(id) {
-  return `${endpointUrl('cwat-register')}/${id}`;
-}
-
-
-export function getRegistrar(RegistrarId) {
-  return http.get(registrarUrl(RegistrarId));
-}
-
-export function getAllCWATregistrars() {
-  return http.get(endpointUrl('cwat-register'));
+function userUrl(id) {
+  return `${apiEndpoint}/${id}`;
 }
 
 export function register(user) {
-  return http.post(apiEndpoint, _.omit(user, 'rePassword'));
+  return http.post(apiEndpoint, _.omit(user, 'basicInfo.rePassword'));
 }
 
-export function CWATregister(user) {
-  return http.post(endpointUrl('cwat-register'), user);
+export function updateUser(id, data) {
+  return http.put(userUrl(id), data);
 }
 
 
+// export function saveUser(user) {
+//   if (user._id) {
+//     const body = { ...user };
+//     delete body._id;
+//     return [http.put(userUrl(user._id), body), toast.success(`User ${user.userNumber} updated!`)];
+//   }
 
-export function deleteRegistrar(registrarId) {
-  return http.delete(registrarUrl(registrarId));
-}
+//   return [
+//     http.post(apiEndpoint, _.omit(user, 'rePassword')),
+//     toast.success(`Registration Complete!`),
+//   ];
+// }

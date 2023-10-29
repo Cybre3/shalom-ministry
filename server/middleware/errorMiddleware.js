@@ -9,5 +9,5 @@ module.exports = function(err, req, res, next) {
     timestamp: winston.format.timestamp(new Date()).options
   });
 
-  res.status(500).send('Something Failed.');
+  return res.status(500).send('Something Failed.');
 }

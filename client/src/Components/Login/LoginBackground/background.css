@@ -1,9 +1,8 @@
-.login-container span {
+.script-container span {
   background: #181818;
   box-sizing: border-box;
   color: transparent;
   font-style: italic;
-  height: 100%;
   margin: 0;
   padding: 2rem;
   position: relative;
@@ -12,13 +11,6 @@
   width: 100%;
 }
 
-.script-container {
-  box-sizing: border-box;
-  display: grid;
-  gap: 0.2vw;
-  grid-template-columns: 49.9vw 49.9vw;
-  grid-template-rows: 24.8vw 24.8vw;
-}
 
 .script-container img {
   border-radius: 0.5rem;
@@ -34,29 +26,30 @@
   transition: 1s;
 }
 
-.login-container span:hover {
+.script-container span:hover {
   color: white;
   transition: 0.6s;
 }
 
-.login-container span:nth-of-type(even) {
+.script-container span:nth-of-type(even) {
   align-items: center;
   display: flex;
-  padding-left: 16rem;
+  padding-left: 15rem;
+  padding-right: 3rem;
   text-align: justify;
 }
 
-.login-container span:nth-of-type(odd) {
+.script-container span:nth-of-type(odd) {
   align-items: center;
   display: flex;
-  padding-right: 16rem;
+  padding-right: 15rem;
   text-align: justify;
 }
 
-.login-container #login-back-pic-left {
-  padding: 3rem 15rem 3rem 1.5rem;
+.script-container #login-back-pic-left {
+  padding: 8rem 14.5rem 8rem 2.5rem;
 }
 
-.login-container #login-back-pic-right {
-  padding: 3rem 1.5rem 3rem 15rem;
+.script-container #login-back-pic-right {
+  padding: 8rem 2.5rem 8rem 14.5rem;
 }

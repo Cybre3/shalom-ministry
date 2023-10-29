@@ -1,33 +1,58 @@
-// create sortBy list group
-// activate admin priveledges
-// make two step verification code for admin to register
-// create admin registration form
-// Work on donation receipt
-// send email/receipt to user from form
-// Work on phone and email blast
-// work on Dashboard - CWAT under events section
-// Work on simple app to send receipts for cash donations
-// work on form that attached to QR code
-// look into ticket sales
-// thank you for registering sent to email.
-
 // AFTER THOUGHT 
-// CWAT personal checklist
-// Optimize for mobile view
-// Create accountability form for donations/give page
+  // CWAT personal checklist
+  // Give embassadors ability to change Bio in about us. Submittion must be authorized and looked over by admin.
+  // Make dashboard tables look nice
+  // privacy and liability modal
+  // Work on phone and email blast
+  // Work on simple app to send receipts for cash donations
+  // thank you for registering sent to email.
+  // look into ticket sales
+  // work on form that attached to QR code
 
 // FOR ADMIN 
-// view each invoices - edit/delete
-// view each registrars - edit/remove
-// send messages to members or others
+  // view each registrars - edit/remove
+  // send messages to members or others
+  // Work on donation receipt
+  // Tools
 
-// FOR USERS
-// view events
-// view payments / donations
-// view involvement
-// notifications
 
 // PRIORITY
-// add privacy and liability to footer
-// create get involved
-// create edit forms
+  // activate admin priveledges
+  // create get involved
+  // create edit forms
+  // program prompt to confirm deletion
+  // invoice - program plus button to add another section for another item
+
+// DEV
+  // optimize schema on all components that have forms - create central function that takes in this.state.data
+
+// USER - 
+  // notifications
+  // view involvement/callings
+  // events 
+    // registration/ticket
+  // settings
+    // personal info
+    // account info
+    // security - username - pass - last login
+  // messaging - chat
+  // donation/payment records - CWAT
+  // Text blast for notifications
+
+
+// Deadlines
+// Itenarary
+  // 2 weeks before CWAT
+  // Wait for itemization completion for breakout groups
+  // Prayer Requests - Digital?
+
+// FUTURE
+  // Apply for extension - message section to for approval.
+  // approval denial section for admin
+  // Late Fee
+  // split steps of payment plan - make selection to opt in for payment plan.
+  // options in next step of registration to choose accesseries.
+  // Integration with paypal.
+
+// BUGS
+  // change model date to local time

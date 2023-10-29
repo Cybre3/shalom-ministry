@@ -6,7 +6,7 @@ const { Constant } = require('./constantModel');
 const cwatRegistrarSchema = new mongoose.Schema({
   registrarNumber: {
     type: Number,
-    required: true
+    required: true,
   },
   firstname: {
     type: String,
@@ -70,10 +70,16 @@ const cwatRegistrarSchema = new mongoose.Schema({
   },
   date: {
     type: String,
-    default: Date,
+    default: new Date().toISOString().substring(0, 10),
   },
-  ticketOptionData: Object,
-  ticketPurchaseData: Object,
+  ticketOptionData: {
+    type: Object,
+    required: true
+  },
+  ticketPurchaseData: {
+    type: Object,
+    required: true
+  },
   shirtSize: {
     type: String,
     required: true,
@@ -100,8 +106,8 @@ function validateCwatRegistrar(input) {
     emergencyEmail: Joi.string().email().min(5).max(255).required(),
     emergencyPhone: JoiPhone.string().phoneNumber().required(),
     ticketOption: Joi.string().required(),
-    ticketOptionData: Joi.object(),
-    ticketPurchaseData: Joi.object(),
+    ticketOptionData: Joi.object().required(),
+    ticketPurchaseData: Joi.object().required(),
     shirtSize: Joi.string().required(),
   });
 

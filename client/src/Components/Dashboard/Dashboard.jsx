@@ -1,67 +1,45 @@
 import React from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+// import { Popover } from '@headlessui/react';
+
+import { getCurrentUser } from '../../services/authService';
+import withRouter from '../../utilities/withRouter';
+
+import ActionSection from './ActionSection';
+import DashNav from './DashNav';
+import Form from '../common/form';
+
 
 import './dashboard.css';
 
-function Dashboard(props) {
-  return (
-    <div className="dashboard-container">
-      <div className="dash-side-menu">
-        <div className="dash-user">
-          <img src={require('../../assets/Aboutus/Maya.webp')} alt="" />
-          <h2 className="dash-username">Test User</h2>
-        </div>
+class Dashboard extends Form {
+  state = {
+    user: {},
+    url: ''
+  };
 
-        <div className="dash-sections">
-          <div className="dash-section">
-            <h3 className="dash-section-title">
-              <NavLink to="/dashboard">Dashboard</NavLink>
-            </h3>
-          </div>
+  async componentDidMount() {
+    // const { data: user } = await getUserById(this.props.params.id);
+    // let photoUrl = user.profilePictureUrl;
+    // const newString = photoUrl && photoUrl.replace('blob:', '');
+    // this.setState({ user, url: newString });
+  }
 
-          <div className="dash-section">
-            <h3 className="dash-section-title">Forms</h3>
+  render() {
+    return (
+      <div className="overflow-hidden w-screen h-screen">
+        <DashNav user={getCurrentUser} />
+        <div className='flex h-full'>
 
-            <NavLink className="nav-link" to="invoices/new">
-              Create Invoice
-            </NavLink>
-            <NavLink className="nav-link" to="invoices/new">
-              Thank you Note
-            </NavLink>
-            <NavLink className="nav-link" to="invoices/new">
-              Receipt
-            </NavLink>
-            <NavLink className="nav-link" to="invoices/new">
-              Purchase
-            </NavLink>
-          </div>
+          <ActionSection user={getCurrentUser} />
 
-          <div className="dash-section">
-            <h3 className="dash-section-title">Admin</h3>
-            <NavLink className="nav-link" to="users">
-              Users
-            </NavLink>
-            <NavLink className="nav-link" to="invoices">
-              Invoices
-            </NavLink>
-            <NavLink className="nav-link" to="messages">
-              Messages
-            </NavLink>
-            <NavLink className="nav-link" to="registrars">
-              Registrations
-            </NavLink>
-            <NavLink className="nav-link" to="data">
-              Data
-            </NavLink>
+          <div className="w-[75%]">
+            <Outlet />
           </div>
         </div>
       </div>
-
-      <div className="dash-content-container">
-        <Outlet />
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);

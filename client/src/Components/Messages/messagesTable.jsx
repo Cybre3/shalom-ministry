@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
 import Table from '../common/Table';
 import auth from '../../services/authService';
 
-class InvoicesTable extends Component {
+class MessagesTable extends Component {
   columns = [
     {
       path: 'messageNumber',
       label: 'Message#',
-      content: (message) => <Link to={`${message._id}`}>{message.messageNumber}</Link>,
+      content: (message) => (
+        <Link
+          className="rounded-md bg-gray-600 px-4 py-0.5 tracking-wider text-white ring-1 ring-blue-400 hover:ring-2 hover:ring-blue-600"
+          to={`${message._id}`}
+        >
+          {message.messageNumber}
+        </Link>
+      ),
     },
     { path: 'category', label: 'Category' },
     { path: 'fullname', label: 'Full Name' },
@@ -24,22 +32,23 @@ class InvoicesTable extends Component {
 
   deleteColumn = {
     key: 'delete',
-    content: (message) => (
-      <button
-        onClick={() => {
-          this.props.onDelete(message);
-        }}
-        className="invoice-table-delete-btn"
-      >
-        Delete
-      </button>
+    content: (invoice) => (
+      <div className="flex w-fit items-center space-x-2">
+        <i className="fa fa-edit cursor-pointer text-black" />
+        <i
+          onClick={() => {
+            this.props.onDelete(invoice);
+          }}
+          className="fa fa-trash cursor-pointer text-red-500"
+        />
+      </div>
     ),
   };
 
   constructor() {
     super();
     const user = auth.getCurrentUser();
-    if (user && user.isAdmin) this.columns.push(this.deleteColumn);
+    if (user && user.authorizedToDelete) this.columns.push(this.deleteColumn);
   }
 
   render() {
@@ -49,4 +58,4 @@ class InvoicesTable extends Component {
   }
 }
 
-export default InvoicesTable;
+export default MessagesTable;

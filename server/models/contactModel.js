@@ -5,7 +5,7 @@ const { Constant } = require('./constantModel');
 const contactSchema = mongoose.Schema({
   messageNumber: {
     type: Number,
-    required: true
+    required: true,
   },
   firstname: {
     type: String,
@@ -34,11 +34,11 @@ const contactSchema = mongoose.Schema({
   },
   category: {
     type: String,
-    default: 'contact us'
+    default: 'contact us',
   },
   date: {
     type: String,
-    default: Date,
+    default: new Date().toISOString().substring(0, 10),
   },
 });
 

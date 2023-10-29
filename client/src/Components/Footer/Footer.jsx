@@ -4,57 +4,16 @@ import { useLocation, NavLink } from 'react-router-dom';
 
 import './Footer.css';
 
-/* const challenges = [
-  {
-    title: 'React Demo Tic-Tac-Toe',
-    link: 'https://demo-react-tic-tac-toe-demo.netlify.app/',
-  },
-  { title: 'Product Sorter', link: 'https://product-sorter.netlify.app/' },
-  { title: 'Forecast', link: 'https://rapidapi-forecast.herokuapp.com/' },
-  { title: 'Word Manifest', link: 'https://word-manifest.netlify.app/' },
-  {
-    title: 'Fisher Catches',
-    link: 'https://my-fisher-catches.herokuapp.com/',
-  },
-]; */
-
 const waysToGive = [
-  /*  {
-    title: 'Wiki Blog',
-    githubCode: 'https://github.com/Cybre3/KingsWikiApp',
-    link: 'https://kings-wiki-blog.herokuapp.com/',
-  },
   {
-    title: '3dfmb',
-    link: 'http://www.3dfmb.com',
-  },
-  {
-    title: 'Rubix Cube',
-    githubCode: 'https://github.com/Cybre3/cubeExpressGen',
-    link: 'https://kings-cube-app.herokuapp.com/',
-  }, */
-  /*    {
-      title: "Zephlipgloss",
-      description: "Eccomerce Lipgloss website",
-      link: "https://61b98b11d3e7375e5af0e4b7--zephlipgloss-client.netlify.app",
-      githubCode: "https://github.com/Cybre3/Zephlipgloss/tree/admin",
-      image:
-        "https://d33wubrfki0l68.cloudfront.net/61b98b11d3e7375e5af0e4b7/screenshot_2021-12-15-06-31-17-0000.png",
-    }, */
-  // {
-  //   title: 'Course Enroll',
-  //   githubCode: 'https://github.com/Cybre3/KingsVideoTutorialApp',
-  //   link: 'https://kings-video-course-app.herokuapp.com/',
-  // },
-  {
-    title: 'Zelle',
+    title: 'Zelle -',
     data: '786-400-4072',
-    link: '/',
+    // link: '/',
   },
   {
-    title: 'CashApp',
+    title: 'CashApp -',
     data: 'SHALOM99MINISTRY',
-    link: '/',
+    // link: '/',
   },
 ];
 
@@ -63,49 +22,61 @@ const contactUs = [
   { title: 'Email:', data: 'shalom9ministry@gmail.com' },
 ];
 
+const links = [
+  {
+    _id: 1,
+    url: 'https://www.facebook.com/profile.php?id=100089261716387',
+    class: 'fa fa-facebook-square',
+  },
+  { _id: 2, url: 'https://www.linkedin.com', class: 'fa fa-linkedin' },
+  {
+    _id: 3,
+    url: 'https://www.instagram.com/shalom9ministry/?next=%2F',
+    class: 'fa fa-instagram',
+  },
+];
+
 function Footer(props) {
   const location = useLocation();
-   const dashboardLocation = location.pathname.includes('dashboard') ? location.pathname : null;
+  const dashboardLocation = location.pathname.includes('dashboard') ? location.pathname : null;
 
-   if (
-     [
-       '/invoices',
-       '/invoices/create-new-invoice',
-       '/dashboard',
-       '/dashboard',
-       dashboardLocation,
-     ].includes(location.pathname)
-   )
-     return <></>;
+  if (
+    [
+      '/invoices',
+      '/invoices/create-new-invoice',
+      '/dashboard',
+      '/dashboard',
+      dashboardLocation,
+    ].includes(location.pathname)
+  )
+    return <></>;
 
   return (
-    <footer className="footer-container">
-      <div className="">
-        <div className="col">
-          <a href="https://www.facebook.com/profile.php?id=100089261716387">
-            <i className="fa fa-facebook-square"></i>
+    <footer className="relative w-full bg-black py-4 text-white">
+      <div className="ml-auto mr-0 h-fit w-fit">
+        {links.map((link) => (
+          <a href={link.url} className="" key={link._id}>
+            <i className={`${link.class} w-10 p-2 text-white hover:scale-150`}></i>
           </a>
-          <a href="https://www.linkedin.com">
-            <i className="fa fa-linkedin"></i>
-          </a>
-          <a href="https://www.instagram.com/shalom9ministry/?next=%2F">
-            <i className="fa fa-instagram"></i>
-          </a>
-        </div>
-        <div className="footer-sections">
-          <FooterSection header="Ways to Give" list={waysToGive} />
-          <FooterSection header="Contact Us" list={contactUs} />
-        </div>
-        <img
-          className="footer-est-logo"
-          src={require('../../assets/Footer/SM_Graphic Kit_2022_transparent.png')}
-          alt=""
-        />
-        <NavLink className="privacy-policy" to="/">
+        ))}
+      </div>
+      <div className="flex w-full justify-around text-center md:justify-center md:gap-12 lg:gap-20 xl:gap-32">
+        <FooterSection header="Ways to Give" list={waysToGive} path="/give/new" />
+        <FooterSection header="Contact Us" list={contactUs} path="/contact-us/new" />
+      </div>
+      <div className="flex-column lg:text-md mx-auto w-fit text-center text-xs text-white md:absolute md:bottom-2 md:left-2 lg:bottom-4 lg:left-4">
+        <NavLink to="/">
+          <img
+            className="mx-auto w-10"
+            src={require('../../assets/Footer/SM_Graphic Kit_2022_transparent.png')}
+            alt="shalom-ministry-logo"
+          />
+        </NavLink>
+        <NavLink className="italic" to="/">
           Privacy & Liability
         </NavLink>
-        {/* add privacy link under est logo */}
       </div>
+      {/* add privacy link under est logo */}
     </footer>
   );
 }

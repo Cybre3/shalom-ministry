@@ -3,7 +3,7 @@ export const categories = {
     { _id: 1, name: 'contact us' },
     { _id: 2, name: 'sponsor' },
   ],
-  registrations: [{ _id: 3, name: 'cwat' }],
+  registrars: [{ _id: 3, name: 'CWAT' }],
 };
 
 

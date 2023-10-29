@@ -2,7 +2,7 @@ import React from 'react';
 
 const SponsorMessage = () => {
   return (
-    <div className="sponsor-message">
+    <div className="text-justify">
       Thank you so much for your gift! <br /> <br /> Our written expression of thanks cannot compare
       to that which we feel in our hearts. Shalom Ministry is more than an organization; it is an
       organism made up of members of the Body of Christ. <br /> <br /> As sponsors, partners,

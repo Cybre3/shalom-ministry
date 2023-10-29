@@ -6,7 +6,7 @@ import './pagination.css';
 
 const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   const pagesCount = Math.ceil(itemsCount / pageSize);
-  if(pagesCount === 1) return null;
+  if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
 
   return (
@@ -14,17 +14,14 @@ const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
       <ul className="pagination">
         {pages.map((page) => (
           /* eslint-disable */
-          <li key={page} className={page === currentPage ? 'page-item active' : 'page-item'}>
-            <a className="page-link" onClick={() => onPageChange(page)}>
-              {page}
-            </a>
-          </li>
+          <a className="page-link cursor-pointer" key={page} onClick={() => onPageChange(page)}>
+            <li className={`${page === currentPage ? 'page-item active' : 'page-item'}`}>{page}</li>
+          </a>
         ))}
       </ul>
     </nav>
   );
-}
-
+};
 
 Pagination.propTypes = {
   itemsCount: PropTypes.number.isRequired,
@@ -32,6 +29,5 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   onPageChange: PropTypes.func.isRequired,
 };
-
 
 export default Pagination;

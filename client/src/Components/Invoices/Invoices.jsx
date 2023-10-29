@@ -72,27 +72,29 @@ class Invoices extends Component {
     const { totalCount, data: invoices } = this.getPageData();
 
     return (
-      <div className="invoices-table">
-        <div className="table-sort-ategories">
+      <div className="w-full">
+        {/* <div className="table-sort-ategories">
           <ListGroup
             items={categories}
             selectedItem={selectedCategory}
             onItemSelect={this.handleCategorySelect}
           />
-        </div>
+        </div> */}
         <div>
-          {user && (
+          {/* {user && (
             <Link className="new-invoice-link" to="new">
               Create New Invoice
             </Link>
-          )}
-          <p className="invoice-db-count">Showing {totalCount} invoices in the database.</p>
-          <InvoicesTable
-            invoices={invoices}
-            sortColumn={sortColumn}
-            onDelete={this.handleDelete}
-            onSort={this.handleSort}
-          />
+          )} */}
+          {/* <p className="invoice-db-count">Showing {totalCount} invoices in the database.</p> */}
+          <div className="rounded-lg bg-gray-200 mt-10">
+            <InvoicesTable
+              invoices={invoices}
+              sortColumn={sortColumn}
+              onDelete={this.handleDelete}
+              onSort={this.handleSort}
+            />
+          </div>
           <Pagination
             itemsCount={totalCount}
             pageSize={pageSize}

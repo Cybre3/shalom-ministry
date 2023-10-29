@@ -4,47 +4,41 @@ const makeAllRequired = require('../utilities/makeAllRequired');
 
 const cwatTicketSchema = mongoose.Schema({
   name: String,
+  label: String,
   tier: Number,
   price: Number,
   bedType: String,
+  roomType: String,
   numberOfBedsAvailable: Number,
   description: String,
   displayLine: String,
-  disabled: Boolean
+  disabled: Boolean,
+  soldOut: Boolean
 });
 
 makeAllRequired(cwatTicketSchema);
 
-/* CwatTicket.statics.addOne = function (ticketId) {
+cwatTicketSchema.statics.downCountByOne = function (cwatTicketLabel) {
   return this.updateOne(
-    { _id: ticketId },
-    {
-      $inc: { numberOfBedsAvailable: 1 },
-    }
-  );
-};
-
-CwatTicket.statics.bookOne = function (ticketId) {
-  return this.updateOne(
-    { _id: ticketId },
+    { label: cwatTicketLabel },
     {
       $inc: { numberOfBedsAvailable: -1 },
     }
   );
 };
- */
+
 const CwatTicket = mongoose.model('cwat-Ticket', cwatTicketSchema);
 
 function validateCwatTicket(input) {
   const schema = Joi.object({
     name: Joi.string().required(),
+    label: Joi.string().required(),
     tier: Joi.number().required(),
     price: Joi.number().required(),
     bedType: Joi.string().required(),
+    roomType: Joi.string().required(),
     numberOfBedsAvailable: Joi.number().required(),
     description: Joi.string().required(),
-    displayLine: Joi.string().required(),
-    disabled: Joi.boolean(),
   });
 
   return schema.validate(input);

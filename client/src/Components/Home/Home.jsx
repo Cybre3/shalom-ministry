@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import CategoryCardNoPic from '../common/CategoryCard/CategoryCardNoPic';
-import './home.css';
+
+import CategoryLinks from './CategoryLinks';
 import HomeFlyer from './HomeFlyer/HomeFlyer';
 import MissionStatement from './../common/missionStatement/MissionStatement';
+import MyTabs from '../common/tabs';
 
+import './home.css';
+
+/* const tabs = [
+  { _id: 'events', title: 'Previous Events' },
+  { _id: 'give', title: 'Give' },
+  { _id: 'get-invloved', title: 'Get Involved' },
+  { _id: 'testimonies', title: 'Testimonies' },
+] */
 class Home extends Component {
   render() {
     return (
-      <div className="home-container">
+      <div className="relative w-screen pt-10 lg:pt-16">
         <HomeFlyer />
-        <div className="home-category-cards">
-          <CategoryCardNoPic title="Events" id="events" />
-          <CategoryCardNoPic title="Give" id="give" />
-          <CategoryCardNoPic title="Get Involved" id="get-involved" />
-          <CategoryCardNoPic title="Testimonies" id="testimonies" />
-        </div>
+        {/* <CategoryLinks /> */}
+        <MyTabs />
         <MissionStatement />
       </div>
     );
@@ -22,8 +27,3 @@ class Home extends Component {
 }
 
 export default Home;
-/* 
-<div className='home'>
-      
-     </div>
-*/

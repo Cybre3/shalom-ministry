@@ -16,7 +16,8 @@
   --toast-error: #e44f4ffa;
   --toast-shadow:  #9c9c9ce3;
   --toast-success: #0CBFAE;
-  --loader-color: #0CBFAE
+  --loader-color: #0CBFAE;
+  --shalom-lavendar: #c2b9f4;
 }
 
 #back-to-top-btn {
@@ -26,20 +27,20 @@
   bottom: 5vh;
   color: white;
   cursor: pointer;
-  height: 3vh;
-  padding: 0.5rem;
   position: fixed;
   right: 2vw;
   z-index: 5;  
 }
 
 .custom-alert {
-  /* background-color: white; */
-  /* border: 0.05rem solid white; */
+  background-color: rgb(255, 193, 193);
+  border: 0.1rem solid red;
+  box-sizing: border-box;
   border-radius: 0.5rem;
   bottom: 0;
   color: red;
-  margin: 1rem auto 0;
+  font-size: smaller;
+  /* margin: 1.5rem auto 0; */
   padding: 0.2rem 0;
   position: absolute;
   width: 80%;
@@ -47,14 +48,16 @@
 }
 
 .alert {
-  /* background-color: white; */
-  /* border: 0.05rem solid white; */
+  background-color: rgb(255, 193, 193);
+  box-sizing: border-box;
+  border: 0.1rem solid red;
   border-radius: 0.5rem;
   /* bottom: 0; */
   color: red;
-  margin: 0.2rem auto 0 0;
-  padding: 0.2rem 0;
+  font-size: smaller;
+  margin: 0.2rem auto 0 auto;
+  padding: 0.2rem 0.2rem;
   /* position: absolute; */
-  width: 80%;
+  width: 100%;
   z-index: 5;
 }

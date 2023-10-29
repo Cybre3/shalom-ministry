@@ -1,19 +1,19 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function FooterSection(props) {
   return (
-    <div className="footer-section">
-      <h4 className="footer-section-header">{props.header}</h4>
-      {props.list ? (
-        props.list.map((item) => (
-          <React.Fragment key={item.title}>
-            <h5 href={item.link}>{item.title}</h5>
-            <p>{item.data}</p>
-          </React.Fragment>
-        ))
-      ) : (
-        <p>Coming Soon...</p>
-      )}
+    <div className="my-6 space-y-2 text-sm lg:text-lg">
+      <NavLink to={props.path}>
+        <h2 className="text-lg font-bold">{props.header}</h2>
+      </NavLink>
+
+      {props.list.map((item) => (
+        <div key={item.title} className="flex justify-center gap-1">
+          <h5>{item.title}</h5>
+          <p>{item.data}</p>
+        </div>
+      ))}
     </div>
   );
 }

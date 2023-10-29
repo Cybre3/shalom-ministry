@@ -4,8 +4,14 @@ import { toast } from 'react-toastify';
 import _ from 'lodash';
 
 import RegistrarsTable from './registrarsTable';
-import { getAllCWATregistrars, deleteRegistrar } from './../../services/userService';
+import {
+  // getCWATregistrarById,
+  deleteRegistrarById,
+  getAllRegistrars,
+} from '../../services/registrarService';
+import { getAllCategories } from '../../services/categoryServices';
 import { paginate } from './../../utilities/paginate';
+import withRouter from '../../utilities/withRouter';
 import Pagination from '../common/Pagination';
 import ListGroup from './../common/listGroup';
 
@@ -16,15 +22,17 @@ class Registrars extends Component {
     categories: [],
     currentPage: 1,
     registrars: [],
-    pageSize: 4,
+    pageSize: 20,
     selectedCategory: null,
     sortColumn: { path: 'registrarNumber', order: 'asc' },
   };
 
   async componentDidMount() {
-    const { data: registrars } = await getAllCWATregistrars();
+    const { data: registrars } = await getAllRegistrars();
+    const categories = await getAllCategories('registrars');
+    // console.log(categories)
 
-    this.setState({ registrars });
+    this.setState({ registrars, categories });
   }
 
   handlePageChange = (page) => {
@@ -45,7 +53,7 @@ class Registrars extends Component {
     this.setState({ registrars });
 
     try {
-      await deleteRegistrar(registrar._id);
+      await deleteRegistrarById('cwat-register', registrar._id);
       toast.success(`Registrar ${registrar.registrarNumber} deleted!`);
     } catch (error) {
       if (error.response && error.response.status === 404)
@@ -72,22 +80,24 @@ class Registrars extends Component {
     const { totalCount, data: registrars } = this.getPageData();
 
     return (
-      <div className="invoices-table">
-        <div>
+      <div className="w-full">
+        {/* <div>
           <ListGroup
             items={categories}
             selectedItem={selectedCategory}
             onItemSelect={this.handleCategorySelect}
           />
-        </div>
+        </div> */}
         <div>
-          <p className="invoice-db-count">Showing {totalCount} registrars in the database.</p>
-          <RegistrarsTable
-            registrars={registrars}
-            sortColumn={sortColumn}
-            onDelete={this.handleDelete}
-            onSort={this.handleSort}
-          />
+          {/* <p className="invoice-db-count">Showing {totalCount} registrars in the database.</p> */}
+          <div className="mt-10 w-full rounded-lg bg-gray-200">
+            <RegistrarsTable
+              registrars={registrars}
+              sortColumn={sortColumn}
+              onDelete={this.handleDelete}
+              onSort={this.handleSort}
+            />
+          </div>
           <Pagination
             itemsCount={totalCount}
             pageSize={pageSize}
@@ -100,4 +110,4 @@ class Registrars extends Component {
   }
 }
 
-export default Registrars;
+export default withRouter(Registrars);

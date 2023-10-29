@@ -7,7 +7,7 @@ module.exports = {
       res.status(200).send(allInvoices);
     },
     findInvoiceById: async (req, res) => {
-      const invoiceById = await Invoice.findById(req.params.id);
+      const invoiceById = await Invoice.findById(req.params.invoiceId);
 
       res.status(200).send(invoiceById);
     },
@@ -51,21 +51,20 @@ module.exports = {
   },
 
   put: {
-    editInvoiceById: async (req, res) => {
-      const { value } = validate(req.body);
-      const updatedInvoice = {};
+    updateInvoiceById: async (req, res) => {
+      const updatedInvoice = { ...req.body };
 
-      const invoiceToEdit = await Invoice.findByIdAndUpdate(req.params.id, updatedInvoice, {
+      const invoiceToUpdate = await Invoice.findByIdAndUpdate(req.params.invoiceId, updatedInvoice, {
         new: true,
       });
 
-      res.status(200).send(invoiceToEdit);
+      res.status(200).send(invoiceToUpdate);
     },
   },
 
   delete: {
     deleteInvoiceById: async (req, res) => {
-      const invoiceToDelete = await Invoice.findByIdAndDelete(req.params.id);
+      const invoiceToDelete = await Invoice.findByIdAndDelete(req.params.invoiceId);
 
       res.status(200).send(invoiceToDelete);
     },

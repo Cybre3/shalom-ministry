@@ -49,7 +49,7 @@ const sponsorSchema = mongoose.Schema({
   },
   date: {
     type: String,
-    default: Date,
+    default: new Date().toISOString().substring(0, 10),
   },
 });
 

@@ -1,4 +1,10 @@
-.cwatRegister {
+.cwatRegister-edit {
+  margin: 5vh auto;
+  text-align: center;
+  width: 80%;
+}
+
+.content {
   border: 1rem double rgba(0, 0, 0, 0.701);
   -webkit-box-shadow: 0px 3px 0px 2px rgba(0, 0, 0, 0.1), 0px 6px 0px 4px rgba(0, 0, 0, 0.1),
     0px 9px 0px 6px rgba(0, 0, 0, 0.1), 0px 12px 0px 8px rgba(0, 0, 0, 0.1),
@@ -12,124 +18,82 @@
     0px 21px 0px 14px rgba(0, 0, 0, 0.1), 0px 24px 0px 16px rgba(0, 0, 0, 0.1),
     0px 27px 0px 18px rgba(0, 0, 0, 0.1), 0px 30px 0px 20px rgba(0, 0, 0, 0.1),
     5px 5px 15px 5px rgba(0, 0, 0, 0);
-
-  margin: 13vh auto;
-  padding: 3vh 1vh;
+  /* padding: 3vh 1vh; */
+  margin: 0 auto 13vh;
   position: relative;
   text-align: center;
-  width: 60%;
 }
 
 .cwatRegister h1 {
   background: -webkit-linear-gradient(rgb(0, 255, 150), rgb(160, 0, 255));
-  font-weight: 100;
-  margin-bottom: 2rem;
   text-shadow: 1px 13px 5px #aba8a8;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.cwatRegister h2 {
-  font-weight: 100;
-  margin-bottom: 1rem;
+.content h2 {
+  font-weight: 600;
 }
 
-.cwat-title-container {
-  display: flex;
-  gap: 5vw;
-  justify-content: space-around;
-  /* margin: 0 18vw 0 7vw; */
+.cwat-contact-info .inputbox,
+.cwat-contact-info .form-group {
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
-.cwat-contact-info {
-  display: flex;
-  gap: 14vw;
-  justify-content: center;
-  /* margin-left: -4vw; */
-  padding: 2vh 0;
-  position: relative;
-  text-align: left;
+.cwatRegister textarea {
   width: 100%;
 }
 
 .cwat-contact-info .inputbox {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
+}
+
+.cwat-contact-info .form-group input {
+  margin-left: 1rem;
+}
+
+.cwat-contact-info input {
+  width: 60%;
+}
+
+.cwatRegister input,
+.cwatRegister textarea {
+  background: transparent;
+  border-radius: 0.1rem;
+  outline: 0.02rem solid black;
+  padding: 0.2rem 0.5rem;
+}
+
+.cwatRegister input:focus,
+.cwatRegister textarea:focus {
+  background: white;
+  border-radius: 0.1rem;
+  outline: 0.02rem solid black;
+  padding: 0.2rem 0.5rem;
 }
 
 .cwat-questions-container {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin-top: 8vh;
-  padding: 2vh 0;
-  position: relative;
-  text-align: left;
-  width: 100%;
-}
-
-.cwat-questions-container h2 {
-  position: absolute;
-  top: -6vh;
 }
 
 .cwat-questions-container .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.5rem;
-  width: 80%;
-}
-
-.ticket-tiers .form-group {
   width: 100%;
-}
-
-.ticket-tiers {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 10% 90%;
-  position: relative;
-  justify-content: center;
-}
-
-.cwatRegister hr {
-  border-color: transparent;
-  margin: 1rem 0;
 }
 
 .cwat-bg-left {
   background: linear-gradient(to left, #7678fe65, 30%, #44ffe38e, 70%, white);
   height: fit-content;
   justify-content: center;
-  /* right: 0; */
 }
 
 .cwat-bg-right {
   align-items: center;
   background: linear-gradient(to right, #7678fe65, 30%, #44ffe38e, 60%, white);
   height: fit-content;
-  /* left: 0; */
-}
-
-.cwat-background-image {
-  position: absolute;
-}
-
-.cwat-background-image img {
-  width: 100%;
-}
-
-.cwat-pPlan {
-  bottom: 0;
-  left: 1rem;
-  width: 12vw;
-}
-
-.cwat-qrcode {
-  bottom: 0;
-  right: 0;
-  width: 10vw;
 }
 
 .cwatRegister button {
@@ -138,8 +102,7 @@
   border-radius: 0.3rem;
   color: white;
   cursor: pointer;
-  font-size: 1.2rem;
-  margin: 3vh 0 10vh;
+  margin: 3vh 0 22vh;
   padding: 0.1rem 0.8rem;
 }
 
@@ -149,60 +112,13 @@
   cursor: default;
 }
 
-.cwatRegister input,
-.cwatRegister textarea,
-.cwatRegister select {
-  background: transparent;
-  border-radius: 0.1rem;
-  /* outline: 0.02rem solid black; */
-  padding: 0.2rem 0.5rem;
-}
-
-.cwatRegister input {
-  background: transparent;
-  border: 0.05rem solid black;
-  border-radius: 0.1rem;
-  /* outline: 0.02rem solid black; */
-  padding: 0.2rem 0.5rem;
-}
-
-.cwatRegister input:focus,
-.cwatRegister textarea:focus,
-.cwatRegister select:focus {
-  background: white;
-  border-radius: 0.1rem;
-  outline: 0.02rem solid black;
-  padding: 0.2rem 0.5rem;
-}
-
-#haveTicketAlready ~ label {
-  margin-left: 0.1vw;
-}
-
 .ticket-info-piece {
   margin-right: 0.5rem;
   font-size: 0.9rem;
 }
 
-.ticketCode {
-  position: relative;
-  height: fit-content;
-  width: fit-content;
-}
-
-.ticketCode .form-group {
-  text-align: center;
-  width: fit-content;
-}
-
-.check-and-btn {
-  display: flex;
-  gap: 1vw;
-  justify-content: center;
-}
-
-.check-and-btn input {
-  padding: 0.2rem 0;
+.check-code-inBtn input {
+  margin-left: 0.5rem;
   text-align: center;
 }
 
@@ -212,7 +128,21 @@
 }
 
 .check-code-btn button {
-  font-size: 1rem;
   margin: 0;
   white-space: nowrap;
+}
+
+.cwat-ticket-option:checked + label {
+  background-color: #0c4a6ec5;
+  color: white;
+}
+
+.cwat-ticket-option:focus + label {
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+  --tw-ring-color: rgb(255 255 255);
+  --tw-ring-offset-width: 4px;
+  box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);
+  --tw-ring-offset-color: #7dd4fc;
+  box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-shadow);
 }

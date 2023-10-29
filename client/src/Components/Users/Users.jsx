@@ -18,7 +18,7 @@ class Messages extends Component {
     categories: [],
     currentPage: 1,
     users: [],
-    pageSize: 4,
+    pageSize: 20,
     selectedCategory: null,
     sortColumn: { path: 'userNumber', order: 'asc' },
   };
@@ -77,27 +77,29 @@ class Messages extends Component {
     const { totalCount, data: users } = this.getPageData();
 
     return (
-      <div className="invoices-table">
-        <div>
+      <div className="w-full">
+        {/* <div>
           <ListGroup
             items={categories}
             selectedItem={selectedCategory}
             onItemSelect={this.handleCategorySelect}
           />
-        </div>
+        </div> */}
         <div>
-          {user && (
+          {/* {user && (
             <Link className="new-invoice-link" to="create-new-message">
               Create New Message
             </Link>
-          )}
-          <p className="invoice-db-count">Showing {totalCount} messages in the database.</p>
-          <UsersTable
-            users={users}
-            sortColumn={sortColumn}
-            onDelete={this.handleDelete}
-            onSort={this.handleSort}
-          />
+          )} */}
+          {/* <p className="invoice-db-count">Showing {totalCount} messages in the database.</p> */}
+          <div className="mt-10 rounded-lg bg-gray-200">
+            <UsersTable
+              users={users}
+              sortColumn={sortColumn}
+              onDelete={this.handleDelete}
+              onSort={this.handleSort}
+            />
+          </div>
           <Pagination
             itemsCount={totalCount}
             pageSize={pageSize}

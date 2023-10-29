@@ -1,1 +1,4 @@
 // write code for constants that have year included to change as year changes
+
+// change model date to local time
+// routes to go through auth
