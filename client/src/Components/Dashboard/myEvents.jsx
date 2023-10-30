@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { Tab } from '@headlessui/react';
 // import { getCurrentUser } from '../../services/authService';
 import { getUserEvents } from '../../services/registrarService';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 function MyEvents(props) {
 
@@ -19,7 +19,7 @@ function MyEvents(props) {
             const userEventNames = userEvents.map(regEvents => regEvents.category)
             console.log(userEventNames);
         }
-        userEvents()
+        userEvents();
     }, [])
 
     let [categories] = useState({

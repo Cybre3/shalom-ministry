@@ -1,4 +1,4 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import reducer from './reducer';
 // import logger from './middleware/logger';
 import errorToast from './middleware/toast';

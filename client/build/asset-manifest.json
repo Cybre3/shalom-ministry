@@ -1,24 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.ea56345a.css",
-    "main.js": "/static/js/main.bbbef1e6.js",
+    "main.css": "/static/css/main.8b8035cb.css",
+    "main.js": "/static/js/main.fe2004ab.js",
+    "static/media/mountainBlueBottom.png": "/static/media/mountainBlueBottom.ca7962e7f6d0df6cc4e7.png",
     "static/media/Tonya.jpeg": "/static/media/Tonya.1582c3aff9108549049b.jpeg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/Event-Category-Card.png": "/static/media/Event-Category-Card.bdfdac438cc0a7ac0f33.png",
-    "static/media/WhatsApp Image 2023-02-28 at 8.41.46 PM.jpeg": "/static/media/WhatsApp Image 2023-02-28 at 8.41.46 PM.6789bb25d05426b19848.jpeg",
+    "static/media/spa&sip_Instagram.png": "/static/media/spa&sip_Instagram.6def4c50cd1e97e77f8c.png",
     "static/media/Get-Involved-Category-Card.png": "/static/media/Get-Involved-Category-Card.218669578429d4517d5b.png",
-    "static/media/WhatsApp Image 2023-02-28 at 8.57.18 PM.jpeg": "/static/media/WhatsApp Image 2023-02-28 at 8.57.18 PM.36654884c43f94c2d5de.jpeg",
+    "static/media/SM_international luncheon _ Instagram.png": "/static/media/SM_international luncheon _ Instagram.3ac6170d78770d1086de.png",
     "static/media/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png": "/static/media/Cashapp-Code--CWAT-Registration-Page-trnsprnt.cc2da11f64273d0c7d9f.png",
     "static/media/Testimonies-Category-Card.png": "/static/media/Testimonies-Category-Card.75473521205754851586.png",
-    "static/media/CWAT-Site-Banner-NoPrice.png": "/static/media/CWAT-Site-Banner-NoPrice.31c37c2138de3ca007ef.png",
-    "static/media/email-pc-world2.png": "/static/media/email-pc-world2.d7a7c83de71793699a9d.png",
+    "static/media/inDaStreetzLogo_Instagram.png": "/static/media/inDaStreetzLogo_Instagram.0256ffc55a35e351e4ee.png",
     "static/media/Give-Category-Card.png": "/static/media/Give-Category-Card.7a5928b5ec7913f517aa.png",
     "static/media/fontawesome-webfont.eot": "/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
     "static/media/fontawesome-webfont.ttf?v=4.7.0": "/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
     "static/media/SM_Graphic Kit_2022_transparent.png": "/static/media/SM_Graphic Kit_2022_transparent.fe3d3373aad1899df620.png",
     "static/media/Doris.jpg": "/static/media/Doris.601a2f44be71d6a6f04d.jpg",
     "static/media/SM-Logo-w-Title.png": "/static/media/SM-Logo-w-Title.5a1ae393c6492274a5f3.png",
-    "static/media/CWATphoto.jpg": "/static/media/CWATphoto.51ae72b86bbbd688a4e5.jpg",
     "static/media/SM-Logo.png": "/static/media/SM-Logo.31e8eb5304559ea7d617.png",
     "static/media/SM-Logo-Watermark.png": "/static/media/SM-Logo-Watermark.3e258972345ed421183d.png",
     "static/media/Maya.webp": "/static/media/Maya.017437e1877ea1578586.webp",
@@ -26,12 +25,17 @@
     "static/media/fontawesome-webfont.woff2?v=4.7.0": "/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
     "static/media/Rebeka.JPG": "/static/media/Rebeka.a327bd933f699c905393.JPG",
     "static/media/Zecheriah.jpg": "/static/media/Zecheriah.c0ae97e871b583a1096a.jpg",
+    "static/media/Payment-Plan-Tier-1.png": "/static/media/Payment-Plan-Tier-1.318ff18426cefae707bb.png",
+    "static/media/Payment-Plan-Tier-2.png": "/static/media/Payment-Plan-Tier-2.d697d468e32f0e41a502.png",
     "static/media/loginImg.png": "/static/media/loginImg.28e44cb7f5d2425541e5.png",
+    "static/media/Payment-Plan-Tier-3.png": "/static/media/Payment-Plan-Tier-3.16e8aad4f6b1ce277b82.png",
     "static/media/Payment-Plan--CWAT-Registration-Page-trnsprnt.png": "/static/media/Payment-Plan--CWAT-Registration-Page-trnsprnt.1db084f518d0b90fbcdd.png",
+    "static/media/settingsCogIcon.png": "/static/media/settingsCogIcon.8a50ba7b00e72fc50f51.png",
+    "static/media/trashIcon.png": "/static/media/trashIcon.c008412cc22aa743721a.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.ea56345a.css",
-    "static/js/main.bbbef1e6.js"
+    "static/css/main.8b8035cb.css",
+    "static/js/main.fe2004ab.js"
   ]
 }

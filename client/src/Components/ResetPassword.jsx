@@ -30,8 +30,8 @@ class ResetPassword extends Form {
 
     doSubmit = async () => {
        try {
-         await createResetSession(); 
-         await resetPassword();
+        //  await createResetSession(); 
+        //  await resetPassword();
        } catch (error) {
         
        }
