@@ -13,8 +13,8 @@ function HomeFlyer(props) {
     <div className="home-flyer px-1 w-full xl:flex relative overflow-hidden h-fit xl:h-screen">
       <div className="flex w-full h-3/4 after:bg-black/20 after:content-[' '] after:block after:absolute after:top-0 after:left-0 after:w-full after:h-3/4 bg-shalom-watermark bg-[length:1000px_1200px] bg-no-repeat bg-[78%_40%]">
 
-        <span className='animate-slideIn absolute top-[15%] left-1/3 text-6xl font-semibold'>Welcome to</span>
-        <span className='animate-slideIn absolute top-1/4 left-[40%] text-8xl text-blue-800 font-extrabold'>Shalom Ministry</span>
+        <span className='animate-slideIn absolute top-[15%] left-1/3 text-5xl font-semibold'>Welcome to</span>
+        <span className='animate-slideIn absolute top-1/4 left-[40%] text-7xl text-blue-800 font-extrabold'>Shalom Ministry</span>
 
         <div className="w-full h-52 xl:h-full">
           <img src={ministryPhoto1} alt="ministryPhoto" className="w-1/2 h-full animate-fadeIn" />
