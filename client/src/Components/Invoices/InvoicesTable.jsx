@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Table from '../common/Table';
 import auth from '../../services/authService';
 
-import trashIcon from '../../assets/Dashboard/trashIcon.png';
+// import trashIcon from '../../assets/Dashboard/trashIcon.png';
 
 class InvoicesTable extends Component {
   columns = [

@@ -7,7 +7,7 @@ import { getAllInvoices, deleteInvoice } from '../../services/invoiceService';
 import InvoicesTable from './InvoicesTable';
 import { paginate } from './../../utilities/paginate';
 import Pagination from '../common/Pagination';
-import ListGroup from './../common/listGroup';
+// import ListGroup from './../common/listGroup';
 
 import './invoices.css';
 
@@ -67,8 +67,8 @@ class Invoices extends Component {
   };
 
   render() {
-    const { pageSize, currentPage, sortColumn, categories, selectedCategory } = this.state;
-    const user = this.props;
+    const { pageSize, currentPage, sortColumn } = this.state;
+    // const user = this.props;
     const { totalCount, data: invoices } = this.getPageData();
 
     return (

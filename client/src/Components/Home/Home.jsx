@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CategoryLinks from './CategoryLinks';
+// import CategoryLinks from './CategoryLinks';
 import HomeFlyer from './HomeFlyer/HomeFlyer';
 import MissionStatement from './../common/missionStatement/MissionStatement';
 import MyTabs from '../common/tabs';

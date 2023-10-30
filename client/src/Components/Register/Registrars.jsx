@@ -13,7 +13,7 @@ import { getAllCategories } from '../../services/categoryServices';
 import { paginate } from './../../utilities/paginate';
 import withRouter from '../../utilities/withRouter';
 import Pagination from '../common/Pagination';
-import ListGroup from './../common/listGroup';
+// import ListGroup from './../common/listGroup';
 
 import '../Invoices/invoices.css';
 
@@ -75,7 +75,7 @@ class Registrars extends Component {
   };
 
   render() {
-    const { pageSize, currentPage, sortColumn, categories, selectedCategory } = this.state;
+    const { pageSize, currentPage, sortColumn } = this.state;
 
     const { totalCount, data: registrars } = this.getPageData();
 

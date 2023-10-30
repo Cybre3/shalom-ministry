@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import _ from 'lodash';
 
@@ -9,7 +9,7 @@ import { paginate } from './../../utilities/paginate';
 
 import UsersTable from './usersTable';
 import Pagination from '../common/Pagination';
-import ListGroup from './../common/listGroup';
+// import ListGroup from './../common/listGroup';
 
 import '../Invoices/invoices.css';
 
@@ -71,8 +71,8 @@ class Messages extends Component {
   };
 
   render() {
-    const { pageSize, currentPage, sortColumn, categories, selectedCategory } = this.state;
-    const user = this.props;
+    const { pageSize, currentPage, sortColumn } = this.state;
+    // const user = this.props;
 
     const { totalCount, data: users } = this.getPageData();
 

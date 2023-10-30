@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8b8035cb.css",
-    "main.js": "/static/js/main.fe2004ab.js",
+    "main.css": "/static/css/main.72348e02.css",
+    "main.js": "/static/js/main.ad11aa30.js",
     "static/media/mountainBlueBottom.png": "/static/media/mountainBlueBottom.ca7962e7f6d0df6cc4e7.png",
     "static/media/Tonya.jpeg": "/static/media/Tonya.1582c3aff9108549049b.jpeg",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
@@ -31,11 +31,10 @@
     "static/media/Payment-Plan-Tier-3.png": "/static/media/Payment-Plan-Tier-3.16e8aad4f6b1ce277b82.png",
     "static/media/Payment-Plan--CWAT-Registration-Page-trnsprnt.png": "/static/media/Payment-Plan--CWAT-Registration-Page-trnsprnt.1db084f518d0b90fbcdd.png",
     "static/media/settingsCogIcon.png": "/static/media/settingsCogIcon.8a50ba7b00e72fc50f51.png",
-    "static/media/trashIcon.png": "/static/media/trashIcon.c008412cc22aa743721a.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.8b8035cb.css",
-    "static/js/main.fe2004ab.js"
+    "static/css/main.72348e02.css",
+    "static/js/main.ad11aa30.js"
   ]
 }
