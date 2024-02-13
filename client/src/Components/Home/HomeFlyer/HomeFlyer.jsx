@@ -3,8 +3,8 @@ import React from 'react';
 
 // import CWATphoto from '../../../assets/Home/CWATphoto.jpg';
 // import CWATflyer from '../../../assets/Home/CWAT-Site-Banner-NoPrice.png';
-import ministryPhoto1 from '../../../assets/Event-Category-Card.png';
-import shine from '../../../assets/mountainBlueBottom.png';
+// import ministryPhoto1 from '../../../assets/Event-Category-Card.png';
+// import shine from '../../../assets/mountainBlueBottom.png';
 
 import './homeFlyer.css';
 
