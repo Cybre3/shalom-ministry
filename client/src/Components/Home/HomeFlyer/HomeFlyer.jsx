@@ -10,21 +10,15 @@ import './homeFlyer.css';
 
 function HomeFlyer(props) {
   return (
-    <div className="home-flyer px-1 w-full xl:flex relative overflow-hidden h-fit xl:h-screen">
-      <div className="flex w-full h-3/4 after:bg-black/20 after:content-[' '] after:block after:absolute after:top-0 after:left-0 after:w-full after:h-3/4 bg-shalom-watermark bg-[length:1000px_1200px] bg-no-repeat bg-[78%_40%]">
+    <div className="home-flyer flex justify-center px-1 w-full xl:flex overflow-hidden xl:h-screen h-screen">
+      <div className='relative w-1/2 h-1/2 mt-32 p-5 flex items-center justify-start bg-clouds bg-no-repeat bg-cover bg-center rounded rounded-full'>
 
-        <span className='animate-slideIn absolute top-[15%] left-1/3 text-5xl font-semibold'>Welcome to</span>
-        <span className='animate-slideIn absolute top-1/4 left-[40%] text-7xl text-blue-800 font-extrabold'>Shalom Ministry</span>
+        <span className='absolute top-28 text-5xl font-semibold'>Welcome to</span>
+        <span className='absolute left-14 bottom-32 text-7xl text-blue-800 font-extrabold'>Shalom Ministry</span>
 
-        <div className="w-full h-52 xl:h-full">
-          <img src={ministryPhoto1} alt="ministryPhoto" className="w-1/2 h-full animate-fadeIn" />
-        </div>
-
-        <div className="xl:relative w-full h-60 xl:h-full xl:overflow-hidden">
-          <img src={shine} alt="ministryPhoto" className="w-full h-full" />
-        </div>
-
+        <div className='rounded rounded-full bg-white w-72 h-72 block bg-shalom-watermark bg-center bg-no-repeat bg-cover border border-blue-800 border-4'></div>
       </div>
+
     </div>
   );
 }

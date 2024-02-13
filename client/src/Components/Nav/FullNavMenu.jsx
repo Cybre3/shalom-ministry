@@ -37,7 +37,7 @@ function FullNavMenu(props) {
       className="absolute z-10 hidden w-full items-center justify-between p-2 pr-12 lg:flex lg:transition lg:duration-300 lg:ease-in-out"
       id="navbar"
     >
-      <NavLink className="trasition rounded-50 bg-white duration-300 ease-in-out" to="/">
+      <NavLink className="transition rounded-50 bg-white duration-300 ease-in-out" to="/">
         <img src={navLogo} alt="shalom ministry logo" className="h-16 w-16" />
       </NavLink>
       <div className="flex pt-4" id="nav-options">
