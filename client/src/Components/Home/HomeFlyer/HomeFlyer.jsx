@@ -14,9 +14,9 @@ function HomeFlyer(props) {
       <div className='relative w-1/2 h-1/2 mt-32 p-5 flex items-center justify-start bg-clouds bg-no-repeat bg-cover bg-center rounded rounded-full'>
 
         <span className='absolute top-28 text-5xl font-semibold'>Welcome to</span>
-        <span className='absolute left-14 bottom-32 text-7xl text-blue-800 font-extrabold'>Shalom Ministry</span>
+        <span className='absolute left-14 bottom-32 text-7xl text-fuchsia-950 font-extrabold'>Shalom Ministry</span>
 
-        <div className='rounded rounded-full bg-white w-72 h-72 block bg-shalom-watermark bg-center bg-no-repeat bg-cover border border-blue-800 border-4'></div>
+        <div className='rounded rounded-full bg-white w-72 h-72 block bg-shalom-watermark bg-center bg-no-repeat bg-cover border border-fuchsia-950 border-4'></div>
       </div>
 
     </div>
