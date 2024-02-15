@@ -31,11 +31,13 @@ import Settings from './Components/Dashboard/Settings';
 import Recovery from './Components/Recovery';
 import ResetPassword from './Components/ResetPassword';
 
-import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
 import DashHome from './Components/Dashboard/DashHome';
 import MyEvents from './Components/Dashboard/myEvents';
 import MyMessages from './Components/Dashboard/myMessages';
+
+import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-multi-carousel/lib/styles.css';
 
 const store = configureStore();
 

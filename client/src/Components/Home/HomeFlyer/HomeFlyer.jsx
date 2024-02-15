@@ -10,7 +10,7 @@ import './homeFlyer.css';
 
 function HomeFlyer(props) {
   return (
-    <div className="home-flyer flex justify-center px-1 w-full xl:flex overflow-hidden xl:h-screen h-screen">
+    <div className="home-flyer flex justify-start ml-32 px-1 w-full xl:flex overflow-hidden xl:h-screen h-screen">
       <div className='relative w-1/2 h-1/2 mt-32 p-5 flex items-center justify-start bg-clouds bg-no-repeat bg-cover bg-center rounded rounded-full'>
 
         <span className='absolute top-28 text-5xl font-semibold'>Welcome to</span>
