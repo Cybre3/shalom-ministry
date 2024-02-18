@@ -63,7 +63,7 @@ class Home extends Component {
         <div className='bg-white w-3/4 mx-auto shadow-md shadow-fuchsia-950 rounded rounded-md p-4'>
           <h2 className='text-3xl font-bold m-4'>Upcoming Events</h2>
 
-          <Carousel responsive={responsive} className='px-6'>
+          <Carousel responsive={responsive} className='px-6 py-6'>
             <div className='mx-3 h-full flex'><img className='rounded-sm my-auto outline outline-offset-4 outline-neutral-300' src={spaNsip} alt="spaNsip" /></div>
           </Carousel>
         </div>

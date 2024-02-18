@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Sansita:ital@0;1&family=Share+Tech+Mono&display=swap');
 
 .about-us-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  width: 100vw;
+}
+
+
+/* 
   background: url('../../assets/Aboutus/SM-Logo-Watermark.png');
-  /* background-color: blue; */
+ 
   background-position: -120% 70%;
   background-repeat: repeat-y;
   background-size: 70%;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  position: relative;
-  text-align: center;
 
-  width: 100vw;
-}
 
 .about-us-container::before {
   background: url('../../assets/Aboutus/SM-Logo-Watermark.png');
@@ -28,7 +31,7 @@
   right: 0;
   top: 0;
   z-index: -1;
-}
+} */
 
 .mytext {
   text-align-last: center;
