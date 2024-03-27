@@ -1,22 +1,21 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
-
-// import CWATphoto from '../../../assets/Home/CWATphoto.jpg';
-// import CWATflyer from '../../../assets/Home/CWAT-Site-Banner-NoPrice.png';
-// import ministryPhoto1 from '../../../assets/Event-Category-Card.png';
-// import shine from '../../../assets/mountainBlueBottom.png';
+import test from '../../../assets/Login/WhatsApp Image 2023-02-28 at 8.41.46 PM.jpeg';
 
 import './homeFlyer.css';
 
 function HomeFlyer(props) {
   return (
-    <div className="home-flyer flex justify-start ml-32 px-1 w-full xl:flex overflow-hidden xl:h-screen h-screen">
-      <div className='relative w-1/2 h-1/2 mt-32 p-5 flex items-center justify-start bg-clouds bg-no-repeat bg-cover bg-center rounded rounded-full'>
-
-        <span className='absolute top-28 text-5xl font-semibold'>Welcome to</span>
-        <span className='absolute left-14 bottom-32 text-7xl text-fuchsia-950 font-extrabold'>Shalom Ministry</span>
-
-        <div className='rounded rounded-full bg-white w-72 h-72 block bg-shalom-watermark bg-center bg-no-repeat bg-cover border border-fuchsia-950 border-4'></div>
+    <div className="mt-20 h-screen">
+      <div className='grid grid-rows-2 grid-cols-4'>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
+       
       </div>
 
     </div>

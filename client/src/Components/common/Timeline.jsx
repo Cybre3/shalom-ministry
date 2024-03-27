@@ -1,11 +1,13 @@
 import React from 'react';
 import { Chrono } from "react-chrono-extra";
 
+import './timeline.css';
 
-function Timeline({items}) {
+
+function Timeline({items, mode, timelineClass}) {
     return (
-        <div style={{ width: "500px", height: "400px", mode:'VERICAL' }}>
-            <Chrono items={items} />
+        <div className={`${timelineClass}`}>
+            <Chrono items={items} mode={mode} className='scrollbar-hidden' />
         </div>
     ) 
 }

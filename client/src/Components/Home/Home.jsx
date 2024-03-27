@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
 import Carousel from "react-multi-carousel";
 
-// import CategoryLinks from './CategoryLinks';
 import HomeFlyer from './HomeFlyer/HomeFlyer';
 import MissionStatement from './../common/missionStatement/MissionStatement';
-import MyTabs from '../common/tabs';
+import Scripture from '../common/Scripture';
 
-// import intLunch from '../../assets/Home/Intlunch24.png';
 import spaNsip from '../../assets/Home/spa&sip_Instagram.png';
 
 import './home.css';
-// import Timeline from '../common/Timeline';
 
-/* const tabs = [
-  { _id: 'events', title: 'Previous Events' },
-  { _id: 'give', title: 'Give' },
-  { _id: 'get-invloved', title: 'Get Involved' },
-  { _id: 'testimonies', title: 'Testimonies' },
-] */
 
 const responsive = {
   superLargeDesktop: {
@@ -39,36 +30,63 @@ const responsive = {
   }
 };
 
-// const items = [{
-//   title: "May 1940",
-//   cardTitle: "Dunkirk",
-//   url: "http://www.history.com",
-//   cardSubtitle: "Men of the British Expeditionary Force (BEF) wade out to..",
-//   cardDetailedText: "Men of the British Expeditionary Force (BEF) wade out to..",
-//   media: {
-//       type: "IMAGE",
-//       source: {
-//           url: "http://someurl/image.jpg"
-//       }
-//   }
-// }, ];
-
 class Home extends Component {
+
+
+
   render() {
     return (
       <div className="relative bg-neutral-50 w-screen pt-10 lg:pt-16">
         <HomeFlyer />
-        {/* <CategoryLinks /> */}
-        <MyTabs />
-        <div className='bg-white w-3/4 mx-auto shadow-md shadow-fuchsia-950 rounded rounded-md p-4'>
-          <h2 className='text-3xl font-bold m-4'>Upcoming Events</h2>
+        <MissionStatement />
+        <Scripture />
 
-          <Carousel responsive={responsive} className='px-6 py-6'>
+        <div className='w-screen h-screen mt-20'>
+          <div className='h-full w-3/4 flex flex-col items-center mx-auto'>
+
+            <h2 className='text-8xl mb-4 text-cyan-600'>MiNiSTRY BRANCHES</h2>
+
+            <div className='p-10 grid grid-rows-2 grid-cols-2 gap-20 gap-x-0 text-center text-black'>
+              <div className='w-1/2 mx-auto'>
+                <h3 className='text-3xl'>Ghana Community Outreach</h3>
+                <p>Breman Elementary School</p>
+                <p>Breman Parish Fund</p>
+              </div>
+              <div className='w-1/2 mx-auto'>
+                <h3 className='text-3xl'>Conference With A Twist</h3>
+                <p>A retreat style conference for spiritual transformation and healing among a community of believers of all seasons of life, also know as CWAT</p>
+              </div>
+              <div className='w-1/2 mx-auto'>
+                <h3 className='text-3xl'>Community Experiences</h3>
+                <p>Local fundraising events and activities, that support our annual CWAT that are focused on  commmunity-building and fellowship</p>
+              </div>
+              <div className='w-1/2 mx-auto'>
+                <h3 className='text-3xl'>Financial Aid Services</h3>
+                <p>Offering monetary supplement to those experiencing financial hardship</p>
+              </div>
+              <div className='w-1/4 mx-auto col-span-full'>
+                <h3 className='text-3xl'>In Da Streetz</h3>
+                <p>Providing meals, hygiene products, and prayers to our local South Florida homeless communities.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div className='w-3/4 mx-auto p-4 mb-20'>
+          <div className='flex justify-between items-end text-sky-800'>
+          <h2 className='text-5xl m-4 mb-2'>Upcoming Experiences</h2>
+
+          <p className='mr-4'>Notify Me</p>
+          </div>
+
+          <Carousel responsive={responsive} className='px-2 py-4 border border-sky-800 border-4 rounded rounded-lg'>
             <div className='mx-3 h-full flex'><img className='rounded-sm my-auto outline outline-offset-4 outline-neutral-300' src={spaNsip} alt="spaNsip" /></div>
           </Carousel>
         </div>
-        <MissionStatement />
-        {/* <Timeline items={items} /> */}
+
+
+
       </div>
     );
   }

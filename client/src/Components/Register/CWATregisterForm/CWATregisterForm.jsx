@@ -75,6 +75,12 @@ class CWATRegister extends Form {
     { id: '3x', name: '3x', label: '3x' },
   ];
 
+  bedOpts = [
+    { id: 'xs', name: 'King', value: 'Shared Room (K/Q/D) - $425' },
+    { id: 'sm', name: 'Queen', value: 'Shared Room (T) - $375' },
+    { id: 'md', name: 'Double', value: 'General Admission (off campus) - $325' },
+  ]
+
   hasAticket = (e) => {
     this.setState({
       haveTicketAlready: e.target.checked,
@@ -163,85 +169,40 @@ class CWATRegister extends Form {
     }
   };
 
+  formClasses = {
+    inputContainer: 'flex justify-between space-x-4',
+    inputClass: 'border'
+  }
+
   render() {
     return (
-      <div className="cwatRegister pt-10 xl:pt-48 xl:pb-40 lg:pt-36 lg:w-3/4 xl:w-3/5 lg:mx-auto xl:px-0">
-        <div className="content w-full xl:pt-4">
-          <h1 className="text-3xl font-normal tracking-wide mt-4 mb-12 lg:mt-6 lg:mb-12">
+      <div className="w-screen pt-32 h-screen">
+        <div className="w-fit border p-10 mx-auto">
+          <h1 className="mb-6">
             CONFERENCE WITH A TWIST
           </h1>
 
           <form onSubmit={this.handleSubmit}>
-            <div className="cwat-bg-right flex-column grid grid-row-2 h-fit py-4 xl:py-8 pr-2 gap-y-6 border-black border-2 xl:border-x-0">
-              <div className="cwat-contact-info text-left w-full ml-2 md:w-3/4 xl:w-3/5 md:ml-6 xl:ml-16 xl:space-y-4">
-                <h2 className="cwat-header mb-2 ml-16 md:ml-32">YOUR INFO</h2>
-                {this.renderCustomInput('firstname', 'First Name')}
-                {this.renderCustomInput('lastname', 'Last Name')}
-                {this.renderCustomInput('email', 'Email', 'email')}
-                {this.renderCustomInput('phone', 'Phone #', 'phone')}
+            <div className="space-y-8">
+              <div className="space-y-2">
+                <h2 className="">YOUR INFO</h2>
+                {this.renderInput('firstname', 'First Name', '', '', this.formClasses)}
+                {this.renderInput('lastname', 'Last Name', '', '', this.formClasses)}
+                {this.renderInput('email', 'Email', 'email', '', this.formClasses)}
+                {this.renderInput('phone', 'Phone #', 'phone', '', this.formClasses)}
               </div>
 
-              <div className="cwat-contact-info text-right justify-self-end w-full md:w-3/4 xl:w-3/5 md:mr-6 xl:mr-12 xl:space-y-4">
-                <h2 className="cwat-header mb-2 mr-8 md:mr-20">EMERGENCY CONTACT</h2>
-                {this.renderInput('emergencyFullName', 'Full Name')}
-                {this.renderInput('emergencyEmail', 'Email', 'email')}
-                {this.renderInput('emergencyPhone', 'Phone #', 'phone')}
+              <div className="space-y-2">
+                <h2 className="">EMERGENCY CONTACT</h2>
+                {this.renderInput('emergencyFullName', 'Full Name', '', '', this.formClasses)}
+                {this.renderInput('emergencyEmail', 'Email', 'email', '', this.formClasses)}
+                {this.renderInput('emergencyPhone', 'Phone #', 'phone', '', this.formClasses)}
               </div>
+
+              {this.renderDropdown('pref', 'Bed preference', this.bedOpts)}
             </div>
 
-            <hr className="border-black mt-6 xl:mt-16 mb-16 xl:mb-24" />
 
-            <div className="cwat-questions-container cwat-bg-left w-full text-left relative px-2 py-4 border-black border-2 md:space-y-4 md:text-lg xl:border-x-0 xl:rounded-sm xl:px-8">
-              <h2 className="absolute bottom-full mb-4">A FEW QUESTIONS</h2>
-              {this.renderTextarea(
-                'allergies',
-                'Do you have any food allergies or dietary restrictions?'
-              )}
-              {this.renderTextarea('questions', 'Do you have any questions for us?')}
-              {this.renderTextarea('discover', 'How did you hear about Shalom Ministry?')}
-
-              <div className="flex-column w-full mt-4 xl:pt-10">
-                {this.state.haveTicketAlready ? (
-                  <Fragment>
-                    {this.renderRadioGroupSmall('shirtSize', 'Shirt Size', this.shirtSizes, 3)}
-                    <CheckTicketCode
-                      populateUnregisteredUser={this.populateUnregisteredRegistrarTicket}
-                    />
-                  </Fragment>
-                ) : (
-                  <Fragment>
-                    {this.renderRadioGroupSmall('shirtSize', 'Shirt Size', this.shirtSizes, 3)}
-                    {this.renderRadioGroup(
-                      'ticketOption',
-                      { title: 'Ticket Options', subTitle: 'Choose Your Ticket' },
-                      this.state.ticketOptions,
-                      2
-                    )}
-                  </Fragment>
-                )}
-              </div>
-            </div>
-
-            <hr className="border-black my-2" />
-
-            <input
-              type="checkbox"
-              id={'haveTicketAlready'}
-              value={'haveTicketAlready'}
-              name={'haveTicketAlready'}
-              onChange={this.hasAticket}
-              className="mr-1"
-            />
-            <label htmlFor={'haveTicketAlready'} className="md:text-lg lg:text-xl">
-              I have selected my ticket prior to registering and have made a payment(s)
-            </label>
-            {this.renderButton('SUBMIT', this.state.bool, 'send-btn lg:mb-20 lg:text-3xl text-2xl')}
-            <span className="lg:text-lg">
-              <i>No refunds once committed to a ticket</i>
-            </span>
-            <aside className="absolute bottom-10 lg:bottom-16 xl:bottom-10 inset-x-0 mx-auto w-44 lg:w-60">
-              <img src={qrCode} alt="" className="w-full" />
-            </aside>
           </form>
         </div>
       </div>

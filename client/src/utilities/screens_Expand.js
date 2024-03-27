@@ -11,20 +11,31 @@ export const TOTAL_SCREENS = [
     path: ''
   },
   {
-    screen_name: 'Meet the Ambassaadors',
+    screen_name: 'About Us',
     component: AboutUs,
     path: 'about-us'
-  },
-  {
-    screen_name: 'Ministries',
-    component: Contactus,
-    path: ''
   },
   {
     screen_name: 'Give',
     component: Give,
     path: 'give/new'
   },
+  {
+    screen_name: 'Contact Us',
+    component: Contactus,
+    path: 'contact-us/new'
+  },
+  {
+    screen_name: 'Ministries',
+    component: Contactus,
+    path: 'contact-us/new'
+  },
+  {
+    screen_name: 'Other',
+    component: Contactus,
+    path: 'contact-us/new'
+  },
+
 ];
 
 export const GET_SCREEN_INDEX = (screen_name) => {
