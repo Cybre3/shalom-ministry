@@ -9,13 +9,17 @@ import configureStore from './store/configureStore'
 
 import AboutUs from './Components/AboutUs/AboutUs';
 import Footer from './Components/Footer/Footer';
-import Home from './Components/Home/Home';
+// import Home from './Components/Home/Home';
 import Nav from './Components/Nav/Nav';
+import RegisterForm from './Components/Register/Register';
+import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
+import Emailsend from './Components/Emailsend';
 
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-multi-carousel/lib/styles.css';
+import NotFound from './Components/NotFound';
 
 const store = configureStore();
 
@@ -54,8 +58,14 @@ class App extends Component {
             <Nav user={user} />
             <main className="container">
               <Routes>
-                <Route exact path="/" element={<Home />} />
+                <Route exact path="/" element={<NotFound />} />
                 <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/register/:id" element={<RegisterForm />} />
+                <Route path="/registrars/cwat-register/:id" element={<CWATregister />} />
+                <Route path="/emailsend" element={<Emailsend />} />
+
+
+
 
               </Routes>
 

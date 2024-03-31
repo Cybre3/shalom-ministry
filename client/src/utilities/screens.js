@@ -1,6 +1,4 @@
 import AboutUs from '../Components/AboutUs/AboutUs';
-import Contactus from '../Components/ContactUs/Contactus';
-import Give from '../Components/Give/Give';
 import Home from '../Components/Home/Home';
 
 
@@ -14,16 +12,6 @@ export const TOTAL_SCREENS = [
     screen_name: 'Meet the Ambassaadors',
     component: AboutUs,
     path: 'about-us'
-  },
-  {
-    screen_name: 'Ministries',
-    component: Contactus,
-    path: ''
-  },
-  {
-    screen_name: 'Give',
-    component: Give,
-    path: 'give/new'
   },
 ];
 

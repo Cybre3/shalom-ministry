@@ -14,10 +14,10 @@ function MissionStatement(props) {
       <div className='w-full h-full text-center backdrop-blur'>
         <div className='w-3/5 h-full mx-auto pt-8'>
 
-          <h2 className='text-9xl'>MiSSiON & ViSiON</h2>
+          <h2 className='text-8xl'>MiSSiON & ViSiON</h2>
           <div className='flex mt-10 h-3/4'>
-            <p className='text-xl text-left leading-[3rem] w-3/4 pl-6'>{uppercaseStatement}</p>
-            <p className='text-7xl text-right w-2/6 leading-[5rem]'>{statement}</p>
+            <p className='text-lg text-left leading-[3rem] w-3/4 pl-6'>{uppercaseStatement}</p>
+            <p className='text-6xl text-right w-2/6 leading-[5rem]'>{statement}</p>
           </div>
         </div>
       </div>

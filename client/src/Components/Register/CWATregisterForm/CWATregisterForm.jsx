@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
 import _ from 'lodash';
@@ -7,10 +7,8 @@ import Form from '../../common/form';
 import { saveRegistrar, getCWATregistrarById } from '../../../services/registrarService';
 import { getCwatTicketTypes } from './../../../services/ticketSetvice';
 import { getConstant } from '../../../services/constantService';
-import CheckTicketCode from './checkTicketCode';
 import withRouter from '../../../utilities/withRouter';
 
-import qrCode from '../../../assets/Register/Cashapp-Code--CWAT-Registration-Page-trnsprnt.png';
 
 import './CWATregisterForm.css';
 
@@ -28,10 +26,6 @@ class CWATRegister extends Form {
       emergencyFullName: '',
       emergencyEmail: '',
       emergencyPhone: '',
-      ticketOption: 'Tier Two',
-      ticketOptionData: {},
-      ticketPurchaseData: {},
-      shirtSize: 'Md',
     },
     errors: {},
     bool: false,
@@ -54,7 +48,7 @@ class CWATRegister extends Form {
     email: Joi.string().email().required().label('Email'),
     phone: Joi.string().required().label('Phone'),
     allergies: Joi.string().label('Allergies').allow(''),
-    questions: Joi.string().label('Questions').allow(''),
+    questions: Joi.string().label('Questions').allow(''), // Do you have any questions at this time?
     discover: Joi.string().label('How you did you hear about Shalom Ministry').allow(''),
     emergencyFullName: Joi.string().required().label('Emergency Full Name'),
     emergencyEmail: Joi.string().email().required().label('Emergency Last Name'),
@@ -62,7 +56,6 @@ class CWATRegister extends Form {
     ticketOption: Joi.string().required().label('Choose Your Ticket'),
     ticketOptionData: Joi.object().required().label('Ticket Option Data'),
     ticketPurchaseData: Joi.object().required().label('Ticket Purchase Data'),
-    shirtSize: Joi.string().required().label('Shirt Size'),
   };
 
   shirtSizes = [

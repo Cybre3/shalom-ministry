@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import Carousel from "react-multi-carousel";
 
 import HomeFlyer from './HomeFlyer/HomeFlyer';
@@ -6,6 +7,7 @@ import MissionStatement from './../common/missionStatement/MissionStatement';
 import Scripture from '../common/Scripture';
 
 import spaNsip from '../../assets/Home/spa&sip_Instagram.png';
+import momNbrunch from '../../assets/Home/mothersDayBrunch.png';
 
 import './home.css';
 
@@ -38,6 +40,11 @@ class Home extends Component {
     return (
       <div className="relative bg-neutral-50 w-screen pt-10 lg:pt-16">
         <HomeFlyer />
+
+        <div className='flex col block w-1/2 h-3/4 bg-neutral-500 z-20 mx-auto rounded rounded-md'>
+          <img src={spaNsip} alt="test" />
+          <NavLink to='/registrars/cwat-register/new' className='bg-white p-4 text-center mx-auto w-1/4 h-fit'>Register Here</NavLink>
+        </div>
         <MissionStatement />
         <Scripture />
 
@@ -72,6 +79,8 @@ class Home extends Component {
           </div>
         </div>
 
+       
+
 
         <div className='w-3/4 mx-auto p-4 mb-20'>
           <div className='flex justify-between items-end text-sky-800'>
@@ -81,7 +90,11 @@ class Home extends Component {
           </div>
 
           <Carousel responsive={responsive} className='px-2 py-4 border border-sky-800 border-4 rounded rounded-lg'>
-            <div className='mx-3 h-full flex'><img className='rounded-sm my-auto outline outline-offset-4 outline-neutral-300' src={spaNsip} alt="spaNsip" /></div>
+            <div className='mx-3 h-full flex'><img className='rounded-sm my-auto' src={spaNsip} alt="spaNsip" /></div>
+            <div className='mx-3 h-full flex'><img className='rounded-sm my-auto' src={momNbrunch} alt="momnbrunch" /></div>
+            <div className='mx-3 h-full flex'><img className='rounded-sm my-auto' src={momNbrunch} alt="momnbrunch" /></div>
+            <div className='mx-3 h-full flex'><img className='rounded-sm my-auto' src={momNbrunch} alt="momnbrunch" /></div>
+            <div className='mx-3 h-full flex'><img className='rounded-sm my-auto' src={momNbrunch} alt="momnbrunch" /></div>
           </Carousel>
         </div>
 
