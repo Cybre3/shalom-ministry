@@ -47,7 +47,7 @@ module.exports = {
                 subject: 'Email Blast Success',
                 linkText: 'Email Blast',
                 instructionMsg: 'Back to your email blast',
-                email: 'cybre7@gmail.com',
+                email: process.env.SHALOM_9_EMAIL,
                 firstname: 'Maya',
                 linkURL: 'shalomministrymovin4ward.org/emailsend',
                 moreInfo: successList
