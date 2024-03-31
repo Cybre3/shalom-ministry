@@ -29,3 +29,10 @@ module.exports = function (app) {
     }
   });
 };
+
+
+// if this date 
+// list emails = {list of emails}/
+ 
+// for(let email of emails) 
+//   send email

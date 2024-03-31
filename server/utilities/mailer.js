@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const Mailgen = require('mailgen');
 
 async function sendSystemEmail(data) {
+    const { firstname, msg, moreInfo, instructionMsg, linkText, linkURL, email, subject } = data;
 
     let config = {
         service: 'gmail',
@@ -18,22 +19,25 @@ async function sendSystemEmail(data) {
         theme: 'cerberus',
         product: {
             name: 'Shalom Ministry',
-            link: 'https://www.shalomministrymovin4ward.org'
+            link: 'https://www.shalomministrymovin4ward.org',
         }
     });
 
     let response = {
         body: {
             greeting: 'Hello',
-            name: data.firstname,
-            intro: data.msg,
+            name: firstname,
+            intro: msg,
+            table: moreInfo ? { data: moreInfo } : null,
             action: {
-                instructions: data.instructionMsg,
-                button: {
+                instructions: instructionMsg ? instructionMsg : null,
+                button: (linkText && linkURL) ? {
                     color: '#22BC66',
-                    text: data.linkText,
-                    link: data.linkURL,
+                    text: linkText,
+                    link: linkURL,
                     // logo: data.logo
+                } : {
+                    color: 'transparent'
                 }
             },
             outro: 'Need help, or have questions? Just reply to this email. We would love to help',
@@ -48,11 +52,11 @@ async function sendSystemEmail(data) {
 
     let message = {
         from: process.env.GMAIL_EMAIL,
-        to: data.email,
-        subject: data.subject,
+        to: email,
+        subject,
         html: systemEmail
     }
-    
+
     try {
         return await transporter.sendMail(message);
     } catch (error) {

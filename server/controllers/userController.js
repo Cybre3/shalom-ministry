@@ -40,7 +40,18 @@ module.exports = {
         // logo: base64img
       }
 
+      const adminEmail = {
+        msg: "Thank you for registering to Shalom Ministry!",
+        subject: 'email test',
+        linkText: 'Verify email',
+        instructionMsg: 'Please verify your email',
+        email: 'shalom9ministry@gmail.com',
+        firstname,
+        linkURL: 'shalomministrymovin4ward.org',
+      }
+
       req.systemEmailDetail = systemEmailDetail;
+      req.adminEmail = adminEmail
       next();
     },
 
