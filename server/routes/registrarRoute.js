@@ -1,5 +1,6 @@
 const router = require('express')();
 const registrarController = require('../controllers/registrarController');
+const utilsController = require('../controllers/utilsController');
 const validator = require('../middleware/validateMiddleware');
 const { validate: validateCwatRegistrar } = require('../models/cwatRegistrarModel');
 
@@ -10,7 +11,8 @@ router.get('/cwat-register/:registrarId', registrarController.get.findCwatRegist
 router.post(
   '/cwat-register',
   validator(validateCwatRegistrar),
-  registrarController.post.saveNewCwatRegistrar
+  registrarController.post.saveNewCwatRegistrar,
+  utilsController.post.sendSystemEmail
 );
 
 router.put(

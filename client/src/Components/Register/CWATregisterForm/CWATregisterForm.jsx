@@ -1,13 +1,17 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
-import _ from 'lodash';
+// import _ from 'lodash';
+import { connect } from 'react-redux';
+
 
 import Form from '../../common/form';
-import { saveRegistrar, getCWATregistrarById } from '../../../services/registrarService';
-import { getCwatTicketTypes } from './../../../services/ticketSetvice';
-import { getConstant } from '../../../services/constantService';
+import { saveRegistrar } from '../../../services/registrarService';
+// import { getCwatTicketTypes } from './../../../services/ticketSetvice';
+// import { getConstant } from '../../../services/constantService';
 import withRouter from '../../../utilities/withRouter';
+
+import cwatHeader from '../../../assets/Register/CWAT-logo-color.png'
 
 
 import './CWATregisterForm.css';
@@ -15,17 +19,18 @@ import './CWATregisterForm.css';
 class CWATRegister extends Form {
   state = {
     data: {
-      registrarNumber: '',
+      // registrarNumber: '',
       firstname: '',
       lastname: '',
       email: '',
       phone: '',
       allergies: '',
       questions: '',
-      discover: '',
       emergencyFullName: '',
       emergencyEmail: '',
       emergencyPhone: '',
+      shirtSize: '',
+      bedReq: ''
     },
     errors: {},
     bool: false,
@@ -35,37 +40,35 @@ class CWATRegister extends Form {
   };
 
   async componentDidMount() {
-    const allTicketOptions = await getCwatTicketTypes();
-    this.setState({ ticketOptions: allTicketOptions.data });
-    this.populateRegistrar();
+    // const allTicketOptions = await getCwatTicketTypes();
+    // this.setState({ ticketOptions: allTicketOptions.data });
+    // this.populateRegistrar();
   }
 
   schema = {
     _id: Joi.string(),
-    registrarNumber: Joi.number().required().label('Registrar Number'),
+    // registrarNumber: Joi.number().required().label('Registrar Number'),
     firstname: Joi.string().required().label('First Name'),
     lastname: Joi.string().required().label('Last Name'),
     email: Joi.string().email().required().label('Email'),
     phone: Joi.string().required().label('Phone'),
     allergies: Joi.string().label('Allergies').allow(''),
     questions: Joi.string().label('Questions').allow(''), // Do you have any questions at this time?
-    discover: Joi.string().label('How you did you hear about Shalom Ministry').allow(''),
     emergencyFullName: Joi.string().required().label('Emergency Full Name'),
     emergencyEmail: Joi.string().email().required().label('Emergency Last Name'),
     emergencyPhone: Joi.string().required().label('Emergency Phone'),
-    ticketOption: Joi.string().required().label('Choose Your Ticket'),
-    ticketOptionData: Joi.object().required().label('Ticket Option Data'),
-    ticketPurchaseData: Joi.object().required().label('Ticket Purchase Data'),
+    bedReq: Joi.string().required().label('Bed Request'),
+    shirtSize: Joi.string().required().label('Shirt Size'),
   };
 
   shirtSizes = [
-    { id: 'xs', name: 'xsmall', label: 'Xs' },
-    { id: 'sm', name: 'small', label: 'Sm' },
-    { id: 'md', name: 'medium', label: 'Md' },
-    { id: 'lg', name: 'large', label: 'Lg' },
-    { id: 'xl', name: 'xlarge', label: 'XL' },
-    { id: '2x', name: '2x', label: '2x' },
-    { id: '3x', name: '3x', label: '3x' },
+    { id: 'xs', name: 'xsmall', value: 'Xs' },
+    { id: 'sm', name: 'small', value: 'Sm' },
+    { id: 'md', name: 'medium', value: 'Md' },
+    { id: 'lg', name: 'large', value: 'Lg' },
+    { id: 'xl', name: 'xlarge', value: 'XL' },
+    { id: '2x', name: '2x', value: '2x' },
+    { id: '3x', name: '3x', value: '3x' },
   ];
 
   bedOpts = [
@@ -74,78 +77,15 @@ class CWATRegister extends Form {
     { id: 'md', name: 'Double', value: 'General Admission (off campus) - $325' },
   ]
 
-  hasAticket = (e) => {
-    this.setState({
-      haveTicketAlready: e.target.checked,
-    });
-  };
-
-  populateUnregisteredRegistrarTicket = (data) => {
-    const originalData = { ...this.state.data };
-    const requiredData = _.pick(data, ['firstname', 'lastname', 'phone', 'email']);
-    const { ticketOptions } = this.state;
-    let ticketTier = 1;
-
-    switch (data.bedType) {
-      case 'Queen':
-      case 'Double':
-      case 'Full':
-        ticketTier = 2;
-        break;
-      case 'Twin':
-        ticketTier = 3;
-        break;
-      default:
-        ticketTier = 1;
-    }
-
-    this.setState({
-      data: {
-        ...originalData,
-        ticketOption: ticketOptions[ticketTier - 1].displayLine,
-        ...requiredData,
-        ticketOptionData: ticketOptions[ticketTier - 1],
-        ticketPurchaseData: data,
-      },
-    });
-  };
-
-  async populateRegistrar() {
-    try {
-      const registrarId = this.props.params.id;
-      if (registrarId === 'new') {
-        const registrarNumber = (await getConstant('registrarNumber')).data.amount;
-        this.setState({ data: { ...this.state.data, registrarNumber } });
-        return;
-      }
-
-      const { data: CWATregistrar } = await getCWATregistrarById(registrarId);
-      this.setState({ data: this.mapToViewModel(CWATregistrar) });
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-
-  mapToViewModel(CWATregistrar) {
-    return {
-      _id: CWATregistrar._id,
-      registrarNumber: CWATregistrar.registrarNumber,
-      firstname: CWATregistrar.firstname,
-      lastname: CWATregistrar.lastname,
-      email: CWATregistrar.email,
-      phone: CWATregistrar.phone,
-      allergies: CWATregistrar.allergies,
-      questions: CWATregistrar.questions,
-      discover: CWATregistrar.discover,
-      emergencyFullName: CWATregistrar.emergencyFullName,
-      emergencyEmail: CWATregistrar.emergencyEmail,
-      emergencyPhone: CWATregistrar.emergencyPhone,
-      ticketOption: CWATregistrar.ticketOption,
-      shirtSize: CWATregistrar.shirtSize,
-    };
-  }
 
   doSubmit = async () => {
+    // const emailSend = ({
+    //   date: new Date().toISOString().substring(0, 10),
+    //   from: this.state.data.email,
+    //   subject: 'CWAT Registration',
+    //   message: this.state.data
+    // });
+
     try {
       const { data } = this.state;
       this.setState({ bool: true });
@@ -153,54 +93,96 @@ class CWATRegister extends Form {
         async () => {
           this.setState({ bool: false });
           await saveRegistrar('cwat-register', data);
-          toast.success('Registration submitted!');
+          await toast.success('Registration submitted!');
+          // setTimeout(() => {
+          //   window.location = '/registrars/cwat-register/new';
+          // }, 3000)
         },
-        Promise.reject ? 2000 : 1000
+        Promise.reject ? 1500 : 500
       );
     } catch (error) {
       console.log(error.message);
     }
   };
 
+
   formClasses = {
-    inputContainer: 'flex justify-between space-x-4',
-    inputClass: 'border'
+    inputContainer: 'flex justify-between space-x-2',
+    labelClass: 'text-lg',
+    inputClass: 'border border-black/60 w-3/4'
+  }
+
+  textareaClasses = {
+    inputContainer: 'w-full text-left my-4 h-fit',
+    labelClass: 'text-lg',
+    inputClass: 'w-full h-3/4 py-1 px-2 mt-2 border border-black',
+  };
+
+  dropdownClasses = {
+    inputContainer: 'w-full text-left my-4 h-fit',
+    labelClass: 'text-lg',
+    inputClass: 'w-full h-3/4 py-1 px-2 mt-2 border border-black',
   }
 
   render() {
     return (
-      <div className="w-screen pt-32 h-screen">
-        <div className="w-fit border p-10 mx-auto">
-          <h1 className="mb-6">
-            CONFERENCE WITH A TWIST
-          </h1>
+      <div className="w-screen bg-purple-100/20 h-full container">
+        <div className='h-full scale-75'>
 
-          <form onSubmit={this.handleSubmit}>
-            <div className="space-y-8">
-              <div className="space-y-2">
-                <h2 className="">YOUR INFO</h2>
-                {this.renderInput('firstname', 'First Name', '', '', this.formClasses)}
-                {this.renderInput('lastname', 'Last Name', '', '', this.formClasses)}
-                {this.renderInput('email', 'Email', 'email', '', this.formClasses)}
-                {this.renderInput('phone', 'Phone #', 'phone', '', this.formClasses)}
-              </div>
+          <div className="w-1/2 mx-auto">
+            <div className='relative z-10'>
+              <img src={cwatHeader} alt="cwat-header" className='mb-[-80px]' />
+            </div>
+            <div className='w-full h-36 bg-cwatHombre bg-[length:120%_110%] bg-center bg-no-repeat scale-y-[-1] scale-x-[-1] rounded'>
 
-              <div className="space-y-2">
-                <h2 className="">EMERGENCY CONTACT</h2>
-                {this.renderInput('emergencyFullName', 'Full Name', '', '', this.formClasses)}
-                {this.renderInput('emergencyEmail', 'Email', 'email', '', this.formClasses)}
-                {this.renderInput('emergencyPhone', 'Phone #', 'phone', '', this.formClasses)}
-              </div>
-
-              {this.renderDropdown('pref', 'Bed preference', this.bedOpts)}
             </div>
 
+            <form onSubmit={this.handleSubmit} className='p-16 py-12 border bg-white'>
+              <div className="space-y-12">
+                <div className="space-y-3">
+                  <h2 className="text-center text-xl tracking-wide mb-10">YOUR INFO</h2>
+                  {this.renderInput('firstname', 'First Name', '', '', this.formClasses)}
+                  {this.renderInput('lastname', 'Last Name', '', '', this.formClasses)}
+                  {this.renderInput('email', 'Email', 'email', '', this.formClasses)}
+                  {this.renderInput('phone', 'Phone #', 'phone', '', this.formClasses)}
+                </div>
 
-          </form>
+                <div className="space-y-3">
+                  <h2 className="text-center text-xl tracking-wide mb-10">EMERGENCY CONTACT</h2>
+                  {this.renderInput('emergencyFullName', 'Full Name', '', '', this.formClasses)}
+                  {this.renderInput('emergencyEmail', 'Email', 'email', '', this.formClasses)}
+                  {this.renderInput('emergencyPhone', 'Phone #', 'phone', '', this.formClasses)}
+                </div>
+
+                <div className='flex justify-around space-x-6'>
+                  {this.renderDropdown('bedReq', 'Room Selection', this.bedOpts, this.dropdownClasses)}
+                  {this.renderDropdown('shirtSize', 'Shirt Size', this.shirtSizes, this.dropdownClasses)}
+                </div>
+
+                {this.renderTextarea('allergies', 'Allergies', 'textarea', this.textareaClasses)}
+                {this.renderTextarea('questions', 'Questions/Comments', 'textarea', this.textareaClasses)}
+              </div>
+
+              {this.renderButton('Register', '', 'text-center', 'px-4 py-2 mt-10 bg-blue-500 rounded rounded-md text-white text-xl tracking-wider w-1/3 cursor-pointer disabled:text-gray-500 disabled:bg-zinc-400 disabled:cursor-default')}
+            </form>
+
+
+            <div className='w-full h-36 bg-cwatHombre bg-[length:120%_110%] bg-center bg-no-repeat rounded'>
+              {' '}
+            </div>
+
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(CWATRegister);
+const mapStateToProps = state => ({
+});
+
+const mapDispatchToProps = dispatch => ({
+  // sendEmailBlast: emailInfo => dispatch(sendEmailBlast(emailInfo)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CWATRegister));

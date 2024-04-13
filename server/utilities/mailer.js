@@ -20,15 +20,18 @@ async function sendSystemEmail(data) {
         product: {
             name: 'Shalom Ministry',
             link: 'https://www.shalomministrymovin4ward.org',
+            copyright: '© 2018 Shalom Ministry. All rights reserved.',
         }
     });
 
-    let response = {
+    
+
+    let responseTemp1 = {
         body: {
             greeting: 'Hello',
             name: firstname,
             intro: msg,
-            table: moreInfo ? { data: moreInfo } : null,
+            table: moreInfo ? moreInfo : null,
             action: {
                 instructions: instructionMsg ? instructionMsg : null,
                 button: (linkText && linkURL) ? {
@@ -47,6 +50,23 @@ async function sendSystemEmail(data) {
             Isaiah 61:1 KJV <br />`
         }
     }
+
+    let responeTemp2 = {
+        body: {
+            greeting: 'Hello',
+            name: firstname,
+            intro: msg,
+            table: moreInfo ? { data: moreInfo } : null,
+           
+            outro: 'Need help, or have questions? Just reply to this email. We would love to help',
+            signature: `The Spirit of the Lord God is upon me; because the Lord hath anointed me to preach good
+            tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty
+            to the captives, and the opening of the prison to them that are bound; <br />
+            Isaiah 61:1 KJV <br />`
+        }
+    }
+
+    const response = instructionMsg ? responseTemp1 : responeTemp2;
 
     let systemEmail = Mailgenerator.generate(response);
 

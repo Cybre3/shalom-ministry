@@ -26,7 +26,8 @@ module.exports = {
   },
 
   post: {
-    createNewCwatRegistrar: async (req, res) => {
+    createNewCwatRegistrar: async (req, res, next) => {
+      console.log('server: working')
       const {
         email,
         emergencyEmail,
@@ -39,7 +40,7 @@ module.exports = {
       const registrar = req.body;
       const checkNameAgainst = firstname + ' ' + lastname;
       const [eFirstname, eLastname] = emergencyFullName.split(' ');
-      
+
       let cwatRegistrar = await CwatRegistrar.findOne({ email });
       if (cwatRegistrar)
         return res.status(400).send(`Registrar with email ${email} already registered.`);
@@ -56,10 +57,14 @@ module.exports = {
       cwatRegistrar = new CwatRegistrar({ ...registrar });
 
       await cwatRegistrar.save();
-      res
-        .status(200)
-        .send(_.pick(cwatRegistrar, ['_id', 'firstname', 'lastname', 'email', 'ticket']));
+      
+    
+        res
+          .status(200)
+          .send(_.pick(cwatRegistrar, ['_id', 'firstname', 'lastname', 'email', 'bedReq']));
     },
+
+
   },
 
   /*  put: {

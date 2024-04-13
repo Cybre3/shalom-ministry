@@ -67,23 +67,23 @@ class Form extends Component {
 
     this.checkEmail();
   }
-
-  handleBlur = ({ currentTarget: input }) => {
-    const { name } = input;
-    const errors = { ...this.state.errors };
-    const errorMessage = this.validateProperty(input);
-    if (errorMessage) errors[name] = errorMessage;
-    else delete errors[name];
-    this.setState({ errors });
-  };
-
+  
   handleChange = ({ currentTarget: input, target }) => {
     const { name, value, type } = input;
-
+    const errors = { ...this.state.errors };
+    
     const data = { ...this.state.data };
     const file = target.files ? target.files[0] : '';
     const dataToSend = file !== '' ? convertToBase64(file) : '';
+    const errorMessage = this.validateProperty(input);
+
+    if (errorMessage) errors[name] = errorMessage;
+    else delete errors[name];
+
+    this.setState({ errors });
+
     data[name] = value;
+
     type === 'file'
       ? this.setState({ data: { selectedFile: data.selectedFile, photoUrl: dataToSend, fileData: file } })
       : this.setState({ data });
@@ -119,7 +119,6 @@ class Form extends Component {
         disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
-        onBlur={this.handleBlur}
         classes={classes}
       />
     );
@@ -137,7 +136,6 @@ class Form extends Component {
         disabled={disabled}
         error={errors[name]}
         onChange={this.handleChange}
-        onBlur={this.handleBlur}
         classes={classes}
       />
     );
@@ -154,7 +152,6 @@ class Form extends Component {
         value={data[name]}
         error={errors[name]}
         onChange={this.handleChange}
-        onBlur={this.handleBlur}
         classes={classes}
       />
     );
@@ -170,7 +167,6 @@ class Form extends Component {
         label={label}
         options={options}
         onChange={this.handleChange}
-        onBlur={this.handleBlur}
         error={errors[name]}
         classes={classes}
       />
@@ -187,7 +183,6 @@ class Form extends Component {
         value={data[name]}
         options={options}
         oonChange={this.handleChange}
-        onBlur={this.handleBlur}
         error={errors[name]}
       />
     );
@@ -203,7 +198,6 @@ class Form extends Component {
         value={data[name]}
         options={options}
         onChange={this.handleChange}
-        onBlur={this.handleBlur}
         error={errors[name]}
         checked={checkedOption}
       />
@@ -220,7 +214,6 @@ class Form extends Component {
         value={data[name]}
         options={options}
         onChange={this.handleChange}
-        onBlur={this.handleBlur}
         error={errors[name]}
         checked={checkedOption}
       />

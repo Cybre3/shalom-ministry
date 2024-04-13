@@ -14,12 +14,12 @@ import Nav from './Components/Nav/Nav';
 import RegisterForm from './Components/Register/Register';
 import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
 import Emailsend from './Components/Emailsend';
+import NotFound from './Components/NotFound';
 
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-multi-carousel/lib/styles.css';
-import NotFound from './Components/NotFound';
 
 const store = configureStore();
 
@@ -63,10 +63,6 @@ class App extends Component {
                 <Route path="/register/:id" element={<RegisterForm />} />
                 <Route path="/registrars/cwat-register/:id" element={<CWATregister />} />
                 <Route path="/emailsend" element={<Emailsend />} />
-
-
-
-
               </Routes>
 
               {/* <button

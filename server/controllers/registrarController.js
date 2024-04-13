@@ -1,7 +1,8 @@
 const _ = require('lodash');
 const { CwatRegistrar } = require('../models/cwatRegistrarModel');
-const { CwatUnregistered } = require('../models/cwatUnregisteredModel');
-const { CwatTicket } = require('../models/cwatTicketModel');
+// const { CwatUnregistered } = require('../models/cwatUnregisteredModel');
+// const { CwatTicket } = require('../models/cwatTicketModel');
+
 
 module.exports = {
   get: {
@@ -43,7 +44,7 @@ module.exports = {
   },
 
   post: {
-    saveNewCwatRegistrar: async (req, res) => {
+    saveNewCwatRegistrar: async (req, res, next) => {
       const {
         email,
         emergencyEmail,
@@ -52,19 +53,16 @@ module.exports = {
         firstname,
         lastname,
         phone,
-        ticketPurchaseData,
-        ticketOptionData,
-        ticketOption,
       } = req.body;
       const registrar = req.body;
       const checkNameAgainst = firstname + ' ' + lastname;
       const [eFirstname, eLastname] = emergencyFullName.split(' ');
 
-      const registrarHasUnregisteredTicket = await CwatUnregistered.findOne({
-        $or: [{ firstname, lastname }, { firstname }],
-      });
-      if (registrarHasUnregisteredTicket && !ticketPurchaseData._id)
-        return res.status(400).send('Please enter ticket code!');
+      // const registrarHasUnregisteredTicket = await CwatUnregistered.findOne({
+      //   $or: [{ firstname, lastname }, { firstname }],
+      // });
+      // if (registrarHasUnregisteredTicket && !ticketPurchaseData._id)
+      //   return res.status(400).send('Please enter ticket code!');
 
       let cwatRegistrar = await CwatRegistrar.findOne({ email });
       if (cwatRegistrar)
@@ -79,19 +77,91 @@ module.exports = {
       if ([firstname, lastname].includes(emergencyFullName))
         return res.status(400).send('Emergency Full Name must be different.');
 
-      if (ticketOption && !ticketOptionData._id) {
-        const cwatTicketData = await CwatTicket.findOne({ label: ticketOption });
-        registrar.ticketOptionData = { ...cwatTicketData };
+      // if (ticketOption && !ticketOptionData._id) {
+      //   const cwatTicketData = await CwatTicket.findOne({ label: ticketOption });
+      //   registrar.ticketOptionData = { ...cwatTicketData };
 
-        await CwatTicket.downCountByOne(ticketOption);
-      }
+      //   await CwatTicket.downCountByOne(ticketOption);
+      // }
 
-      cwatRegistrar = new CwatRegistrar({ ...registrar });
+      cwatRegistrar = new CwatRegistrar(req.body);
 
       await cwatRegistrar.save();
-      res
-        .status(200)
-        .send(_.pick(cwatRegistrar, ['_id', 'firstname', 'lastname', 'email', 'ticketOptionData']));
+
+
+      const systemEmailDetail = ({
+        msg: "Thank you for registering for Confernece with a Twist!", 
+        instructionMsg: `Save the dates for CWAT! <br /> <br /> August 8th - 11th`,
+        subject: 'Registration Confirmation',
+        email,
+        firstname
+      })
+
+      const data = [
+        {
+          title: 'Registrar',
+          data: [
+            {
+              type: 'Firstname',
+              info: firstname
+            },
+            {
+              type: 'Lastname',
+              info: lastname
+            },
+            {
+              type: 'Phone',
+              info: phone
+            },
+            {
+              type: 'Email',
+              info: email
+            },
+            {
+              type: 'Room Selection',
+              info: req.body.bedReq
+            },
+            {
+              type: 'Shirt Size',
+              info: req.body.shirtSize
+            },
+          ]
+        },
+        {
+          title: 'Emergency Contact',
+          data: [
+            {
+              type: 'Emergency Contact Name',
+              info: emergencyFullName
+            },
+            {
+              type: 'Emergency Contact Phone',
+              info: emergencyPhone
+            },
+            {
+              type: 'Emergency Contact Email',
+              info: emergencyEmail
+            },
+          ]
+        }
+      ]
+
+      const adminEmail = {
+        subject: `CWAT Registration from ${firstname} ${lastname}`,
+        email: process.env.SHALOM_9_EMAIL,
+        firstname: 'Admin',
+        moreInfo: data,
+        msg: [`${firstname} ${lastname} has registered for CWAT!`, 'Please see the registration below:'],
+        instructionMsg: `${firstname} has the follow allergies: ${req.body.allergies} <br /> <br /> <br /> Questions/Comments from ${firstname}: ${req.body.questions} <br /> <br /> <br /> If you would like to respond to the registrar questions/comments, click on the registrar email above.`
+      }
+
+      req.systemEmailDetail = systemEmailDetail;
+      req.adminEmail = adminEmail
+
+      next();
+      // res
+      //   .status(200)
+      //   .send(_.pick(cwatRegistrar, ['_id', 'firstname', 'lastname', 'email', 'bedReq']));
     },
   },
 

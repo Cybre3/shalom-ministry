@@ -31,7 +31,8 @@ module.exports = {
         spaNsip: "url('../../assets/Home/spa&sip_Instagram.png')",
         'shalom-watermark': "url('./assets/Aboutus/SM-Logo-Watermark.png')",
         'shalom-gradient': "url('./assets/SM-Dove-Gradient-Stroke.png')",
-        'clouds': "url('./assets/clouds.png')"
+        'clouds': "url('./assets/clouds.png')",
+        'cwatHombre': "url('./assets/Register/cwat-square.png')"
       },
       borderRadius: {
         50: '50%',
