@@ -8,7 +8,7 @@ import { TOTAL_SCREENS } from '../../utilities/screens';
 
 function MobileNavMenu(props) {
   return (
-    <div className='fixed flex bottom-0 left-0 right-0 justify-around bg-purple-800 z-10 p-6 text-white lg:hidden overflow-x-hidden'>
+    <div className='fixed flex bottom-0 left-0 right-0 justify-around bg-purple-950 z-10 p-6 text-white lg:hidden overflow-x-hidden'>
       {TOTAL_SCREENS.map((screen) => (
 
         <NavLink

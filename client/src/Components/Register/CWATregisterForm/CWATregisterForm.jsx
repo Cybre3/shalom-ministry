@@ -80,7 +80,7 @@ class CWATRegister extends Form {
   dropdownClasses = {
     inputContainer: 'w-2/3 text-left my-4 h-fit text-lg',
     labelClass: '',
-    inputClass: 'w-full h-3/4 py-1 px-2 mt-2 border border-black/60 py-2',
+    inputClass: 'w-full h-3/4 py-1 px-2 mt-2 bg-white border border-black/60 py-2',
     optionClass: ''
   }
 
