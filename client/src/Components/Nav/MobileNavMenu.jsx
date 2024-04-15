@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Menu, Transition } from '@headlessui/react';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { Menu, Transition } from '@headlessui/react';
 
 import { TOTAL_SCREENS } from '../../utilities/screens';
 // import { generateUserOptions } from './userOptions';

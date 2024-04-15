@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
 // import _ from 'lodash';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 
 import Form from '../../common/form';
