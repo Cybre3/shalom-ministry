@@ -6,12 +6,14 @@ export const TOTAL_SCREENS = [
   {
     screen_name: 'Home',
     component: Home,
-    path: ''
+    path: '',
+    icon: <div className='fa fa-home text-center'>  <p className='flex text-xs'>Home</p> </div>
   },
   {
     screen_name: 'Meet the Ambassaadors',
     component: AboutUs,
-    path: 'about-us'
+    path: 'about-us',
+    icon: <div className='fa fa-users text-center'> <p className='flex text-xs'>About Us</p> </div>
   },
 ];
 

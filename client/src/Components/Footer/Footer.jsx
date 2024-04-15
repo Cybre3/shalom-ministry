@@ -52,7 +52,7 @@ function Footer(props) {
     return <></>;
 
   return (
-    <footer className="relative w-full bg-black py-4 text-white">
+    <footer className="relative w-full bg-black py-4 text-white pb-32 xl:pb-4">
       <div className="ml-auto mr-0 h-fit w-fit">
         {links.map((link) => (
           <a href={link.url} className="" key={link._id}>
@@ -60,11 +60,13 @@ function Footer(props) {
           </a>
         ))}
       </div>
-      <div className="flex w-full justify-around text-center md:justify-center md:gap-12 lg:gap-20 xl:gap-32">
+
+      <div className="flex lg:flex-row flex-col w-full justify-around text-center md:justify-center md:gap-12 lg:gap-20 xl:gap-32">
         <FooterSection header="Ways to Give" list={waysToGive} path="/give/new" />
         <FooterSection header="Contact Us" list={contactUs} path="/contact-us/new" />
       </div>
-      <div className="flex-column lg:text-md mx-auto w-fit text-center text-xs text-white md:absolute md:bottom-2 md:left-2 lg:bottom-4 lg:left-4">
+
+      <div className="flex flex-col lg:absolute lg:text-md mx-auto w-fit text-center text-xs text-white md:bottom-2 md:left-2 lg:bottom-4 lg:left-4">
         <NavLink to="/">
           <img
             className="mx-auto w-10"
@@ -76,6 +78,8 @@ function Footer(props) {
           Privacy & Liability
         </NavLink>
       </div>
+
+      
       {/* add privacy link under est logo */}
     </footer>
   );

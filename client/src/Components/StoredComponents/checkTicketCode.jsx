@@ -1,9 +1,9 @@
 import React from 'react';
-import Form from './../../common/form';
+import Form from '../common/form';
 import Joi from 'joi-browser';
 import $ from 'jquery';
 
-import { getCwatUnregistrarTicket } from '../../../services/ticketSetvice';
+import { getCwatUnregistrarTicket } from '../../services/ticketSetvice';
 
 class CheckTicketCode extends Form {
   state = {

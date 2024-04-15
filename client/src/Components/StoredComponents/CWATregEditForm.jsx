@@ -3,12 +3,12 @@ import { toast } from 'react-toastify';
 import Joi from 'joi-browser';
 import _ from 'lodash';
 
-import Form from '../../common/form';
-import { saveRegistrar, getCWATregistrarById } from '../../../services/registrarService';
-import { getCwatTicketTypes } from './../../../services/ticketSetvice';
-import { getConstant } from '../../../services/constantService';
+import Form from '../common/form';
+import { saveRegistrar, getCWATregistrarById } from '../../services/registrarService';
+import { getCwatTicketTypes } from '../../services/ticketSetvice';
+import { getConstant } from '../../services/constantService';
 import CheckTicketCode from './checkTicketCode';
-import withRouter from '../../../utilities/withRouter';
+import withRouter from '../../utilities/withRouter';
 
 import CWATpPlan from '../../../assets/Register/Payment-Plan--CWAT-Registration-Page-trnsprnt.png';
 
