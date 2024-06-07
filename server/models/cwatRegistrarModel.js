@@ -56,10 +56,6 @@ const cwatRegistrarSchema = new mongoose.Schema({
     type: String,
     default: new Date().toISOString().substring(0, 10),
   },
-  shirtSize: {
-    type: String,
-    required: true,
-  },
   bedReq: {
     type: String,
     required: true
