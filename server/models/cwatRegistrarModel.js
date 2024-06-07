@@ -79,7 +79,6 @@ function validateCwatRegistrar(input) {
     emergencyFullName: Joi.string().min(2).max(50).required(),
     emergencyEmail: Joi.string().email().min(5).max(255).required(),
     emergencyPhone: JoiPhone.string().phoneNumber().required(),
-    shirtSize: Joi.string().required(),
     bedReq: Joi.string().required(),
   });
 
