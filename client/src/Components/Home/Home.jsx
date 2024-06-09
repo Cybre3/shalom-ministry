@@ -5,7 +5,7 @@ import MissionStatement from './../common/missionStatement/MissionStatement';
 import Scripture from '../common/Scripture';
 import Branches from '../common/Branches';
 import Umbrella from '../common/Umbrella';
-import UpcomingEvents from '../UpcomingEvents';
+// import UpcomingEvents from '../UpcomingEvents';
 
 import './home.css';
 
