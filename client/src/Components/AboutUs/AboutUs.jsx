@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import Ambassador from './Ambassador';
 
 import dorisPresident from '../../assets/Aboutus/Doris.jpg';
+import rebekaVP from '../../assets/Aboutus/Rebeka.JPG';
 import mayaTreasurer from '../../assets/Aboutus/Maya.webp';
 import zecheriah from '../../assets/Aboutus/Zecheriah.jpg';
 import tonya from '../../assets/Aboutus/Tonya.jpeg';
@@ -25,6 +26,22 @@ const ambassadors = [
         assisted with starting family businesses, and financially supported hospitals for widows and
         orphans. Her decades of mental health experience has also impacted her service to Shalom
         Ministry Corporation.
+      </Fragment>
+    ),
+  },
+  {
+    _id: 2,
+    name: 'Rebeka Fleurjuste',
+    title: 'Vice President',
+    photo: rebekaVP,
+    bio: (
+      <Fragment>
+        {/*      Rebeka Fleurjuste serves as Vice President to Shalom Ministry.
+        <br /> */}
+        She brings years of ministerial experience from Cornerstone Haitian Baptist Church where she
+        also serves as a praise and worship leader and Vice President of the Young Adults Ministry.
+        Rebeka inspires to demonstrate the love of Jesus Christ through Shalom’s mission which is to
+        holistically heal everyone that encounters this faith filled ministry.
       </Fragment>
     ),
   },
