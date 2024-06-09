@@ -9,12 +9,12 @@ import configureStore from './store/configureStore'
 
 import AboutUs from './Components/AboutUs/AboutUs';
 import Footer from './Components/Footer/Footer';
-// import Home from './Components/Home/Home';
+import Home from './Components/Home/Home';
 import Nav from './Components/Nav/Nav';
 import RegisterForm from './Components/Register/Register';
 import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
 import Emailsend from './Components/Emailsend';
-import NotFound from './Components/NotFound';
+// import NotFound from './Components/NotFound';
 
 
 import './App.css';
@@ -58,7 +58,7 @@ class App extends Component {
             <Nav user={user} />
             <main className="container">
               <Routes>
-                <Route exact path="/" element={<NotFound />} />
+                <Route exact path="/" element={<Home />} />
                 <Route path="/about-us" element={<AboutUs />} />
                 <Route path="/register/:id" element={<RegisterForm />} />
                 <Route path="/registrars/cwat-register/:id" element={<CWATregister />} />

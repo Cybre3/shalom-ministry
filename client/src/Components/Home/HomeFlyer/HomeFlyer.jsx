@@ -1,21 +1,37 @@
 import React from 'react';
+
 import test from '../../../assets/Login/WhatsApp Image 2023-02-28 at 8.41.46 PM.jpeg';
+import paintingAct from '../../../assets/Home/WWSashoy.jpg';
+import womanPool from '../../../assets/Home/womanpool.JPG';
+import skypray from '../../../assets/Home/skypray smots423.jpg';
+import dorisNkids from '../../../assets/Home/dorisNkids.png';
+import internaionalLunch from '../../../assets/Home/Nadeige Eats.jfif';
+import churchFam from '../../../assets/Home/church doris sows into.jpg';
+import internationalLunchStaff from '../../../assets/Login/Registration Image 2.jfif';
+
 
 import './homeFlyer.css';
+
+const flyerItems = [
+  { id: 1, src: womanPool, alt: 'womanPool image' },
+  { id: 4, src: dorisNkids, alt: 'dorisNkids image' },
+  { id: 3, src: skypray, alt: 'skypray image' },
+  { id: 5, src: churchFam, alt: 'churchFam image' },
+  { id: 6, src: internationalLunchStaff, alt: 'internationalLunchStaff image' },
+  { id: 2, src: paintingAct, alt: 'paintingAct image' },
+  { id: 7, src: internaionalLunch, alt: 'internaionalLunch image' },
+  { id: 8, src: test, alt: 'test' },
+]
 
 function HomeFlyer(props) {
   return (
     <div className="mt-20 h-screen">
       <div className='grid grid-rows-2 grid-cols-4'>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-        <img src={test} alt="test" className='transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125'/>
-       
+        {flyerItems.map(item => (
+          <img src={item.src} alt={item.alt} width='400' className='h-56 transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125' />
+        ))}
+
+
       </div>
 
     </div>

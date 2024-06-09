@@ -32,7 +32,10 @@ module.exports = {
         'shalom-watermark': "url('./assets/Aboutus/SM-Logo-Watermark.png')",
         'shalom-gradient': "url('./assets/SM-Dove-Gradient-Stroke.png')",
         'clouds': "url('./assets/clouds.png')",
-        'cwatHombre': "url('./assets/Register/cwat-square.png')"
+        'cwatHombre': "url('./assets/Register/cwat-square.png')",
+        'scriptureBlue': "url('./assets/Home/SM-web-revamp-blue.png')",
+        'shalomCorner': "url('./assets/Home/SM-web-revamp-blue-corner.png')",
+
       },
       borderRadius: {
         50: '50%',
