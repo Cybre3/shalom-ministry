@@ -52,11 +52,11 @@ function Footer(props) {
     return <></>;
 
   return (
-    <footer className="relative w-full bg-black py-4 text-white pb-32 xl:pb-4">
-      <div className="ml-auto mr-0 h-fit w-fit">
+    <footer className="relative w-full bg-black py-6 text-white pb-32 xl:pb-4">
+      <div className="ml-auto mr-10 h-fit w-fit space-x-6">
         {links.map((link) => (
           <a href={link.url} className="" key={link._id}>
-            <i className={`${link.class} w-10 p-2 text-white hover:scale-150`}></i>
+            <i className={`${link.class} fa-lg scale-110 text-white text-center hover:scale-125`}></i>
           </a>
         ))}
       </div>
@@ -66,10 +66,10 @@ function Footer(props) {
         <FooterSection header="Contact Us" list={contactUs} path="/contact-us/new" />
       </div>
 
-      <div className="flex flex-col lg:absolute lg:text-md mx-auto w-fit text-center text-xs text-white md:bottom-2 md:left-2 lg:bottom-4 lg:left-4">
+      <div className="flex flex-col lg:absolute lg:text-md mx-auto w-fit text-center text-xs text-white md:bottom-2 md:left-2 lg:bottom-4 lg:left-12">
         <NavLink to="/">
           <img
-            className="mx-auto w-10"
+            className="mx-auto w-16"
             src={require('../../assets/Footer/SM_Graphic Kit_2022_transparent.png')}
             alt="shalom-ministry-logo"
           />

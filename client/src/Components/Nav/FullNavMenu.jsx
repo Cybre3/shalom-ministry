@@ -29,7 +29,7 @@ function FullNavMenu(props) {
         <img src={navLogo} alt="shalom ministry logo" className="h-16 w-16 rounded-50 bg-white" />
         <span className='text-4xl'>SHALOM MiNiSTRY</span>
       </NavLink>
-      <div className="flex pt-4" id="nav-options">
+      <div className="flex pt-4 text-xl" id="nav-options">
         {getHeaderOptions()}
       </div>
     </div>

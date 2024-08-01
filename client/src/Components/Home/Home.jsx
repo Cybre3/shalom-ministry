@@ -18,7 +18,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="relative bg-neutral-50 w-screen pt-10 lg:pt-16 text-sky-900">
+      <div className="relative bg-neutral-50 w-screen pt-10 lg:pt-24 text-sky-900">
         <HomeFlyer />
 
         {/*   <div className='flex col block w-1/2 h-3/4 bg-neutral-500 z-20 mx-auto rounded rounded-md'>

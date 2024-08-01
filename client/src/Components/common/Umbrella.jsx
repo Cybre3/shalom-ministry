@@ -13,18 +13,18 @@ const items = [
 
 function Umbrella() {
     return (
-        <div className='w-screen h-full text-center pt-32 pb-32'>
+        <div className='w-screen h-full text-center pt-32 pb-56'>
             <div className='w-full h-full'>
 
-                <h2 className='text-8xl w-full' >The SHALOM MiNiSTRY Umbrella</h2>
+                <h2 className='text-9xl w-full' >The SHALOM MiNiSTRY Umbrella</h2>
 
-                <p className='w-3/4 px-16 mx-auto text-lg'>Shalom Ministry is dedicated to uplift entrpreneurs and visionaries who are passionate about serving as ambassadors for the Kingdom of Yeshua and sharing their hearts for people. Learn more about the organizations, entrpreneurs, and services that Shalom Ministry oversees!</p>
+                <p className='w-4/5 px-12 mx-auto text-3xl tracking-tighter'>Shalom Ministry is dedicated to uplift entrpreneurs and visionaries who are passionate about serving as ambassadors for the Kingdom of Yeshua and sharing their hearts for people. Learn more about the organizations, entrpreneurs, and services that Shalom Ministry oversees!</p>
 
                 <div className='flex h-3/4 mx-32 items-center'>
                     {items.map(item => (
-                        <div className='flex flex-col w-1/3 h-2/3 justify-between items-center even:pt-10' >
-                            <img className='w-[300px]' src={item.src} alt={item.alt} />
-                            <p className='w-3/4 px-2 mb-2 text-lg'>{item.text}</p>
+                        <div className='flex flex-col w-1/3 h-2/3 justify-between items-center pt-10' >
+                            <img className='w-[475px] h-[450px]' src={item.src} alt={item.alt} />
+                            <p className='w-auto px-5 pt-6 mb-2 text-3xl'>{item.text}</p>
                         </div>
                     ))}
                 </div>
@@ -35,4 +35,4 @@ function Umbrella() {
     )
 }
 
-export default Umbrella
+export default Umbrella;
