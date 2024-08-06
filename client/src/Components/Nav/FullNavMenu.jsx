@@ -25,11 +25,11 @@ function FullNavMenu(props) {
       className="absolute z-10 hidden w-full items-center justify-between p-2 pr-12 lg:flex lg:transition lg:duration-300 lg:ease-in-out"
       id="navbar"
     >
-      <NavLink className="transition duration-300 ease-in-out flex justify-center items-center space-x-2 text-blue-900" to="/">
-        <img src={navLogo} alt="shalom ministry logo" className="h-16 w-16 rounded-50 bg-white" />
-        <span className='text-4xl'>SHALOM MiNiSTRY</span>
+      <NavLink className="transition duration-300 ease-in-out flex justify-center items-center text-blue-900" to="/">
+        <img src={navLogo} alt="shalom ministry logo" className="h-12 w-12 rounded-50 bg-white" />
+        <span className='text-2xl'>SHALOM MiNiSTRY</span>
       </NavLink>
-      <div className="flex pt-4 text-xl" id="nav-options">
+      <div className="flex pt-4 text-md" id="nav-options">
         {getHeaderOptions()}
       </div>
     </div>
