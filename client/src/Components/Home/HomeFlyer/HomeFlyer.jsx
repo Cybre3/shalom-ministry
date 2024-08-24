@@ -25,8 +25,8 @@ const flyerItems = [
 
 function HomeFlyer(props) {
   return (
-    <div className="mt-20 h-screen">
-      <div className='grid grid-rows-2 grid-cols-4 h-3/5'>
+    <div className="h-screen">
+      <div className='grid grid-rows-2 grid-cols-4 h-3/4 border p-4 py-12 border-black border-4 border-l-0'>
         {flyerItems.map(item => (
           <img src={item.src} alt={item.alt} className='w-full h-full transition ease-in-out duration-500 grayscale hover:grayscale-0 hover:scale-125 hover:scale-y-150 hover:z-10 scale-y-125 hover:border-2 hover:border-white hover:rounded' />
         ))}

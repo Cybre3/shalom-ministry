@@ -10,18 +10,18 @@ const Scripture = () => {
         <div className='w-screen h-screen bg-scriptureBlue bg-cover bg-center bg-no-repeat mt-10'>
             <div className='container flex flex-col w-full h-full mx-auto items-center justify-center'>
 
-                <div className='text-white italic mb-10'>
-                    <p className='text-[6rem] font-thin w-full leading-[7rem]'>
+                <div className='flex flex-col h-1/2 text-white italic mb-[-40px]'>
+                    <p className='text-[5rem] font-thin w-full leading-[7rem]'>
                         {scriptureText}
                         <span className='ml-3 text-2xl space-x-3'>
                             {scriptureReference.map(text => text)}
                         </span>
                     </p>
+                    <p className='text-blue-800 text-3xl italic'>
+                        {scriptureSubText}
+                    </p>
                 </div>
 
-                <p className='text-blue-800 text-3xl mr-16 italic'>
-                    {scriptureSubText}
-                </p>
             </div>
         </div>
     );
