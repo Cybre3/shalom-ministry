@@ -16,7 +16,7 @@ function Umbrella() {
         <div className='w-screen h-full text-center py-20'>
             <div className='container w-full h-full'>
 
-                <h2 className='text-8xl w-full' >The SHALOM MINISTRY Umbrella</h2>
+                <h2 className='lg:text-8xl w-full' >The SHALOM MINISTRY Umbrella</h2>
 
                 <p className='w-4/5 px-10 mx-auto text-2xl tracking-tighter'>Shalom Ministry is dedicated to uplift entrpreneurs and visionaries who are passionate about serving as ambassadors for the Kingdom of Yeshua and sharing their hearts for people. Learn more about the organizations, entrpreneurs, and services that Shalom Ministry oversees!</p>
 

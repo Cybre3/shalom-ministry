@@ -25,3 +25,8 @@ button .load img {
   margin-left: 0.5vw;
   width: 60px;
 }
+
+body,
+html {
+  overflow-x: hidden;
+}

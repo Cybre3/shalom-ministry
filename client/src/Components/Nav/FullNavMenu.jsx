@@ -27,7 +27,7 @@ function FullNavMenu(props) {
     >
       <NavLink className="transition duration-300 ease-in-out flex justify-center items-center text-blue-900" to="/">
         <img src={navLogo} alt="shalom ministry logo" className="h-12 w-12 rounded-50 bg-white" />
-        <span className='text-2xl'>SHALOM MiNiSTRY</span>
+        <span className='text-2xl'>SHALOM MINISTRY</span>
       </NavLink>
       <div className="flex pt-4 text-md" id="nav-options">
         {getHeaderOptions()}

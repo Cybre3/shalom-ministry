@@ -56,7 +56,7 @@ class App extends Component {
             <ScrollToTop />
             <ToastContainer position='top-center' newestOnTop={true} transition={Slide} progressStyle={false} />
             <Nav user={user} />
-            <main className="container">
+            <main className="">
               <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/about-us" element={<AboutUs />} />
@@ -83,7 +83,7 @@ class App extends Component {
             <Footer />
           </BrowserRouter>
         </Provider>
-      </React.Fragment >
+      </React.Fragment>
     );
   }
 }
