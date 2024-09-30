@@ -11,8 +11,8 @@ module.exports = {
         'spin-slow': 'spin 2s linear infinite',
         'shake-left-right': 'shake-left-right 6s linear 3s infinite',
         'shake-up-down': 'shake-up-down 8s linear 3s infinite',
-        'slideIn': 'slideIn 1s linear',
-        'fadeIn': 'fadeIn 3s',
+        slideIn: 'slideIn 1s linear',
+        fadeIn: 'fadeIn 3s',
       },
       backgroundSize: {
         50: '50%',
@@ -31,12 +31,14 @@ module.exports = {
         spaNsip: "url('../../assets/Home/spa&sip_Instagram.png')",
         'shalom-watermark': "url('./assets/Aboutus/SM-Logo-Watermark.png')",
         'shalom-gradient': "url('./assets/SM-Dove-Gradient-Stroke.png')",
-        'clouds': "url('./assets/clouds.png')",
-        'cwatHombre': "url('./assets/Register/cwat-square.png')",
-        'scriptureBlue': "url('./assets/Home/SM-web-revamp-blue.png')",
-        'shalomCorner': "url('./assets/Home/SM-web-revamp-blue-corner.png')",
-
+        clouds: "url('./assets/clouds.png')",
+        cwatHombre: "url('./assets/Register/cwat-square.png')",
+        scriptureBlue: "url('./assets/Home/SM-web-revamp-blue.png')",
+        shalomCorner: "url('./assets/Home/SM-web-revamp-blue-corner.png')",
       },
+     /*  text: {
+        staggar: { 'shape-outside': 'polygon(0 0, 100% 0, 0% 100%)' },
+      }, */
       borderRadius: {
         50: '50%',
       },
@@ -77,12 +79,12 @@ module.exports = {
         },
         slideIn: {
           from: { transform: 'translateY(-250px)' },
-          to: { transform: 'translateY(0px)' }
+          to: { transform: 'translateY(0px)' },
         },
         fadeIn: {
           from: { opacity: 0 },
-          to: { opacity: 1 }
-        }
+          to: { opacity: 1 },
+        },
       },
       fontFamily: {
         'roboto-condensed': ['Roboto Condensed', 'sans-serif'],

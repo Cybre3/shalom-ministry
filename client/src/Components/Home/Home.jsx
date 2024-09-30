@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import HomeFlyer from './HomeFlyer/HomeFlyer';
-import MissionStatement from './../common/missionStatement/MissionStatement';
-import Scripture from '../common/Scripture';
-import Branches from '../common/Branches';
-import Umbrella from '../common/Umbrella';
+import MissionStatement from './missionStatement/MissionStatement';
+import Scripture from './Scripture';
+import Branches from './Branches';
+import Umbrella from './Umbrella';
 // import UpcomingEvents from '../UpcomingEvents';
 
 import './home.css';
