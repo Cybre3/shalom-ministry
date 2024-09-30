@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react';
 import Ambassador from './Ambassador';
 
 import dorisPresident from '../../assets/Aboutus/Doris.jpg';
-import rebekaVP from '../../assets/Aboutus/Rebeka.JPG';
+// import rebekaVP from '../../assets/Aboutus/Rebeka.JPG';
 import mayaTreasurer from '../../assets/Aboutus/Maya.webp';
 import zecheriah from '../../assets/Aboutus/Zecheriah.jpg';
 import tonya from '../../assets/Aboutus/Tonya.jpeg';
