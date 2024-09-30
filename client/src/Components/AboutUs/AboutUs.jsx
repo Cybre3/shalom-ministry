@@ -98,13 +98,17 @@ const ambassadors = [
 class AboutUs extends Component {
   render() {
     return (
-      <div className="about-us-container">
-        <div className="mx-auto my-16 lg:my-44 w-10/12 xl:w-3/4 2xl:w-[60%]">
-          <h1 className="mb-16 text-4xl font-bold">Shalom Ministry Ambassadors</h1>
-          <div className="bg-transparent md-lg:bg-black space-y-16 md-lg:space-y-8 lg:mt-32">
-            {ambassadors.map((ambassador) => (
-              <Ambassador ambassador={ambassador} key={ambassador._id} />
-            ))}
+      <div className="h-fit w-screen">
+        <div className="h-full w-full py-32 text-center">
+          <div className="mx-auto w-full p-12 px-0">
+            <h1 className="mb-16 text-4xl font-bold uppercase drop-shadow">
+              Shalom Ministry Ambassadors
+            </h1>
+            <div className="flex h-full w-full items-center justify-around rounded-md p-10">
+              {ambassadors.map((ambassador) => (
+                <Ambassador ambassador={ambassador} key={ambassador._id} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ module.exports = {
         scriptureBlue: "url('./assets/Home/SM-web-revamp-blue.png')",
         shalomCorner: "url('./assets/Home/SM-web-revamp-blue-corner.png')",
       },
-     /*  text: {
+      /*  text: {
         staggar: { 'shape-outside': 'polygon(0 0, 100% 0, 0% 100%)' },
       }, */
       borderRadius: {
@@ -100,5 +100,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@xpd/tailwind-3dtransforms')],
 };
