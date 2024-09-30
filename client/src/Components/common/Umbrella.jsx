@@ -14,7 +14,7 @@ const items = [
 function Umbrella() {
     return (
         <div className='w-screen h-full text-center py-20'>
-            <div className='container w-full h-full'>
+            <div className='w-full h-full'>
 
                 <h2 className='lg:text-8xl w-full' >The SHALOM MINISTRY Umbrella</h2>
 

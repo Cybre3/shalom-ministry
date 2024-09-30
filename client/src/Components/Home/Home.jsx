@@ -9,16 +9,10 @@ import Umbrella from '../common/Umbrella';
 
 import './home.css';
 
-
-
-
 class Home extends Component {
-
-
-
   render() {
     return (
-      <div className="relative bg-neutral-50 w-screen md:pt-10 lg:pt-24 text-sky-900">
+      <div className="relative w-screen bg-neutral-50 text-sky-900 md:pt-10 lg:pt-24">
         <HomeFlyer />
 
         {/*   <div className='flex col block w-1/2 h-3/4 bg-neutral-500 z-20 mx-auto rounded rounded-md'>
@@ -30,7 +24,7 @@ class Home extends Component {
         <Scripture />
         <Branches />
         <Umbrella />
-      {/*   <UpcomingEvents /> */}
+        {/*   <UpcomingEvents /> */}
       </div>
     );
   }

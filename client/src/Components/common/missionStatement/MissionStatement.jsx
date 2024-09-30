@@ -11,7 +11,7 @@ function MissionStatement(props) {
       Shalom Ministry meets the needs of the lost, broken, and wounded as Yeshua’s <br /> extension
       of holistic help to those in need. We are a non-profit organization <br /> whose ambassadors
       compassionately listen to the individuals we serve to <br /> understand their unique needs,
-      leading to their transformation. Our ministry <br /> b egan in 2018, when our founder was sent
+      leading to their transformation. Our ministry <br /> began in 2018, when our founder was sent
       by Yeshua to Eritrea and <br /> Ghana, where she preached the Gospel, helped build schools,
       and <br /> provided facilities to the underprivileged population of the region. <br /> These
       projects serve as Shalom Ministry's heritage, which are still <br /> supported! Today and
@@ -32,11 +32,11 @@ function MissionStatement(props) {
   const statementText = 'Shalom Ministry meets the needs of the lost, broken, & wounded...';
 
   return (
-    <div className="h-screen w-screen bg-shalom-watermark bg-[length:50%] bg-[-30%_60%] bg-no-repeat">
-      <div className="relative h-fit w-full text-center backdrop-blur lg:pb-32">
+    <div className="h-screen w-screen bg-shalom-watermark lg:bg-[length:50%] lg:bg-[-30%_60%] bg-center bg-cover bg-no-repeat">
+      <div className="relative h-full lg:h-fit w-full text-center backdrop-blur lg:pb-32">
         <div
           before-dynamic-value={statementText}
-          className={`lg:before:content-[""] lg:before:[] container mx-auto items-center justify-center before:absolute before:right-0 before:flex before:h-full before:w-full before:items-center before:rounded-md before:border-8 before:border-x-0 before:border-b-0 before:border-violet-900 before:bg-violet-200 before:pl-4 before:pr-3 before:text-right before:text-6xl before:leading-[6rem] before:opacity-10 before:content-[attr(before-dynamic-value)] lg:w-auto lg:before:right-24 lg:before:w-5/6 lg:before:opacity-20`}
+          className={`lg:before:[] container mx-auto items-center justify-center before:absolute before:right-0 before:flex before:h-full before:w-full before:items-center before:rounded-md before:border-8 before:border-x-0 before:border-b-0 before:border-violet-900 before:bg-violet-200 before:pl-4 before:pr-3 before:text-center before:text-6xl before:text-sky-500 before:leading-[6rem] before:opacity-10 before:content-[attr(before-dynamic-value)] lg:w-auto lg:before:right-24 lg:before:w-5/6 lg:before:opacity-20 lg:before:content-[""]`}
         >
           <h2 className="pt-10 text-4xl lg:text-8xl">
             MISSION <span className="">&</span> VISION

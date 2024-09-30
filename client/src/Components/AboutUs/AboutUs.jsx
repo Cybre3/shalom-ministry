@@ -29,22 +29,22 @@ const ambassadors = [
       </Fragment>
     ),
   },
-  {
-    _id: 2,
-    name: 'Rebeka Fleurjuste',
-    title: 'Vice President',
-    photo: rebekaVP,
-    bio: (
-      <Fragment>
-        {/*      Rebeka Fleurjuste serves as Vice President to Shalom Ministry.
-        <br /> */}
-        She brings years of ministerial experience from Cornerstone Haitian Baptist Church where she
-        also serves as a praise and worship leader and Vice President of the Young Adults Ministry.
-        Rebeka inspires to demonstrate the love of Jesus Christ through Shalom’s mission which is to
-        holistically heal everyone that encounters this faith filled ministry.
-      </Fragment>
-    ),
-  },
+  // {
+  //   _id: 2,
+  //   name: 'Rebeka Fleurjuste',
+  //   title: 'Vice President',
+  //   photo: rebekaVP,
+  //   bio: (
+  //     <Fragment>
+  //       {/*      Rebeka Fleurjuste serves as Vice President to Shalom Ministry.
+  //       <br /> */}
+  //       She brings years of ministerial experience from Cornerstone Haitian Baptist Church where she
+  //       also serves as a praise and worship leader and Vice President of the Young Adults Ministry.
+  //       Rebeka inspires to demonstrate the love of Jesus Christ through Shalom’s mission which is to
+  //       holistically heal everyone that encounters this faith filled ministry.
+  //     </Fragment>
+  //   ),
+  // },
   {
     _id: 3,
     name: 'Maya Singh',
