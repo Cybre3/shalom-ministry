@@ -7,6 +7,8 @@ import Branches from './Branches';
 import Umbrella from './Umbrella';
 // import UpcomingEvents from '../UpcomingEvents';
 
+import shOpenHousePic from '../../assets/Home/SMCOH-26TH-SQ.png';
+
 import './home.css';
 
 class Home extends Component {
@@ -14,6 +16,14 @@ class Home extends Component {
     return (
       <div className="relative w-screen bg-neutral-50 text-sky-900 md:pt-10 lg:pt-24">
         <HomeFlyer />
+
+        <div className="mb-28 h-fit w-screen lg:p-0 lg:mb-32 lg:h-screen">
+          <img
+            className="mx-auto lg:w-2/5 lg:border-2 lg:border-black lg:p-5"
+            src={shOpenHousePic}
+            alt="ShalomMinistryOpenHousePic"
+          />
+        </div>
 
         {/*   <div className='flex col block w-1/2 h-3/4 bg-neutral-500 z-20 mx-auto rounded rounded-md'>
           <img src={spaNsip} alt="test" />
