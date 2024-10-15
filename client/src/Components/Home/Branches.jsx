@@ -51,7 +51,7 @@ function Branches() {
   const { innerWidth: width } = window;
 
   return (
-    <div className="mb-20 w-screen lg:mt-20 lg:h-screen">
+    <div className="mb-20 w-screen lg:mt-20 lg:h-screen shadow-lg">
       <div className="mx-auto flex w-full flex-col items-center bg-shalomCorner bg-[length:800px_450px] bg-right-bottom bg-no-repeat lg:h-full">
         <h2 className="mb-10 bg-shalomCorner  bg-[length:2000px_400px] bg-clip-text bg-center bg-right bg-no-repeat text-center text-6xl text-transparent lg:mb-4 lg:text-right lg:text-8xl">
           MINISTRY BRANCHES

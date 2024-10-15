@@ -17,9 +17,9 @@ class Home extends Component {
       <div className="relative w-screen bg-neutral-50 text-sky-900 md:pt-10 lg:pt-24">
         <HomeFlyer />
 
-        <div className="mb-28 h-fit w-screen lg:p-0 lg:mb-32 lg:h-screen">
+        <div className="mb-28 h-fit w-screen lg:mb-32 lg:h-screen lg:p-0">
           <img
-            className="mx-auto lg:w-2/5 lg:border-2 lg:border-black lg:p-5"
+            className="mx-auto shadow-lg shadow-black lg:w-2/5 lg:border-2 lg:border-gray-300 lg:p-5"
             src={shOpenHousePic}
             alt="ShalomMinistryOpenHousePic"
           />
