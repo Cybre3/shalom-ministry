@@ -11,7 +11,7 @@ const Scripture = () => {
   const scriptureReference = [<span>Isaiah 61:1</span>, <span>Luke 4:18</span>];
 
   return (
-    <div className="h-screen w-screen bg-scriptureBlue bg-cover bg-center bg-no-repeat lg:mt-10 shadow-lg">
+    <div className="h-screen w-screen bg-scriptureBlue bg-cover bg-center bg-no-repeat lg:mt-10 lg:shadow-lg">
       <div className="container mx-auto flex h-full w-full flex-col items-center justify-center">
         <div className="mb-[-40px] flex h-1/2 flex-col italic text-white justify-center text-center lg:text-left">
           <p className="mb-10 w-full px-3 text-3xl font-thin lg:text-[5rem] lg:leading-[7rem]">

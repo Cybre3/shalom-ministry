@@ -99,12 +99,12 @@ class AboutUs extends Component {
   render() {
     return (
       <div className="h-fit w-screen">
-        <div className="h-full w-full py-32 text-center">
+        <div className="h-full w-full lg:py-32 text-center">
           <div className="mx-auto w-full p-12 px-0">
             <h1 className="mb-16 text-4xl font-bold uppercase drop-shadow">
               Shalom Ministry Ambassadors
             </h1>
-            <div className="flex h-full w-full items-center justify-around rounded-md p-10">
+            <div className="flex flex-col lg:flex-row h-full w-full lg:items-center lg:justify-around rounded-md py-10 lg:p-10 items-center">
               {ambassadors.map((ambassador) => (
                 <Ambassador ambassador={ambassador} key={ambassador._id} />
               ))}
