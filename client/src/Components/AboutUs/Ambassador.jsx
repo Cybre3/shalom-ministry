@@ -14,7 +14,7 @@ function Ambassador({ ambassador }) {
           <img className="rounded-md" src={ambassador.photo} alt="" />
         </div>
         <div
-          className="t-0 absolute space-y-4 rounded-md bg-white p-6 py-8 text-black shadow-lg shadow-indigo-950 transition duration-[1s] -rotate-y-180 transform backface-hidden group-hover:rotate-y-0"
+          className="t-0 absolute space-y-4 rounded-md bg-white p-6 py-8 text-black shadow-lg shadow-indigo-950 transition duration-[1s] -rotate-y-180 transform backface-hidden group-hover:rotate-y-0  border border-black"
           id="flip-card-back"
         >
           <h2 className="flex flex-col">
