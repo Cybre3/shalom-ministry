@@ -7,6 +7,7 @@ import dorisPresident from '../../assets/Aboutus/Doris.jpg';
 import mayaTreasurer from '../../assets/Aboutus/Maya.webp';
 import zecheriah from '../../assets/Aboutus/Zecheriah.jpg';
 import tonya from '../../assets/Aboutus/Tonya.jpeg';
+import jasmine from '../../assets/Aboutus/Jasmine.JPG';
 
 import './aboutUs.css';
 
@@ -14,7 +15,7 @@ const ambassadors = [
   {
     _id: 1,
     name: 'Doris E. Singh',
-    title: 'CEO',
+    title: 'VFP',
     photo: dorisPresident,
     bio: (
       <Fragment>
@@ -26,6 +27,22 @@ const ambassadors = [
         assisted with starting family businesses, and financially supported hospitals for widows and
         orphans. Her decades of mental health experience has also impacted her service to Shalom
         Ministry Corporation.
+      </Fragment>
+    ),
+  },
+  {
+    _id: 5,
+    name: 'Tonya Watts',
+    title: 'Vice President',
+    photo: tonya,
+    bio: (
+      <Fragment>
+        {/*  Tonya Watts serves as the Creative Director of Shalom Ministry Corp. <br /> */}
+        Growing up in the Caribbean, Tonya was raised to keep God central; and she leaves the touch
+        of her beliefs in everything she does. Her trade as a designer and interior architect allows
+        her to create buildings, homes, and spaces for people to gather, commune, and live in a way
+        that echoes what she believes. Tonya seeks to bring both her work ethic and faith to Shalom
+        Ministry.
       </Fragment>
     ),
   },
@@ -46,6 +63,18 @@ const ambassadors = [
   //   ),
   // },
   {
+    _id: 6,
+    name: 'Jasmine Camille',
+    title: 'Chief of Staff - Teams Director',
+    photo: jasmine,
+    bio: (
+      <Fragment>
+      
+        
+      </Fragment>
+    ),
+  },
+  {
     _id: 3,
     name: 'Maya Singh',
     title: 'Treasurer',
@@ -63,7 +92,7 @@ const ambassadors = [
   {
     _id: 4,
     name: 'Zechariah Singh',
-    title: 'Secretary',
+    title: 'Creative Director',
     photo: zecheriah,
     bio: (
       <Fragment>
@@ -75,22 +104,6 @@ const ambassadors = [
         Zechariah envisions building a brand that extends fashion beyond materiality and status to
         make it a means to holistically edify individuals and communities. He holds the same vision
         for his service through Shalom Ministry.
-      </Fragment>
-    ),
-  },
-  {
-    _id: 5,
-    name: 'Tonya Watts',
-    title: 'Creative Director',
-    photo: tonya,
-    bio: (
-      <Fragment>
-        {/*  Tonya Watts serves as the Creative Director of Shalom Ministry Corp. <br /> */}
-        Growing up in the Caribbean, Tonya was raised to keep God central; and she leaves the touch
-        of her beliefs in everything she does. Her trade as a designer and interior architect allows
-        her to create buildings, homes, and spaces for people to gather, commune, and live in a way
-        that echoes what she believes. Tonya seeks to bring both her work ethic and faith to Shalom
-        Ministry.
       </Fragment>
     ),
   },
