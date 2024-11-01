@@ -7,7 +7,7 @@ import Branches from './Branches';
 import Umbrella from './Umbrella';
 // import UpcomingEvents from '../UpcomingEvents';
 
-import shOpenHousePic from '../../assets/Home/SMCOH-26TH-SQ.png';
+// import shOpenHousePic from '../../assets/Home/SMCOH-26TH-SQ.png';
 
 import './home.css';
 
