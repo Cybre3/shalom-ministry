@@ -36,7 +36,7 @@ function MissionStatement(props) {
       <div className="relative h-full w-full text-center backdrop-blur lg:h-full lg:pb-32 mx-auto">
         <div
           before-dynamic-value={statementText}
-          className={`lg:before:[] container mx-auto items-center justify-center before:absolute before:right-0 before:flex before:h-full before:w-full before:items-center before:rounded-md before:border-8 before:border-x-0 before:border-b-0 before:border-violet-900 before:bg-violet-200 before:pl-4 before:pr-3 before:text-center before:text-6xl before:leading-[6rem] before:text-sky-500 before:opacity-10 before:content-[attr(before-dynamic-value)] lg:w-auto lg:before:right-48 lg:before:w-3/4 lg:before:opacity-30 lg:before:content-[""] before:shadow-lg before:shadow-black before:bottom-20`}
+          className={`lg:before:[] container mx-auto items-center justify-center before:absolute before:right-0 before:flex before:h-full before:w-full before:items-center before:rounded-md before:border-8 before:border-x-0 before:border-b-0 before:border-violet-900 before:bg-violet-200 before:pl-4 before:pr-3 before:text-center before:text-6xl before:leading-[6rem] before:text-sky-500 before:opacity-10 before:content-[attr(before-dynamic-value)] lg:w-auto lg:before:right-48 lg:before:w-3/4 lg:before:opacity-30 lg:before:content-[""] before:shadow-lg before:shadow-black before:bottom-6`}
         >
           <h2 className="pt-10 text-4xl lg:text-8xl">
             MISSION <span className="">&</span> VISION

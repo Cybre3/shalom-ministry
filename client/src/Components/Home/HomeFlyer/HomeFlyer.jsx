@@ -24,14 +24,14 @@ const flyerItems = [
 
 function HomeFlyer(props) {
   return (
-    <div className="hidden h-auto lg:block pt-10">
+    <div className="hidden h-auto pt-8 lg:block mb-[-100px]">
       <div className="bg-gradient-to-r from-violet-300 to-blue-300">
-        <div className="grid h-3/4 grid-cols-4 p-2 pr-6">
+        <div className="grid grid-cols-4 p-2 pt-6 pr-6">
           {flyerItems.map((item) => (
             <img
               src={item.src}
               alt={item.alt}
-              className="h-4/5 w-full scale-y-125 grayscale transition duration-500 ease-in-out hover:z-10 hover:scale-125 hover:scale-y-150 hover:rounded hover:border-2 hover:border-white hover:shadow-md hover:shadow-gray-500 hover:grayscale-0 py-2"
+              className="h-4/5 w-full scale-y-125 py-2 grayscale transition duration-500 ease-in-out hover:z-10 hover:scale-125 hover:scale-y-150 hover:rounded hover:border-2 hover:border-white hover:shadow-md hover:shadow-gray-500 hover:grayscale-0"
             />
           ))}
         </div>
