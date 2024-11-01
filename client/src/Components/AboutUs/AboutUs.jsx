@@ -8,6 +8,8 @@ import mayaTreasurer from '../../assets/Aboutus/Maya.webp';
 import zecheriah from '../../assets/Aboutus/Zecheriah.jpg';
 import tonya from '../../assets/Aboutus/Tonya.jpeg';
 import jasmine from '../../assets/Aboutus/Jasmine.JPG';
+import gracenie from '../../assets/Aboutus/Gracenie.jpg';
+import nicole from '../../assets/Aboutus/Nicole.jpg';
 
 import './aboutUs.css';
 
@@ -67,12 +69,7 @@ const ambassadors = [
     name: 'Jasmine Camille',
     title: 'Chief of Staff - Teams Director',
     photo: jasmine,
-    bio: (
-      <Fragment>
-      
-        
-      </Fragment>
-    ),
+    bio: <Fragment></Fragment>,
   },
   {
     _id: 3,
@@ -104,6 +101,30 @@ const ambassadors = [
         Zechariah envisions building a brand that extends fashion beyond materiality and status to
         make it a means to holistically edify individuals and communities. He holds the same vision
         for his service through Shalom Ministry.
+      </Fragment>
+    ),
+  },
+  {
+    _id: 7,
+    name: 'Gracenie Volcy',
+    title: 'Missions Director',
+    photo: gracenie,
+    bio: (
+      <Fragment>
+        Gracenie serves as Missions Director of Shalom Ministry. She loves to use my creative gifts
+        and encouraging words to help people push forward with their businesses, plans, and ideas.
+        She plans on using her gifts and talents to serve people in the kingdom and Shalom Ministry.
+      </Fragment>
+    ),
+  },
+  {
+    _id: 8,
+    name: 'Nicole Rodriguez',
+    title: 'Creative Team Co-Lead',
+    photo: nicole,
+    bio: (
+      <Fragment>
+       
       </Fragment>
     ),
   },
