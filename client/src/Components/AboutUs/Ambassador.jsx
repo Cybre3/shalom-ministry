@@ -3,7 +3,7 @@ import React from 'react';
 function Ambassador({ ambassador }) {
   return (
     <div
-      className="group h-[450px] w-[300px] bg-transparent perspective-800 lg:odd:mb-72 lg:even:mt-72 mb-20"
+      className="group h-[450px] w-[300px] bg-transparent perspective-800 lg:odd:mb-48 lg:even:mt-48 mb-20"
       id="flip-card"
     >
       <div className="relative flex h-full items-center">

@@ -28,29 +28,33 @@ function Umbrella() {
   const { innerWidth: width } = window;
 
   return (
-    <div className="h-full w-screen py-20 text-center">
-      <div className="h-full w-full">
+    <div className="h-fit w-screen py-20 text-center bg-violet-300/20">
+      <div className="h-fit w-full">
         <h2 className="mb-4 w-full px-2 text-4xl lg:text-8xl">
           {width > 1024 ? 'The SHALOM MINISTRY Umbrella' : 'SHALOM MINISTRY Umbrella'}
         </h2>
 
-        <p className="mx-auto w-4/5 text-justify text-xl tracking-tighter lg:px-10 lg:text-center lg:text-2xl">
+        <p className="mx-auto w-3/5 text-justify text-xl tracking-tighter lg:px-10 lg:text-center lg:text-2xl">
           Shalom Ministry is dedicated to uplift entrpreneurs and visionaries who are passionate
           about serving as ambassadors for the Kingdom of Yeshua and sharing their hearts for
           people. Learn more about the organizations, entrpreneurs, and services that Shalom
           Ministry oversees!
         </p>
 
-        <div className="mx-10 flex flex-col justify-center lg:mx-32 lg:flex-row">
+        <div className="mx-10 my-20 flex w-2/3 justify-around justify-self-center lg:mx-32">
           {width > 1024
             ? items.map((item) => (
-                <div className="flex h-2/3 w-1/3 flex-col items-center justify-center pt-10">
-                  <img className="h-[350px] w-[400px]" src={item.src} alt={item.alt} />
-                  <p className="mb-2 w-auto px-5 pt-6 text-2xl">{item.text}</p>
+                <div className="h-150px flex w-1/3 flex-col items-center justify-center rounded-3xl border-2 border-sky-900 bg-black py-8 pt-10 hover:shadow-sky-900 hover:shadow-lg">
+                  <img
+                    className="mb-auto h-[350px] w-[400px] rounded-lg bg-white p-2"
+                    src={item.src}
+                    alt={item.alt}
+                  />
+                  <p className="mb-auto w-full px-5 pt-6 text-2xl">{item.text}</p>
                 </div>
               ))
             : items.map((item) => (
-                <div className="flex flex-col items-center justify-center mb-12">
+                <div className="mb-12 flex flex-col items-center justify-center">
                   <img className="h-[350px] w-[400px]" src={item.src} alt={item.alt} />
                   <p className="mb-2 w-auto pt-3 text-2xl">{item.text}</p>
                 </div>

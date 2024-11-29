@@ -35,6 +35,9 @@ module.exports = {
         cwatHombre: "url('./assets/Register/cwat-square.png')",
         scriptureBlue: "url('./assets/Home/SM-web-revamp-blue.png')",
         shalomCorner: "url('./assets/Home/SM-web-revamp-blue-corner.png')",
+        test: "url('./assets/Login/WhatsApp Image 2023-02-28 at 8.41.46 PM.jpeg')",
+        smBrandCircle: "url('./assets/SM-Brand-Blurb-Circle-Revised.png')",
+        smBrandHorizontal: "url('./assets/SM-Brand-Blurb-Horizontal_Revised.png')",
       },
       /*  text: {
         staggar: { 'shape-outside': 'polygon(0 0, 100% 0, 0% 100%)' },
