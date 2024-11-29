@@ -3,18 +3,18 @@ import React from 'react';
 function Ambassador({ ambassador }) {
   return (
     <div
-      className="group h-[450px] w-[300px] bg-transparent perspective-800 lg:odd:mb-48 lg:even:mt-48 mb-20"
+      className="group mb-20 h-[450px] w-[300px] bg-transparent perspective-800 lg:odd:mb-48 lg:even:mt-48"
       id="flip-card"
     >
       <div className="relative flex h-full items-center">
         <div
-          className="t-0 absolute rounded-md border-2 border-white shadow-lg shadow-indigo-950 transition duration-[1s] transform backface-hidden group-hover:rotate-y-180"
+          className="t-0 absolute rounded-md border-2 border-b-8 border-white border-b-violet-200 shadow-lg shadow-indigo-950 transition duration-[1s] transform backface-hidden group-hover:rotate-y-180"
           id="flip-card-front"
         >
           <img className="rounded-md" src={ambassador.photo} alt="" />
         </div>
         <div
-          className="t-0 absolute space-y-4 rounded-md bg-white p-6 py-8 text-black shadow-lg shadow-indigo-950 transition duration-[1s] -rotate-y-180 transform backface-hidden group-hover:rotate-y-0  border border-black"
+          className="t-0 absolute space-y-4 rounded-md border border-b-8 border-black bg-white p-6 py-8 text-black shadow-lg shadow-indigo-950 transition duration-[1s]  -rotate-y-180 transform backface-hidden group-hover:rotate-y-0"
           id="flip-card-back"
         >
           <h2 className="flex flex-col">
