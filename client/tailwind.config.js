@@ -38,6 +38,8 @@ module.exports = {
         test: "url('./assets/Login/WhatsApp Image 2023-02-28 at 8.41.46 PM.jpeg')",
         smBrandCircle: "url('./assets/SM-Brand-Blurb-Circle-Revised.png')",
         smBrandHorizontal: "url('./assets/SM-Brand-Blurb-Horizontal_Revised.png')",
+        thinGoldBorder: "url('./assets/borderGoldHalf.png')",
+        smContinousLogo: "url('./assets/other/Give-Category-Card.png')",
       },
       /*  text: {
         staggar: { 'shape-outside': 'polygon(0 0, 100% 0, 0% 100%)' },

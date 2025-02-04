@@ -5,9 +5,10 @@ import { Provider } from 'react-redux';
 
 import ScrollToTop from './utilities/scrollToTop';
 import auth from './services/authService';
-import configureStore from './store/configureStore'
+import configureStore from './store/configureStore';
 
 import AboutUs from './Components/AboutUs/AboutUs';
+import Events from './Components/Events/Events';
 import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import Nav from './Components/Nav/Nav';
@@ -15,7 +16,6 @@ import RegisterForm from './Components/Register/Register';
 import CWATregister from './Components/Register/CWATregisterForm/CWATregisterForm';
 import Emailsend from './Components/Emailsend';
 // import NotFound from './Components/NotFound';
-
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -50,16 +50,21 @@ class App extends Component {
     const { user } = this.state;
     return (
       <React.Fragment>
-        <Provider store={store} >
-
+        <Provider store={store}>
           <BrowserRouter>
             <ScrollToTop />
-            <ToastContainer position='top-center' newestOnTop={true} transition={Slide} progressStyle={false} />
+            <ToastContainer
+              position="top-center"
+              newestOnTop={true}
+              transition={Slide}
+              progressStyle={false}
+            />
             <Nav user={user} />
             <main className="">
               <Routes>
                 <Route exact path="/" element={<Home />} />
                 <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/events" element={<Events />} />
                 <Route path="/register/:id" element={<RegisterForm />} />
                 <Route path="/registrars/cwat-register/:id" element={<CWATregister />} />
                 <Route path="/emailsend" element={<Emailsend />} />
@@ -77,7 +82,7 @@ class App extends Component {
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 style={{ display: this.state.scrollBtnDisplay }}
                 id="back-to-top-btn"
-                className="fa fa-arrow-up p-2 py-3 bg-black"
+                className="fa fa-arrow-up bg-black p-2 py-3"
               />
             </main>
             <Footer />

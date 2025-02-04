@@ -135,7 +135,7 @@ class AboutUs extends Component {
             <h1 className="mb-16 text-4xl font-bold uppercase drop-shadow">
               Shalom Ministry Ambassadors
             </h1>
-            <div className="flex h-full w-full flex-col flex-wrap items-center rounded-md py-10 lg:flex-row lg:items-center lg:justify-around lg:p-10 lg:px-20 space-x-24 space-around">
+            <div className="space-around flex h-full w-full flex-col flex-wrap items-center space-x-24 rounded-md py-10 lg:flex-row lg:items-center lg:justify-around lg:p-10 lg:px-20">
               {ambassadors.map((ambassador) => (
                 <Ambassador ambassador={ambassador} key={ambassador._id} />
               ))}

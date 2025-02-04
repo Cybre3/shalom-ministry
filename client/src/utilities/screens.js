@@ -1,6 +1,6 @@
 import AboutUs from '../Components/AboutUs/AboutUs';
+import Events from '../Components/Events/Events';
 import Home from '../Components/Home/Home';
-
 
 export const TOTAL_SCREENS = [
   {
@@ -11,6 +11,17 @@ export const TOTAL_SCREENS = [
       <div className="fa fa-home text-center">
         {' '}
         <p className="flex text-xs">Home</p>{' '}
+      </div>
+    ),
+  },
+  {
+    screen_name: 'Events',
+    component: Events,
+    path: 'events',
+    icon: (
+      <div className="fa fa-users text-center">
+        {' '}
+        <p className="flex text-xs">Events</p>{' '}
       </div>
     ),
   },
