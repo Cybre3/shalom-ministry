@@ -129,13 +129,13 @@ class AboutUs extends Component {
   render() {
     return (
       <div className="h-fit w-screen">
-        <div className="relative h-full w-full pb-32 text-center before:absolute before:bottom-0 before:left-0 before:right-0 before:top-24 before:z-0 before:h-full before:w-full before:bg-black/60 before:bg-smBrandHorizontal before:bg-center before:opacity-10 lg:pt-24">
+        <div className="relative h-full w-full pb-32 text-center before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 lg:before:top-24 before:z-0 before:h-full before:w-full before:bg-black/60 before:bg-smBrandHorizontal before:bg-center before:opacity-10 lg:pt-24">
           {/* adjust bg position to left edge and reduce opacity in before div */}
           <div className="mx-auto h-full w-full p-12 px-0">
             <h1 className="mb-16 text-4xl font-bold uppercase drop-shadow">
               Shalom Ministry Ambassadors
             </h1>
-            <div className="space-around flex h-full w-full flex-col flex-wrap items-center space-x-24 rounded-md py-10 lg:flex-row lg:items-center lg:justify-around lg:p-10 lg:px-20">
+            <div className="space-around flex h-full w-full flex-col lg:flex-wrap items-center lg:space-x-24 rounded-md py-10 lg:flex-row lg:items-center lg:justify-around lg:p-10 lg:px-20">
               {ambassadors.map((ambassador) => (
                 <Ambassador ambassador={ambassador} key={ambassador._id} />
               ))}
