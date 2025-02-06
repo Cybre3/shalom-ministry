@@ -5,7 +5,7 @@ import { isMobile } from 'react-device-detect';
 import calendar from '../../assets/Events/SMC-2025-Calendar.png';
 import recurringEvents from '../../assets/Events/SMC-recurring events.png';
 import spaNsip from '../../assets/Home/spa&sip_Instagram.png';
-import momNbrunch from '../../assets/Home/mothersDayBrunch.png';
+// import momNbrunch from '../../assets/Home/mothersDayBrunch.png';
 import internationalLuncheon from '../../assets/Events/internationalLuncheon.webp';
 
 import 'react-multi-carousel/lib/styles.css';
@@ -14,11 +14,11 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
+    items: 4,
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+    items: 2,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
@@ -62,9 +62,6 @@ function UpcomingEvents(props) {
             />
           </div>
           <div className="mx-7 lg:mx-6 flex h-full items-center">
-            <img className="scale-150 rounded-sm lg:scale-100" src={spaNsip} alt="spaNsip" />
-          </div>
-          <div className="mx-7 lg:mx-6 flex h-full items-center">
             <img
               className="scale-150 rounded-sm lg:scale-100"
               src={internationalLuncheon}
@@ -72,7 +69,7 @@ function UpcomingEvents(props) {
             />
           </div>
           <div className="mx-7 lg:mx-6 flex h-full items-center">
-            <img className="scale-150 rounded-sm lg:scale-100" src={momNbrunch} alt="momnbrunch" />
+            <img className="scale-150 rounded-sm lg:scale-100" src={spaNsip} alt="spaNsip" />
           </div>
         </Carousel>
       </div>
