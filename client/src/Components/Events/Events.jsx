@@ -13,7 +13,7 @@ class Events extends Component {
           <UpcomingEvents />
         </div>
 
-        <div className="mb-20">
+        {/* <div className="mb-20">
           <div className={window.innerWidth > 1024 ? 'flex' : 'flex-col'}>
             <h2 className="my-auto bg-sky-800 bg-thinGoldBorder bg-[length:350px_275px] bg-center bg-no-repeat px-10 py-24 text-center text-2xl font-bold uppercase text-white lg:bg-[length:400px_250px]">
               Shalom Ministry's International Luncheon
@@ -47,7 +47,7 @@ class Events extends Component {
               </a>
             </p>
           </div>
-        </div>
+        </div> */}
 
         {/* Black Divider */}
         <div
