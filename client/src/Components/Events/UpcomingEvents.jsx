@@ -3,7 +3,7 @@ import Carousel from 'react-multi-carousel';
 
 import calendar from '../../assets/Events/SMC-2025-Calendar.png';
 import recurringEvents from '../../assets/Events/SMC-recurring events.png';
-import spaNsip from '../../assets/Home/spa&sip_Instagram.png';
+import spaNsip from '../../assets/Events/SSS25-Save-The-Date.jpg';
 // import momNbrunch from '../../assets/Home/mothersDayBrunch.png';
 import internationalLuncheon from '../../assets/Events/internationalLuncheon.webp';
 
