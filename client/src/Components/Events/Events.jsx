@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MyCalender from '../../utilities/calendar';
 import UpcomingEvents from './UpcomingEvents';
-import spaNsip from '../../assets/Events/SSS25-Save-The-Date.jpg';
+import pNpSM from '../../assets/Events/pnpSM.png';
 
 
 import smLogo from '../../assets/SM-Logo.png';
@@ -18,11 +18,11 @@ class Events extends Component {
         <div className="mb-20">
           <div className={window.innerWidth > 1024 ? 'flex' : 'flex-col'}>
             <h2 className="my-auto bg-black px-10 py-24 text-center text-3xl font-bold uppercase text-white lg:bg-[length:400px_250px]">
-              Shalom Ministry's Spring Spa N' Sip
+              Wind & Waves Picture N Picture
             </h2>
             <p className="leading-16 text-md border-4 border-black bg-white bg-shalom-gradient bg-[length:250px_350px] bg-[250px_275px] bg-no-repeat bg-origin-border px-10 py-16 text-justify lg:w-2/5 lg:border-l-2 lg:bg-[length:350px_450px] lg:bg-[-100px] lg:px-24 lg:py-10 lg:text-center">
               <br />
-              <img src={spaNsip} alt="spaNsipPhoto" className='w-full' />
+              <img src={pNpSM} alt="pictureNpicture" className="w-full" />
               {/* <i className="text-justify text-sm">
                 👇 RSVP, donate, or pay it forward using the link 👇
               </i>

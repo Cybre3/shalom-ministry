@@ -3,9 +3,10 @@ import Carousel from 'react-multi-carousel';
 
 import calendar from '../../assets/Events/SMC-2025-Calendar.png';
 import recurringEvents from '../../assets/Events/SMC-recurring events.png';
-import spaNsip from '../../assets/Events/SSS25-Save-The-Date.jpg';
+// import spaNsip from '../../assets/Events/SSS25-Save-The-Date.jpg';
 // import momNbrunch from '../../assets/Home/mothersDayBrunch.png';
-import internationalLuncheon from '../../assets/Events/internationalLuncheon.webp';
+// import internationalLuncheon from '../../assets/Events/internationalLuncheon.webp';
+import pnpSM from '../../assets/Events/pnpSM.png';
 
 import 'react-multi-carousel/lib/styles.css';
 
@@ -44,7 +45,7 @@ function UpcomingEvents(props) {
           className="flex h-72 w-full rounded-xl border-sky-800 lg:h-4/5 lg:border-8 lg:px-2 lg:py-20"
           showDots={true}
           autoPlay
-          autoPlaySpeed={window.innerWidth  < 1024 ? 4500 : 2500}
+          autoPlaySpeed={window.innerWidth < 1024 ? 4500 : 2500}
           centerMode={window.innerWidth < 1024 ? false : true}
           infinite={true}
           rewind
@@ -61,14 +62,7 @@ function UpcomingEvents(props) {
             />
           </div>
           <div className="mx-20 flex h-full items-center lg:mx-6">
-            <img
-              className="scale-150 rounded-sm lg:scale-100"
-              src={internationalLuncheon}
-              alt="momnbrunch"
-            />
-          </div>
-          <div className="mx-20 flex h-full items-center lg:mx-6">
-            <img className="scale-150 rounded-sm lg:scale-100" src={spaNsip} alt="spaNsip" />
+            <img className="scale-150 rounded-sm lg:scale-100" src={pnpSM} alt="pictureNpicture" />
           </div>
         </Carousel>
       </div>
